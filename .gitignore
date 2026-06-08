@@ -1,0 +1,44 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# Media files (quá nặng, không cần version control)
+*.wav
+*.mp3
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.aiff
+*.flac
+
+# Image & Video files (không commit)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.tiff
+*.bmp
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.pyc
+
+# Temp / scratch files
+*.tmp
+*.temp
+*~
+
+# Video editing project files (nặng)
+*.prproj
+*.aep
+*.fcpx

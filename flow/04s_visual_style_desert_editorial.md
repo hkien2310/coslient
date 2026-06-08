@@ -1,0 +1,414 @@
+# Visual Style Module: Void Stage Couture
+
+> **Style ID:** `desert_editorial`
+> **Status:** 🔵 Available Option
+> **Version:** 2.0 (Generalized)
+> **Dùng cho:** Bất kỳ video siêu thực nào cần phong cách thời trang cao cấp tối giản, nơi nhân vật là TÂM ĐIỂM TUYỆT ĐỐI giữa một "sàn diễn trống rỗng" và các sự kiện siêu thực bùng nổ.
+
+---
+
+## Cách sử dụng file này
+
+File này chứa toàn bộ DNA thị giác cho phong cách **Void Stage Couture**. Agent đọc file này tại Stage 4.1 để load phong cách hình ảnh.
+
+**Triết lý cốt lõi:** Phong cách này biến MỌI câu chuyện thành một buổi trình diễn thời trang siêu thực. Nhân vật không đơn giản là người trong câu chuyện — họ là các biểu tượng thời trang (Fashion Icons) đứng giữa một "sàn diễn trống rỗng" (Void Stage) nơi các sự kiện siêu thực đóng vai trò làm vỡ vụn ranh giới giữa hiện thực và mộng tưởng.
+
+---
+
+## 1. Style Identity & Feel
+
+### Tên phong cách
+**Void Stage Couture** (Thời trang Cao cấp trên Sàn diễn Trống rỗng)
+
+### DNA cốt lõi (không thay đổi theo video)
+- **Tương phản bão hoà cực đoan (Extreme Saturation Contrast):** Nhân vật mặc trang phục màu sắc rực rỡ, bão hoà cao ↔ Nền bối cảnh tối giản, xoá phông, nhạt màu.
+- **Sàn diễn trống rỗng (Void Stage):** Bối cảnh là một khoảng không tối giản, sạch sẽ, xóa sạch mọi chi tiết thừa để 100% sự chú ý dồn vào nhân vật + sự kiện siêu thực.
+- **Gió là ngôn ngữ chuyển động chính (Wind Language):** Tóc bay, vải cuốn, khăn lượn, cát tung — gió tạo ra mọi chuyển động trong khung hình.
+- **Chất liệu xúc giác cao (Tactile Couture):** Trang phục phải có chất liệu dệt thêu nổi bật, sờ thấy được (tweed, damask, brocade, jacquard) — không bao giờ là vải trơn nhạt nhẽo.
+- **Phụ kiện bản lớn đặc trưng (Bold Signature Accessories):** Mỗi nhân vật phải có ít nhất 1 phụ kiện bản lớn gây ấn tượng thị giác mạnh (kính, hoa tai, mũ, khăn...).
+
+### Hình ảnh nên cảm nhận như:
+- vibrant, bold, and highly saturated fashion editorial
+- majestic and dignified (regardless of character age/type)
+- clean and minimalist background (void stage)
+- high-fashion couture (structured garments, rich textures)
+- wind-swept and dynamic (flowing fabrics, hair, scarves in strong wind)
+- surreal but elegant (siêu thực là bắt buộc, nhưng phải sang trọng)
+- bright studio-like natural daylight
+
+### Hình ảnh KHÔNG được cảm nhận như:
+- dusty, dirty, or gritty survival realism
+- cheap fantasy clutter (bụi phép thuật, cổng ma thuật phát sáng rẻ tiền)
+- heavy pitch-black gloomy shadows
+- plastic or glossy CGI puppet look
+- messy or chaotic compositions (không cỏ khô, đá vụn rối mắt)
+- dull or desaturated subject (nhân vật KHÔNG BAO GIỜ bị nhạt màu)
+
+---
+
+## 2. Style Anchors
+
+### Full style anchor (dùng cho prompt > 500 ký tự)
+```
+vibrant surreal fashion editorial, [SUBJECT in structured high-fashion couture with bold color-blocking], [SURREAL EVENT], desaturated minimalist void stage background under bright sky, rich tactile fabric textures, bold oversized signature accessories as undeniable visual anchor, wind-swept hair and blowing fabrics, directional crisp daylight with sculpting shadows lifted to warm tones, shallow depth of field locked on primary anchor, 16:9, modern artistic illustration, avoid waxy skin, avoid creepy puppet face, avoid flat overlit washing, avoid heavy black shadows, avoid messy cluttered background
+```
+
+### Short style anchor (dùng cho prompt ngắn hơn)
+```
+vibrant surreal fashion editorial, structured high-fashion couture, bold color-blocking, bold oversized accessories, desaturated minimalist void stage, crisp daylight, wind-swept motion, 16:9
+```
+
+### Negative style anchor (dùng khi model bị drift)
+```
+dirty sand, dry desert bushes, messy rocks, sandstorm, gritty survival realism, dark heavy shadows, gloomy night, cold dark blue tones, magic dust, floating runes, waxy skin, glossy plastic shine, glossy 3D, deformed hands, dull desaturated clothing, plain simple garments
+```
+
+### Style Intensity (3 mức độ)
+
+| Mức độ | Khi nào dùng | Áp dụng |
+|:---|:---|:---|
+| **Subtle** | Boss muốn nhẹ nhàng, chỉ lấy cảm hứng | Chỉ dùng Color DNA + Lighting DNA + Wind Language. Không bắt buộc bold accessories hay surreal devices. |
+| **Standard** | Mặc định | Full style anchor + Character Treatment + 1 surreal device mỗi prompt. |
+| **Maximum** | Boss muốn đậm đặc, ấn tượng mạnh | Full anchor + Character Treatment + Material Lock + 2+ surreal devices + Bold accessories lock + mọi prompt > 600 ký tự. |
+
+---
+
+## 3. Style Migration Notes
+
+Style này đòi hỏi sự tương phản giữa trang phục haute couture rực rỡ và bối cảnh void tối giản. Tránh:
+
+| ❌ Tránh (Muddy Realism) | ✅ Thay bằng (Void Stage Couture) |
+|:---|:---|
+| realistic landscape with trees, grass, buildings | desaturated minimalist void stage, clean empty background |
+| simple cotton clothes, casual wear | structured high-fashion couture with bold color-blocking, rich tactile fabric |
+| small subtle jewelry | bold oversized signature accessories |
+| magical glowing effects, fantasy sparkles | surreal styled companionship, impossible juxtaposition, material transformation |
+| heavy cinematic shadows | clean studio-like daylight, soft lifted shadows |
+
+---
+
+## 4. Character Design (Style-Specific)
+
+### Nguyên tắc MỞ — Character Treatment Rules
+Phong cách này KHÔNG khóa cứng vào một kiểu nhân vật cụ thể. **BẤT KỲ nhân vật nào** trong kịch bản (già, trẻ, nam, nữ, mọi sắc tộc) đều được biến thành một **Fashion Icon** theo các quy tắc sau:
+
+- **Thần thái bắt buộc:** Stoic (điềm tĩnh), kiêu hãnh, tự tin. Ngay cả khi buồn, nhân vật vẫn đứng thẳng và uy nghiêm.
+- **Trang phục:** Luôn là thiết kế cao cấp: structured coat, blazer, cape, hoặc gown với chất liệu dệt nổi bật. KHÔNG BAO GIỜ mặc quần áo thường ngày đơn giản.
+- **Color-blocking:** Trang phục phải có ít nhất 2 màu tương phản mạnh (xem Color DNA).
+- **Bold Accessories (bắt buộc ≥ 1):** Mỗi nhân vật phải mang ít nhất 1 phụ kiện bản lớn tạo dấu ấn: kính gọng lớn, hoa tai kim loại khổng lồ, mũ cấu trúc, khăn choàng dệt thêu, vòng cổ statement...
+- **Gió (Wind Lock):** Tóc và vải LUÔN đón gió mạnh, tạo chuyển động thướt tha.
+
+### Đặc điểm CẤM (áp dụng mọi nhân vật)
+- Quần áo thường ngày, giản dị (áo thun, quần jeans, áo hoodie...).
+- Phụ kiện nhỏ xíu khó nhìn thấy.
+- Tóc bệt xơ xác hoặc dính da mặt.
+- Biểu cảm puppet/creepy giả tạo hoặc da bóng sáp.
+
+### Hair rule
+Tóc là ngôn ngữ gió chính — bất kể kiểu tóc nào:
+`elegant wind-swept hair with flowing strands blowing dynamically, avoid blob-like solid hair, avoid stiff motionless hair`
+
+### Face rule
+Gương mặt sang trọng như người mẫu bìa tạp chí — bất kể tuổi tác:
+`elegant dignified face, luminous skin, majestic presence, [nếu lớn tuổi: handsome and gracefully aging face, soft refined character lines] [nếu trẻ: striking high-fashion bone structure, clear luminous complexion]`
+
+### Hands rule
+`clean elegant hands, natural finger postures, sleeve of structured coat partially covering wrists, avoid deformed fingers`
+
+### Character Rendering Lock
+Khi nhân vật xuất hiện, luôn áp dụng:
+- **Bắt buộc:** `[nhân vật] in structured high-fashion couture with bold [fabric texture], [bold signature accessory], wind-swept [hair description]`
+- **Trang phục:** Luôn bổ sung chất liệu cụ thể: `raised damask embroidery` / `chunky woven tweed` / `rich jacquard tapestry` / `structured wool crepe`.
+
+### 📦 Preset Example: "Majestic Elder" (từ video gốc tham khảo)
+> Nếu Boss muốn nhân vật lớn tuổi kiêu hãnh (kiểu video gốc), áp dụng thêm:
+> `majestic elderly model with elegant silver hair blowing in the wind, handsome gracefully aging face, luminous skin with refined soft character lines, bold oversized round eyeglasses, large metallic gold earrings`
+
+---
+
+## 5. Material Palette
+
+Vật liệu phải mang tính xúc giác cao (highly tactile) để tương phản với nền void trống rỗng.
+
+### Vật liệu ưa thích
+- **Chất liệu dệt thêu nổi:** Raised damask embroidery, rich brocade, intricate jacquard tapestry, chunky woven tweed.
+- **Chất liệu ấm:** Structured wool crepe, pleated silk, cashmere cape, velvet collar.
+- **Kim loại & Nhựa cứng:** Matte gold metal, burnished copper, amber-colored resin, antique brass.
+- **Bối cảnh void:** Pristine smooth sand/snow/cloud/fog — bề mặt sạch sẽ, tối giản, vô trùng.
+
+### Tactile Material Lock
+Khi các loại chất liệu sau xuất hiện, bắt buộc dùng cụm từ tả xúc giác:
+- **Tapestry:** `luxurious structured coat with intricate colorful jacquard tapestry and high collar`
+- **Tweed:** `thick textured chunky woven tweed wool blazer with bold geometric color-blocking`
+- **Trang sức:** `oversized bold [material] [accessory type] as signature statement piece`
+
+---
+
+## 6. Color DNA
+
+### Nguyên tắc màu sắc (áp dụng mọi video)
+**Quy tắc vàng:** Nhân vật LUÔN bão hoà cao + Nền LUÔN nhạt màu. Tỷ lệ bão hoà: Subject ≥ 80% saturation, Background ≤ 30% saturation.
+
+### Cặp màu tương phản đặc trưng (chọn 1-2 cặp cho mỗi video)
+- Royal Blue (#1E3F8B) + Burnt Orange (#CC5500)
+- Teal Blue (#008080) + Rust Orange (#B7410E)
+- Canary Yellow (#FFEF00) + Deep Navy (#001F3F)
+- Crimson Red (#DC143C) + Royal Blue (#1E3F8B)
+- Magenta (#FF00FF) + Bright Orange (#FF6600)
+- Emerald Green (#046307) + Gold (#D4AF37)
+- Violet (#7F00FF) + Coral (#FF6F61)
+
+### Màu nhấn
+Kim loại vàng mờ (Old Gold, Antique Brass) xuất hiện trên phụ kiện.
+
+### Bảng màu nền void (chọn theo bối cảnh)
+- Sa mạc: Pristine white sand, pale warm beige, misty grey-blue air.
+- Tuyết: Pure white snowfield, pale silver horizon, soft lavender sky.
+- Mây: Cloud sea below feet, pearl-white fog, luminous haze.
+- Muối: Salt flat mirror, ultra-pale crystalline ground, flat cyan sky.
+
+---
+
+## 7. Lighting DNA
+
+### Nguyên tắc cốt lõi
+Ánh sáng trong Void Stage Couture phải **tôn vinh chất liệu và màu sắc** trang phục. Daylight có hướng rõ ràng — không phải flash phẳng từ chính diện. Ánh sáng chiếu xiên tạo shadow mềm trên vải, làm nổi texture dệt thêu, và tách nhân vật khỏi void background.
+
+### Lighting theo Shot Type
+
+| Shot Type | Lighting Rule |
+|:---|:---|
+| **Ultra Wide / Wide** | Bright ambient daylight + soft directional fill từ một phía. Shadow nhẹ phía đối diện, lifted thành warm tone (ấm cam/ấm tím). Nhân vật có rim light tách khỏi void. |
+| **Medium / Full** | Crisp side light 30–45° — sculpt form và texture vải rõ ràng. Từng nếp gấp tweed/damask có highlight peak và shadow valley. God rays nếu có sương/bụi cát. |
+| **Medium Close / Close** | Directional beauty light — ánh sáng xiên cao 45° từ một phía, tạo soft shadow dưới gò má và cằm. Skin glow tự nhiên, không bóng sáp. Fabric texture nổi micro-detail. Bold accessory catch light rõ ràng. |
+| **Extreme Close** | Raking light angle thấp — làm nổi bề mặt vải dệt, kim loại phụ kiện, texture da. Tonal contrast cao nhất trong trang phục (shadow sâu trong nếp gấp, highlight peak trên gờ vải). |
+
+### Shadow Temperature Rule
+Shadow **KHÔNG BAO GIỜ** là neutral gray hoặc pitch black:
+- Shadow trên trang phục warm-toned → shadow = warm darker tone (burnt sienna, deep amber)
+- Shadow trên trang phục cool-toned → shadow = cool darker tone (deep navy, dark teal)
+- Shadow trên da → luôn warm (chestnut, terracotta undertone)
+
+### Ưu tiên
+- **Directional Sculpting Light:** Ánh sáng có hướng rõ, sculpt form nhân vật và texture vải — không bao giờ flat frontal.
+- **Rim Light Separation:** Viền sáng tách nhân vật khỏi void background — đặc biệt quan trọng vì nền nhạt, nhân vật cần "cắt" khỏi nền rõ ràng.
+- **Catch Light trên Accessories:** Bold accessory (kính, hoa tai, vòng cổ) phải có catch light sáng — đây thường là Primary Anchor hoặc dẫn mắt đến anchor.
+- **Lifted Shadows với Temperature:** Bóng được nâng sáng, giữ tone ấm hoặc lạnh theo trang phục, tuyệt đối không đen kịt.
+
+### Tránh
+- **Flat overlit washing** — ánh sáng quá đều, quá sáng, mất shadow = mất depth = trang phục trông phẳng dù có texture. Đây là root cause nguy hiểm nhất cho style này.
+- Bóng tối đen kịt che lấp chi tiết hoa văn trên trang phục.
+- Ánh sáng đêm u tối lạnh lẽo.
+- Ngược sáng quá mạnh làm mất chi tiết (blown-out highlights).
+- Flash phẳng chính diện (on-camera flash look).
+
+### Từ khoá lighting cho prompt (chọn theo shot type)
+- **Wide:** `bright directional daylight from one side, soft warm-toned lifted shadows, rim light separating figure from void`
+- **Medium:** `crisp sculpting side light revealing rich fabric textures, every fold casting soft warm shadow, wind-swept fabrics catching directional light`
+- **Close-up:** `directional beauty light from 45 degrees, bold accessory with bright catch light, skin glow without waxy shine, fabric micro-texture visible in raking light`
+
+---
+
+## 8. Emotional Doctrine
+
+### Trung tâm cảm xúc
+- **Ageless Pride (Kiêu hãnh vượt thời gian):** Vẻ đẹp uy nghiêm và kiêu sa bất chấp hoàn cảnh.
+- **Ultimate Freedom (Tự do tuyệt đối):** Cảm giác phóng khoáng khi đứng một mình giữa không gian bao la.
+- **Sophisticated Awe (Sự kinh ngạc tinh tế):** Mỗi khung hình là một tác phẩm nhiếp ảnh thời trang nghệ thuật gây kinh ngạc.
+
+### Concept Adaptation Layer (Bộ điều chỉnh theo cảm xúc video)
+Dùng để điều chỉnh style cho phù hợp với nhiều chủ đề cảm xúc khác nhau:
+
+| Cảm xúc video | Điều chỉnh |
+|:---|:---|
+| **Vui / Hạnh phúc** | Tăng saturation màu trang phục, dùng cặp Canary Yellow + Orange, gió nhẹ bay bổng, nền void sáng hơn (white sand, cloud sea). |
+| **Buồn / Hoài niệm** | Giữ saturation nhưng dùng tông trầm (Navy + Burgundy), gió mạnh cuốn vải xa, nền void mờ sương hơn, thêm sương nhẹ. |
+| **Uy nghiêm / Thiêng liêng** | Dùng Crimson + Gold, ánh sáng rim light mạnh hơn, nhân vật đứng tĩnh lặng chính giữa khung hình, gió nhẹ chỉ lay tà áo. |
+| **Tình yêu / Kết nối** | Dùng màu ấm (Coral + Gold), 2 nhân vật đối mặt nhau, gió thổi 2 tà áo chạm nhau, void background mờ ảo tạo kén riêng tư. |
+
+---
+
+## 9. Focal Point Doctrine (Học thuyết Điểm Nổi Bật)
+
+> [!IMPORTANT]
+> **Mỗi khung hình PHẢI có đúng 1 Primary Anchor** — một điểm duy nhất mà mắt người xem bị kéo vào trong vòng 0.5 giây đầu tiên. Void Stage Couture có nhiều yếu tố mạnh (trang phục rực rỡ, bold accessory, surreal device, gió) — nếu tất cả ngang cấp, mắt bị overload thay vì bị hút.
+
+### Primary Anchor trong Editorial Style
+
+Khác với monochrome style (anchor = glow), editorial style dùng **Saturation Peak + Catch Light** làm anchor:
+
+Primary Anchor là **giao điểm của ít nhất 3 trong 4 yếu tố sau** cùng xảy ra tại 1 điểm:
+
+| Yếu tố | Mô tả |
+|:---|:---|
+| **① Sharpest Focus** | DOF center rơi vào đây — mọi thứ khác progressive blur |
+| **② Saturation Peak** | Điểm có màu bão hoà cao nhất hoặc bold accessory catch light sáng nhất |
+| **③ Highest Local Contrast** | Vùng có tương phản màu/sáng-tối mạnh nhất (vd: hoa tai vàng trên áo navy) |
+| **④ Gaze / Wind Direction** | Hướng nhìn nhân vật hoặc hướng gió chính trỏ vào đây |
+
+### Anchor theo Shot Type
+
+| Shot Type | Primary Anchor thường là |
+|:---|:---|
+| Extreme Close / Close | Mắt nhân vật (kính gọng lớn frame mắt = anchor cực mạnh) |
+| Medium Close | Bold signature accessory (hoa tai, vòng cổ, khăn — catch light rõ) |
+| Medium / Full | Điểm color-blocking contrast mạnh nhất trên trang phục |
+| Wide / Establishing | Nhân vật là anchor bằng saturation contrast vs void desaturated |
+| Ultra Wide | Nhân vật nhỏ nhưng rực rỡ giữa void — "đốm lửa trong tuyết" |
+
+### Quy tắc "1 Anchor duy nhất"
+
+- **Surreal device KHÔNG được cạnh tranh với nhân vật.** Nếu có styled companion (cáo, chó), companion phải ở secondary layer: hơi blur, nhỏ hơn, hoặc lệch sang rìa frame.
+- Nếu surreal device LÀ anchor (vd: vật thể khổng lồ Temporal Juxtaposition) → nhân vật phải nhỏ hơn và dẫn mắt VỀ device.
+- **KHÔNG BAO GIỜ** có 2 vùng saturation ngang cấp ở 2 phía đối diện frame.
+
+### Hierarchy 3 tầng bắt buộc
+
+```
+① PRIMARY ANCHOR    — 1 điểm: sắc nét + saturation peak + catch light
+② SECONDARY ELEMENT — 1-2 yếu tố dẫn mắt (surreal device, wind trail, gesture)
+③ VOID FIELD        — background desaturated, mờ, tĩnh lặng, không cạnh tranh
+```
+
+### Từ khoá anchor cho prompt
+
+Luôn thêm 1 trong các cụm sau vào prompt để lock anchor:
+
+- `[element] as the undeniable visual anchor with strongest color saturation in frame`
+- `sharp focus locked on [element], all other elements in progressive blur`
+- `bold [accessory] catching bright light as focal point, everything else subordinate`
+- `[character] as the sole saturated element against completely desaturated void`
+- `all wind lines and compositional diagonals leading toward [element]`
+
+---
+
+## 10. Surreal Devices Library
+
+> [!IMPORTANT]
+> **Coslient là kênh siêu thực.** Mỗi prompt PHẢI chứa ít nhất 1 sự kiện siêu thực. Surreal device không phải trang trí — nó là LINH HỒN của khung hình.
+
+### Nguyên tắc tạo Surreal Device cho style này
+
+Siêu thực trong Void Stage Couture dựa trên **3 nguyên tắc cốt lõi:**
+
+**Nguyên tắc 1 — Styled Companionship (Đồng điệu hoá):**
+Lấy một sinh vật/vật thể từ câu chuyện → khoác lên nó phụ kiện thời trang đồng điệu 100% với trang phục nhân vật (cùng màu, cùng chất liệu, cùng họa tiết).
+- *Quy tắc:* `[creature/object] wearing [matching accessory] in [same color/fabric] as [character's garment]`
+- *Ví dụ gốc:* Cáo đỏ đeo khăn rose-silk matching đầm hồng, chó Afghan Hound đeo khăn coban matching váy tie-dye.
+- *Ví dụ mở rộng:* Cú mèo đội mũ tweed matching áo khoác nhân vật, mèo quấn khăn damask đỏ matching cape nhân vật, cá voi bay quấn lụa tím matching tà áo nhân vật.
+
+**Nguyên tắc 2 — Temporal Juxtaposition (Đặt sai thời đại):**
+Đặt một vật thể hoàn toàn phi lý vào giữa khoảng void trống rỗng — vật thể phải có chất liệu xúc giác cao và màu sắc matching nhân vật.
+- *Quy tắc:* `[anachronistic/impossible object] in [matching color palette] standing alone in [void background]`
+- *Ví dụ gốc:* Xe ba bánh retro-futuristic pastel giữa cồn cát.
+- *Ví dụ mở rộng:* Đại dương cơ bằng đồng thau cổ giữa cánh đồng tuyết, chiếc ghế bành nhung đỏ khổng lồ giữa sa mạc muối, cây đèn pha lê Murano mọc từ mặt nước.
+
+**Nguyên tắc 3 — Material Metamorphosis (Biến chất siêu thực):**
+Một phần của trang phục hoặc phụ kiện biến hoá thành vật chất tự nhiên hoặc sinh vật — sự biến đổi phải mượt mà, liên tục, không đứt gãy.
+- *Quy tắc:* `[garment/accessory element] gradually transforming into [natural element / living creature]`
+- *Ví dụ mở rộng:* Tà áo lụa đỏ tan dần thành đàn bướm monarch bay lên trời, sợi chỉ vàng thêu trên áo khoác mọc thành dây leo hoa hồng bò ra ngoài vải, khăn quàng tweed rã thành đàn chim sẻ bay đi, hoa tai kim loại chảy thành giọt nước vàng rơi xuống cát.
+
+### Cách tạo surreal device mới (cho agent)
+1. Xác định **vật thể/sinh vật trung tâm** của concept video.
+2. Áp 1 trong 3 nguyên tắc trên.
+3. Đảm bảo surreal device **kết nối cảm xúc** với câu chuyện (không ngẫu nhiên).
+4. Đảm bảo surreal device **phối màu/chất liệu** với trang phục nhân vật.
+
+---
+
+## 10. World Logic
+
+### Nguyên tắc Void Stage (áp dụng mọi video)
+- **Bối cảnh là sàn diễn, không phải địa điểm:** Nền void không cần hợp lý địa lý. Nó là một khoảng không nghệ thuật sắp đặt.
+- **Tối giản tuyệt đối:** Không có cỏ dại, đá vụn, rác, cây khô, hoặc bất kỳ vật thể nào không phục vụ mục đích thẩm mỹ.
+- **Sa mạc ở đây phải cực kỳ sạch sẽ** và mang tính nghệ thuật sắp đặt (installation art).
+
+### Các loại Void Stage (chọn theo concept)
+- **Sand Void:** Cồn cát trắng/beige mịn, chân trời phẳng, bầu trời mù sương nhạt.
+- **Salt Void:** Mặt phẳng muối trắng phản chiếu bầu trời, chân trời vô tận.
+- **Snow Void:** Cánh đồng tuyết trắng tinh dưới bầu trời xám dịu, không có dấu chân.
+- **Cloud Void:** Biển mây trắng dưới chân nhân vật, bầu trời xanh nhạt phía trên.
+- **Water Void:** Mặt nước phẳng lặng như gương kéo dài vô tận, phản chiếu nhân vật.
+- **Fog Void:** Sương mù dày đặc xoá phông, nhân vật nổi bật giữa lớp sương.
+
+---
+
+## 11. Prompt Templates (Style-Specific)
+
+### Full template
+```
+[subject + majestic emotional action], [shot size / composition], [SURREAL EVENT using 1 of 3 principles], vibrant surreal fashion editorial, [subject] in structured high-fashion couture [garment type] with bold [color pair] color-blocking, [bold signature accessory], desaturated minimalist [void stage type] void background under [sky description], rich [fabric texture] detail, wind-swept hair and blowing fabrics, shallow depth of field, bright crisp natural daylight with soft lifted shadows, 16:9, modern artistic illustration, avoid waxy skin, avoid creepy puppet face, avoid heavy black shadows, avoid messy cluttered background
+```
+
+### Compressed template
+```
+[subject + action], [shot size], [surreal event], vibrant surreal fashion editorial, structured high-fashion couture in [color-blocking], bold [accessory], desaturated minimalist [void type], crisp daylight, wind-swept motion, 16:9
+```
+
+### Dynamic template chuẩn hóa
+```
+[Chủ thể + Thần thái kiêu hãnh + Hành động], [Góc máy & Bố cục], [SỰ KIỆN SIÊU THỰC cụ thể], vibrant surreal fashion editorial, structured high-fashion couture [Trang phục dệt thêu cụ thể] with bold [Cặp màu block], [Phụ kiện bản lớn đặc trưng], desaturated minimalist [Loại void stage] background, wind-swept blowing fabrics, shallow depth of field, [Ánh sáng daylight rực rỡ], 16:9, avoid waxy skin, avoid cluttered background
+```
+
+### Example prompt
+```
+Wide shot of a dignified elderly man standing alone on a pristine white salt flat, his structured royal-blue tweed overcoat catching fierce wind, a massive red fox wearing a matching royal-blue silk scarf sits beside him gazing into the same direction, vibrant surreal fashion editorial, bold brass pocket watch chain, thick orange cashmere scarf flying dramatically, desaturated flat salt void background merging with pale lavender sky at the horizon, crisp studio-like natural daylight, rich woven tweed fabric texture visible on every fold, shallow depth of field, 16:9, modern artistic illustration, avoid waxy skin, avoid messy rocks, avoid dark shadows
+```
+
+---
+
+## 12. Words to Prefer / Avoid
+
+### Dùng nhiều
+vibrant, surreal fashion editorial, structured high-fashion couture, color-blocking, bold oversized accessories, wind-swept, blowing fabrics, flowing silk scarves, desaturated minimalist void stage, styled companion, rich tactile fabric, jacquard tapestry, damask embroidery, chunky woven tweed, shallow depth of field, directional sculpting daylight, crisp side light, rim light separation, catch light on accessories, warm-toned lifted shadows, saturation peak as visual anchor, majestic presence, material metamorphosis, temporal juxtaposition.
+
+### Tránh hoặc dùng rất ít
+dirty sand, dry desert bushes, messy rocks, sandstorm, gritty survival realism, dark heavy shadows, pitch-black shadows, gloomy night, cold dark blue tones, magic dust, floating runes, glowing magic, waxy skin, glossy plastic shine, glossy 3D, deformed hands, chaotic clutter, simple plain clothes, subtle small jewelry, **flat overlit washing** (ánh sáng quá đều mất shadow = trang phục phẳng), neutral shadow without temperature, on-camera flash look.
+
+---
+
+## 13. Style Fingerprint (Compact Summary)
+
+Vibrant surreal high-fashion editorial on a desaturated minimalist void stage. ANY character transformed into a majestic fashion icon in structured couture garments with extreme color-blocking saturation contrast against empty backgrounds (sand/salt/snow/cloud/fog/water void). Bold oversized signature accessories mandatory. Wind-swept dynamic motion throughout. Surreal events mandatory in every frame via three generative principles: Styled Companionship (creatures wearing matching fashion), Temporal Juxtaposition (impossible objects in void), Material Metamorphosis (garments transforming into nature/creatures). Rich tactile fabrics (damask, tweed, jacquard) contrast with pristine void surfaces. Bright crisp daylight, soft lifted shadows, no dark/gloomy/dirty aesthetics.
+
+---
+
+## 14. Revision Behavior (Style-Specific)
+
+| Boss nói | Sửa |
+| :--- | :--- |
+| **Bệt / phẳng / thiếu chiều sâu** | Lighting issue. Kiểm tra shot type → áp đúng lighting rule Section 7. Thêm `directional sculpting side light`, `warm-toned lifted shadows`. Bỏ `clean studio-like daylight` nếu đang dùng một mình — cần pair với directional element. |
+| **Overlit / trắng bệch / mất shadow** | Ánh sáng quá đều. Thêm `sculpting shadow on fabric folds`, `shadow valley between textures`. Giảm brightness tổng, tăng directional ratio. Kiểm tra: mỗi frame phải có shadow trên ít nhất 30% diện tích trang phục. |
+| **Không biết nhìn vào đâu / mắt lang thang** | Focal Point issue. Kiểm tra Section 9. Xác định Primary Anchor → thêm `[element] as undeniable visual anchor`. Giảm saturation hoặc blur các element cạnh tranh. |
+| **Ảnh trông nhếch nhác/dơ** | Tăng `desaturated minimalist void stage`, `pristine clean background`. Bỏ `bushes`, `rocks`, `debris`. |
+| **Nhân vật trông nhạt nhẽo/thiếu chất** | Tăng `structured high-fashion couture`, `bold color-blocking`, `bold oversized [accessory]`. Bỏ `simple clothing`. |
+| **Thiếu yếu tố siêu thực** | Áp 1 trong 3 nguyên tắc: Styled Companionship / Temporal Juxtaposition / Material Metamorphosis. |
+| **Ảnh trông xỉn màu/thiếu sức sống** | Tăng `vibrant highly saturated color-blocking` trên trang phục. Kiểm tra tỷ lệ saturation: Subject ≥ 80%, Background ≤ 30%. |
+| **Trông quá giả/3D nhựa** | Thêm `modern artistic illustration`, `matte fabric textures`. Bỏ `glossy plastic shine`, `waxy skin`. |
+| **Bối cảnh nhàm chán quá** | Đổi loại void stage (sand → salt → cloud → water). Hoặc thêm surreal device thứ 2. |
+| **Surreal device cạnh tranh với nhân vật** | Surreal device phải ở secondary layer: blur hơn, nhỏ hơn, hoặc desaturated hơn nhân vật. Nhân vật luôn là saturation peak trừ khi device là anchor có chủ đích. |
+
+---
+
+## 15. Color DNA Reference
+
+> [!NOTE]
+> Section này là **nguồn tham khảo bảng màu** của style `desert_editorial`. Coslient sử dụng đây khi xây dựng Color Tone String cho từng video (dựa trên câu chuyện). Không phải block cứng nhắc bắt buộc — tone màu thực tế của từng video do câu chuyện quyết định.
+
+### Block chính (gắn vào cuối prompt)
+
+```
+vibrant fashion editorial color grade, teal and orange split-tone, highly saturated couture subject against desaturated minimalist void, crisp sculpting daylight, warm lifted shadow floor with burnt-sienna undertone, rich tactile fabric color, clean editorial finish, subtle microcontrast on fabric texture
+```
+
+### Negative block (gắn vào negative prompt)
+
+```
+muddy colors, gritty, warm brown background, dark heavy shadows, muted desaturated clothing, cold flat lighting, oversaturated background, neon, pitch-black shadows
+```
+
+### Ví dụ tích hợp đầy đủ
+
+```
+Wide shot of a dignified elderly man standing alone on a pristine white salt flat, his structured royal-blue chunky woven tweed overcoat catching fierce wind, a massive red fox wearing a matching royal-blue silk scarf sits beside him gazing the same direction, vibrant surreal fashion editorial, bold brass pocket watch chain as primary anchor, thick orange cashmere scarf flying dramatically, desaturated flat salt void background merging with pale lavender sky, wind-swept blowing fabrics, shallow depth of field, vibrant fashion editorial color grade, teal and orange split-tone, highly saturated couture subject against desaturated minimalist void, crisp sculpting daylight, warm lifted shadow floor with burnt-sienna undertone, rich tactile fabric color, clean editorial finish, subtle microcontrast on fabric texture, 16:9, avoid waxy skin, avoid messy rocks, avoid dark shadows, muddy colors, cold flat lighting
+```
