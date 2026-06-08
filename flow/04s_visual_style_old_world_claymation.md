@@ -61,13 +61,13 @@ Style này **khác biệt hoàn toàn** với `warm_storybook`:
 ### Full style anchor (dùng cho prompt > 500 ký tự)
 
 ```
-Laika-style stop-motion puppet, handcrafted European village cinema, macro photography, tilt-shift lens, kind and naturally beautiful elderly human face, warm gentle eyes full of life and wisdom, gracefully aging with soft natural laugh lines, warm soft silicone puppet skin with warm natural skin tone, wild wispy silver-white hair, realistic adult human body proportions with correct head-to-body ratio, long gentle expressive hands, chunky knit wool sweater or worn tweed coat, aged stone Mediterranean village setting, cobblestone streets, warm amber lantern glow against cool blue-gray stone, terracotta orange accent object, felted wool sheep companion, rich cinematic depth of field, 16:9
+Laika-style stop-motion puppet, handcrafted European village cinema, macro photography, tilt-shift lens, [CHARACTER: kind naturally beautiful [age/gender per story] human face, warm gentle eyes, [expression per story]], warm soft silicone puppet skin with warm natural skin tone, naturally soft fine hair with gentle movement and clean silhouette, realistic human body proportions with correct head-to-body ratio, long gentle expressive hands, [clothing per story and setting], aged stone Mediterranean village setting, cobblestone streets, warm amber lantern glow against cool blue-gray stone, terracotta orange accent object, felted wool sheep companion, rich cinematic depth of field, 16:9
 ```
 
 ### Short style anchor (dùng cho prompt ngắn hơn)
 
 ```
-Laika-style stop-motion puppet, European village cinema, macro photography, tilt-shift lens, kind beautiful elderly human face, warm gentle eyes, gracefully aging, warm soft silicone puppet skin, soft laugh lines, realistic adult proportions, wild white hair, tweed or knit clothing, stone village setting, amber lantern warm glow, terracotta orange accent, 16:9
+Laika-style stop-motion puppet, European village cinema, tilt-shift macro, [CHARACTER per story], warm soft silicone puppet skin, warm natural skin tone, naturally soft fine hair with clean silhouette, realistic human proportions, [clothing per story], stone village cobblestone setting, warm amber lantern against cool stone, cinematic depth of field, 16:9
 ```
 
 ### Negative style anchor (dùng khi model bị drift)
@@ -89,7 +89,7 @@ avoid goblin, avoid troll, avoid creature, avoid monster, avoid exaggerated nose
 | **Nếp nhăn** | Chỉ laugh lines nhẹ | Soft laugh lines — đẹp lão, không horror |
 | **Bàn tay** | Clean elegant elderly hands | Long gentle expressive hands — có warmth |
 | **Khuôn mặt** | Balanced, clean | **Đẹp lão tự nhiên** — có chiều sâu, hiền hậu |
-| **Tóc** | Fluffy needle-felted wool hair | Wild wispy silver-white hair — bồng tự nhiên |
+| **Tóc** | Fluffy needle-felted wool hair | Naturally soft fine hair, clean silhouette, theo nhân vật |
 | **Palette** | Cream, honey-gold, amber | Stone gray, dusty olive, terracotta orange |
 | **Kiến trúc** | Cozy kitchens, warm interiors | Weathered stone village, cobblestone streets |
 | **Lighting** | Soft warm daylight | Strong amber/cool contrast |
@@ -105,45 +105,51 @@ avoid goblin, avoid troll, avoid creature, avoid monster, avoid exaggerated nose
 > [!IMPORTANT]
 > **Proportion Lock:** Nhân vật phải có tỉ lệ người thật. Đầu chiếm 1/6 đến 1/7 chiều cao cơ thể. **TUYỆT ĐỐI KHÔNG chibi, không đầu to, không mắt anime oversized.**
 
-### Khuôn mặt — Mục tiêu: HIỀN HẬU và ĐẸP LÃO
+### Khuôn mặt — THEO NHÂN VẬT của câu chuyện
 
 > [!IMPORTANT]
-> **Mục tiêu duy nhất: HIỀN HẬU và ĐẸP LÃO.** Khuôn mặt phải trông như một người ông Châu Âu thực sự — đủ tuổi, có chiều sâu, nhưng đẹp và hiền. Được nặn bằng clay puppet chất lượng cao. **Hoàn toàn KHÔNG exaggerated, KHÔNG monster, KHÔNG cartoon.**
+> **Nhân vật KHÔNG bị khóa ở độ tuổi hay giới tính nào.** Tuổi, giới tính, biểu cảm — tất cả theo concept và story. Style chỉ định nghĩa CHẤT LƯỢNG của puppet (Laika-style, silicone skin, warm eyes) — không định nghĩa nhân vật cụ thể.
 
-- **Khuôn mặt tổng thể:** `kind naturally beautiful elderly human face, gracefully aging, dignified and warm`
-- **Mắt:** Ấm, có wisdom — `warm gentle eyes full of life and quiet wisdom` — không oversized, không anime
-- **Mũi:** Tự nhiên, proportional — không quá to, không quá nhỏ, **không exaggerated**
-- **Tai:** Bình thường — không to, không nhỏ, không nổi bật
-- **Nếp nhăn:** `soft natural laugh lines around the eyes and mouth, gentle age lines` — kiểu người đã sống trọn vẹn, đẹp lão được
-- **Biểu cảm:** `kind, thoughtful, melancholic-tender, peaceful` — luôn có soul trong ánh mắt
-- **Râu:** Stubble ngắn nhẹ hoặc bạc thưa — optional, tự nhiên
+**Công thức mặt theo story:**
+- `[tuổi: young / middle-aged / elderly] [giới tính: man / woman / person]`
+- `kind naturally beautiful [age] [gender] face` — luôn giữ "kind" và "naturally beautiful"
+- **Mắt:** `warm gentle eyes` — không oversized, không anime, luôn có soul
+- **Mũi, tai:** Tự nhiên, proportional — **không exaggerated**
+- **Nếp nhăn:** Phù hợp với độ tuổi nhân vật — không horror, không quá sâu
+- **Biểu cảm:** Theo cảm xúc của scene — `thoughtful`, `melancholic`, `peaceful`, `determined`, `tender`
 
-**Keyword đúng:** `kind naturally beautiful elderly human face, gracefully aging, warm gentle eyes full of wisdom, soft natural laugh lines, dignified and peaceful expression, warm soft silicone puppet skin`
+**Keyword đúng:** `kind naturally beautiful [age+gender] face, warm gentle eyes, [expression per scene], warm soft silicone puppet skin`
 
-**Keyword SAI — tuyệt đối không dùng:** `hooked nose`, `large protruding ears`, `prominent nose`, `aquiline nose`, `exaggerated features`, `textured clay skin`, `visible wrinkles`, `creature`, `goblin`
+**Keyword SAI — tuyệt đối không dùng:** `hooked nose`, `large protruding ears`, `exaggerated features`, `visible wrinkles`, `creature`, `goblin`, `horror`
 
-### Da nhân vật — SMOOTH MATTE CLAY (BẮT BUỘC)
+### Da nhân vật — WARM SOFT SILICONE PUPPET SKIN (BẮT BUỘC)
 
-- **Chất liệu:** `warm soft silicone puppet skin` — mịn, sạch, matte (không bóng)
-- **Màu:** `warm natural skin tone, slightly aged` — không quá trắng sứ, không quá nâu
-- **Bề mặt:** Smooth với gentle aging — `clean smooth clay surface with soft natural aging`
-- **Tuyệt đối TRÁNH:** rough texture, fibrous surface, matted skin, visible pores, creature skin
+- **Chất liệu:** `warm soft silicone puppet skin` — mịn, ấm, matte (không bóng, không plastic)
+- **Màu:** `warm natural skin tone` — theo độ tuổi nhân vật, không quá trắng sứ
+- **Bề mặt:** Smooth, ấm, có hơi thở — `clean warm puppet skin with natural softness`
+- **Tuyệt đối TRÁNH:** rough texture, fibrous surface, matted skin, creature skin, plastic shine
 
-### Tóc — Đặc điểm bắt buộc
+### Tóc — THEO NHÂN VẬT, thanh lịch và tự nhiên
 
-- **Màu chủ đạo:** Silver-white, wispy white
-- **Kiểu:** Wild, fluffy, natural — tóc bồng tự nhiên, nhẹ nhàng
-- **Không được:** Matted hair, fibrous clumped hair, tóc trông như rơm/cỏ khô
+> [!IMPORTANT]
+> **Tóc phải thanh lịch.** Không dùng `wild`, `wispy`, `disheveled` — những từ này tạo ra tóc rối/xù. Tóc phải có silhouette rõ ràng, gọn gàng tự nhiên, phù hợp với nhân vật.
 
-**Keyword đúng:** `wild wispy silver-white hair, natural fluffy strands, softly disheveled`
+- **Màu:** Theo nhân vật và tuổi — trắng/bạc cho người già, nâu/đen cho trung niên, vàng/nâu cho trẻ hơn
+- **Chất lượng:** `naturally soft fine hair with gentle movement` — mềm mại, tơi nhẹ, không xù
+- **Silhouette:** `clean hair silhouette, neatly shaped` — có form rõ ràng, không rối
+- **Tránh tuyệt đối:** `wild hair`, `wispy`, `disheveled`, `frizzy`, `matted`, `straw-like`
+
+**Keyword đúng:** `naturally soft fine hair with gentle movement and clean silhouette, [màu sắc theo nhân vật]`
+
+**Keyword SAI:** `wild wispy hair`, `disheveled hair`, `frizzy hair`, `matted hair`
 
 ### Bàn tay — Storytelling device
 
-- Dài, ngón nhẹ nhàng biểu cảm, có aging quality
-- Smooth matte clay — trông có tuổi, có warmth, nhưng **không claw-like, không horror**
+- Dài, ngón nhẹ nhàng biểu cảm — theo độ tuổi nhân vật
+- `warm soft silicone puppet hands` — có warmth, tự nhiên, **không claw-like, không horror**
 - Dùng cho close-up gesture shots: cầm đồ vật, chạm cừu, rót trà
 
-**Keyword đúng:** `long gentle elderly hands, warm soft silicone, naturally aged with warmth, expressive puppet hands`
+**Keyword đúng:** `long gentle expressive puppet hands, warm soft silicone, natural graceful gesture`
 
 ### Trang phục — Vintage European Village Artisan
 
