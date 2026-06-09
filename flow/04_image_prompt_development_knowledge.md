@@ -302,34 +302,26 @@ Coslient must follow this strict step-by-step sub-stage workflow:
 
    ### 📐 CÔNG THỨC PROMPT HOÀN CHỈNH (Bước B)
 
+   > 💡 **ULTRA-SHORT PROMPT RULE:** Vì bức ảnh nền từ Bước A đã chiếm 90% công việc (bố cục, ánh sáng, phong cách), prompt ở Bước B cần **CỰC KỲ NGẮN**. Không cần lặp lại mô tả môi trường hay ánh sáng. Để AI tự nhìn ảnh nền và xử lý tương tác.
+
    ```
-   [Shot Size] + [Camera Angle], @Character [action/pose],
-   [Spatial Position] + [Anchor Object],
-   [Lighting Color Match on character],
-   [Depth/Perspective keywords]
+   [Shot Size] + [Camera Angle], @Character [action/pose]
    ```
 
-   **Ví dụ ĐÚNG (đầy đủ):**
+   **Ví dụ ĐÚNG (Siêu ngắn - Tối ưu nhất):**
    ```
-   "Wide shot, low angle, @DivingSuit walking slowly forward, centered
-    in lower third of frame, seagrass in foreground, rock formation
-    behind. Blue-green ambient light washing over the brass suit.
-    Subject in sharp focus, background slightly defocused."
+   "Wide shot, @DivingSuit walking slowly forward."
    ```
 
-   **Ví dụ ĐÚNG (tối giản):**
+   *(Chỉ thêm vị trí/tỷ lệ nếu Nano Banana tự xếp sai):*
    ```
-   "Medium wide shot, @DivingSuit standing small in the lower center
-    of frame. Dense flowing seagrass, dappled sunlight from above,
-    caustic light patterns."
+   "Wide shot, @DivingSuit walking slowly forward, placed in the lower left."
    ```
 
    **Nếu kết quả vẫn chưa đạt → Dùng tính năng Iterative Editing của Flow:**
    ```
    - Scale sai:    "Make the character smaller" / "Make the character larger"
    - Vị trí sai:   "Move character to the right" / "Move character further back"
-   - Màu sai:      "Adjust the character's lighting to match the teal ambient"
-   - Perspective:  "Lower the camera angle, look up at the character"
    ```
 
 
