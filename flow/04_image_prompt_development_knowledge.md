@@ -91,70 +91,69 @@ Coslient must follow this strict step-by-step sub-stage workflow:
      `# LOCKED COLOR TONE: [Color Tone String]`
      Mọi agent trong Stage 4.3 đều nhận và bắt buộc dùng nguyên văn Color Tone String này.
 
-1.5. **Stage 4.1.5: Character & Asset Reference Design (BẮT BUỘC)** ➔
+1.5. **Stage 4.1.5: Ingredient Design — Google Flow (BẮT BUỘC)** ➔
 
    > [!IMPORTANT]
-   > **AI video models không có "memory".** Mỗi shot = blank slate. Drift tích lũy: shot 1→5 chênh nhỏ, shot 1→48 có thể ra nhân vật hoàn toàn khác. Reference Assets là infrastructure ngăn chặn drift ngay từ đầu.
+   > **Tool chính thức: Google Flow (Nano Banana + VEO 3)**
+   > Không dùng Midjourney. Mọi image và video generation xảy ra trong Google Flow.
+   > **Nguyên tắc:** Mọi thứ xuất hiện nhiều lần trong video → phải trở thành ingredient với @tag.
 
    **Bước 0 — Story Type Check:**
-   Xác định loại story trước khi làm bất cứ thứ gì:
-   - `Type A: No Character` (landscape/abstract/environmental only) → **SKIP toàn bộ Stage 4.1.5**, chuyển thẳng sang Stage 4.2
-   - `Type B: Single Character Journey` (1 nhân vật xuyên suốt nhiều shots, nhiều locations) → **Full Reference Asset workflow bắt buộc**
-   - `Type C: Multi-Character` (N nhân vật, N ≥ 2) → **Full Reference Asset workflow × N nhân vật**
+   - `Type A: No Character` → **SKIP Stage 4.1.5**, sang Stage 4.2
+   - `Type B/C: Có nhân vật` → **Full Ingredient workflow bắt buộc**
 
    **Bước 1 — Tạo file Character Bible (BẮT BUỘC với Type B/C):**
-   Dùng template `flow/04s_character_bible_template.md` → tạo file `projects/video_xxx/docs/04_character_bible.md` cho dự án.
-   File này chứa toàn bộ reference assets, prompts, URLs, và frozen blocks.
+   Dùng template `flow/04s_character_bible_template.md` → tạo `projects/video_xxx/docs/04_character_bible.md`.
+   File này định nghĩa tất cả ingredients, @tag names, 2-ảnh-per-ingredient prompts, và 3-slot budget map.
 
-   **Bước 2 — Asset Generation Order (tuân thủ thứ tự nghiêm ngặt):**
-
+   **Bước 2 — Ingredient Classification:**
+   Xem qua toàn bộ storyboard, liệt kê mọi thứ xuất hiện nhiều lần:
    ```
-   Bước 2a → [STYLE TEST] 3 prompts test style → Boss duyệt style fit
-   Bước 2b → [C3] Character Fully Costumed → Boss duyệt master character ← CRITICAL
-   Bước 2c → [O3] Hand Detail Sheet (nếu tay là visual motif của story)
-   Bước 2d → [E1-EN] 1 establishing shot per location → Boss duyệt cross-environment color
-   Bước 2e → [Props] Chỉ props xuất hiện 3+ shots hoặc visually complex
-   Bước 2f → Compile Master Frozen Character Block + Environment Packs vào Character Bible
+   - Nhân vật → @Character ingredient
+   - Địa điểm/Location → @Environment ingredient
+   - Prop quan trọng (3+ shots hoặc có tương tác phức tạp) → @Prop ingredient
+   - Style reference → @StyleRef ingredient (1 ingredient duy nhất)
    ```
 
-   **Bước 3 — `--cref` / `--sref` Usage (Midjourney):**
-
-   | Params | Khi nào dùng | Effect |
-   |--------|-------------|--------|
-   | `--cref [C3_URL] --cw 100` | Mọi STORY shot có full costume visible | Lock cả face + full costume |
-   | `--cref [C3_URL] --cw 0` | Shot chỉ thấy mặt, không thấy costume | Chỉ lock face, bỏ qua outfit |
-   | `--cref [C3_URL] --cw 50` | Shot thấy nửa người | Lock costume shape, ít lock mặt |
-   | `--sref [S1_URL]` | Mọi prompt | Lock style aesthetic từ approved shots |
-   | `--sref [S1] [S2] [S3]` | Mọi prompt | Combine tối đa 3 style references |
-
-   > [!CAUTION]
-   > **TUYỆT ĐỐI KHÔNG** dùng output shot làm `--cref` cho shot tiếp theo. Luôn dùng master C3 sheet gốc. Dùng output làm ref = "generational drift" — nhân vật sẽ trôi dạt ngay cả khi mỗi shot trông ổn riêng lẻ.
-
-   **Bước 4 — Batch Generation Strategy:**
-   - Group tất cả shots cùng location → generate cùng batch
-   - Không mix environments trong cùng batch (ngăn color bleed)
-   - Sau khi Boss approve 3-5 shots đầu tiên → thêm vào Style Bank (S1) làm --sref pool
-
-   **Bước 5 — Master Prompt Architecture:**
-   Khi viết 04_image_prompts.txt ở Stage 4.3, mọi prompt có nhân vật phải theo cấu trúc:
+   **Bước 3 — Generate Ingredients (Nano Banana, 2 ảnh per ingredient):**
    ```
-   [FROZEN_CHARACTER_BLOCK] + [SHOT_SPECIFIC_ACTION] + [CAMERA] + [ENVIRONMENT_PACK] + [LIGHTING_SETUP] + [STYLE_STRING] + [COLOR_TONE] + [MJ_PARAMS]
+   Ảnh 1: Multi-angle overview (front + side + 3/4 trong 1 frame)
+   Ảnh 2: Close-up detail (texture, face, key feature)
    ```
-   - `FROZEN_CHARACTER_BLOCK`: Copy nguyên văn từ Character Bible S4. Không thay đổi qua toàn bộ video.
-   - `ENVIRONMENT_PACK`: Thay theo location hiện tại.
-   - `SHOT_SPECIFIC_ACTION`: Thay theo từng shot.
+   Thứ tự generate:
+   ```
+   1. Character chính (quan trọng nhất)
+   2. Character phụ / Detail body part (ví dụ: @BrassHand)
+   3. Environments (verify cross-environment consistency)
+   4. Props
+   5. @StyleRef (sau khi approve 3-5 shots đầu tiên)
+   ```
 
-   **Bước 6 — Per-Shot Quality Gate (kiểm tra mỗi shot trước khi approve):**
-   ```
-   [ ] Costume material/color matches O1 reference?
-   [ ] Hand texture matches O3 reference? (nếu tay visible)
-   [ ] Headwear shape matches C3 reference?
-   [ ] Background color matches Environment Sheet?
-   [ ] Art style matches S1 style bank?
-   ```
-   Nếu fail → regenerate với `--cw` cao hơn + targeted negative prompt. **Không advance sang shot tiếp theo khi shot hiện tại chưa pass quality gate.**
+   **Bước 4 — Upload lên Flow và đặt @tag names:**
+   - Upload cả 2 ảnh per ingredient lên Flow
+   - Đặt tên: PascalCase, no spaces (`@OldMan`, `@GlassDome`, `@BrassHand`)
+   - Ghi URLs và @tag names vào Ingredient Registry trong Character Bible
 
-   **Stop and wait for Boss approval:** Sau khi generate C3 (Fully Costumed) và E1-EN (1 establishing shot per location) → trình Boss xem. **Chỉ tiếp tục Stage 4.2 khi Boss duyệt character look và cross-environment color consistency.**
+   **Bước 5 — 3-Ingredient Budget Planning (Hard Limit của Flow):**
+   ```
+   Flow chỉ nhận tối đa 3 @tags per prompt.
+   Standard allocation:
+   - Slot 1: @Character
+   - Slot 2: @Environment
+   - Slot 3: @StyleRef
+   ```
+   Điền 3-Ingredient Budget Map trong Character Bible trước khi viết bất kỳ shot prompt nào.
+
+   **Bước 6 — Shot Prompt Format (dùng từ Stage 4.3 trở đi):**
+   ```
+   [Shot size], @Character [action] in @Environment,
+   [1 camera movement],
+   [lighting keywords],
+   Audio: [specific ambient sounds]. No music. No score. No dialogue.
+   ```
+
+   **Stop and wait for Boss approval:** Sau khi generate Character chính và 2 environments đối lập nhất (ví dụ: warm interior vs dark abyss) → trình Boss xem. Chỉ tiếp tục khi Boss approve character look và cross-environment consistency.
+
 
 2. **Stage 4.2: Initial Test Prompts & Iteration** ➔ Provide exactly 10 high-fidelity sample test prompts (length > 500 characters) based on the locked style. Test prompts KHÔNG cần gán Shot ID — chúng chỉ để kiểm tra style, color tone, và kiểm tra mức độ ăn nhập của character references.
 3. **Stage 4.3: Storyboard Execution** ➔

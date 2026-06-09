@@ -1,7 +1,8 @@
-# Character Bible — video_052: The Ocean Keepers (the rusted hand)
+# Character Bible — video_052: The Ocean Keepers
 
-> **Stage:** 4.1.5 — Character & Asset Reference Design
-> **Dự án:** video_052
+> **Stage:** 4.1.5 — Ingredient Design (Google Flow)
+> **Tool:** Google Flow Ultra — Nano Banana (image) + VEO 3 (video)
+> **Dự án:** video_052 / "the rusted hand"
 > **Storyboard:** 48 shots / 4:00 / 4 locations
 
 ---
@@ -10,629 +11,398 @@
 
 ```
 STORY TYPE:        [B] Single Character Journey
-CHARACTER COUNT:   1 (ông lão thợ lặn)
+CHARACTER COUNT:   1 (@OldMan)
 TOTAL SHOTS:       48 shots
-LOCATION COUNT:    4 locations (Glass Dome → Seagrass → Sandy Seabed → Deep Abyss → Glass Dome)
-CHARACTER VISIBILITY: ~50% shots có nhân vật (23 STORY + đầu tay trong 13 DETAIL)
-HAND/GESTURE MOTIF: [YES] ← bàn tay đồng là visual motif trung tâm → O3 BẮT BUỘC
-STYLE:             Nostalgic Diorama (nostalgic_diorama)
-PLATFORM:          Midjourney v6.0
+LOCATION COUNT:    4
+
+INGREDIENT COUNT:
+- Character:    2 (@OldMan, @BrassHand)
+- Environment:  4 (@GlassDome, @Seagrass, @SandyBed, @DeepAbyss)
+- Prop:         3 (@HermitCrab, @CoralSeed, @MantaRay)
+- Style:        1 (@StyleRef)
+TỔNG:           10 ingredients — upload hết trước khi generate shots
 ```
 
 ---
 
-## Asset Generation Order (Trạng thái hiện tại)
+## Ingredient Registry
 
-```
-Bước 2a → [STYLE TEST]    3 prompts test style             → STATUS: PENDING
-Bước 2b → [C3]            Character Fully Costumed         → STATUS: PENDING ← CRITICAL
-Bước 2c → [O3]            Brass Hand Detail Sheet          → STATUS: PENDING
-Bước 2d → [E1-E4]         4 establishing shots             → STATUS: PENDING
-Bước 2e → [Props]         P2, P5, P7                       → STATUS: PENDING
-Bước 2f → [Compile]       Frozen Block + Env Packs         → STATUS: PENDING
-```
+| @Tag | Type | Slot | Ảnh 1 Status | Ảnh 2 Status | Flow URL 1 | Flow URL 2 |
+|------|------|------|-------------|-------------|-----------|-----------|
+| `@OldMan` | Character | 1 | PENDING | PENDING | — | — |
+| `@BrassHand` | Character/Detail | 1 | PENDING | PENDING | — | — |
+| `@GlassDome` | Environment | 2 | PENDING | PENDING | — | — |
+| `@Seagrass` | Environment | 2 | PENDING | PENDING | — | — |
+| `@SandyBed` | Environment | 2 | PENDING | PENDING | — | — |
+| `@DeepAbyss` | Environment | 2 | PENDING | PENDING | — | — |
+| `@HermitCrab` | Prop | 1 | PENDING | PENDING | — | — |
+| `@CoralSeed` | Prop | 1 | PENDING | PENDING | — | — |
+| `@MantaRay` | Prop | 1 | PENDING | PENDING | — | — |
+| `@StyleRef` | Style | 3 | PENDING | PENDING | — | — |
 
 ---
 
-## Tier 1 — CHARACTER ASSETS
+## Tier A — CHARACTER Ingredients
 
-### C1: Character Face Sheet
+### @OldMan ⭐ Critical
+
+> Nhân vật trung tâm. Xuất hiện trong ~23 STORY shots.
+> Đặc điểm nhận dạng chính: bộ đồ lặn đồng cồng kềnh + tỷ lệ claymation gầy gò.
+
+**Ảnh 1 — Multi-Angle Full Body Sheet**
 
 ```
 STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
+FLOW URL: [điền sau khi upload]
 
-NHÂN VẬT: Ông lão — elderly male, deeply weathered face, tired but kind eyes,
-           sunken cheeks, visible age lines, gentle and melancholic expression.
-           Proportions: exaggerated spindly claymation style.
+PROMPT (Nano Banana):
+Character reference sheet showing same elderly man in vintage brass diving suit from multiple angles — front view, 3/4 left view, and side profile — all three views on the same plain neutral background, full body visible in each view without overlapping, heavy brass diving suit with large round helmet porthole, articulated brass segments at joints, thick brass boots, dark oxidized amber-green brass surfaces, exaggerated spindly proportions with oversized round helmet relative to thin body, nostalgic stop-motion claymation aesthetic, extremely tactile hand-crafted surfaces, Laika Studios style, plain white background, reference sheet layout
+```
 
-PROMPT:
-character design sheet, multiple angles, front view + 3/4 view left + side profile + 3/4 view right,
-kind elderly man with deeply weathered claymation face, tired but gentle warm eyes, sunken cheeks,
-soft natural age lines, melancholic yet peaceful expression, naturally soft thin white hair,
-exaggerated spindly claymation proportions, warm soft matte clay puppet skin,
-isolated on clean neutral off-white background,
-nostalgic stop-motion animation style, miniature diorama, macro photography,
-extremely tactile hand-crafted textures, Laika studios claymation aesthetic,
-character reference sheet layout, no background clutter,
-16:9 --stylize 250 --v 6.0
+**Ảnh 2 — Helmet & Upper Body Close-Up**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+MỤC ĐÍCH: Capture chi tiết mũ đồng (silhouette nhận dạng quan trọng nhất),
+           texture bề mặt, và porthole glass.
+
+PROMPT (Nano Banana):
+Close-up upper body and helmet of elderly man in vintage brass diving suit, large round brass sphere helmet dominating frame, single circular porthole glass window with riveted brass ring frame, visible hex bolt fittings, heavily oxidized dark amber-orange brass with teal-green verdigris at edges and seams, deep rust texture and surface scratches, shoulders showing segmented brass plate construction, nostalgic stop-motion claymation style, Laika Studios aesthetic, extremely tactile aged surfaces, macro photography, neutral background
 ```
 
 ---
 
-### C2: Character Full Body (Bare — trong nhà, không mặc đồ lặn)
+### @BrassHand ⭐ Critical
+
+> Bàn tay đồng là **visual motif trung tâm** của video.
+> Xuất hiện trong 13 DETAIL shots. Cần ingredient riêng để giữ consistency.
+> Rule: Đây là "nhân vật" của sự nâng niu — tay to và nặng nề thực hiện hành động cực kỳ nhẹ nhàng.
+
+**Ảnh 1 — Multiple Hand Positions**
 
 ```
 STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
+FLOW URL: [điền sau khi upload]
 
-DÙNG CHO: SB_047 (ngồi ghế bành trong nhà, đã tháo đồ lặn)
+PROMPT (Nano Banana):
+Close-up reference sheet of heavy brass diving suit gloved hand shown in multiple positions on neutral background — open palm facing up, open palm facing down, gentle cupped grip, and fingers spread wide — all four positions visible without overlapping, articulated brass finger segments with visible mechanical joint rings at each knuckle, dark amber-orange brass with teal-green verdigris oxidation at all joints, deeply weathered rusted surface, extremely large heavy-looking hand, nostalgic stop-motion claymation style, macro photography, neutral background
+```
 
-PROMPT:
-full body character design sheet, front and back view,
-kind elderly man with exaggerated spindly claymation proportions, deeply weathered face, gentle tired eyes,
-wearing chunky knit wool sweater in muted navy blue, loose worn canvas trousers,
-naturally soft thin white hair, warm soft matte clay puppet skin, long gentle expressive hands,
-isolated on clean neutral background,
-nostalgic stop-motion animation style, miniature diorama, Laika studios claymation aesthetic,
-extremely tactile hand-crafted textures, earthy muted color palette,
-16:9 --stylize 250 --v 6.0
+**Ảnh 2 — Hand Holding Something Small**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+MỤC ĐÍCH: Establish "contrast motif" — bàn tay to và nặng nề cầm vật nhỏ xíu.
+           Đây là hình ảnh lặp lại cảm xúc nhất trong video.
+
+PROMPT (Nano Banana):
+Extreme close-up macro, one large heavy brass diving glove hand gently cradling a tiny glowing object in open palm, massive weathered brass fingers surrounding something impossibly delicate, deep rust and verdigris oxidation on brass surface, articulated brass knuckle joints, the contrast between heavy industrial brass and fragile tiny object at center of palm, nostalgic stop-motion claymation style, Laika Studios, macro photography shallow depth of field, dark neutral background with soft lighting
 ```
 
 ---
 
-### C3: Character Fully Costumed ⭐ CRITICAL
+## Tier B — ENVIRONMENT Ingredients
+
+### @GlassDome
+
+> Interior của ngôi nhà dưới đáy biển. Ấm áp, cổ điển, đối lập hoàn toàn với bên ngoài.
+> Shots: SB_001–003 (Intro), SB_047–048 (Outro)
+
+**Ảnh 1 — Interior Wide**
 
 ```
 STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate — đây là --cref cho 90% shots]
+FLOW URL: [điền sau khi upload]
 
-ĐÂY LÀ ASSET QUAN TRỌNG NHẤT. Phải generate trước tất cả shots.
-Dùng: --cref [URL] --cw 100 cho mọi STORY shot có nhân vật mặc đồ lặn đầy đủ.
+PROMPT (Nano Banana):
+Wide interior shot of a cozy underwater glass dome home, no people present, stone fireplace with warm crackling fire on the left, aged wooden table with ceramic teacup steaming, worn armchair beside fireplace, heavy brass diving helmet resting on a wooden stand, curved glass dome walls showing dark deep ocean outside with faint fish silhouettes, warm amber firelight filling the interior contrasting with cool oceanic teal visible through the glass, cluttered cozy space with old books and brass instruments, nostalgic stop-motion claymation miniature diorama style, Laika Studios aesthetic, tactile surfaces, cinematic 16:9
+```
 
-COSTUME LAYER-BY-LAYER SPEC:
-- Outer shell: vintage brass diving suit, fully enclosing body
-- Helmet: large round brass sphere, single circular porthole glass (foggy/slightly tinted),
-          riveted construction, visible bolts around porthole rim
-- Body suit: heavy brass plates, articulated at joints (shoulders, elbows, knees, hips),
-             visible segmented construction, bulky and rigid-looking
-- Gloves: articulated brass fingers, visible joint mechanisms at each knuckle
-- Boots: thick flat-soled brass boots, heavily weighted appearance
-- Color: dark amber-orange brass (#8B6914 equivalent) with teal-green oxidation
-         (verdigris) concentrated at all joints, edges, and seams
-- Aging: deep rust textures, scratches, dents, patina — NOT shiny, NOT new
+**Ảnh 2 — Fireplace & Atmosphere Detail**
 
-PROPORTIONS: Spindly claymation body (thin limbs, slightly oversized helmet relative to body)
-SILHOUETTE: Unmistakable — round helmet on thin body = instantly recognizable
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
 
-PROMPT:
-full body character design sheet, front view + 3/4 view + side view + back view,
-kind elderly man completely enclosed in a heavy vintage brass diving suit,
-large round brass sphere helmet with single circular foggy porthole glass window, riveted brass construction with visible bolts,
-full body brass diving suit with segmented articulated plates at shoulders elbows hips knees,
-articulated brass gloved fingers with visible joint mechanisms, thick flat-soled brass weighted boots,
-dark amber-orange brass color with teal-green verdigris oxidation concentrated at joints and seams,
-deeply rusted and weathered surface texture, visible scratches dents and heavy patina,
-exaggerated spindly claymation proportions — thin limbs inside bulky suit,
-isolated on clean neutral off-white background,
+MỤC ĐÍCH: Capture ánh sáng lửa ấm là signature của location này.
+
+PROMPT (Nano Banana):
+Close-medium shot of stone fireplace interior glowing with warm amber fire, old brass diving helmet resting on wooden surface beside it catching firelight, warm honey-gold light illuminating weathered wooden textures, steam rising from a ceramic cup in foreground, cool blue-green ocean visible through curved glass in background, deep contrast between interior amber warmth and exterior oceanic teal, nostalgic stop-motion claymation style, shallow depth of field, macro photography
+```
+
+**Environment Pack Keywords:**
+`warm amber firelight, cozy glass dome interior, stone fireplace glow, deep ocean teal beyond curved glass walls, cluttered rustic cottage warmth`
+
+---
+
+### @Seagrass
+
+> Đáy biển nông — bãi cỏ biển và rặng san hô nhỏ. Ánh sáng từ mặt nước chiếu xuống.
+> Shots: SB_005–019
+
+**Ảnh 1 — Wide Seagrass Field**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Wide shot underwater shallow seagrass meadow, no characters, dense flowing seagrass in gentle current filling the frame, small coral reef formations scattered on sandy floor, dappled sunlight rays angling down from water surface far above, soft blue-green ambient underwater light, gentle caustic light patterns on sandy seabed, open expansive feeling with small intimate seagrass details, faint fish silhouettes near surface, nostalgic stop-motion claymation style, miniature diorama, Laika Studios aesthetic, cinematic 16:9
+```
+
+**Ảnh 2 — Seagrass Close-Up & Light**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Close-up of seagrass blades swaying in underwater current, dappled light rays from above breaking through water surface, small coral polyps at base, fine sand particles drifting, the light creating rippling caustic patterns, soft blue-green underwater ambient, nostalgic stop-motion claymation style, extreme macro photography, shallow depth of field, tactile organic textures
+```
+
+**Environment Pack Keywords:**
+`shallow seagrass meadow, dappled sunlight from water surface above, blue-green underwater ambient, flowing seagrass in gentle current, caustic light patterns on sand`
+
+---
+
+### @SandyBed
+
+> Bãi cát đáy biển — phần có rác và vật thể bị chìm. Cô quạnh hơn @Seagrass.
+> Shots: SB_020–026
+
+**Ảnh 1 — Sandy Floor Wide**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Wide underwater shot of flat sandy ocean floor, no characters, mix of clean sand areas and areas with scattered sunken debris — old glass bottles, rusted metal fragments half-buried in sand, a few scattered objects from the surface world, soft blue-green underwater ambient light from above, slightly darker and more isolated atmosphere than shallow reef, quiet desolate feeling, nostalgic stop-motion claymation style, miniature diorama, Laika Studios, cinematic 16:9
+```
+
+**Ảnh 2 — Object in Sand Detail**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Close-up of sandy ocean floor with a single old glass bottle partially buried, barnacles encrusting the glass, fine sand particles settling around the object, soft blue-green ambient light from above, the quiet melancholy of a forgotten object on the seafloor, nostalgic stop-motion claymation style, macro photography, shallow depth of field, Laika Studios aesthetic
+```
+
+**Environment Pack Keywords:**
+`sandy ocean floor, scattered sunken debris, isolated quiet seabed, soft blue-green underwater ambient, slightly darker deeper water`
+
+---
+
+### @DeepAbyss
+
+> Vực sâu đáy biển — gần tối hoàn toàn, kích thước đồ sộ, nhân vật nhỏ bé.
+> Shots: SB_027–046. Đây là location chiếm nhiều shots nhất.
+
+**Ảnh 1 — Abyss Wide Scale Shot**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Wide shot deep ocean abyss, no character, massive dark rocky cliff formations rising from near-black seafloor disappearing into darkness above, near-total darkness with only faint scattered bioluminescent cyan points of light from deep sea organisms on rock surfaces, distant giant whale silhouette barely visible far above as a shadow against slightly lighter dark blue, slow suspended particles drifting in near-motionless water, enormous crushing sense of scale and depth, nostalgic stop-motion claymation style, miniature diorama, Laika Studios, cinematic 16:9
+```
+
+**Ảnh 2 — Bioluminescent Atmosphere Detail**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Close-up of deep ocean rock surface in near-darkness, small bioluminescent organisms glowing with faint cyan-teal organic light dotting the rocky surface, the organic glow like fireflies embedded in stone, deep navy and near-black surrounding darkness, texture of underwater rock — rough and ancient, nostalgic stop-motion claymation style, macro photography, extreme shallow depth of field, the contrast between near-total darkness and tiny living light points
+```
+
+**Environment Pack Keywords:**
+`deep ocean abyss near-darkness, massive rocky formations, faint bioluminescent cyan points, distant whale above, crushing depth, near-black with cyan accents`
+
+---
+
+## Tier C — PROP Ingredients
+
+### @HermitCrab
+
+> Xuất hiện: SB_021–026 (Verse 2 — Ông lão nhặt chai, cua chui vào chai)
+> 6 shots → cần ingredient
+
+**Ảnh 1 — Crab + Bottle Together**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Prop reference sheet showing two items: a tiny hermit crab without shell (small articulated legs, soft vulnerable abdomen, tiny dark gentle eyes, delicate antennae) beside an old sunken glass bottle (green-tinted glass with bubbles in material, barnacle encrusted, slightly foggy and opaque), scale shown — crab is smaller than bottle mouth, bottle is hand-sized, both on plain neutral background, nostalgic stop-motion claymation style, Laika Studios aesthetic, tactile organic textures
+```
+
+**Ảnh 2 — Crab Inside Bottle**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Close-up of tiny shell-less hermit crab peeking out from inside an old green glass bottle, the crab's delicate legs and antennae visible at the bottle mouth, soft underwater light filtering through the green glass, the crab looking out with tiny curious eyes, nostalgic stop-motion claymation style, macro photography shallow depth of field, Laika Studios
+```
+
+---
+
+### @CoralSeed
+
+> Xuất hiện: SB_040–045 (Bridge + Final Chorus — gieo mầm san hô)
+> 6 shots → cần ingredient
+> NOTE: Glow phải là organic bioluminescent, KHÔNG phải magical sparkles.
+
+**Ảnh 1 — Seedling in Hand Context**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Tiny coral seedling shown in context with surrounding — small branching coral polyp the size of a thumbnail with soft organic bioluminescent cyan-teal light glowing from within its translucent tissue like a firefly, fragile delicate branching structure with tiny visible polyp tips, shown against dark background to reveal the organic glow, the glow is subtle and biological not magical or sparkly, nostalgic stop-motion claymation style, macro extreme close-up, Laika Studios, organic tactile texture
+```
+
+**Ảnh 2 — Seedling Detail**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Extreme macro close-up of tiny coral seedling tip, semi-translucent organic tissue catching bioluminescent cyan light from within, the fine structure of coral polyp branches barely larger than a grain of sand, organic biological luminescence — not magical, deep dark navy background, soft blue-green tonal atmosphere, nostalgic stop-motion claymation style, extreme shallow depth of field
+```
+
+---
+
+### @MantaRay
+
+> Xuất hiện: SB_030–036 (mắc xích, được giải cứu, bay đi)
+> 7 shots → cần ingredient
+
+**Ảnh 1 — Manta Full Body**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Full body reference of a giant manta ray, top view and side view shown together on neutral background, massive wingspan — the ray is enormous compared to a small human figure shown as scale reference, wide flat diamond-shaped body with two sweeping wing-like pectoral fins, long slender tapering tail, dark slate blue-grey textured skin on top, pale cream-white smooth belly, gentle small round dark eye (non-threatening, curious expression), cephalic fin horns at front, claymation stop-motion texture quality, Laika Studios aesthetic, reference sheet layout
+```
+
+**Ảnh 2 — Entangled Wing Detail**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Close-up of giant manta ray wing edge caught in heavy rusted iron chain, the delicate wing tissue pressed against the rough chain links, contrast between the smooth pale grey wing skin and the heavily corroded dark iron chain, the chain embedded in sand at the bottom, manta wing texture — smooth and organic, chain texture — deeply rusted and angular, nostalgic stop-motion claymation style, macro photography, Laika Studios aesthetic
+```
+
+---
+
+## Tier D — STYLE Ingredient
+
+```
+@StyleRef
+STATUS: PENDING — điền sau khi Boss approve shots đầu tiên
+
+Ảnh 1: [URL — shot đầu tiên được approve với full character + environment + lighting]
+Ảnh 2: [URL — shot thứ 2 với lighting/environment khác để tăng style range]
+
+Tiêu chí chọn ảnh style:
+- Phải thể hiện đầy đủ: brass texture + claymation quality + oceanic color palette
+- Ảnh 1: shot trong @GlassDome (warm amber) → establish warm version
+- Ảnh 2: shot trong @DeepAbyss (cool dark) → establish cool version
+- Flow AI sẽ interpolate giữa hai style để maintain consistency cross-environment
+```
+
+---
+
+## 3-Ingredient Budget Map (48 shots)
+
+| Shot Type | @Slot 1 | @Slot 2 | @Slot 3 |
+|-----------|--------|--------|--------|
+| STORY – Glass Dome | `@OldMan` | `@GlassDome` | `@StyleRef` |
+| STORY – Seagrass | `@OldMan` | `@Seagrass` | `@StyleRef` |
+| STORY – Sandy Bed | `@OldMan` | `@SandyBed` | `@StyleRef` |
+| STORY – Deep Abyss | `@OldMan` | `@DeepAbyss` | `@StyleRef` |
+| DETAIL – Tay (Seagrass) | `@BrassHand` | `@Seagrass` | `@StyleRef` |
+| DETAIL – Tay (Deep Abyss) | `@BrassHand` | `@DeepAbyss` | `@StyleRef` |
+| DETAIL – HermitCrab | `@HermitCrab` | `@SandyBed` | `@StyleRef` |
+| DETAIL – CoralSeed | `@CoralSeed` | `@DeepAbyss` | `@StyleRef` |
+| ENV – Glass Dome | `@GlassDome` | `@StyleRef` | — |
+| ENV – Seagrass | `@Seagrass` | `@StyleRef` | — |
+| ENV – Sandy Bed | `@SandyBed` | `@StyleRef` | — |
+| ENV – Deep Abyss | `@DeepAbyss` | `@StyleRef` | — |
+| STORY – MantaRay scene | `@OldMan` | `@MantaRay` | `@DeepAbyss` *(StyleRef trong text)* |
+
+---
+
+## Flow Prompt Template (video_052)
+
+### STORY Shot
+```
+[Shot size], @OldMan [action] in @[Environment], [1 camera movement],
+[lighting — 3-5 words from environment pack],
+Audio: [specific ambient sounds]. No music. No score. No dialogue. No voiceover.
+```
+
+### DETAIL – Tay
+```
+Extreme close-up, @BrassHand [action — gently / slowly / carefully],
+@[Environment] [context description],
+macro photography shallow depth of field, static locked frame,
+[lighting],
+Audio: [tiny specific sound — water, sand, metal]. No music. No score.
+```
+
+### ENV Shot
+```
+Wide establishing shot, @[Environment] [atmosphere — empty, no character],
+[camera — slow pan / static],
+[lighting],
+Audio: [ambient sounds of empty location]. No music. No score.
+```
+
+---
+
+## LOCKED Style Tokens
+
+```
+LOCKED STYLE STRING:
 nostalgic stop-motion animation style, miniature diorama, macro photography,
 extremely tactile hand-crafted textures, weathered and aged surfaces,
-Laika studios claymation aesthetic, earthy muted color palette,
-highly detailed, no background, full body visible,
-16:9 --stylize 250 --v 6.0
-```
+Laika Studios claymation aesthetic
 
-**After generate — điền đây:**
-```
-APPROVED C3 URL: [URL]
---cref usage: --cref [URL] --cw 100
+LOCKED COLOR TONE:
+deep oceanic teal, warm amber firelight, muted rusted brass,
+faded seagrass green, soft bioluminescent cyan
 ```
 
 ---
 
-### C4: Character Expression Sheet (qua kính mũ)
+## Generation Order (Priority)
 
 ```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-
-LƯU Ý ĐẶC BIỆT: Ông lão luôn đội mũ lặn khi ở ngoài biển.
-Expressions phải đọc được QUA lớp kính porthole mờ.
-
-EXPRESSIONS (map theo emotional beats trong storyboard):
-- Yên tĩnh / Peaceful: SB_001, SB_006 (routine, hòa mình)
-- Nâng niu / Tender: SB_008, SB_022, SB_025 (cho cá ăn, nhặt chai)
-- Tập trung / Focused: SB_021, SB_029, SB_033 (nhìn thấy nhiệm vụ)
-- Lưu luyến / Wistful: SB_037 (dõi theo cá đuối bay đi)
-- Hài lòng / Content: SB_044, SB_047 (sau khi gieo mầm, về nhà)
-
-PROMPT:
-expression sheet, 5 expressions side by side,
-kind elderly man wearing heavy brass diving suit helmet with circular foggy porthole glass,
-expressions visible through porthole: peaceful / tender / focused / wistful / content,
-visible slight differences in eye crinkles and posture per expression,
-isolated on neutral background,
-nostalgic stop-motion animation style, miniature diorama, Laika studios claymation aesthetic,
-extremely tactile textures, dark amber brass with verdigris, earthy muted colors,
-16:9 --stylize 250 --v 6.0
+1. @OldMan (Ảnh 1 + 2)           → Boss approve → Upload to Flow
+2. @BrassHand (Ảnh 1 + 2)        → Boss approve → Upload to Flow
+3. @GlassDome (Ảnh 1 + 2)        → Boss approve → Upload to Flow
+4. @DeepAbyss (Ảnh 1 + 2)        → Boss approve → Upload (verify brass cross-env)
+5. @Seagrass + @SandyBed          → Boss approve → Upload
+6. @MantaRay + @HermitCrab + @CoralSeed → Boss approve → Upload
+7. Generate 3-5 test shots → Boss approve best → Upload làm @StyleRef
+8. ✅ All 10 ingredients ready → Bắt đầu viết 48 shot prompts
 ```
-
----
-
-### C5: Character Signature Pose Sheet
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-
-POSES (map theo STORY shots):
-- Pose A: Xòe bàn tay ra (SB_007, SB_040) — open palm extended
-- Pose B: Cúi xuống nhặt (SB_021, SB_039) — bending forward, reaching down
-- Pose C: Gật đầu / nods (SB_025) — slight helmet nod
-- Pose D: Đứng thẳng, nhìn lên (SB_037, SB_044) — standing straight, looking up
-- Pose E: Quỳ một gối (SB_039, SB_041) — kneeling on one knee
-
-PROMPT:
-action pose sheet, 5 poses side by side,
-kind elderly man in complete heavy brass vintage diving suit,
-poses: (1) standing with open palm extended outward (2) bent forward reaching one arm down (3) standing with slight head tilt nod (4) standing straight looking upward (5) kneeling on one knee with arm extended down,
-full body visible for each pose, isolated on neutral background,
-nostalgic stop-motion animation style, miniature diorama, Laika studios claymation aesthetic,
-dark amber brass with verdigris oxidation, extremely tactile aged surfaces,
-earthy muted color palette, 16:9 --stylize 250 --v 6.0
-```
-
----
-
-## Tier 2 — COSTUME / OUTFIT ASSETS
-
-### O1: Diving Suit Turnaround (Đã có trong 04_test_prompts.txt)
-
-```
-STATUS: PROMPT READY — cần generate
-GENERATED IMAGE URL: [điền sau khi generate]
-
-[Prompt đã có trong 04_test_prompts.txt — Asset 01]
-Tham khảo file đó để copy prompt.
-```
-
----
-
-### O2: Helmet / Porthole Detail Sheet
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-
-DÙNG CHO: DETAIL shots về mũ, phản chiếu ánh sáng qua kính
-
-HELMET KEY DETAILS:
-- Shape: Large sphere, brass
-- Porthole: Single large circular window, foggy/tinted glass, riveted brass ring around it
-- Surface: Dark amber-orange brass, heavy verdigris at all edges
-- Top ring: Large hex bolt fitting at crown
-- Back: Hose fitting connection point (air hose — can be omitted for atmosphere)
-
-PROMPT:
-detailed prop sheet, vintage brass diving helmet, multiple views and details:
-front view (porthole facing camera) + 3/4 view + side view + back view + close-up of porthole rivets,
-large round brass sphere with single circular foggy porthole glass, riveted brass ring frame around porthole,
-hex bolt air fitting at crown, dark amber-orange brass surface with heavy teal-green verdigris at edges and rivets,
-deeply rusted and aged, visible scratches and dents,
-isolated on neutral background,
-nostalgic stop-motion animation style, miniature diorama, Laika studios claymation aesthetic,
-extremely tactile textures, earthy muted color palette,
-16:9 --stylize 250 --v 6.0
-```
-
----
-
-### O3: Brass Hand Detail Sheet ⭐ (CRITICAL — bàn tay là visual motif)
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-
-DÙNG CHO: 13 DETAIL shots về bàn tay (SB_008, SB_012, SB_015, SB_022, SB_024,
-           SB_032, SB_034, SB_040, SB_042 và các shots cận tay khác)
-
-HAND VISUAL MOTIF: Bàn tay kim loại KHỔNG LỒ, nặng nề, thực hiện những hành động
-                   VÔ CÙNG nâng niu. Đây là emotional core của video.
-
-TEXTURE SPEC:
-- Material: Articulated brass, segmented finger plates
-- Base color: Dark amber-orange (#8B6914 equivalent)
-- Oxidation: Teal-green verdigris concentrated at finger joints, knuckle seams, palm edge
-- Surface: Heavily weathered, visible tool marks, deep scratches
-- Joints: Visible mechanical joint rings at each finger knuckle
-- Palm: Large, flat, slightly cupped when open
-- Weight feel: Must LOOK extremely heavy despite delicate actions
-
-PROMPT:
-detailed hand reference sheet, multiple views: palm facing up + palm facing down + side view + fingers spread + gentle gripping gesture,
-heavy articulated brass diving glove hand, segmented brass finger plates with visible mechanical joint rings at each knuckle,
-dark amber-orange brass color with teal-green verdigris oxidation concentrated at joints and seams,
-deeply weathered rusted surface, visible scratches and aged patina,
-extremely large and heavy-looking despite being shown in gentle gestures,
-isolated on neutral off-white background,
-nostalgic stop-motion animation style, miniature diorama, macro photography extreme close-up,
-extremely tactile hand-crafted textures, Laika studios claymation aesthetic,
-earthy muted color palette, 16:9 --stylize 300 --v 6.0
-```
-
-**After generate — điền đây:**
-```
-APPROVED O3 URL: [URL]
---sref usage for hand shots: --sref [URL]
-```
-
----
-
-### O4: Brass Boots Detail
-
-```
-STATUS: PENDING (low priority — generate cuối)
-GENERATED IMAGE URL: [điền sau khi generate]
-DÙNG CHO: SB_012 (cận bàn chân bước trên cát)
-
-PROMPT:
-detailed prop sheet, vintage brass diving boots, front and side view,
-thick flat-soled heavy brass boots, dark amber-orange brass with teal-green verdigris at sole edges,
-heavily weighted appearance, deeply aged rusted surface,
-isolated on neutral background, nostalgic stop-motion animation style,
-Laika studios claymation aesthetic, earthy muted colors,
-16:9 --stylize 250 --v 6.0
-```
-
----
-
-## Tier 3 — PROP ASSETS
-
-### P2: Hermit Crab + Glass Bottle ⭐
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-SHOTS: SB_021 (nhặt chai), SB_023 (đặt chai), SB_024 (cua chui vào chai), SB_026 (cua đi xa)
-
-SCALE: Chai ≈ 1/3 kích thước bàn tay brass. Cua ≈ 1/4 kích thước chai.
-
-SPEC:
-- Glass Bottle: Old green-tinted glass, bubbles in glass, barnacles on exterior,
-                slightly foggy/opaque from years underwater, cork or broken neck
-- Hermit Crab: Tiny, articulated claymation legs, soft shell-less abdomen visible,
-               antennae, small dark eyes — innocent and cute
-
-PROMPT:
-prop design sheet, two items side by side with scale reference:
-(1) old sunken glass bottle — green-tinted glass with visible bubbles in glass material, barnacle encrusted exterior, underwater-worn, foggy opacity,
-(2) tiny hermit crab — small articulated claymation creature with delicate legs and antennae, soft vulnerable abdomen, small dark eyes, no shell,
-scale indicator showing crab is 1/4 the size of bottle,
-isolated on neutral background,
-nostalgic stop-motion animation style, miniature diorama, macro photography,
-extremely tactile hand-crafted textures, Laika studios claymation aesthetic,
-earthy muted colors, deep oceanic teal and faded seagrass green palette,
-16:9 --stylize 250 --v 6.0
-```
-
----
-
-### P5: Coral Seedling (Glowing)
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-SHOTS: SB_040 (trong lòng bàn tay), SB_041 (cắm xuống cát), SB_042 (lan tỏa rễ),
-       SB_043 (bừng sáng cả vùng), SB_045 (toàn cảnh)
-
-LƯU Ý: Coral phải có glow nhưng theo Grounded Reality Rule → glow phải
-        là bioluminescent ORGANIC light (như đom đóm), không phải magical particles.
-
-SPEC:
-- Size: Vừa lọt lòng bàn tay brass (nhỏ hơn nhiều so với bàn tay)
-- Form: Small coral polyp, branching, fragile-looking
-- Light: Soft bioluminescent cyan-teal emitting from within tissue (organic, like a firefly)
-- Material: Semi-translucent organic tissue, soft claymation texture
-
-PROMPT:
-prop design sheet, tiny glowing coral seedling,
-small branching coral polyp the size of a thumbnail, semi-translucent organic tissue,
-soft internal bioluminescent cyan-teal light glowing from within like a firefly — organic luminescence not magical sparkles,
-fragile delicate branching structure, few tiny visible polyp tips,
-scale reference: shown next to a brass gloved hand — seedling fits in palm,
-isolated on dark navy background to show bioluminescence,
-nostalgic stop-motion animation style, miniature diorama, macro photography extreme close-up,
-extremely tactile organic textures, Laika studios claymation aesthetic,
-deep oceanic teal and soft bioluminescent cyan color palette,
-16:9 --stylize 300 --v 6.0
-```
-
----
-
-### P7: Giant Manta Ray
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-SHOTS: SB_030 (kẹt xích), SB_031 (ông lão tiếp cận), SB_032 (cận xích),
-       SB_033 (cắt xích), SB_034 (xích đứt), SB_035 (bay lên), SB_036 (bóng dáng xa)
-
-SCALE: Cá đuối PHẢI lớn hơn nhân vật nhiều lần — wing span ≥ 3x chiều cao nhân vật.
-       Đây là cảnh chuyển từ "nhỏ bé" sang "vĩ đại" trong story arc.
-
-SPEC:
-- Size: Massive — wingspan 3-5x larger than the diving suit character
-- Shape: Wide flat diamond/kite shape, two wing-like pectoral fins, long thin tail
-- Skin: Dark grey-blue on top, pale white on belly, slightly textured claymation surface
-- Eyes: Gentle, small, round — NOT predatory
-- Entanglement: Heavy rusted iron chain wrapped around one wing edge (visible in P7 shot)
-- Movement quality: Graceful, slow, flowing — despite size
-
-PROMPT:
-prop design sheet, giant manta ray, multiple views: top view + side view + front view facing camera,
-massive manta ray with wingspan 5x larger than a human-sized figure (scale indicator included),
-wide flat diamond-shaped body, two enormous pectoral fins like wings, long slender tapering tail,
-dark slate-blue grey textured skin on top surface, pale cream-white smooth belly,
-gentle small round dark eye (non-threatening), cephalic fin horns at front,
-claymation stop-motion texture quality — tactile and hand-crafted,
-isolated on neutral background,
-nostalgic stop-motion animation style, miniature diorama, Laika studios claymation aesthetic,
-deep oceanic teal muted color palette, 16:9 --stylize 250 --v 6.0
-```
-
----
-
-## Tier 4 — ENVIRONMENT ASSETS
-
-### E1: Glass Dome Interior (Inside the Submarine House)
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-SHOTS: SB_001, SB_002, SB_003 (intro), SB_047, SB_048 (outro)
-
-SPEC:
-- Space: Round glass dome structure, dry interior, warm and cozy
-- Key elements: Stone fireplace with crackling fire, wooden table, worn armchair,
-                brass diving helmet resting on stand/chair, steam teacup
-- Glass: The dome walls are curved glass — outside (dark ocean) visible through walls
-- Scale: Intimate, cottage-sized — not a big space
-- Texture: Stone interior walls, aged wood, worn fabric
-
-COLOR PALETTE:
-- Primary: Warm amber (#C17A35) — firelight
-- Secondary: Deep oceanic teal (#1A4A5E) — visible outside through glass
-- Accent: Muted rusted brass (#7A5020) — helmet, fittings
-- Shadow: Warm dark brown (#2A1A0A) — shadowed corners
-- Highlight: Pale cream (#F5EDD8) — lamplight on surfaces
-
-LIGHTING:
-- Direction: Primarily from fireplace (left or center), secondarily from ambient glass dome glow
-- Color temperature: Very warm (2800K equivalent) inside vs cool teal outside
-- Intensity: Cozy dim interior — not bright, not dark
-- Signature: "warm amber firelight, deep honey glow filling glass dome interior, cool oceanic teal visible beyond curved glass walls"
-
-ATMOSPHERE: No particles, warm steam from teacup only, still air
-SCALE: Character fills ~40% of frame height when standing
-
-ENVIRONMENT PACK KEYWORD STRING (copy-paste vào mọi prompt trong E1):
-warm amber firelight filling curved glass dome interior, cracked stone fireplace glowing, aged wooden furniture, muted rusted brass diving helmet resting nearby, deep oceanic teal visible through curved glass walls outside, warm deep honey glow, earthy warm interior vs cool exterior contrast
-
-PROMPT (establishing shot — empty scene):
-wide establishing shot, interior of a cozy underwater glass dome house, no character present,
-warm amber firelight from stone fireplace illuminating aged wooden table and worn armchair,
-muted rusted brass diving helmet resting on wooden stand beside the armchair,
-steam rising from a ceramic cup on the table,
-curved glass dome walls showing dark oceanic teal deep water outside with distant fish shadows,
-warm deep honey amber glow filling interior, cool oceanic teal beyond the glass,
-nostalgic stop-motion animation style, miniature diorama, macro photography,
-extremely tactile hand-crafted textures, Laika studios claymation aesthetic,
-deep oceanic teal and warm amber firelight color palette, muted rusted brass accent,
-16:9 --stylize 250 --v 6.0
-```
-
----
-
-### E2: Shallow Seagrass Field
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-SHOTS: SB_005–SB_013 (Verse 1, Pre-Chorus 1), SB_014–SB_019 (Chorus 1)
-
-SPEC:
-- Space: Open shallow seabed, seagrass meadow, small coral formations
-- Key elements: Flowing seagrass, low coral reef patches, soft sandy bottom
-- Overhead: Dappled light rays from water surface above
-- Scale: Open space — character feels small but not overwhelmed
-
-COLOR PALETTE:
-- Primary: Faded seagrass green (#4A7A50) — seagrass
-- Secondary: Muted oceanic teal (#2A5A6A) — water ambient
-- Accent: Dappled pale blue (#A0C8D8) — light from above
-- Shadow: Deep teal-navy (#1A3040) — shadowed areas
-- Coral: Muted rust pink (#8A5050) — small coral patches
-
-LIGHTING:
-- Direction: From above (water surface) — god rays angling down
-- Color temperature: Cool (underwater blue-green)
-- Signature: "dappled underwater light rays from water surface above, soft blue-green ambient, gentle caustic light patterns on sandy floor"
-
-ENVIRONMENT PACK KEYWORD STRING:
-shallow underwater seagrass meadow, flowing seagrass in gentle current, small coral reef patches, dappled light rays from water surface above, soft blue-green ambient underwater light, gentle caustic patterns on sandy bottom, vast open oceanic space
-
-PROMPT (establishing shot):
-wide establishing shot, shallow underwater seagrass meadow, no character,
-dense flowing seagrass in gentle ocean current, small coral reef formations scattered across sandy floor,
-dappled sunlight rays angling down from water surface far above, soft blue-green ambient underwater light,
-gentle caustic light patterns on the sandy seabed, faint silhouettes of fish near surface,
-vast open feeling — enormous ocean space with small intimate seagrass details,
-nostalgic stop-motion animation style, miniature diorama, macro photography,
-extremely tactile hand-crafted textures, Laika studios claymation aesthetic,
-deep oceanic teal and faded seagrass green color palette, dappled pale blue accent,
-16:9 --stylize 250 --v 6.0
-```
-
----
-
-### E3: Sandy Seabed (with Debris)
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-SHOTS: SB_020–SB_026 (Verse 2)
-
-SPEC:
-- Space: Open flat sandy seabed, slightly more cluttered than E2
-- Key elements: Clean sand in some areas, debris in others (glass bottle, old objects)
-- Atmosphere: Slightly more isolated feeling than seagrass
-
-ENVIRONMENT PACK KEYWORD STRING:
-sandy ocean floor with scattered debris, clean sand patches and cluttered areas with sunken objects, soft blue-green underwater ambient light, muted oceanic teal, isolated and quiet seabed atmosphere
-
-PROMPT (establishing shot):
-wide establishing shot, sandy ocean floor, no character,
-flat sandy seabed stretching into blue-green distance, small scattered debris — old glass bottles, rusted fragments half-buried in sand,
-clean sand areas contrasting with cluttered debris zones, soft blue-green underwater ambient light from above,
-slightly darker and more isolated atmosphere than shallow reef areas,
-nostalgic stop-motion animation style, miniature diorama, Laika studios claymation aesthetic,
-extremely tactile textures, muted oceanic teal color palette, deep oceanic teal shadows,
-16:9 --stylize 250 --v 6.0
-```
-
----
-
-### E4: Deep Abyss
-
-```
-STATUS: PENDING
-GENERATED IMAGE URL: [điền sau khi generate]
-SHOTS: SB_027–SB_046 (Pre-Chorus 2, Chorus 2, Bridge, Final Chorus)
-
-SPEC:
-- Space: Deep ocean trench, near-dark, dramatic scale contrast
-- Key elements: Rocky formations, near-darkness with occasional bioluminescent light,
-                distant whale silhouettes far above, massive sense of scale
-- Character appears TINY (visual motif: small person in vast space)
-- Scale: Character ≈ 2-3% of frame height at widest shots
-
-COLOR PALETTE:
-- Primary: Deep navy (#0A0F2C) — near-darkness
-- Secondary: Bioluminescent cyan (#40E0D0 muted version) — coral/creature glow
-- Accent: Distant pale blue (#6080A0) — faint distant light
-- Shadow: Near-black (#050810) — deep shadows
-- Rock: Dark charcoal (#252525) — rocky formations
-
-LIGHTING:
-- Direction: Near-zero ambient + point sources (bioluminescence, distant whale glow)
-- Color temperature: Very cold, near-black
-- Signature: "near-darkness deep ocean abyss, faint distant bioluminescent cyan points of light, vast dark rocky formations, character appears tiny against enormous dark space"
-
-ATMOSPHERE: Suspended particles (barely visible), slow water drift, sense of immense pressure/depth
-
-ENVIRONMENT PACK KEYWORD STRING:
-deep ocean abyss near-darkness, massive dark rocky formations, faint bioluminescent cyan points of light, distant whale silhouette far above, character tiny against enormous dark space, deep navy and near-black shadows, vast crushing depth
-
-PROMPT (establishing shot):
-wide establishing shot, deep ocean abyss, no character,
-massive dark rocky formations rising from near-black seafloor,
-near-total darkness with only faint scattered bioluminescent cyan points of light from deep sea organisms,
-enormous sense of scale — vast crushing depth visible,
-distant giant whale silhouette barely visible far above as a shadow against slightly lighter dark blue,
-slow suspended particles drifting in near-motionless water,
-nostalgic stop-motion animation style, miniature diorama, macro photography,
-extremely tactile hand-crafted textures, Laika studios claymation aesthetic,
-deep navy and near-black color palette with faint bioluminescent cyan accent,
-no internal glow no magical particles no sparkles,
-16:9 --stylize 300 --v 6.0
-```
-
----
-
-## Tier 5 — LIGHTING SETUPS
-
-| Setup ID | Tên | Keyword String | Shots |
-|----------|-----|----------------|-------|
-| L1 | Interior Warm | warm amber firelight, deep honey glow, cool oceanic teal beyond glass | SB_001–003, SB_047–048 |
-| L2 | Shallow Sea Blue | dappled underwater light rays from above, soft blue-green ambient, gentle caustic patterns | SB_005–019 |
-| L3 | Sandy Seabed Quiet | soft blue-green underwater ambient, slightly darker, isolated quiet | SB_020–026 |
-| L4 | Deep Abyss Dark | near-darkness, faint bioluminescent cyan, vast crushing depth | SB_027–046 |
-
-> [!IMPORTANT]
-> **Cross-environment brass color test:** Khi approve E1-E4 establishing shots → verify màu brass
-> của suit vẫn readable và nhất quán khi được đặt vào từng environment. Brass warm amber trong L1
-> sẽ appear teal-shifted trong L4 — đây là normal và acceptable, nhưng SHAPE phải không đổi.
-
----
-
-## Tier 6 — STYLE ANCHOR ASSETS
-
-### S2: LOCKED COLOR TONE
-
-```
-LOCKED COLOR TONE: deep oceanic teal, warm amber firelight, muted rusted brass, faded seagrass green, soft bioluminescent cyan
-```
-
-### S3: LOCKED STYLE STRING
-
-```
-LOCKED STYLE STRING: nostalgic stop-motion animation style, miniature diorama, macro photography with shallow depth of field, extremely tactile hand-crafted textures, weathered and aged surfaces, earthy muted color palette, Laika studios claymation aesthetic
-```
-
-### S4: Master Frozen Character Block ⭐
-
-> [!IMPORTANT]
-> Điền block này SAU KHI Boss approve C3. Copy nguyên văn vào mọi prompt có nhân vật.
-
-```
-MASTER FROZEN CHARACTER BLOCK:
-[ĐIỀN SAU KHI C3 APPROVED]
-
-Draft (điền URL sau khi generate C3):
-kind elderly man completely enclosed in a heavy vintage brass diving suit, large round brass sphere helmet with single circular foggy porthole glass window riveted brass ring, segmented articulated brass body suit at all joints, articulated brass gloved hands with visible knuckle joint mechanisms, thick flat-soled heavy brass boots, dark amber-orange brass with teal-green verdigris oxidation at joints and seams, deeply rusted aged patina, exaggerated spindly claymation proportions, extremely tactile stop-motion puppet texture
-```
-
-### S1: Approved Shot Gallery — Style Bank
-
-```
-[Điền sau khi Boss approve 3-5 shots đầu tiên từ Stage 4.2]
-Shot A: [URL]
-Shot B: [URL]
-Shot C: [URL]
-
-Usage: --sref [URL_A] [URL_B] [URL_C]
-```
-
----
-
-## Asset Status Summary
-
-| Asset ID | Tên | Status | URL | Dùng cho |
-|----------|-----|--------|-----|---------|
-| C1 | Face Sheet | PENDING | — | --cref --cw 0 |
-| C2 | Full Body Bare | PENDING | — | SB_047 nhà không đồ lặn |
-| **C3** | **Fully Costumed** | **PENDING** | **—** | **--cref --cw 100 (critical)** |
-| C4 | Expression Sheet | PENDING | — | Expression reference |
-| C5 | Pose Sheet | PENDING | — | Pose reference |
-| O1 | Suit Turnaround | PROMPT READY | — | Costume ref |
-| O2 | Helmet Detail | PENDING | — | Headwear ref |
-| **O3** | **Brass Hands** | **PENDING** | **—** | **--sref for 13 DETAIL hand shots** |
-| O4 | Boots Detail | PENDING | — | SB_012 |
-| P2 | Hermit Crab + Bottle | PENDING | — | SB_021–026 |
-| P5 | Coral Seedling | PENDING | — | SB_040–045 |
-| P7 | Giant Manta Ray | PENDING | — | SB_030–035 |
-| **E1** | **Glass Dome** | **PENDING** | **—** | **SB_001–003, 047–048** |
-| **E2** | **Seagrass Field** | **PENDING** | **—** | **SB_005–019** |
-| E3 | Sandy Seabed | PENDING | — | SB_020–026 |
-| **E4** | **Deep Abyss** | **PENDING** | **—** | **SB_027–046** |
-| L1 | Interior Warm | LOCKED | — | Keyword string ready |
-| L2 | Shallow Sea Blue | LOCKED | — | Keyword string ready |
-| L3 | Sandy Seabed | LOCKED | — | Keyword string ready |
-| L4 | Deep Abyss Dark | LOCKED | — | Keyword string ready |
-| S1 | Style Bank | PENDING | — | --sref |
-| **S2** | **Color Token** | **✅ LOCKED** | — | **"deep oceanic teal, warm amber firelight, muted rusted brass, faded seagrass green, soft bioluminescent cyan"** |
-| **S3** | **Style String** | **✅ LOCKED** | — | **Every prompt** |
-| S4 | Frozen Char Block | PENDING (draft ready) | — | After C3 approved |
-
-**Priority generate order:**
-1. C3 → O3 → E1 + E4 (kiểm tra cross-env color) → E2 + E3 → Props → Style Bank

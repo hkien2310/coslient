@@ -1,471 +1,318 @@
 # Character Bible Template — [Tên dự án]
 
-> **Stage:** 4.1.5 — Character & Asset Reference Design
-> **Điều kiện:** Chỉ tạo file này KHI story có nhân vật xuyên suốt nhiều shots (Story Type B hoặc C).
-> **Tiếp theo:** Stage 4.2 (Test Prompts) chỉ bắt đầu sau khi Boss duyệt ít nhất C3 + E1.
+> **Stage:** 4.1.5 — Ingredient Design (Google Flow)
+> **Tool:** Google Flow (Nano Banana image gen + VEO 3 video gen)
+> **Điều kiện:** Tạo file này trước Stage 4.2. Tất cả ingredients phải được Boss approve trước khi viết shot prompts.
 
 ---
 
-## Story Type Check — Bắt buộc xác định trước
-
-```
-STORY TYPE: [ B ] Single Character Journey
-             [ C ] Multi-Character (N nhân vật)
-             [ A ] No Character → SKIP toàn bộ file này, chuyển sang Stage 4.2
-
-CHARACTER COUNT: [số lượng]
-TOTAL SHOTS: [N shots từ storyboard]
-LOCATION COUNT: [số locations]
-CHARACTER VISIBILITY: [% shots có nhân vật xuất hiện]
-HAND/GESTURE MOTIF: [ YES / NO ]  ← nếu YES → O3 Hand Sheet là BẮT BUỘC
-```
-
----
-
-## Asset Generation Order (BẮT BUỘC tuân thủ thứ tự)
+## Nguyên tắc cốt lõi
 
 > [!IMPORTANT]
-> Không được nhảy cóc thứ tự. Mỗi tier cần được Boss duyệt trước khi sang tier tiếp theo.
+> **Mọi thứ xuất hiện nhiều lần trong video → phải trở thành ingredient với @tag.**
+> Không chỉ nhân vật — địa điểm, prop quan trọng, và style reference đều là ingredients.
+
+### Quy tắc 2 Ảnh per Ingredient
+- **Mỗi ingredient được define bằng tối đa 2 ảnh** trong Flow.
+- Dùng tối đa thông tin trong 2 ảnh đó:
+  - Ảnh 1: Multi-angle overview (front + 3/4 + side trong 1 frame)
+  - Ảnh 2: Close-up detail (texture, face, key feature)
+- Không cần nhiều hơn — Flow AI sẽ extract DNA từ 2 ảnh này.
+
+### Quy tắc 3-Ingredient Budget per Prompt (Hard Limit của Flow)
+- **Flow hard limit: tối đa 3 @tags per prompt.**
+- Mỗi shot phải plan trước sẽ dùng 3 slots đó cho gì.
+- **Budget template cho Coslient:**
+  - Slot 1: `@Character` (nhân vật chính)
+  - Slot 2: `@Environment` (địa điểm hiện tại)
+  - Slot 3: `@StyleRef` (style anchor)
+- **Exception:** DETAIL shot không có nhân vật → Slot 1 là `@Prop` hoặc `@DetailSubject`
+
+### Quy tắc Naming Convention
+- Tên @tag: PascalCase, không dấu, không space, không ký tự đặc biệt
+- Ngắn gọn: `@OldMan`, `@GlassDome`, `@BrassHand`, `@StyleRef`
+- Mô tả đủ để đọc prompt là hiểu ngay
+
+---
+
+## Story Type Check
 
 ```
-Bước 1 → [Style] 3 test prompts → Boss duyệt style fit
-Bước 2 → [C3]   Fully Costumed character → Boss duyệt master character
-Bước 3 → [O3]   Hand Detail (nếu tay là motif) → Boss duyệt hands
-Bước 4 → [E1-EN] 1 establishing shot per location → Boss duyệt cross-environment color
-Bước 5 → [Props] Chỉ props xuất hiện nhiều / visually complex
-Bước 6 → Compile Master Frozen Character Block + Environment Packs
+STORY TYPE: [ A ] No Character / [ B ] Single Character / [ C ] Multi-Character
+CHARACTER COUNT: [N]
+TOTAL SHOTS: [N]
+LOCATION COUNT: [N]
+
+INGREDIENT COUNT DỰ KIẾN:
+- Character ingredients: [N]
+- Environment ingredients: [N]
+- Prop ingredients (recurring): [N]
+- Style ingredient: 1
+TỔNG: [N] ingredients (phải upload tất cả trước khi bắt đầu generate)
 ```
 
 ---
 
-## Tier 1 — CHARACTER ASSETS
+## Tier A — CHARACTER Ingredients
+
+> Character = bất kỳ "nhân vật" nào xuất hiện trong nhiều shots.
+> Bao gồm cả con vật, nhân vật phụ thường xuyên xuất hiện.
+
+### Ảnh 1 — Multi-Angle Sheet
+
+```
+@TagName: [@CharacterName]
+STATUS: PENDING / GENERATED / UPLOADED TO FLOW
+
+MỤC ĐÍCH: Overview toàn diện, Flow dùng để hiểu silhouette, proportions, costume.
+
+PROMPT (Nano Banana):
+Character reference sheet, [CHARACTER DESCRIPTION], shown from multiple angles:
+front view, 3/4 view left, side profile, all on the same neutral background,
+full body visible in each view, no overlapping,
+[STYLE ANCHOR — ví dụ: stop-motion claymation, tactile textures, Laika aesthetic],
+reference sheet layout, clean neutral background
+```
+
+---
+
+### Ảnh 2 — Close-Up Detail
+
+```
+STATUS: PENDING / GENERATED / UPLOADED TO FLOW
+
+MỤC ĐÍCH: Detail quan trọng mà ảnh 1 không capture được rõ.
+Ví dụ: texture của costume, biểu cảm mặt, đôi tay đặc trưng.
+
+PROMPT (Nano Banana):
+Close-up detail of [CHARACTER NAME], showing [KEY DETAIL: face expression / hands / costume texture / signature feature],
+extreme macro close-up, [MATERIAL DESCRIPTION],
+[STYLE ANCHOR],
+isolated on neutral background, no background clutter
+```
+
+---
+
+### Flow Upload Info
+
+```
+@TagName: [@CharacterName]
+Image 1 URL: [link sau khi upload lên Flow]
+Image 2 URL: [link sau khi upload lên Flow]
+Flow Ingredient Name: [tên đặt trong Flow]
+Used in shot types: [STORY / DETAIL / ENV]
+3-Slot position: Slot 1 (Character)
+```
+
+---
+
+## Tier B — ENVIRONMENT Ingredients
+
+> Environment = địa điểm xuất hiện trong nhiều shots.
+> Địa điểm là "nhân vật" thứ 2 của mỗi scene — phải nhất quán như nhân vật.
+
+### Template per Environment:
+
+```
+@TagName: [@EnvironmentName]
+STATUS: PENDING / GENERATED / UPLOADED TO FLOW
+
+SHOTS IN THIS ENVIRONMENT: [SB_xxx — SB_xxx]
+
+### Ảnh 1 — Establishing Wide Shot
+MỤC ĐÍCH: Flow hiểu tổng thể không gian, scale, màu sắc chủ đạo.
+
+PROMPT (Nano Banana):
+Wide establishing shot of [ENVIRONMENT DESCRIPTION], no characters present,
+showing [KEY ARCHITECTURAL/NATURAL ELEMENTS],
+[LIGHTING DESCRIPTION],
+[ATMOSPHERE: particles / fog / underwater / etc.],
+[COLOR PALETTE: 3-5 màu chính],
+[STYLE ANCHOR], cinematic composition, 16:9
+
+### Ảnh 2 — Key Atmosphere Detail
+MỤC ĐÍCH: Capture đặc trưng không thể nhầm lẫn của địa điểm này.
+
+PROMPT (Nano Banana):
+Close-medium shot detail of [SIGNATURE ELEMENT of this environment],
+[KEY TEXTURE / MATERIAL / LIGHT EFFECT],
+[STYLE ANCHOR], macro photography, shallow depth of field
+
+### Flow Upload Info
+Image 1 URL: [establishing shot]
+Image 2 URL: [detail shot]
+Flow Ingredient Name: [@TagName]
+3-Slot position: Slot 2 (Environment)
+
+### Environment Pack Keywords (dùng trong mọi shot prompt của location này)
+[Compact 20-30 word string mô tả environment — paste vào text prompt bổ sung cho @tag]
+```
+
+---
+
+## Tier C — PROP Ingredients
+
+> Prop ingredient = vật thể xuất hiện trong 3+ shots HOẶC có tương tác vật lý phức tạp.
+> Prop ít xuất hiện hơn → mô tả trong text prompt, không cần ingredient.
+
+### Template per Prop:
+
+```
+@TagName: [@PropName]
+STATUS: PENDING / GENERATED / UPLOADED TO FLOW
+
+SHOTS USING THIS PROP: [SB_xxx, SB_xxx...]
+THRESHOLD CHECK: Xuất hiện [N] lần → Có/Không cần ingredient?
+
+### Ảnh 1 — Prop Overview
+PROMPT (Nano Banana):
+Prop design sheet, [PROP DESCRIPTION], multiple views on same neutral background,
+scale reference visible (compare to [human hand / common object]),
+[MATERIAL, COLOR, TEXTURE DETAILS],
+[STYLE ANCHOR], isolated, no background
+
+### Ảnh 2 — Interaction Close-Up
+PROMPT (Nano Banana):
+Close-up of [PROP] in the context of interaction:
+[HOW CHARACTER HOLDS/TOUCHES/USES IT],
+[KEY INTERACTION DETAIL],
+[STYLE ANCHOR], macro photography
+
+### Flow Upload Info
+Image 1 URL: [prop overview]
+Image 2 URL: [interaction shot]
+Flow Ingredient Name: [@TagName]
+3-Slot position: Slot 1 (khi không có character) / varies
+```
+
+---
+
+## Tier D — STYLE Ingredient
+
+> Một style reference duy nhất, áp dụng cho toàn bộ video.
+> Được cập nhật sau khi Boss approve 3-5 shots đầu tiên.
+
+```
+@TagName: @StyleRef
+STATUS: PENDING — điền sau khi approve shots đầu tiên
+
+### Ảnh 1 — Primary Style Frame
+[URL shot đầu tiên được approve — đây là "bộ mặt" của video]
+CHỌN: Shot có đầy đủ nhất: character + environment + lighting + texture
+
+### Ảnh 2 — Secondary Style Frame (Optional)
+[URL shot thứ 2 được approve — tăng variety cho style reading]
+CHỌN: Shot với lighting hoặc environment khác để tăng style range
+
+Flow Ingredient Name: @StyleRef
+3-Slot position: Slot 3 (luôn luôn)
+NOTE: Cập nhật @StyleRef URL sau mỗi batch nếu tìm được shot đẹp hơn.
+```
+
+---
+
+## Ingredient Registry (Điền đầy đủ trước khi generate)
+
+```
+| @Tag | Type | Slot | Ảnh 1 | Ảnh 2 | Status | Shots |
+|------|------|------|-------|-------|--------|-------|
+| @[Char] | Character | 1 | — | — | PENDING | STORY shots |
+| @[Env1] | Environment | 2 | — | — | PENDING | SB_xxx–SB_xxx |
+| @[Env2] | Environment | 2 | — | — | PENDING | SB_xxx–SB_xxx |
+| @[Prop] | Prop | varies | — | — | PENDING | SB_xxx, SB_xxx |
+| @StyleRef | Style | 3 | — | — | PENDING | All |
+```
+
+---
+
+## 3-Ingredient Budget Map
+
+> Mỗi shot phải assign đủ 3 slots trước khi viết prompt.
+> Điền bảng này trước khi viết `04_image_prompts.txt`.
+
+| Shot Type | Slot 1 | Slot 2 | Slot 3 |
+|-----------|--------|--------|--------|
+| STORY (character + env) | `@Character` | `@Environment` | `@StyleRef` |
+| DETAIL (prop/body part + env) | `@Prop/@Detail` | `@Environment` | `@StyleRef` |
+| ENV only | `@Environment` | `@StyleRef` | — |
+| Multi-character | `@Char1` | `@Char2` | `@Environment` *(StyleRef mô tả trong text)* |
+
+---
+
+## Flow Prompt Templates
+
+### STORY Shot Template
+```
+[Shot size], @[Character] [action verb] [how], @[Environment] [brief context],
+[camera movement — 1 move only],
+[lighting keyword — 3-5 words],
+Audio: [specific ambient sounds matching scene]. No music. No score. No dialogue. No voiceover.
+```
+
+**Ví dụ:**
+```
+Medium shot, @OldMan kneels slowly on sandy seafloor placing something gently down, @SandyBed quiet isolated,
+static locked frame tilting down slightly,
+soft blue-green underwater ambient light,
+Audio: muffled underwater silence, faint sand displacement, distant water pressure hum. No music. No score. No dialogue. No voiceover.
+```
+
+### ENV Shot Template (không có character)
+```
+[Shot size] establishing shot, @[Environment] [atmosphere description],
+[camera movement],
+[lighting],
+Audio: [ambient sounds of this environment]. No music. No score.
+```
+
+### DETAIL Shot Template (cận vật/tay)
+```
+Extreme close-up, @[Prop/Detail] [action/state],
+[shot context — what surrounds it],
+macro photography shallow depth of field,
+[lighting],
+Audio: [specific small sound — fabric rustle, water, metal creak]. No music.
+```
+
+---
+
+## Flow Generation Workflow
+
+```
+Bước 1: Generate tất cả ingredient images trong Nano Banana (ảnh 1 + ảnh 2 per ingredient)
+Bước 2: Boss approve từng ingredient
+Bước 3: Upload approved images lên Flow → đặt @tag names
+Bước 4: Điền URLs vào Ingredient Registry ở trên
+Bước 5: Điền 3-Ingredient Budget Map
+Bước 6: Viết shot prompts vào 04_image_prompts.txt (Stage 4.3)
+Bước 7: Generate images qua Nano Banana trong Flow
+Bước 8: Generate videos qua VEO 3 trong Flow (dùng "Add to Scene" cho continuity)
+```
+
+---
+
+## Flow Continuity Protocol (Video Generation)
 
 > [!IMPORTANT]
-> **C3 (Fully Costumed) là asset quan trọng nhất.** Đây là image làm `--cref` cho 80-90% shots trong video. Phải generate và Boss duyệt trước tất cả assets khác.
+> **"Add to Scene"** là cơ chế chính để duy trì continuity trong Flow.
+> KHÔNG generate từng clip hoàn toàn độc lập nếu tránh được.
 
-### C1: Character Face Sheet
-
-**Mục đích:** Lock facial identity. Dùng làm `--cref --cw 0` khi chỉ cần giữ mặt (không giữ costume).
-
-```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-[MJ JOB ID: ...]
-
-PROMPT:
-character design sheet, multiple angles, turnaround, front view + 3/4 view + side profile + back view,
-[MÔ TẢ MẶT NHÂN VẬT: tuổi, giới tính, đặc điểm nổi bật],
-neutral expression, isolated on clean neutral background,
-[STYLE ANCHOR],
-character reference sheet layout, no background, 16:9
---stylize [N] --v 6.0
-```
+| Transition Type | Cách xử lý trong Flow |
+|----------------|----------------------|
+| **Cùng location, shot tiếp theo** | "Add to Scene" → VEO maintain continuity |
+| **Extend clip** | "Extend" feature → chain seamlessly |
+| **Đổi location** | "Jump To" + ENV shot reference trước |
+| **Time jump** | Generate DETAIL shot làm bridge, rồi "Add to Scene" |
 
 ---
 
-### C2: Character Full Body (Bare / Undressed)
-
-**Mục đích:** Lock body proportions khi nhân vật không mặc costume đặc trưng.
+## Quality Gate — Trước khi generate shots
 
 ```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-PROMPT:
-full body turnaround, front and back, [MÔ TẢ CƠ THỂ NHÂN VẬT: tỷ lệ, đặc trưng],
-wearing [trang phục bình thường khi ở nhà],
-isolated on neutral background,
-[STYLE ANCHOR],
-16:9
---stylize [N] --v 6.0
+Ingredient Quality Check:
+[ ] Tất cả ingredients đã được Boss approve?
+[ ] Tất cả @tags đã upload lên Flow với đúng tên?
+[ ] Ingredient Registry đã đầy đủ URLs?
+[ ] 3-Ingredient Budget Map đã điền cho mọi shot?
+[ ] Không shot nào vượt quá 3 @tags?
 ```
-
----
-
-### C3: Character Fully Costumed ⭐ CRITICAL
-
-**Mục đích:** Master reference dùng làm `--cref --cw 100` cho toàn bộ shots có nhân vật mặc costume đầy đủ. Đây là asset quan trọng nhất của toàn bộ video.
-
-```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]  ← URL này được dùng làm --cref cho mọi shot
-
-PROMPT:
-full body character design sheet, multiple angles (front / 3-quarter / side / back),
-[MÔ TẢ NHÂN VẬT] wearing [MÔ TẢ CHI TIẾT TỪNG LAYER CỦA COSTUME],
-isolated on neutral background,
-[STYLE ANCHOR],
-highly detailed costume, visible texture and material,
-16:9
---stylize [N] --v 6.0
-```
-
-**Dùng với:**
-- `--cref [C3_URL] --cw 100` → lock cả face + full costume
-- `--cref [C3_URL] --cw 50` → lock costume shape, ít lock mặt hơn
-
----
-
-### C4: Character Expression Sheet
-
-**Mục đích:** Tham khảo khi viết prompts cần biểu cảm cụ thể, đặc biệt nếu face bị che khuất (qua kính, từ xa, góc nghiêng).
-
-```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-EXPRESSIONS CẦN COVER (theo emotional beats trong storyboard):
-- [Biểu cảm 1]: [tên cảm xúc]
-- [Biểu cảm 2]: [tên cảm xúc]
-- [Biểu cảm 3]: [tên cảm xúc]
-- [Biểu cảm 4]: [tên cảm xúc]
-- [Biểu cảm 5]: [tên cảm xúc]
-
-PROMPT:
-expression sheet, [CHARACTER DESCRIPTION],
-5 expressions side by side: [list expressions],
-isolated on neutral background,
-[STYLE ANCHOR],
-16:9 --stylize [N] --v 6.0
-```
-
----
-
-### C5: Character Signature Pose Sheet
-
-**Mục đích:** Tham khảo khi viết prompts cho STORY shots — poses mapping với actions trong storyboard.
-
-```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-POSES CẦN COVER (từ STORY shots trong storyboard):
-- Pose A: [tên pose] — dùng ở shots [SB_XXX]
-- Pose B: [tên pose] — dùng ở shots [SB_XXX]
-- Pose C: [tên pose] — dùng ở shots [SB_XXX]
-
-PROMPT:
-action pose sheet, [CHARACTER DESCRIPTION],
-[list poses] side by side on neutral background,
-[STYLE ANCHOR],
-full body visible, 16:9 --stylize [N] --v 6.0
-```
-
----
-
-## Tier 2 — COSTUME / OUTFIT ASSETS
-
-### O1: Outfit Turnaround
-
-**Mục đích:** Lock costume details độc lập với nhân vật. Dùng khi cần tham khảo texture/shape mà không cần nhân vật trong frame.
-
-```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-COSTUME NAME: [tên costume]
-
-LAYER-BY-LAYER SPEC:
-- Outer layer: [mô tả]
-- Accessories: [mô tả]
-- Material: [mô tả texture, màu sắc chính xác]
-- Color code: [hex hoặc descriptive]
-- Aging/weathering: [mô tả mức độ cũ/mới]
-
-PROMPT:
-prop design sheet, costume turnaround, front + side + back + 3-quarter,
-[MÔ TẢ CHI TIẾT COSTUME], isolated on neutral background,
-[STYLE ANCHOR], 16:9 --stylize [N] --v 6.0
-```
-
----
-
-### O2: Headwear / Helmet Detail Sheet
-
-**Bắt buộc khi:** Costume có headwear đặc biệt hoặc che khuất mặt nhân vật.
-
-```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-PROMPT:
-detailed prop sheet, [TÊN HEADWEAR], close-up detail views from multiple angles,
-[MÔ TẢ CHI TIẾT: material, texture, key features],
-isolated on neutral background,
-[STYLE ANCHOR], 16:9 --stylize [N] --v 6.0
-```
-
----
-
-### O3: Hand Detail Sheet ⭐ (BẮT BUỘC nếu tay là visual motif)
-
-**Bắt buộc khi:** Story có nhiều DETAIL shots về bàn tay, hoặc tay là visual motif trung tâm của câu chuyện.
-
-```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-HAND MOTIF ROLE: [mô tả tại sao tay quan trọng trong story này]
-SHOTS USING HANDS: [list SB_IDs]
-
-TEXTURE SPEC:
-- Material: [mô tả]
-- Color: [mô tả chính xác]
-- Aging details: [mô tả chi tiết rust/wear pattern]
-- Joint details: [mô tả]
-- Finger proportions: [mô tả]
-
-PROMPT:
-detailed hand reference sheet, multiple views (palm facing up / palm facing down / side / gripping / open),
-[MÔ TẢ CHI TIẾT BÀN TAY], isolated on neutral background,
-[STYLE ANCHOR], extreme close-up macro photography, 16:9
---stylize [N] --v 6.0
-```
-
----
-
-### O4: Footwear Detail
-
-```
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-PROMPT:
-detailed footwear prop sheet, [TÊN FOOTWEAR], front and side view,
-[MÔ TẢ], isolated on neutral background, [STYLE ANCHOR],
-16:9 --stylize [N] --v 6.0
-```
-
----
-
-## Tier 3 — PROP ASSETS
-
-> [!NOTE]
-> Chỉ tạo Prop Sheet cho props: (1) xuất hiện trong 3+ shots, HOẶC (2) visually complex, HOẶC (3) có tương tác vật lý rõ ràng với nhân vật.
-
-### Template per prop:
-
-```
-### P[N]: [Tên prop]
-
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-SHOTS USING THIS PROP: [list SB_IDs]
-
-SPEC:
-- Scale: [so sánh với character — ví dụ "bằng 1/3 chiều cao nhân vật"]
-- Material: [mô tả]
-- Color: [mô tả chính xác]
-- Weight/Physics feel: [nặng / nhẹ / fragile / solid]
-- Interaction type: [cách nhân vật cầm/đặt/sử dụng]
-
-PROMPT:
-prop design sheet, orthographic views (front / side / top),
-[MÔ TẢ CHI TIẾT PROP], scale reference indicator,
-isolated on neutral background, [STYLE ANCHOR],
-16:9 --stylize [N] --v 6.0
-```
-
----
-
-## Tier 4 — ENVIRONMENT ASSETS
-
-> [!IMPORTANT]
-> **Bắt buộc tạo 1 establishing shot cho MỖI location** trước khi viết bất kỳ prompt nào trong location đó. Mục tiêu: verify màu brass của nhân vật vẫn đúng khi đặt vào các lighting environment khác nhau.
-
-### Template per location:
-
-```
-### E[N]: [Tên location]
-
-[STATUS: PENDING / GENERATED / APPROVED]
-[GENERATED IMAGE URL: ...]
-
-SHOTS IN THIS LOCATION: [list SB_IDs]
-
-LOCATION SPEC:
-- Không gian: [mô tả tổng quan]
-- Scale indicator: [nhân vật chiếm bao nhiêu % frame]
-- Key structural elements: [liệt kê 3-5 elements quan trọng nhất]
-
-COLOR PALETTE (5 màu chính):
-- Primary: [hex + descriptive name]
-- Secondary: [hex + descriptive name]
-- Accent: [hex + descriptive name]
-- Shadow color: [hex + descriptive name]
-- Highlight color: [hex + descriptive name]
-
-LIGHTING:
-- Direction: [từ đâu]
-- Color temperature: [ấm/lạnh, Kelvin estimate]
-- Intensity: [mô tả]
-- Signature keyword: [1-2 từ khoá lighting cho prompt]
-
-ATMOSPHERE:
-- Particles/effects: [fog / dust / bubbles / none]
-- Movement: [slow / fast / still]
-- Depth cues: [mô tả cách tạo depth trong environment này]
-
-TRANSITION POINTS:
-- Entry: [nhân vật từ đâu đến]
-- Exit: [nhân vật đi về đâu]
-- Bridge shot type: [Direct / Environmental / Detail]
-
-ENVIRONMENT PACK KEYWORD STRING (dùng trong mọi prompt trong location này):
-[compact string 30-50 từ mô tả environment — copy-paste vào prompt]
-
-PROMPT (establishing shot):
-wide establishing shot, empty scene with no character,
-[MÔ TẢ TOÀN CẢNH LOCATION], [LIGHTING], [ATMOSPHERE],
-[STYLE ANCHOR], [COLOR_TONE],
-16:9 --stylize [N] --v 6.0
-```
-
----
-
-## Tier 5 — LIGHTING SETUPS
-
-```
-## LIGHTING LIBRARY — [Tên dự án]
-
-| Setup ID | Tên | Keyword String | Áp dụng shots |
-|----------|-----|----------------|--------------|
-| L1 | [Tên] | [compact lighting keywords] | [SB_IDs] |
-| L2 | [Tên] | [compact lighting keywords] | [SB_IDs] |
-| L3 | [Tên] | [compact lighting keywords] | [SB_IDs] |
-| L4 | [Tên] | [compact lighting keywords] | [SB_IDs] |
-
-Quy tắc: brass/metal color phải được verify dưới TỪNG lighting setup.
-Nếu brass bị shift sang màu khác dưới lighting mới → thêm anchor màu cụ thể vào Environment Pack.
-```
-
----
-
-## Tier 6 — STYLE ANCHOR ASSETS
-
-### S1: Approved Shot Gallery (Style Bank)
-
-```
-[Sau khi Boss approve 3-5 shots đầu tiên, điền URL vào đây]
-Shot 1: [URL] — dùng làm --sref primary
-Shot 2: [URL] — dùng làm --sref secondary
-Shot 3: [URL] — ...
-
-Cách dùng: --sref [URL1] [URL2] [URL3] (combine tối đa 3 URLs)
-```
-
----
-
-### S2: LOCKED COLOR TONE
-
-```
-[Copy từ Stage 4.1 Bước 3 — không thay đổi qua toàn bộ video]
-
-LOCKED COLOR TONE: [color tone string]
-```
-
----
-
-### S3: LOCKED STYLE STRING
-
-```
-[Style anchor compact — dùng trong mọi prompt]
-
-LOCKED STYLE STRING: [style anchor string]
-```
-
----
-
-### S4: Master Frozen Character Block ⭐
-
-> [!IMPORTANT]
-> **Đây là block văn bản KHÔNG ĐỔI qua toàn bộ 48 shots.** Copy-paste nguyên văn vào mọi prompt có nhân vật. Không paraphrase, không rút gọn.
-
-```
-MASTER FROZEN CHARACTER BLOCK:
-[
-  Viết đây sau khi đã approve C3.
-  Block này mô tả: WHO + WEARING WHAT + MATERIAL DETAILS.
-  Không bao gồm: location, action, camera, lighting.
-  Độ dài mục tiêu: 40-60 từ.
-]
-```
-
----
-
-## Master Prompt Architecture (Reference khi viết 04_image_prompts.txt)
-
-```
-# SB_[ID] | [Section] | [Timecode] | Type: [STORY/ENV/DETAIL]
-
-[FROZEN_CHARACTER_BLOCK] (nếu shot có nhân vật)
-[SHOT_SPECIFIC_ACTION] (hành động/cảnh cụ thể của shot này)
-[CAMERA_ANGLE_AND_FRAMING]
-[ENVIRONMENT_PACK_CURRENT] (thay đổi theo location)
-[LIGHTING_SETUP_CURRENT] (từ Tier 5)
-[LOCKED_STYLE_STRING]
-[LOCKED_COLOR_TONE]
-16:9 --ar 16:9 --cref [C3_URL] --cw 100 --sref [S1_URL] --stylize [N] --v 6.0
-```
-
----
-
-## Quality Gate — Kiểm tra mỗi shot trước khi approve
-
-```
-Per-Shot Quality Checklist:
-[ ] Costume material/color matches O1 reference?
-[ ] Hand proportions/texture match O3 reference? (nếu tay visible)
-[ ] Helmet/headwear shape matches C3 reference?
-[ ] Background color palette matches environment sheet?
-[ ] Art style matches S1 style bank?
-
-Nếu fail bất kỳ điểm nào → regenerate với tighter --cref --cw + targeted negative prompt.
-```
-
----
-
-## Regeneration Protocol (Khi shot bị drift)
-
-```
-CHARACTER FACE DRIFT:
-→ Tăng --cw về 80-100
-→ Thêm vào negative: [tên vật liệu không đúng], [màu sắc không đúng]
-→ Confirm dùng đúng C3_URL làm --cref
-
-COSTUME MATERIAL DRIFT:
-→ Thêm material anchor vào prompt: "[vật liệu cụ thể] [màu hex-descriptive]"
-→ Dùng O1 URL làm --sref phụ
-
-ENVIRONMENT COLOR BLEED (màu environment bôi lên nhân vật):
-→ Thêm materiality anchor: "[costume material] [color] [surface texture]" gắn trực tiếp vào tên chất liệu
-→ Thêm negative: "no color bleed, [costume color] isolated to costume fabric only"
-
-NGUYÊN TẮC TUYỆT ĐỐI:
-KHÔNG bao giờ dùng output shot làm --cref cho shot tiếp theo.
-LUÔN dùng master C3 sheet gốc làm --cref. (Tránh generational drift)
-```
-
----
-
-## Asset Status Summary (Cập nhật liên tục)
-
-| Asset ID | Tên | Status | URL | Dùng cho |
-|----------|-----|--------|-----|---------|
-| C1 | Face Sheet | PENDING | — | --cref --cw 0 |
-| C2 | Full Body Bare | PENDING | — | Body proportion ref |
-| **C3** | **Fully Costumed** | **PENDING** | **—** | **--cref --cw 100 (critical)** |
-| C4 | Expression Sheet | PENDING | — | Expression ref |
-| C5 | Pose Sheet | PENDING | — | Pose ref |
-| O1 | Outfit Turnaround | PENDING | — | Costume ref |
-| O2 | Headwear Detail | PENDING | — | Headwear ref |
-| O3 | Hand Detail | PENDING | — | --sref hands |
-| O4 | Footwear Detail | PENDING | — | Footwear ref |
-| P[N] | Props | PENDING | — | Per-shot |
-| E[N] | Environments | PENDING | — | Environment packs |
-| L[N] | Lighting Setups | PENDING | — | Per-location |
-| S1 | Style Bank | PENDING | — | --sref |
-| S2 | Color Token | PENDING | — | End of every prompt |
-| S3 | Style String | PENDING | — | Every prompt |
-| S4 | Frozen Char Block | PENDING | — | Character shots |
