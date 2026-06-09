@@ -91,68 +91,80 @@ Coslient must follow this strict step-by-step sub-stage workflow:
      `# LOCKED COLOR TONE: [Color Tone String]`
      Mọi agent trong Stage 4.3 đều nhận và bắt buộc dùng nguyên văn Color Tone String này.
 
-1.5. **Stage 4.1.5: Ingredient Design — Google Flow (BẮT BUỘC)** ➔
+1.5. **Stage 4.1.5: Character Design — Google Flow @Character System** ➔
 
    > [!IMPORTANT]
-   > **Tool chính thức: Google Flow (Nano Banana + VEO 3)**
-   > Không dùng Midjourney. Mọi image và video generation xảy ra trong Google Flow.
-   > **Nguyên tắc:** Mọi thứ xuất hiện nhiều lần trong video → phải trở thành ingredient với @tag.
+   > **Tách biệt 2 việc:**
+   > 1. **Flow @Character System** — upload reference images để ghim consistency khi VEO 3 generate video
+   > 2. **Image Generation Tool** — Boss chọn tool riêng (không phải Nano Banana) để tạo ảnh đẹp hơn
+   >
+   > Flow @Character feature CHỈ dùng cho những thứ THẬT SỰ cần consistency xuyên suốt video.
+   > Môi trường → mô tả bằng text trong prompt (không cần upload lên Flow Character).
 
    **Bước 0 — Story Type Check:**
    - `Type A: No Character` → **SKIP Stage 4.1.5**, sang Stage 4.2
-   - `Type B/C: Có nhân vật` → **Full Ingredient workflow bắt buộc**
+   - `Type B/C: Có nhân vật` → **Full Character workflow bắt buộc**
 
    **Bước 1 — Tạo file Character Bible (BẮT BUỘC với Type B/C):**
    Dùng template `flow/04s_character_bible_template.md` → tạo `projects/video_xxx/docs/04_character_bible.md`.
-   File này định nghĩa tất cả ingredients, @tag names, 2-ảnh-per-ingredient prompts, và 3-slot budget map.
 
-   **Bước 2 — Ingredient Classification:**
-   Xem qua toàn bộ storyboard, liệt kê mọi thứ xuất hiện nhiều lần:
+   **Bước 2 — Quyết định gì cần upload lên Flow @Character:**
    ```
-   - Nhân vật → @Character ingredient (bắt buộc)
-   - Prop quan trọng (3+ shots hoặc có tương tác phức tạp) → @Prop ingredient
-   - Style reference → @StyleRef ingredient (1 ingredient duy nhất)
+   ✅ UPLOAD LÊN FLOW @CHARACTER:
+   - Nhân vật (người, sinh vật) — consistency quan trọng nhất
+   - Bộ trang phục/costume đặc trưng khác nhau của cùng nhân vật
+   - Body part quan trọng (VD: @BrassHand — xuất hiện 13 shots)
+   - Không gian NHỎ/KHÉP KÍN lặp lại nhiều (VD: @GlassDome — tuỳ chọn)
 
-   - Địa điểm → CÂU HỎI TRƯỚC KHI QUYẾT ĐỊNH:
-     ┌─ Không gian NHỎ / KHÉP KÍN với chi tiết CỐ ĐỊNH?
-     │  (căn phòng, ngôi nhà, khoang tàu — người xem sẽ nhận ra nếu chi tiết thay đổi)
-     │  → ✅ Làm @Environment ingredient
-     │
-     └─ Không gian RỘNG / MỞ?
-        (đáy biển, rừng, đồng — mỗi shot ở một điểm khác nhau, biến đổi là tự nhiên)
-        → ❌ Dùng Environment Pack Keywords (20-30 từ text) trong prompt là đủ
+   ❌ KHÔNG CẦN UPLOAD — dùng Environment Pack Keywords trong text:
+   - Môi trường RỘNG/MỞ (đáy biển, rừng, đồng bằng, bầu trời)
+   - Mỗi shot ở vị trí khác nhau trong cùng khu vực → variation là tự nhiên
+   - Bối cảnh chỉ cần "cảm giác chung" không cần "chi tiết giống hệt"
    ```
 
-   **Bước 3 — Generate Ingredients (Nano Banana, 2 ảnh per ingredient):**
+   **Bước 3 — Tạo reference images cho @Characters (dùng tool Boss chọn):**
    ```
-   Ảnh 1: Multi-angle overview (front + side + 3/4 trong 1 frame)
-   Ảnh 2: Close-up detail (texture, face, key feature)
-   ```
+   Với mỗi @Character cần upload:
+   - Ảnh 1: Multi-angle overview (front + side + 3/4 trong 1 frame) — để Flow hiểu silhouette
+   - Ảnh 2: Close-up detail (face, texture, key feature) — để Flow hiểu chi tiết quan trọng
+   - Character Info: đoạn text mô tả 50-150 từ điền vào Flow khi upload (BẮT BUỘC)
+
    Thứ tự generate:
-   ```
-   1. Character chính (quan trọng nhất)
-   2. Character phụ / Detail body part (ví dụ: @BrassHand)
-   3. Environments (verify cross-environment consistency)
-   4. Props
-   5. @StyleRef (sau khi approve 3-5 shots đầu tiên)
+   1. Nhân vật chính (quan trọng nhất)
+   2. Costume variants (VD: @OldMan trong nhà vs @DivingSuit ngoài biển)
+   3. Body part / detail character (VD: @BrassHand)
+   4. Enclosed environment nếu cần (VD: @GlassDome — 1 ảnh thôi, không cần kỹ)
    ```
 
    **Bước 4 — Upload lên Flow và đặt @tag names:**
-   - Upload cả 2 ảnh per ingredient lên Flow
-   - Đặt tên: PascalCase, no spaces (`@OldMan`, `@GlassDome`, `@BrassHand`)
-   - Ghi URLs và @tag names vào Ingredient Registry trong Character Bible
+   - Upload cả 2 ảnh per character lên Flow
+   - Đặt tên: PascalCase, no spaces (`@OldMan`, `@DivingSuit`, `@BrassHand`)
+   - Điền Character Info vào ô text khi upload
+   - Ghi URLs và @tag names vào Character Bible
 
-   **Bước 5 — 3-Ingredient Budget Planning (Hard Limit của Flow):**
+   **Bước 5 — Chuẩn bị Environment Pack Keywords (cho môi trường mở):**
    ```
-   Flow chỉ nhận tối đa 3 @tags per prompt.
+   Với mỗi môi trường mở, viết sẵn 1 chuỗi keyword ~20-30 từ:
+   VD: @DeepAbyss → "near-black deep ocean abyss, massive dark rocky formations,
+       faint bioluminescent cyan points, crushing depth, distant whale silhouette"
+   VD: @Seagrass → "shallow seagrass meadow, dappled sunlight from surface above,
+       blue-green underwater ambient, caustic light patterns on sand"
+
+   Paste keyword pack này vào text prompt của mỗi shot thay vì dùng @tag.
+   ```
+
+   **Bước 6 — 3-Slot Budget Planning:**
+   ```
+   Flow nhận tối đa 3 @tags per prompt.
    Standard allocation:
-   - Slot 1: @Character
-   - Slot 2: @Environment
+   - Slot 1: @Character (nhân vật)
+   - Slot 2: @EnclosedEnvironment (nếu cần — VD: @GlassDome)
+            hoặc để trống nếu môi trường tả bằng text
    - Slot 3: @StyleRef
    ```
-   Điền 3-Ingredient Budget Map trong Character Bible trước khi viết bất kỳ shot prompt nào.
 
-   **Bước 6 — Shot Prompt Format (dùng từ Stage 4.3 trở đi):**
+   **Bước 7 — Shot Prompt Format:**
+
    ```
    [Shot size], @Character [action] in @Environment,
    [1 camera movement],
