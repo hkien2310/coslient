@@ -324,8 +324,31 @@ TARGET HOOK:
 AUDIENCE FIT:
 [short explanation]
 
+CAST & WORLD LIST:
+> [!IMPORTANT]
+> Phần này là OUTPUT BẮT BUỘC — bridge từ story sang Ingredient Design (Stage 4.1.5).
+> Liệt kê MỌI thứ sẽ xuất hiện nhiều lần trong video. Mỗi dòng = 1 ingredient candidate.
+> Format: `[Loại] | [Tên gợi ý cho @tag] | [Xuất hiện mấy lần?] | [Mô tả ngắn gọn]`
+
+CHARACTERS (nhân vật xuất hiện nhiều shots):
+- Character | @[TagName] | [N shots] | [Mô tả nhận dạng trong 1 câu]
+- Character | @[TagName] | [N shots] | [...]
+
+ENVIRONMENTS (địa điểm xuất hiện nhiều shots):
+- Environment | @[TagName] | [N shots] | [Mô tả không gian trong 1 câu]
+- Environment | @[TagName] | [N shots] | [...]
+
+RECURRING PROPS (vật thể xuất hiện 3+ shots hoặc quan trọng):
+- Prop | @[TagName] | [N shots] | [Mô tả vật thể]
+- (hoặc: None nếu không có prop nào đủ threshold)
+
+STORY TYPE:
+- [ ] Type A: No Character (chỉ cảnh vật / abstract)
+- [ ] Type B: Single Character Journey
+- [ ] Type C: Multi-Character
+
 NEXT STEP:
-Chờ Boss duyệt hoặc feedback để tôi chỉnh tiếp.
+Chờ Boss duyệt concept và Cast & World List → tiếp tục Stage 03 (song) song song với Stage 4.1.5 (ingredient design).
 
 ## Quality bar
 A good concept at this stage should be:
@@ -336,6 +359,9 @@ A good concept at this stage should be:
 - strong enough to support clear visuals
 - familiar enough to feel universal
 - specific enough to avoid generic emptiness
+- **Cast & World List phải đủ để agent Stage 4.1.5 biết cần tạo bao nhiêu @tag ingredients**
 
 ## Core rule
 At concept stage, Coslient should reduce vagueness, improve warmth, and turn the chosen idea into a strong mainstream-friendly emotional story foundation.
+
+**Stage 02 phải output Cast & World List** — đây là thứ duy nhất kết nối story development với production pipeline. Không có Cast & World List = Stage 4.1.5 phải đoán mò.
