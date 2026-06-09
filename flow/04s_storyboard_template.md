@@ -2,6 +2,7 @@
 
 > **Stage:** 3.5 — Storyboard Planning
 > **Điều kiện:** Chỉ tạo file này SAU KHI Boss đã duyệt bài hát (Stage 3).
+> **Reference System:** Nếu story có nhân vật → `04_character_bible.md` phải được tạo song song hoặc trước (Stage 4.1.5).
 > **Tiếp theo:** Stage 4.1 chỉ bắt đầu sau khi Boss duyệt bảng storyboard bên dưới.
 
 ---
@@ -96,3 +97,53 @@ ACTIVE STYLE: [tên file style đang dùng]
 > - **Direct** — Cùng không gian, góc máy khác → last frame A làm start frame B
 > - **Environmental** — Đổi location → tạo ENV shot làm "xả" trước khi vào location mới
 > - **Detail** — Time jump → tạo DETAIL shot (cận vật thể) — không cần match spatial anchor
+
+---
+
+## Reference Asset Tracker (Điền sau khi Character Bible được approve)
+
+> Chỉ điền section này SAU KHI `04_character_bible.md` đã có đủ C3 + E1-EN approved.
+> Mục đích: Agent nhìn vào đây biết ngay cần dùng ref nào khi generate từng batch.
+
+### Story Type
+```
+STORY TYPE: [ A ] No Character / [ B ] Single Character / [ C ] Multi-Character
+```
+
+### Character Reference Mapping (Type B / C)
+```
+MASTER CHARACTER REF:
+- C3 (Full Costumed): [URL — dùng --cref ... --cw 100 cho mọi STORY shot]
+- C3 (Face only):    [URL — dùng --cref ... --cw 0 khi chỉ thấy mặt]
+- O3 (Hands):        [URL — dùng --sref cho DETAIL tay shots]
+```
+
+### Environment Pack Reference
+```
+| Location Pack | Shots | Establishing Ref URL | Lighting String |
+|--------------|-------|---------------------|----------------|
+| E1: [Tên]    | SB_xxx–SB_xxx | [URL] | [lighting keywords] |
+| E2: [Tên]    | SB_xxx–SB_xxx | [URL] | [lighting keywords] |
+| E3: [Tên]    | SB_xxx–SB_xxx | [URL] | [lighting keywords] |
+```
+
+### Shot-Reference Map (dùng khi generate 04_image_prompts.txt)
+
+> Khi bắt đầu generate từng shot: tra bảng này để biết dùng ref nào.
+
+| Shot ID | Type | Char Ref | Env Pack | Props | Lighting |
+|---------|------|---------|----------|-------|---------|
+| SB_001 | ENV | — | E1 | — | L1 |
+| SB_002 | DETAIL | — | E1 | — | L1 |
+| SB_003 | STORY | C3 --cw 100 | E1 | — | L1 |
+| ... | | | | | |
+
+### Style Bank (S1 — dùng làm --sref)
+```
+[Điền sau khi Boss approve 3-5 shots đầu tiên]
+Shot A: [URL]
+Shot B: [URL]
+Shot C: [URL]
+
+Usage: --sref [URL_A] [URL_B] [URL_C]
+```

@@ -90,7 +90,73 @@ Coslient must follow this strict step-by-step sub-stage workflow:
    - **Bước 4 — Lock & Broadcast Color Tone:** Sau khi Boss duyệt, Color Tone String này được **KHÓA CỨNG** cho toàn bộ video. Ghi vào đầu file `04_image_prompts.txt` và vào mục `LOCKED COLOR TONE` trong file `03_storyboard.md` của dự án:
      `# LOCKED COLOR TONE: [Color Tone String]`
      Mọi agent trong Stage 4.3 đều nhận và bắt buộc dùng nguyên văn Color Tone String này.
-2. **Stage 4.2: Initial Test Prompts & Iteration** ➔ Provide exactly 10 high-fidelity sample test prompts (length > 500 characters) based on the locked style. Test prompts KHÔNG cần gán Shot ID — chúng chỉ để kiểm tra style và color tone.
+
+1.5. **Stage 4.1.5: Character & Asset Reference Design (BẮT BUỘC)** ➔
+
+   > [!IMPORTANT]
+   > **AI video models không có "memory".** Mỗi shot = blank slate. Drift tích lũy: shot 1→5 chênh nhỏ, shot 1→48 có thể ra nhân vật hoàn toàn khác. Reference Assets là infrastructure ngăn chặn drift ngay từ đầu.
+
+   **Bước 0 — Story Type Check:**
+   Xác định loại story trước khi làm bất cứ thứ gì:
+   - `Type A: No Character` (landscape/abstract/environmental only) → **SKIP toàn bộ Stage 4.1.5**, chuyển thẳng sang Stage 4.2
+   - `Type B: Single Character Journey` (1 nhân vật xuyên suốt nhiều shots, nhiều locations) → **Full Reference Asset workflow bắt buộc**
+   - `Type C: Multi-Character` (N nhân vật, N ≥ 2) → **Full Reference Asset workflow × N nhân vật**
+
+   **Bước 1 — Tạo file Character Bible (BẮT BUỘC với Type B/C):**
+   Dùng template `flow/04s_character_bible_template.md` → tạo file `projects/video_xxx/docs/04_character_bible.md` cho dự án.
+   File này chứa toàn bộ reference assets, prompts, URLs, và frozen blocks.
+
+   **Bước 2 — Asset Generation Order (tuân thủ thứ tự nghiêm ngặt):**
+
+   ```
+   Bước 2a → [STYLE TEST] 3 prompts test style → Boss duyệt style fit
+   Bước 2b → [C3] Character Fully Costumed → Boss duyệt master character ← CRITICAL
+   Bước 2c → [O3] Hand Detail Sheet (nếu tay là visual motif của story)
+   Bước 2d → [E1-EN] 1 establishing shot per location → Boss duyệt cross-environment color
+   Bước 2e → [Props] Chỉ props xuất hiện 3+ shots hoặc visually complex
+   Bước 2f → Compile Master Frozen Character Block + Environment Packs vào Character Bible
+   ```
+
+   **Bước 3 — `--cref` / `--sref` Usage (Midjourney):**
+
+   | Params | Khi nào dùng | Effect |
+   |--------|-------------|--------|
+   | `--cref [C3_URL] --cw 100` | Mọi STORY shot có full costume visible | Lock cả face + full costume |
+   | `--cref [C3_URL] --cw 0` | Shot chỉ thấy mặt, không thấy costume | Chỉ lock face, bỏ qua outfit |
+   | `--cref [C3_URL] --cw 50` | Shot thấy nửa người | Lock costume shape, ít lock mặt |
+   | `--sref [S1_URL]` | Mọi prompt | Lock style aesthetic từ approved shots |
+   | `--sref [S1] [S2] [S3]` | Mọi prompt | Combine tối đa 3 style references |
+
+   > [!CAUTION]
+   > **TUYỆT ĐỐI KHÔNG** dùng output shot làm `--cref` cho shot tiếp theo. Luôn dùng master C3 sheet gốc. Dùng output làm ref = "generational drift" — nhân vật sẽ trôi dạt ngay cả khi mỗi shot trông ổn riêng lẻ.
+
+   **Bước 4 — Batch Generation Strategy:**
+   - Group tất cả shots cùng location → generate cùng batch
+   - Không mix environments trong cùng batch (ngăn color bleed)
+   - Sau khi Boss approve 3-5 shots đầu tiên → thêm vào Style Bank (S1) làm --sref pool
+
+   **Bước 5 — Master Prompt Architecture:**
+   Khi viết 04_image_prompts.txt ở Stage 4.3, mọi prompt có nhân vật phải theo cấu trúc:
+   ```
+   [FROZEN_CHARACTER_BLOCK] + [SHOT_SPECIFIC_ACTION] + [CAMERA] + [ENVIRONMENT_PACK] + [LIGHTING_SETUP] + [STYLE_STRING] + [COLOR_TONE] + [MJ_PARAMS]
+   ```
+   - `FROZEN_CHARACTER_BLOCK`: Copy nguyên văn từ Character Bible S4. Không thay đổi qua toàn bộ video.
+   - `ENVIRONMENT_PACK`: Thay theo location hiện tại.
+   - `SHOT_SPECIFIC_ACTION`: Thay theo từng shot.
+
+   **Bước 6 — Per-Shot Quality Gate (kiểm tra mỗi shot trước khi approve):**
+   ```
+   [ ] Costume material/color matches O1 reference?
+   [ ] Hand texture matches O3 reference? (nếu tay visible)
+   [ ] Headwear shape matches C3 reference?
+   [ ] Background color matches Environment Sheet?
+   [ ] Art style matches S1 style bank?
+   ```
+   Nếu fail → regenerate với `--cw` cao hơn + targeted negative prompt. **Không advance sang shot tiếp theo khi shot hiện tại chưa pass quality gate.**
+
+   **Stop and wait for Boss approval:** Sau khi generate C3 (Fully Costumed) và E1-EN (1 establishing shot per location) → trình Boss xem. **Chỉ tiếp tục Stage 4.2 khi Boss duyệt character look và cross-environment color consistency.**
+
+2. **Stage 4.2: Initial Test Prompts & Iteration** ➔ Provide exactly 10 high-fidelity sample test prompts (length > 500 characters) based on the locked style. Test prompts KHÔNG cần gán Shot ID — chúng chỉ để kiểm tra style, color tone, và kiểm tra mức độ ăn nhập của character references.
 3. **Stage 4.3: Storyboard Execution** ➔
 
    > [!IMPORTANT]
