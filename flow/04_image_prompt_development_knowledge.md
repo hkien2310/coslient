@@ -185,10 +185,15 @@ Coslient must follow this strict step-by-step sub-stage workflow:
    ```
    Với mỗi shot cần nhân vật:
    1. Input: ảnh nền từ Bước A (upload làm reference/style image)
-   2. Prompt: @Character [action] + environment keywords + style
-   3. Nano Banana ghép nhân vật vào ảnh nền → character đồng bộ với @tag
-
-   Shot không có nhân vật (ENV shots, DETAIL không có tay) → dùng thẳng ảnh từ Bước A
+   2. Prompt TỐI GIẢN: @Character [action] + environment lighting keywords.
+   
+   ⚠️ QUAN TRỌNG (MINIMALIST COMPOSITING RULE):
+   TUYỆT ĐỐI KHÔNG dùng keyword style (claymation, stop-motion) ở bước này. 
+   Nếu dùng, Nano Banana sẽ "đất-sét-hóa" làm hỏng ảnh nền. 
+   Hãy để ảnh nền tự giữ style của nó, và @Character tự giữ style của nhân vật.
+   
+   Ví dụ ĐÚNG: "Medium wide shot, @DivingSuit walking slowly. Dense flowing seagrass, dappled sunlight from above, caustic light."
+   3. Nano Banana ghép nhân vật vào ảnh nền → character đồng bộ + nền giữ nguyên.
    ```
 
    **Bước C — Video Generation (VEO 3):**
