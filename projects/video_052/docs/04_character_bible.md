@@ -72,6 +72,15 @@ PROMPT (Nano Banana):
 Close-up portrait of an elderly man with a kind wrinkled face and short white beard, warm gentle eyes, wearing a thick knitted wool sweater, heavy tactile textures, yarn fuzz visible on sweater, skin showing claymation fingerprint textures, nostalgic stop-motion animation style, Laika Studios aesthetic, macro photography, neutral background
 ```
 
+**Character Info (điền vào Flow khi upload):**
+```
+Old Man is the gentle protagonist — seen at home, without his diving suit.
+Spindly thin elderly build, kind wrinkled face, short white beard, warm patient eyes.
+Wears a thick knitted wool sweater and rough fabric trousers — humble, handmade-looking clothing.
+Moves slowly and calmly. Radiates warmth and quiet purpose.
+This is the man before he becomes the ocean keeper — the private, tender version of the hero.
+```
+
 ---
 
 ### @DivingSuit ⭐ Critical (Ngoài biển)
@@ -99,6 +108,17 @@ MỤC ĐÍCH: Capture chi tiết mũ đồng, texture bề mặt rỉ sét, và 
 
 PROMPT (Nano Banana):
 Close-up upper body and helmet of a vintage brass diving suit, large round brass sphere helmet dominating frame, single circular porthole glass window with riveted brass ring frame, the glass is dark and opaque reflecting the surroundings with no face visible inside, visible hex bolt fittings, heavily oxidized dark amber-orange brass with teal-green verdigris at edges and seams, deep rust texture and surface scratches, shoulders showing segmented brass plate construction, nostalgic stop-motion claymation style, Laika Studios aesthetic, extremely tactile aged surfaces, macro photography, neutral background
+```
+
+**Character Info (điền vào Flow khi upload):**
+```
+Diving Suit is the ocean-keeper version of the Old Man — the armored, anonymous hero.
+Heavy vintage brass diving suit with large round porthole helmet — face is completely hidden,
+the glass reflects surroundings with no face visible inside.
+Dark oxidized amber-green brass with teal-green verdigris at all joints and seams,
+deep rust texture, articulated brass segments, thick brass boots.
+Exaggerated spindly proportions — oversized helmet relative to thin body.
+Moves with slow deliberate weight. Every action is careful, intentional, and gentle.
 ```
 
 ---
@@ -130,6 +150,16 @@ MỤC ĐÍCH: Establish "contrast motif" — bàn tay to và nặng nề cầm v
 
 PROMPT (Nano Banana):
 Extreme close-up macro, one large heavy brass diving glove hand gently cradling a tiny glowing object in open palm, massive weathered brass fingers surrounding something impossibly delicate, deep rust and verdigris oxidation on brass surface, articulated brass knuckle joints, the contrast between heavy industrial brass and fragile tiny object at center of palm, nostalgic stop-motion claymation style, Laika Studios, macro photography shallow depth of field, dark neutral background with soft lighting
+```
+
+**Character Info (điền vào Flow khi upload):**
+```
+Brass Hand is the visual heart of the entire video — the central emotional motif.
+One enormous, heavily weathered brass diving glove — articulated finger segments with visible knuckle rings,
+dark amber-orange brass oxidized with teal-green verdigris at every joint.
+Extremely large and heavy-looking, yet moves with impossible gentleness.
+This hand represents care: it is the instrument through which the old man tends to the ocean.
+Every action it performs — cradling, touching, planting — is the emotional climax of each scene.
 ```
 
 ---
@@ -166,6 +196,15 @@ Close-medium shot of stone fireplace interior glowing with warm amber fire, old 
 **Environment Pack Keywords:**
 `warm amber firelight, cozy glass dome interior, stone fireplace glow, deep ocean teal beyond curved glass walls, cluttered rustic cottage warmth`
 
+**Character Info (điền vào Flow khi upload):**
+```
+Glass Dome is a cozy underwater home built inside a glass dome on the ocean floor.
+Intimate and warm — fireplace on the left, armchair, wooden table with steaming tea, old books.
+Dominant light: warm amber firelight from the stone fireplace — honey-gold, flickering.
+Through the curved glass walls, the dark deep ocean is always visible — teal and mysterious.
+This is where the old man rests, prepares, and returns. The emotional anchor of the story.
+```
+
 ---
 
 ### @Seagrass
@@ -195,6 +234,15 @@ Close-up of seagrass blades swaying in underwater current, dappled light rays fr
 
 **Environment Pack Keywords:**
 `shallow seagrass meadow, dappled sunlight from water surface above, blue-green underwater ambient, flowing seagrass in gentle current, caustic light patterns on sand`
+
+**Character Info (điền vào Flow khi upload):**
+```
+Seagrass is a shallow underwater meadow — the brightest and most alive environment in the story.
+Dense flowing seagrass in gentle current, small coral reef formations on sandy floor.
+Dominant light: dappled sunlight rays angling down from the water surface far above — soft blue-green, shifting caustic patterns.
+Open, expansive, gentle — faint fish silhouettes near the surface.
+This is where the old man does his everyday tending work: feeding fish, cleaning coral.
+```
 
 ---
 
@@ -226,6 +274,15 @@ Close-up of sandy ocean floor with a single old glass bottle partially buried, b
 **Environment Pack Keywords:**
 `sandy ocean floor, scattered sunken debris, isolated quiet seabed, soft blue-green underwater ambient, slightly darker deeper water`
 
+**Character Info (điền vào Flow khi upload):**
+```
+Sandy Bed is an isolated stretch of flat sandy seafloor, slightly deeper and darker than the Seagrass.
+Mix of clean sand and scattered sunken debris — old glass bottles, rusted fragments half-buried in sand.
+Dominant light: soft blue-green ambient from above, dimmer than the seagrass zone.
+Quiet, melancholy, slightly forgotten — a place where lost things end up.
+This is where the old man discovers the homeless hermit crab and gives it a new shell.
+```
+
 ---
 
 ### @DeepAbyss
@@ -256,6 +313,15 @@ Close-up of deep ocean rock surface in near-darkness, small bioluminescent organ
 **Environment Pack Keywords:**
 `deep ocean abyss near-darkness, massive rocky formations, faint bioluminescent cyan points, distant whale above, crushing depth, near-black with cyan accents`
 
+**Character Info (điền vào Flow khi upload):**
+```
+Deep Abyss is the vast and terrifying deep — the most dramatic and emotionally intense environment.
+Massive dark rocky cliff formations, near-total darkness, crushing sense of scale.
+Dominant light: only faint scattered bioluminescent cyan points from deep-sea organisms on rock surfaces.
+A distant giant whale silhouette is barely visible far above.
+This is where the old man faces the greatest challenge (freeing the manta ray) and plants the coral seed.
+```
+
 ---
 
 ## Tier C — PROP Ingredients
@@ -283,6 +349,15 @@ FLOW URL: [điền sau khi upload]
 
 PROMPT (Nano Banana):
 Close-up of tiny shell-less hermit crab peeking out from inside an old green glass bottle, the crab's delicate legs and antennae visible at the bottle mouth, soft underwater light filtering through the green glass, the crab looking out with tiny curious eyes, nostalgic stop-motion claymation style, macro photography shallow depth of field, Laika Studios
+```
+
+**Character Info (điền vào Flow khi upload):**
+```
+Hermit Crab is a tiny, shell-less sea creature and its new glass bottle home.
+The crab: soft vulnerable abdomen, delicate articulated legs, tiny gentle dark eyes, fragile antennae.
+The bottle: old green-tinted glass, barnacle-encrusted, slightly foggy and opaque — size of a human fist.
+The crab fits inside the bottle mouth — scale critical: crab is much smaller than the Brass Hand.
+This pair represents the story's act of small, unconditional kindness: giving the homeless a home.
 ```
 
 ---
@@ -313,6 +388,15 @@ PROMPT (Nano Banana):
 Extreme macro close-up of tiny coral seedling tip, semi-translucent organic tissue catching bioluminescent cyan light from within, the fine structure of coral polyp branches barely larger than a grain of sand, organic biological luminescence — not magical, deep dark navy background, soft blue-green tonal atmosphere, nostalgic stop-motion claymation style, extreme shallow depth of field
 ```
 
+**Character Info (điền vào Flow khi upload):**
+```
+Coral Seed is a tiny living coral seedling — the symbol of legacy and hope in the story.
+A branching coral polyp the size of a thumbnail, with soft organic bioluminescent cyan-teal light
+glowing from within its translucent tissue — like a firefly, biological and subtle, never sparkly or magical.
+Fits perfectly in the center of the Brass Hand's open palm — the ultimate contrast motif.
+This is the old man's final act: planting this seed in the Deep Abyss to light up the darkness permanently.
+```
+
 ---
 
 ### @MantaRay
@@ -338,6 +422,16 @@ FLOW URL: [điền sau khi upload]
 
 PROMPT (Nano Banana):
 Close-up of giant manta ray wing edge caught in heavy rusted iron chain, the delicate wing tissue pressed against the rough chain links, contrast between the smooth pale grey wing skin and the heavily corroded dark iron chain, the chain embedded in sand at the bottom, manta wing texture — smooth and organic, chain texture — deeply rusted and angular, nostalgic stop-motion claymation style, macro photography, Laika Studios aesthetic
+```
+
+**Character Info (điền vào Flow khi upload):**
+```
+Manta Ray is a giant sea creature — enormous, graceful, and in danger.
+Massive wingspan at least 3x the height of the Diving Suit figure — scale is critical for emotional impact.
+Dark slate blue-grey skin on top, pale cream-white smooth belly, long tapering tail.
+Gentle round dark eye with a non-threatening, curious, trusting expression.
+In the story, one wing is trapped by a heavy rusted iron chain embedded in sand.
+After being freed, the manta rises and soars through the deep water — the story's most triumphant visual moment.
 ```
 
 ---

@@ -19,6 +19,19 @@
   - Ảnh 2: Close-up detail (texture, face, key feature)
 - Không cần nhiều hơn — Flow AI sẽ extract DNA từ 2 ảnh này.
 
+### Quy tắc Character Info (BẮT BUỘC)
+
+> [!IMPORTANT]
+> **LUÔN điền Character Info cho mọi ingredient — không bỏ trống.**
+> Flow cho phép nhập Character Info (optional) khi upload ingredient, nhưng trong Coslient pipeline đây là **bắt buộc** cho tất cả ingredient types (Character, Environment, Prop).
+>
+> **Character Info** là đoạn mô tả text ngắn (50-150 từ) bơm trực tiếp vào model context, giúp Flow hiểu:
+> - Nhân vật: personality, role, visual identity signature
+> - Environment: mood, time of day, scale, key atmosphere
+> - Prop: chức năng trong story, material, scale relative to other elements
+>
+> Tách biệt với prompt Nano Banana — đây là mô tả cho **Flow khi dùng ingredient trong generation**, không phải khi tạo ảnh ingredient.
+
 ### Quy tắc 3-Ingredient Budget per Prompt (Hard Limit của Flow)
 - **Flow hard limit: tối đa 3 @tags per prompt.**
 - Mỗi shot phải plan trước sẽ dùng 3 slots đó cho gì.
@@ -93,6 +106,31 @@ isolated on neutral background, no background clutter
 
 ---
 
+### Character Info (Flow — BẮT BUỘC điền khi upload)
+
+```
+CHARACTER INFO:
+[CHARACTER NAME] is [ROLE in the story — e.g., protagonist, companion, antagonist].
+[Physical identity in 1-2 sentences: build, age, key visual markers that MUST be consistent.]
+[Costume/appearance: 1-2 sentences on what they wear, key colors, materials.]
+[Personality/vibe: 1 sentence — how they move, feel, emotional tone.]
+[Story context: 1 sentence — what they do in the video, why they matter.]
+```
+
+**Ví dụ cho nhân vật ông lão:**
+```
+CHARACTER INFO:
+Old Man is the gentle protagonist of this story.
+Slight spindly build, elderly face with kind wrinkles and short white beard,
+warm eyes visible through the helmet porthole.
+Wears a heavy vintage brass diving suit — dark oxidized amber-green brass with teal-green verdigris,
+thick brass boots, large round helmet with circular porthole window.
+Moves slowly and deliberately, always gentle and careful.
+He is the ocean keeper who tends to the smallest sea creatures with the same care as the largest.
+```
+
+---
+
 ### Flow Upload Info
 
 ```
@@ -138,6 +176,14 @@ Close-medium shot detail of [SIGNATURE ELEMENT of this environment],
 [KEY TEXTURE / MATERIAL / LIGHT EFFECT],
 [STYLE ANCHOR], macro photography, shallow depth of field
 
+### Character Info (Flow — BẮT BUỘC điền khi upload)
+CHARACTER INFO:
+[@EnvironmentName] is [TYPE — e.g., interior space, underwater seabed, forest clearing].
+[Scale and spatial feeling: 1 sentence — large/intimate/vast/cozy.]
+[Lighting signature: 1 sentence — dominant light source, color temperature.]
+[Mood/atmosphere: 1 sentence — how this place feels emotionally.]
+[Story role: 1 sentence — what story events happen here.]
+
 ### Flow Upload Info
 Image 1 URL: [establishing shot]
 Image 2 URL: [detail shot]
@@ -177,6 +223,13 @@ Close-up of [PROP] in the context of interaction:
 [HOW CHARACTER HOLDS/TOUCHES/USES IT],
 [KEY INTERACTION DETAIL],
 [STYLE ANCHOR], macro photography
+
+### Character Info (Flow — BẮT BUỘC điền khi upload)
+CHARACTER INFO:
+[@PropName] is [WHAT IT IS — object type, origin].
+[Physical description: 1-2 sentences on size, material, color, condition.]
+[Story role: 1-2 sentences on what it does in the story, why it matters emotionally.]
+[Scale context: 1 sentence — how it relates in size to the character's hand or body.]
 
 ### Flow Upload Info
 Image 1 URL: [prop overview]
@@ -315,4 +368,5 @@ Ingredient Quality Check:
 [ ] Ingredient Registry đã đầy đủ URLs?
 [ ] 3-Ingredient Budget Map đã điền cho mọi shot?
 [ ] Không shot nào vượt quá 3 @tags?
+[ ] Character Info đã điền cho mọi ingredient (Character / Environment / Prop)?
 ```
