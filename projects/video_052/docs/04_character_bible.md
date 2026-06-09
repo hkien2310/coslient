@@ -17,10 +17,11 @@ LOCATION COUNT:    4
 
 INGREDIENT COUNT:
 - Character:    3 (@OldMan, @DivingSuit, @BrassHand)
-- Environment:  4 (@GlassDome, @Seagrass, @SandyBed, @DeepAbyss)
-- Prop:         3 (@HermitCrab, @CoralSeed, @MantaRay)
+- Environment:  1 (@GlassDome)  ← Chỉ không gian nhỏ/khép kín mới làm ingredient
+  > ❌ @Seagrass, @SandyBed, @DeepAbyss → rộng/mở → dùng Environment Pack Keywords trong text
+- Prop:         3 (@HermitCrab, @CoralSeed, @MantaRay)  ← Test giai đoạn sau
 - Style:        1 (@StyleRef)
-TỔNG:           11 ingredients — upload hết trước khi generate shots
+TỔNG:           8 ingredients — upload hết trước khi generate shots
 ```
 
 ---
@@ -33,9 +34,6 @@ TỔNG:           11 ingredients — upload hết trước khi generate shots
 | `@DivingSuit` | Character | 1 | PENDING | PENDING | — | — |
 | `@BrassHand` | Character/Detail | 1 | PENDING | PENDING | — | — |
 | `@GlassDome` | Environment | 2 | PENDING | PENDING | — | — |
-| `@Seagrass` | Environment | 2 | PENDING | PENDING | — | — |
-| `@SandyBed` | Environment | 2 | PENDING | PENDING | — | — |
-| `@DeepAbyss` | Environment | 2 | PENDING | PENDING | — | — |
 | `@HermitCrab` | Prop | 1 | PENDING | PENDING | — | — |
 | `@CoralSeed` | Prop | 1 | PENDING | PENDING | — | — |
 | `@MantaRay` | Prop | 1 | PENDING | PENDING | — | — |

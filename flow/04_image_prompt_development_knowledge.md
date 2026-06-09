@@ -109,10 +109,18 @@ Coslient must follow this strict step-by-step sub-stage workflow:
    **Bước 2 — Ingredient Classification:**
    Xem qua toàn bộ storyboard, liệt kê mọi thứ xuất hiện nhiều lần:
    ```
-   - Nhân vật → @Character ingredient
-   - Địa điểm/Location → @Environment ingredient
+   - Nhân vật → @Character ingredient (bắt buộc)
    - Prop quan trọng (3+ shots hoặc có tương tác phức tạp) → @Prop ingredient
    - Style reference → @StyleRef ingredient (1 ingredient duy nhất)
+
+   - Địa điểm → CÂU HỎI TRƯỚC KHI QUYẾT ĐỊNH:
+     ┌─ Không gian NHỎ / KHÉP KÍN với chi tiết CỐ ĐỊNH?
+     │  (căn phòng, ngôi nhà, khoang tàu — người xem sẽ nhận ra nếu chi tiết thay đổi)
+     │  → ✅ Làm @Environment ingredient
+     │
+     └─ Không gian RỘNG / MỞ?
+        (đáy biển, rừng, đồng — mỗi shot ở một điểm khác nhau, biến đổi là tự nhiên)
+        → ❌ Dùng Environment Pack Keywords (20-30 từ text) trong prompt là đủ
    ```
 
    **Bước 3 — Generate Ingredients (Nano Banana, 2 ảnh per ingredient):**

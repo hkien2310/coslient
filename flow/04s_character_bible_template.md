@@ -146,10 +146,37 @@ Used in shot types: [STORY / DETAIL / ENV]
 
 ## Tier B — ENVIRONMENT Ingredients
 
-> Environment = địa điểm xuất hiện trong nhiều shots.
-> Địa điểm là "nhân vật" thứ 2 của mỗi scene — phải nhất quán như nhân vật.
+> [!IMPORTANT]
+> **Không phải mọi môi trường cần thành ingredient.**
+> Sử dụng bộ lọc dưới đây trước khi quyết định.
 
-### Template per Environment:
+### Bộ lọc: Có cần làm Environment Ingredient không?
+
+**✅ Cần làm ingredient khi môi trường có ĐỦ 4 đặc điểm:**
+1. **Nhỏ / khép kín** — là một không gian giới hạn, cụ thể: căn phòng, ngôi nhà, hầm, khoang tàu
+2. **Có chi tiết cố định** — lò sưởi luôn ở đó, chiếc ghế luôn ở đó, cái cửa sổ luôn ở đó
+3. **Các shots cùng nhìn vào ĐÚNG NGUYÊN VẸN chỗ đó** — không di chuyển sang góc khác của khu vực
+4. **Gắn kết** — người xem sẽ nhận ra ngay nếu chi tiết này bị đổi giữa các shots
+
+**❌ Không cần ingredient khi môi trường là:**
+- **Rộng / mở** — đáy biển, cỏ biển, vực sâu, rừng, đồng bằng (mỗi shot thực chất là một điểm khác nhau trong khu vực đó)
+- **Mỗi shot ở vị trí khác nhau** trong cùng khu vực — biến đổi là tự nhiên, không ai nhận ra
+- **Chi tiết nền không quan trọng bằng cảm giác chung** — chỉ cần "cảm giác đáy biển" là đủ, không cần cùng tảng đá
+
+> **Nguyên tắc:** Đối với môi trường mở — dùng **Environment Pack Keywords** (chuỗi text ~20-30 từ) paste vào prompt là đủ. Ingredient là overkill.
+
+**Ví dụ phân loại:**
+| Môi trường | Loại | Quyết định |
+|---|---|---|
+| Ngôi nhà vòm kính (Glass Dome) | Nhỏ, khép kín, chi tiết cố định | ✅ Cần ingredient |
+| Vực sâu đáy biển | Rộng, mở, mỗi shot ở điểm khác | ❌ Text keywords đủ |
+| Cỏ biển, bãi cát | Rộng, mở, không gắn kết | ❌ Text keywords đủ |
+| Khoang tàu bó hẹp | Nhỏ, khép kín, lặp lại | ✅ Cần ingredient |
+| Vườn thượng uyển ngoài trời | Rộng, mở, thoáng | ❌ Text keywords đủ |
+
+### Template per Environment (chỉ dùng khi đã pass bộ lọc trên):
+
+
 
 ```
 @TagName: [@EnvironmentName]
