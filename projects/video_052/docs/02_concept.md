@@ -30,7 +30,8 @@ CAST & WORLD LIST:
 > File ingredient chi tiết: projects/video_052/docs/04_character_bible.md
 
 CHARACTERS:
-- Character   | @OldMan      | ~23 shots | Ông lão gầy guộc mặc bộ đồ lặn đồng cổ điển rỉ sét, tỷ lệ claymation spindly
+- Character   | @OldMan      | ~5 shots  | Ông lão gầy guộc, râu tóc bạc, mặc áo len/đồ bình thường (thấy mặt, dùng cảnh trong nhà)
+- Character   | @DivingSuit  | ~18 shots | Bộ đồ lặn đồng cổ điển rỉ sét, cồng kềnh, không thấy mặt bên trong (dùng cảnh ngoài biển)
 - Character   | @BrassHand   | ~13 shots | Bàn tay đồng khổng lồ nặng nề — visual motif trung tâm của story
 
 ENVIRONMENTS:

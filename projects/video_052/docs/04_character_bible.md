@@ -11,16 +11,16 @@
 
 ```
 STORY TYPE:        [B] Single Character Journey
-CHARACTER COUNT:   1 (@OldMan)
+CHARACTER COUNT:   2 (@OldMan, @DivingSuit)
 TOTAL SHOTS:       48 shots
 LOCATION COUNT:    4
 
 INGREDIENT COUNT:
-- Character:    2 (@OldMan, @BrassHand)
+- Character:    3 (@OldMan, @DivingSuit, @BrassHand)
 - Environment:  4 (@GlassDome, @Seagrass, @SandyBed, @DeepAbyss)
 - Prop:         3 (@HermitCrab, @CoralSeed, @MantaRay)
 - Style:        1 (@StyleRef)
-TỔNG:           10 ingredients — upload hết trước khi generate shots
+TỔNG:           11 ingredients — upload hết trước khi generate shots
 ```
 
 ---
@@ -30,6 +30,7 @@ TỔNG:           10 ingredients — upload hết trước khi generate shots
 | @Tag | Type | Slot | Ảnh 1 Status | Ảnh 2 Status | Flow URL 1 | Flow URL 2 |
 |------|------|------|-------------|-------------|-----------|-----------|
 | `@OldMan` | Character | 1 | PENDING | PENDING | — | — |
+| `@DivingSuit` | Character | 1 | PENDING | PENDING | — | — |
 | `@BrassHand` | Character/Detail | 1 | PENDING | PENDING | — | — |
 | `@GlassDome` | Environment | 2 | PENDING | PENDING | — | — |
 | `@Seagrass` | Environment | 2 | PENDING | PENDING | — | — |
@@ -44,10 +45,39 @@ TỔNG:           10 ingredients — upload hết trước khi generate shots
 
 ## Tier A — CHARACTER Ingredients
 
-### @OldMan ⭐ Critical
+### @OldMan (Trong nhà)
 
-> Nhân vật trung tâm. Xuất hiện trong ~23 STORY shots.
-> Đặc điểm nhận dạng chính: bộ đồ lặn đồng cồng kềnh + tỷ lệ claymation gầy gò.
+> Nhân vật lúc ở trong nhà (SB_001-003, SB_047-048).
+> Đặc điểm nhận dạng: Khuôn mặt ông lão, râu tóc bạc, mặc đồ len/vải thô lót bên trong (chưa mặc giáp đồng).
+
+**Ảnh 1 — Face & Upper Body**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+PROMPT (Nano Banana):
+Character reference sheet showing same elderly man from multiple angles — front view, 3/4 left view, and side profile — all three views on the same plain neutral background, full body visible in each view without overlapping, kind wrinkled face, short white beard, warm gentle eyes, spindly thin body proportions, wearing a thick knitted wool sweater and rough fabric trousers (undergarments for diving), nostalgic stop-motion claymation aesthetic, extremely tactile hand-crafted surfaces, Laika Studios style, plain white background, reference sheet layout
+```
+
+**Ảnh 2 — Face Detail & Texture**
+
+```
+STATUS: PENDING
+FLOW URL: [điền sau khi upload]
+
+MỤC ĐÍCH: Capture nét mặt hiền từ, nếp nhăn và chất liệu đất sét của da/áo len.
+
+PROMPT (Nano Banana):
+Close-up portrait of an elderly man with a kind wrinkled face and short white beard, warm gentle eyes, wearing a thick knitted wool sweater, heavy tactile textures, yarn fuzz visible on sweater, skin showing claymation fingerprint textures, nostalgic stop-motion animation style, Laika Studios aesthetic, macro photography, neutral background
+```
+
+---
+
+### @DivingSuit ⭐ Critical (Ngoài biển)
+
+> Bộ đồ lặn khi ông lão đã mặc vào và đi ra ngoài. Xuất hiện trong ~18 STORY shots ngoài biển.
+> Đặc điểm nhận dạng chính: bộ đồ lặn đồng cồng kềnh che kín người, KHÔNG thấy mặt bên trong (mặt kính bị chói hoặc tối).
 
 **Ảnh 1 — Multi-Angle Full Body Sheet**
 
@@ -56,7 +86,7 @@ STATUS: PENDING
 FLOW URL: [điền sau khi upload]
 
 PROMPT (Nano Banana):
-Character reference sheet showing same elderly man in vintage brass diving suit from multiple angles — front view, 3/4 left view, and side profile — all three views on the same plain neutral background, full body visible in each view without overlapping, heavy brass diving suit with large round helmet porthole, articulated brass segments at joints, thick brass boots, dark oxidized amber-green brass surfaces, exaggerated spindly proportions with oversized round helmet relative to thin body, nostalgic stop-motion claymation aesthetic, extremely tactile hand-crafted surfaces, Laika Studios style, plain white background, reference sheet layout
+Character reference sheet showing same vintage brass diving suit from multiple angles — front view, 3/4 left view, and side profile — all three views on the same plain neutral background, full body visible in each view without overlapping, heavy brass diving suit with large round helmet porthole, face is completely hidden in darkness behind the glass porthole, articulated brass segments at joints, thick brass boots, dark oxidized amber-green brass surfaces, exaggerated spindly proportions with oversized round helmet relative to thin body, nostalgic stop-motion claymation aesthetic, extremely tactile hand-crafted surfaces, Laika Studios style, plain white background, reference sheet layout
 ```
 
 **Ảnh 2 — Helmet & Upper Body Close-Up**
@@ -65,11 +95,10 @@ Character reference sheet showing same elderly man in vintage brass diving suit 
 STATUS: PENDING
 FLOW URL: [điền sau khi upload]
 
-MỤC ĐÍCH: Capture chi tiết mũ đồng (silhouette nhận dạng quan trọng nhất),
-           texture bề mặt, và porthole glass.
+MỤC ĐÍCH: Capture chi tiết mũ đồng, texture bề mặt rỉ sét, và mặt kính tối đen (không thấy mặt).
 
 PROMPT (Nano Banana):
-Close-up upper body and helmet of elderly man in vintage brass diving suit, large round brass sphere helmet dominating frame, single circular porthole glass window with riveted brass ring frame, visible hex bolt fittings, heavily oxidized dark amber-orange brass with teal-green verdigris at edges and seams, deep rust texture and surface scratches, shoulders showing segmented brass plate construction, nostalgic stop-motion claymation style, Laika Studios aesthetic, extremely tactile aged surfaces, macro photography, neutral background
+Close-up upper body and helmet of a vintage brass diving suit, large round brass sphere helmet dominating frame, single circular porthole glass window with riveted brass ring frame, the glass is dark and opaque reflecting the surroundings with no face visible inside, visible hex bolt fittings, heavily oxidized dark amber-orange brass with teal-green verdigris at edges and seams, deep rust texture and surface scratches, shoulders showing segmented brass plate construction, nostalgic stop-motion claymation style, Laika Studios aesthetic, extremely tactile aged surfaces, macro photography, neutral background
 ```
 
 ---
@@ -336,9 +365,9 @@ Tiêu chí chọn ảnh style:
 | Shot Type | @Slot 1 | @Slot 2 | @Slot 3 |
 |-----------|--------|--------|--------|
 | STORY – Glass Dome | `@OldMan` | `@GlassDome` | `@StyleRef` |
-| STORY – Seagrass | `@OldMan` | `@Seagrass` | `@StyleRef` |
-| STORY – Sandy Bed | `@OldMan` | `@SandyBed` | `@StyleRef` |
-| STORY – Deep Abyss | `@OldMan` | `@DeepAbyss` | `@StyleRef` |
+| STORY – Seagrass | `@DivingSuit` | `@Seagrass` | `@StyleRef` |
+| STORY – Sandy Bed | `@DivingSuit` | `@SandyBed` | `@StyleRef` |
+| STORY – Deep Abyss | `@DivingSuit` | `@DeepAbyss` | `@StyleRef` |
 | DETAIL – Tay (Seagrass) | `@BrassHand` | `@Seagrass` | `@StyleRef` |
 | DETAIL – Tay (Deep Abyss) | `@BrassHand` | `@DeepAbyss` | `@StyleRef` |
 | DETAIL – HermitCrab | `@HermitCrab` | `@SandyBed` | `@StyleRef` |
@@ -347,7 +376,7 @@ Tiêu chí chọn ảnh style:
 | ENV – Seagrass | `@Seagrass` | `@StyleRef` | — |
 | ENV – Sandy Bed | `@SandyBed` | `@StyleRef` | — |
 | ENV – Deep Abyss | `@DeepAbyss` | `@StyleRef` | — |
-| STORY – MantaRay scene | `@OldMan` | `@MantaRay` | `@DeepAbyss` *(StyleRef trong text)* |
+| STORY – MantaRay scene | `@DivingSuit` | `@MantaRay` | `@DeepAbyss` *(StyleRef trong text)* |
 
 ---
 
@@ -355,7 +384,7 @@ Tiêu chí chọn ảnh style:
 
 ### STORY Shot
 ```
-[Shot size], @OldMan [action] in @[Environment], [1 camera movement],
+[Shot size], @[Character] [action] in @[Environment], [1 camera movement],
 [lighting — 3-5 words from environment pack],
 Audio: [specific ambient sounds]. No music. No score. No dialogue. No voiceover.
 ```
@@ -398,11 +427,12 @@ faded seagrass green, soft bioluminescent cyan
 
 ```
 1. @OldMan (Ảnh 1 + 2)           → Boss approve → Upload to Flow
-2. @BrassHand (Ảnh 1 + 2)        → Boss approve → Upload to Flow
-3. @GlassDome (Ảnh 1 + 2)        → Boss approve → Upload to Flow
-4. @DeepAbyss (Ảnh 1 + 2)        → Boss approve → Upload (verify brass cross-env)
-5. @Seagrass + @SandyBed          → Boss approve → Upload
-6. @MantaRay + @HermitCrab + @CoralSeed → Boss approve → Upload
-7. Generate 3-5 test shots → Boss approve best → Upload làm @StyleRef
-8. ✅ All 10 ingredients ready → Bắt đầu viết 48 shot prompts
+2. @DivingSuit (Ảnh 1 + 2)       → Boss approve → Upload to Flow
+3. @BrassHand (Ảnh 1 + 2)        → Boss approve → Upload to Flow
+4. @GlassDome (Ảnh 1 + 2)        → Boss approve → Upload to Flow
+5. @DeepAbyss (Ảnh 1 + 2)        → Boss approve → Upload (verify brass cross-env)
+6. @Seagrass + @SandyBed          → Boss approve → Upload
+7. @MantaRay + @HermitCrab + @CoralSeed → Boss approve → Upload
+8. Generate 3-5 test shots → Boss approve best → Upload làm @StyleRef
+9. ✅ All 11 ingredients ready → Bắt đầu viết 48 shot prompts
 ```
