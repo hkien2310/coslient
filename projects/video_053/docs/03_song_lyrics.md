@@ -1,131 +1,182 @@
 STAGE: Song Development
 STATUS: draft
 
-SONG DURATION: 3-4 phút
+SONG DURATION: 4 phút
 
 MUSIC DIRECTION:
-- Thể loại: Singer-songwriter, intimate acoustic folk.
-- Nhịp độ: 70 BPM (chậm rãi, mang tính tự sự).
-- Nhạc cụ: Bắt đầu chỉ với Acoustic guitar (mộc mạc, có thể nghe rõ tiếng kim loại miết trên dây đàn - fret noise), sau đó Piano tiến vào nhẹ nhàng, và dâng trào bằng Soft string quartet (dàn dây).
-- Giọng hát: Solo Male. Chất giọng khàn, già dặn, mộc mạc và mang đầy sự yếu đuối, chân thành (raspy, raw, emotionally vulnerable).
+- Thể loại: Singer-songwriter acoustic folk ballad.
+- Nhịp độ: 76 BPM, 4/4. Key: G major.
+- Nhạc cụ: Acoustic guitar (fingerpicked, audible fret noise + string buzz để giữ tính mộc), Upright bass (vào từ Pre-Chorus), Brushed drums (vào từ Verse 2, cực kỳ nhẹ), Piano (chỉ vào Chorus 2), String section (chỉ vào Bridge), Cello solo (Special Instrument — xem bên dưới).
+- Giọng hát: Solo Male. Raspy, close-mic'd, weathered — giọng của người kể chuyện 70 tuổi. Có tiếng voice crack nhẹ tại đỉnh cảm xúc.
 
 EMOTIONAL DIRECTION:
-- Arc: Từ sự cô đơn, vụng về và đau đớn thể xác (Verse 1) ➔ Sự kiên trì và hồi ức (Chorus) ➔ Khoảnh khắc bùng nổ của sự kết nối tâm linh, vượt qua cái chết để đánh trọn vẹn bản nhạc (Final Chorus).
-- Cảm xúc cốt lõi: Tình yêu thủy chung, sự hối tiếc vì ngày xưa không nói lời yêu, và nỗ lực phi thường ở cuối đời.
+- Emotional Mode: D — Cathartic Grief.
+- Arc: Đau đớn thể xác lần đầu chạm vào đàn (V1) → Kiên trì trong sự vắng lặng, cảm nhận được sự hiện diện của bà (V2) → Khoảnh khắc quyết định: đi đến mộ (Bridge) → Chơi trọn bản nhạc, nghe thấy bà trong gió, dây đàn không còn nặng (FC) → Im lặng hoàn toàn (Outro).
+- Kết thúc: Wordless Resolution — cello solo → silence (CUT, không fade).
 
 MELODY DIRECTION:
-- Melodic contour: Verse trầm, ngập ngừng (như người đang mò mẫm phím đàn) ➔ Chorus vút lên mạnh mẽ nhưng vẫn giữ độ kìm nén.
-- Nốt cao nhất: Nằm ở cụm "look at how they PLAY" ở Final Chorus.
+- Verse: Trầm, ngập ngừng — giai điệu hẹp, như người mò mẫm từng nốt.
+- Pre-Chorus: Plateau, giữ nguyên một nốt để tạo tension.
+- Chorus: Mở rộng dần — anaphora nhịp điệu "Heavy strings / heavy hands / heavy years" là rhythmic hook, đến câu "I'll press until it's TRUUUE" vút lên.
+- Final Chorus: Nốt cao nhất rơi vào "WAAAY / SWAAAY / NAAAME / CAAAME" — cả bốn nốt đỉnh đều là nguyên âm AY mở.
 
 DYNAMIC ARC:
-- Intro: Rải acoustic guitar rất mộc, tiếng lạo xạo chân thực.
-- Verse 1: Giọng hát thì thầm, gần mic, hơi rạn nứt.
-- Pre-Chorus: Nhịp điệu bắt đầu rõ hơn.
-- Chorus 1: Giai điệu mở rộng, kìm nén.
-- Verse 2: Đệm guitar mượt mà hơn (biểu thị ông lão đã chơi tốt hơn).
-- Chorus 2: Tiếng Piano bước vào (đại diện cho người vợ).
-- Bridge: Cảm xúc trào dâng, tiếng dàn dây (Strings) bắt đầu kéo căng.
-- Final Chorus: Bùng nổ cảm xúc, hát bung hết sức, dàn bè và strings quyện vào nhau.
-- Outro: Thu lại chỉ còn một nốt acoustic duy nhất vang vọng.
+- Intro:       ██░░░░░░░░  15%  (guitar mộc, tiếng fret squeak)
+- Verse 1:     ███░░░░░░░  30%  (chỉ guitar, giọng thì thầm)
+- Pre-Chorus 1:█████░░░░░  50%  (bass vào nhẹ, tension)
+- Chorus 1:    ████████░░  75%  (cello vào — emotional signature)
+- Verse 2:     ████░░░░░░  35%  (guitar + brushed snare, giọng ấm hơn)
+- Pre-Chorus 2:██████░░░░  55%  (escalation — dòng cuối thay đổi)
+- Chorus 2:    █████████░  85%  (piano vào, bè nhẹ)
+- Bridge:      ███░░░░░░░  30%  (strip back: guitar + giọng → strings swell dần)
+- Final Chorus:██████████  100% (full — strings, piano, choir, cello, guitar)
+- Outro:       ░░░░░░░░░░  0%   (chỉ vocalizing → cello solo → silence CUT)
+
+GROOVE STRATEGY:
+- Rhythmic feel: Straight 4/4, fingerpicked rolling groove tạo cảm giác đều đặn như nhịp đồng hồ.
+- Percussion approach: Brushed snare cực nhẹ — tạo groove mà không át giọng. Kick chỉ nghe thoáng ở beats 1 và 3.
+- Rhythmic hook: Anaphora "Heavy strings / heavy hands / heavy years" — 3 cụm đều 2 âm tiết, đánh vào off-beat, bắt chân người nghe gõ nhịp.
 
 STORY ANGLE:
-Một người đàn ông 72 tuổi góa vợ, cả đời làm lao động chân tay nên ngón tay chai sạn, cứng đơ. Ông tình cờ nghe lại bài hát vợ thích trên chiếc đài cũ và quyết định mua một cây đàn guitar về tự học. Mặc kệ sự đau đớn đến rướm máu của ngón tay trên dây thép, ông cặm cụi tập ngày đêm. Cuối cùng, ông mang cây đàn ra mộ bà, đánh trọn vẹn bản nhạc như một lời "Anh yêu em" mà cả đời ông chưa từng biết cách nói.
+- Đêm đầu: Người đàn ông 72 tuổi nghe lại bài hát bà hay hát khi rửa bát. Ông cầm cây đàn guitar cũ mượn được. Ngón tay cứng đơ cứa vào dây thép, rướm máu.
+- Vài tháng sau: Ông đã bấm được các hợp âm, tờ giấy chép nhạc mòn đến rách. Có một đêm thứ Hai ông đánh trọn bản nhạc mà không phải dừng lại. Cả căn phòng trở nên rất tĩnh, như thể nó nhận ra bản nhạc đó.
+- Sáng hôm ở mộ: Bảy giờ sáng ông đã đứng trước cổng nghĩa trang, chờ tám giờ mở cửa. Ông lau sạch tấm đá, đặt cây đàn xuống lá khô, và chơi trọn bản nhạc. Gió thổi qua cành liễu — ông nghe thấy bà trong đó.
+- Payoff Object Leitmotif: V1 = "heavy strings cut the skin" (đau đớn). C1/C2 = "heavy strings beneath my fingers" (kiên trì). FC = "heavy strings, they're not so heavy now" (nghĩa đảo ngược hoàn toàn — tình yêu làm nhẹ đi mọi thứ).
+
+STRUCTURE:
+Classic Pop — V–PC–C–V–PC–C–B–FC–Outro.
 
 HOOK STRATEGY:
-- "My hands were made for heavy stones, but now they learn to play..."
-- Lời thú tội: "I couldn't say 'I love you' then... So this is the unplayed song, the one I learned for you."
+- Lyrical hook: "The chord I keep on missing / is the word I couldn't say to you" — double meaning (nốt nhạc = lời yêu).
+- Rhythmic hook: Anaphora "Heavy strings, heavy hands, / heavy years" — 3 nhịp đập đều, percussive, bắt tai ngay lần đầu.
+- Melodic hook: AY vowel (WAY / SWAY / NAME / CAME) ở tất cả nốt đỉnh của Final Chorus — Suno sẽ soar tự nhiên.
+- Chorus deepening: C1 = "The chord I keep on MISSING / is the word I COULDN'T say" → C2 = "The chord I finally FOUND / is the word I SHOULD have said" → FC = chuyển cảnh hoàn toàn, hình ảnh mới, cùng melody.
 
----
+VOCAL PERFORMANCE STRATEGY:
+- Verse: Gần mic, thì thầm, hơi có tiếng thở. Ngập ngừng trước một số từ.
+- Chorus: Đẩy nhẹ lên nhưng kìm cảm xúc — không belting, chỉ lean in.
+- Bridge: Đọc như kể chuyện (journalistic witness) — không cảm xúc bề ngoài, cảm xúc nằm ở sự thật của chi tiết.
+- Final Chorus: Hát bung — voice crack được phép và được khuyến khích ở "CAAAME".
+- Outro: Chỉ vocalizing — không lời. Cello dẫn ra silence.
+
+ORIGINALITY NOTE:
+- Object Leitmotif "heavy strings" đóng vai trò như một chiếc khóa — từ vật lý đau đớn → chuyển hóa thành sự nhẹ nhàng trong Final Chorus. Chưa từng làm trong corpus.
+- Rhyme scheme của FC khác hoàn toàn C1/C2 (WAY/SWAY/NAME/CAME thay cho room/you/wire/true) — signal bài hát đã hoàn toàn chuyển hóa.
+- Ending: Silence CUT (không fade) — hiếm trong folk niche, cực kỳ powerful sau Mode D.
+
+SONG TITLE:
+heavy strings
+
+STYLE:
+Singer-songwriter acoustic folk ballad, acoustic guitar, upright bass, brushed drums, piano, string section, and solo male vocal, The acoustic guitar plays a fingerpicked 4/4 pattern at 76 BPM in the key of G major with audible fret noise and string buzz, The upright bass enters at the pre-chorus with warm melodic counterpoint and a deep woody tone, Drums feature a soft brushed snare and light kick entering at verse two staying very subtle throughout, A clean piano enters at chorus two with sparse high-register chords evoking presence and memory, The male lead vocal is raspy and close-mic'd with a weathered raw tone and occasional voice crack layering into quiet harmonies during the final chorus, The arrangement builds one layer at a time cutting to silence rather than fading in the outro, A solo cello enters only at the first chorus providing deep grief-soaked warmth as the emotional signature of the song.
+
 LYRICS:
 
-[Intro, intimate acoustic guitar, fingerpicking, audible fret squeaks]
-[Clock ticking sound in the background]
+[Intro, fingerpicked acoustic guitar, 76 BPM, audible fret squeaks and string buzz]
 
 [Verse 1]
-These hands have built a wooden house, 
-they've weathered winter storms.
-They've lifted heavy stones and steel,
-to keep this family warm.
-But now they shake against the wood,
-the steel strings cut the skin.
-It’s been ten years since you left this room,
-and I don't know where to begin.
+The calluses run deep along the palm,
+forty years of stone and iron rail.
+Tonight I sat down with a borrowed guitar
+and pressed my thumb into the scale.
+The record spins the song you used to hum
+while washing up the Sunday plates.
+I touched the first three strings and felt them bite —
+the blood came right through to the frets.
 
-[Pre-Chorus]
-The radio is dusty,
-but your record still spins round.
-I'm pressing on the heavy strings,
-trying to find the sound.
+[Pre-Chorus 1]
+[upright bass enters quietly]
+The needle finds the groove and holds its breath.
+(holds its breath)
+I press the chord. I press again.
+(press again)
 
-[Chorus]
-And my hands were made for heavy stones,
-but now they learn to play.
-I'll practice through the quiet night
-until the break of day.
-I couldn't say "I love you" then,
-the words I couldn't do...
-So this is the unplayed song,
-the one I learned for you.
+[Chorus 1]
+[cello enters — emotional signature]
+Heavy strings, heavy hands,
+heavy years inside this room.
+(inside this room)
+The chord I keep on missing
+is the word I couldn't say to you.
+(couldn't say to you)
+I'll press until the callus meets the wire,
+I'll press until it's TRUUUE.
+(until it's true)
 
 [Verse 2]
-I drew the chords on paper scraps,
-my writing’s getting frail.
-I missed the notes a thousand times,
-to no avail.
-But every time I strike it right,
-I swear I feel a breeze.
-Like you are sitting in that chair,
-smiling back at me.
+[soft brushed snare enters, guitar tone slightly warmer]
+The third step from the kitchen always creaks —
+I haven't touched it since you went.
+(since you went)
+The paper chords I wrote are wearing thin
+from all the times I got them wrong.
+But Monday last I played it end to end
+without lifting off my hand.
+And something in the room sat very still,
+like it recognized the song.
+(recognized the song)
 
-[Pre-Chorus]
-The radio is dusty,
-but your record still spins round.
-I'm pressing on the heavy strings,
-I finally found the sound.
+[Pre-Chorus 2]
+The needle finds the groove and holds its breath.
+(holds its breath)
+Tomorrow I will drive to meet your stone.
+(meet your stone)
 
-[Chorus]
-[Piano enters softly]
-And my hands were made for heavy stones,
-but now they learn to play.
-I'll practice through the quiet night
-until the break of day.
-I couldn't say "I love you" then,
-the words I couldn't do...
-So this is the unplayed song,
-the one I learned for you.
+[Chorus 2]
+[piano enters softly, high register]
+Heavy strings, heavy hands,
+heavy years inside this room.
+(inside this room)
+The chord I finally found
+is the word I should have said to you.
+(should have said)
+I'll press until the callus meets the wire,
+I'll press until it's TRUUUE.
+(until it's true)
 
 [Bridge]
-[Strings enter, emotional swelling]
-And the calluses are building up,
-the bleeding finally stops.
-I walked up to your marble stone
-beneath the willow tops.
-I sat down in the autumn leaves,
-and didn't miss a chord...
-(I didn't miss a chord...)
+[stripped back: guitar and voice only]
+The cemetery gates don't open till eight.
+(till eight)
+I was there by seven, waiting at the road.
+(at the road)
+I wiped the stone and set the guitar down
+on the leaves beside the gravel.
+The wind came through the willow before I played a note —
+I heard you in it, just a little.
+(just a little)
+[strings swell slowly into the final chorus]
 
 [Final Chorus]
-[Maximum emotional intensity, sweeping strings, full acoustic strumming]
-Oh, my hands were made for heavy stones,
-but look at how they PLAY!
-I practiced through the darkest nights
-to give you this today.
-I finally said "I love you", dear,
-it took a lifetime to...
-This is the unplayed song,
-and I play it all for you.
-(I play it all for you...)
+[full strings, piano, choir harmonies, maximum emotional intensity]
+Heavy strings, heavy hands —
+I played it all the WAAAY.
+(all the way)
+I didn't miss a single note,
+I heard you in the willow SWAAAY.
+(in the willow sway)
+The wire that once cut me
+now sounds just like your NAAAME.
+(sounds like your name)
+Heavy strings, they're not so heavy now —
+I finally CAAAME.
+(finally came)
 
 [Outro]
-[Music fades out, just a single acoustic guitar playing the final chord]
-The autumn leaves are blowing round...
-(blowing round...)
-The sweetest sound.
-[fade out]
+[vocalizing only, no lyrics]
+(Mmm-hmm...)
+(Ohhh-ohhh...)
+[cello solo]
+[silence — CUT, do not fade]
 
 ---
 SUNO TESTING NOTE:
-Generate 3-5 versions. Yêu cầu Suno tạo ra chất giọng "raspy old man" hoặc "raw male vocal". Quan trọng nhất là tiếng guitar ở Verse 1 phải nghe thật "mộc", và sự chuyển đổi cảm xúc bùng nổ ở đoạn Bridge chuyển sang Final Chorus phải rợn ngợp.
+Generate 3-5 versions. Ưu tiên take có:
+1. Tiếng fret noise và string buzz nghe rõ ở Verse 1 (chứng minh acoustic authenticity).
+2. Cello enter rõ ràng và đúng tại Chorus 1 — không sớm hơn.
+3. Voice crack tự nhiên tại đoạn "I finally CAAAME" trong Final Chorus.
+4. Silence CUTTER hoàn toàn ở Outro — không fade.
+5. Độ tương phản Verse/Final Chorus rõ ràng tối thiểu 3x năng lượng.
 
 NEXT STEP:
-Gửi Boss lời bài hát + Clean version để ném thẳng vào Suno tạo nhạc.
+Chờ Boss duyệt bản lyrics mới để tạo 03_clean_lyrics.txt và chuyển sang Stage 4.
