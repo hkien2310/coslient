@@ -200,6 +200,13 @@ Khi nhận concept, Coslient phải tự xác định phong cách nhạc tối �
 
 ### B3. Song Title — Coslient Naming Framework (The "Anti-Cheesy" Indie Aesthetic)
 
+> [!IMPORTANT]
+> **QUY TẮC BẮT BUỘC (Boss rule — override mọi gợi ý bên dưới):**
+> - **Tối đa 3 từ** — không được dài hơn.
+> - **Ngắn gọn nhưng đầy đủ nghĩa** — người đọc xong phải cảm nhận được hồn của bài hát, dù chưa nghe.
+> - **Hoặc kỳ lạ** — từ ngữ gây tò mò, khó đoán, buộc người ta phải bấm nghe để hiểu.
+> - Nếu đề xuất tên bài, luôn đưa ra **3–5 phương án** kèm phân tích ngắn gọn (double meaning, cảm giác gợi ra, lý do chọn).
+
 Tiêu đề là **điểm chạm đầu tiên (Curiosity Gap)**. Tên bài hát phải đóng vai trò như một tác phẩm nghệ thuật (Art-house/Indie), tuyệt đối không dùng để "tóm tắt" hay "kể lể" trần trụi nội dung. MỤC TIÊU LÀ TIẾNG ANH.
 
 > [!WARNING]

@@ -109,6 +109,32 @@ Sau đó overlay nhạc riêng trong editor. Đây là workflow chuẩn của pr
 
 ---
 
+## Shot Bridge Protocol (MỚI — Storyboard-Driven Workflow)
+
+> [!IMPORTANT]
+> Storyboard đã thiết kế sẵn tính liên tục giữa các clips. Khi animate theo storyboard, dùng bảng này để quyết định cách nối từng clip — thay vì phải sắp xếp thủ công trong editor.
+
+### Ba loại Bridge:
+
+| Loại | Khi nào dùng | Cách xử lý |
+|------|-------------|-----------|
+| **Direct Bridge** | Shot N+1 cùng không gian với Shot N | Last frame của Shot N → làm input image cho Shot N+1 |
+| **Environmental Bridge** | Shot N+1 là `[NEW LOCATION]` | Tạo 1 ENV Shot (cảnh không người) làm "xả" trước khi vào location mới. **KHÔNG** dùng last frame của Shot N làm start frame cho Shot N+1 |
+| **Detail Bridge** | Time jump (sáng → tối, ngày → năm sau) | Tạo 1 DETAIL Shot (cận vật thể) làm visual bridge — không cần match spatial anchor |
+
+### Khi nào KHÔNG dùng last frame làm start frame:
+- Shot N+1 là `[NEW LOCATION]` → KHÔNG dùng (AI sẽ bị confused về không gian)
+- Shot N+1 là time-jump rõ ràng → KHÔNG dùng
+- Hai shots có emotional contrast quá lớn (vui cực ↔ buồn sâu) → dùng Environmental Bridge xen giữa
+
+### Checklist trước khi batch VEO (dùng cùng file `03_storyboard.md`):
+- [ ] Mọi Shot ID đã có prompt tương ứng trong `04_image_prompts.txt`?
+- [ ] Các Shot Bridge đã được đánh dấu (Direct / Environmental / Detail)?
+- [ ] Mọi `[NEW LOCATION]` shot đã có Environmental Bridge trước đó?
+- [ ] Không có 2 close-up liên tiếp cùng hướng nào sẽ gây jump cut?
+
+---
+
 ## Keywords CẤM trong Animation Prompt
 
 **Motion keywords nguy hiểm — gây distortion:**

@@ -45,7 +45,9 @@ coslient-video/
         └── docs/            <-- Nơi lưu trữ toàn bộ file tài liệu (.md và .txt) của dự án
             ├── 01_ideas.md
             ├── 02_concept.md
+            ├── 02_story_research.md
             ├── 03_song_lyrics.md
+            ├── 03_storyboard.md         <-- MỚI: bảng storyboard (tạo ở Stage 3.5)
             ├── 04_image_prompts.txt
             ├── 05_animation_prompts.md
             └── 06_youtube_seo.md
@@ -62,9 +64,16 @@ coslient-video/
 Khi mới khởi động hoặc bắt đầu phiên chat mới với Boss:
 1.  **Đọc file [CLAUDE.md](file:///Users/hoangkien/Youtube/coslient-video/CLAUDE.md) (file này)** để hiểu luật chơi chung.
 2.  **Hỏi Boss project nào đang làm** hoặc kiểm tra folder `projects/` để tìm đúng dự án theo ngữ cảnh Boss cung cấp.
-3.  **Đọc các file docs trong `projects/video_xxx/docs/`** để xác định đang ở Stage mấy (file nào đã có = stage đó đã qua, file nào chưa có = stage đó chưa làm).
+3.  **Đọc các file docs trong `projects/video_xxx/docs/`** để xác định đang ở Stage mấy:
+    - `01_ideas.md` có → đã qua Stage 1
+    - `02_concept.md` có → đã qua Stage 2
+    - `03_song_lyrics.md` có → đã qua Stage 3
+    - `03_storyboard.md` có → đã qua Stage 3.5 (storyboard planning)
+    - `04_image_prompts.txt` có → đã qua hoặc đang ở Stage 4
+    - `05_animation_prompts.md` có → đã qua Stage 5
+    - *Ví dụ:* Có `03_song_lyrics.md` nhưng chưa có `03_storyboard.md` → đang ở Stage 3.5. Đọc `04s_storyboard_template.md` và `04_image_prompt_development_knowledge.md`.
+    - *Ví dụ:* Có `03_storyboard.md` nhưng chưa có `04_image_prompts.txt` → đang ở Stage 4. Đọc `04_image_prompt_development_knowledge.md`.
 4.  **Đọc file tương ứng trong `flow/`** để xử lý đúng Stage tiếp theo.
-    *   *Ví dụ:* Nếu đã có `03_song_lyrics.md` nhưng chưa có `04_image_prompts.txt` → đang ở Stage 4. Đọc `04_image_prompt_development_knowledge.md`.
 5.  **Ghi file kết quả** vào thư mục `projects/video_xxx/docs/` sau khi Boss duyệt. Không cần cập nhật dashboard.
 
 ---
@@ -92,10 +101,18 @@ Trước khi bắt đầu BẤT KỲ hành động nào (viết, tạo file, ch�
 
 ---
 
-## 🎯 5. QUY TẮC PHÁT TRIỂN HÌNH ẢNH (STAGE 4 - IMAGE PROMPTING)
+## 🎯 5. QUY TẮC PHÁT TRIỂN HÌNH ẢNH (STAGE 3.5 + STAGE 4 - STORYBOARD & IMAGE PROMPTING)
 
 Hình ảnh là khâu quan trọng nhất. Agent phải tuân thủ nghiêm ngặt các quy chuẩn sau:
-- **Tách dòng & Không ký tự lạ:** Mỗi prompt trên **1 dòng duy nhất**, phân cách bằng **đúng 1 dòng trống**. Không dùng tiền tố `A_001|` hay số thứ tự.
+
+- **⚠️ Stage 3.5 trước tiên (BẮT BUỘC):** Sau khi Boss duyệt bài hát, Coslient phải tạo bảng **Storyboard** trước khi viết bất kỳ image prompt nào.
+  - Dùng template `flow/04s_storyboard_template.md`
+  - Tính số shots: tổng giây ÷ 5 = tổng shots
+  - Map shots vào từng song section theo timecode
+  - Ghi vào file `projects/video_xxx/docs/03_storyboard.md`
+  - **Chờ Boss duyệt storyboard trước khi tiếp tục sang Stage 4.**
+
+- **Tách dòng & Không ký tự lạ:** Mỗi prompt trên **1 dòng duy nhất**, phân cách bằng **đúng 1 dòng trống**. Mỗi prompt được gán Shot ID: `# SB_001 | Intro | 0:00–0:05 | Type: ENV`
 - **Độ dài Prompt:** Luôn viết prompt chi tiết **> 500 ký tự**.
 - **Phong cách:** Load từ file style module trong `flow/`. Mặc định: `04s_visual_style_warm_storybook.md`.
 - **⚠️ Kiểm tra tương thích phong cách (Style Fit Check — BẮT BUỘC):** Trước khi bắt đầu viết prompt ảnh (Stage 4), Agent **BẮT BUỘC** phải đánh giá xem concept/câu chuyện hiện tại có phù hợp với 1 trong 3 phong cách hình ảnh đang có hay không:
@@ -105,9 +122,9 @@ Hình ảnh là khâu quan trọng nhất. Agent phải tuân thủ nghiêm ng�
 
   **Nếu không có phong cách nào trong 3 cái trên phù hợp với câu chuyện**, Agent **KHÔNG ĐƯỢC tự ý ép dùng** một phong cách không khớp. Thay vào đó, Agent phải **dừng lại và yêu cầu Boss đi tìm kiếm/nghiên cứu một phong cách hình ảnh mới** phù hợp hơn trước khi tiếp tục Stage 4.
 - **Triết lý Thiết kế 2 Lớp tối cao:**
-  1. *Lớp 1 - Xương sống kịch bản (Story Skeleton):* Nội dung cảnh quay bám sát cấu trúc bài hát và tuyến nhân vật theo concept đã duyệt.
+  1. *Lớp 1 - Xương sống kịch bản (Story Skeleton):* Nội dung cảnh quảy bám sát Shot ID trong storyboard đã duyệt.
   2. *Lớp 2 - Lớp áo phong cách (Visual Style Overlay):* Phủ style anchor từ file style đang active lên trên.
-- **Quy trình tạo Prompt tăng dần:** Mỗi lần Boss yêu cầu → tạo **đúng 10 prompt mới** (> 500 ký tự), ghi thẳng vào file `projects/video_xxx/04_image_prompts.txt`. Chỉ dừng khi Boss nói **"stop"**.
+- **Quy trình tạo Prompt theo Song Section:** Tạo toàn bộ prompts cho **1 song section**, ghi thẳng vào file `projects/video_xxx/docs/04_image_prompts.txt`. Trình Boss xem sau mỗi section. Tiếp tục khi Boss duyệt.
 - **Chi tiết đầy đủ:** Xem `flow/04_image_prompt_development_knowledge.md` (kỹ thuật prompt) và file style tương ứng (style anchor, material, color, lighting).
 
 ---

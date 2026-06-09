@@ -34,6 +34,47 @@ Coslient should behave like a visual director, not a prompt spammer.
 This stage begins only after Boss has approved the song.
 
 Coslient must follow this strict step-by-step sub-stage workflow:
+
+0. **Stage 4.0: Storyboard Planning (MỚI — BẮT BUỘC ĐỨNG TRƯỚC MỌI THỨ)** ➔
+
+   > [!IMPORTANT]
+   > **Storyboard là bản thiết kế. Image Prompts là bản thi công. Không được thi công khi chưa có thiết kế.**
+   > Không được viết bất kỳ image prompt nào trước khi có bảng Storyboard đã được Boss duyệt.
+
+   - **Bước 1 — Tính tổng số shots từ bài hát:**
+     - Lấy tổng thời lượng bài hát (giây)
+     - Chia cho 5 (trung bình mỗi VEO clip ≈ 5 giây, range 3–8 giây)
+     - Làm tròn lên → đây là **tổng số shots cần tạo**
+     - Ví dụ: bài 4:10 = 250 giây ÷ 5 = **50 shots**
+
+   - **Bước 2 — Map shots vào từng song section:**
+     Dựa vào thời lượng thực tế của từng section trong bài nhạc:
+     ```
+     Intro:         [thời lượng]s ÷ 5 = [N] shots
+     Verse 1:       [thời lượng]s ÷ 5 = [N] shots
+     Pre-Chorus:    [thời lượng]s ÷ 5 = [N] shots
+     Chorus 1:      [thời lượng]s ÷ 5 = [N] shots
+     ...
+     TỔNG:          [tổng giây]s       = [tổng shots] shots
+     ```
+
+   - **Bước 3 — Viết bảng Storyboard (dùng template `04s_storyboard_template.md`):**
+     Mỗi row = 1 Shot = 1 VEO clip. Điền đủ các cột:
+     | Shot ID | Section | Timecode | Type | Spatial Anchor | Camera | Action / Scene | Emotional Beat | → Next |
+     Quy định **Shot Type** (phân bổ cho toàn bộ storyboard):
+     - **STORY** (nhân vật hành động): ~50%
+     - **ENV** (bối cảnh không người): ~25%
+     - **DETAIL** (cận vật thể / tay / ánh sáng): ~25%
+
+   - **Shot Continuity Rules (BẮT BUỘC khi viết storyboard):**
+     1. **Spatial Lock:** Shot N+1 cùng không gian với Shot N → phải kế thừa Spatial Anchor (vị trí nhân vật, hướng ánh sáng, đồ vật chính). Nếu đổi location → ghi `[NEW LOCATION]` và đặt lại Spatial Anchor.
+     2. **Light Direction Lock:** Hướng ánh sáng không đổi trong cùng không gian. Chỉ thay đổi khi chuyển scene hoặc time-jump.
+     3. **Camera Jump Rule:** Không cắt trực tiếp close-up → close-up cùng hướng. Phải có medium/wide shot xen giữa.
+     4. **Emotional Flow:** Emotional Beat của Shot N+1 là tiếp nối hoặc đối nghịch có chủ ý từ Shot N — không ngẫu nhiên.
+     5. **Shot Type Rotation:** Không xếp liên tiếp quá 3 STORY shots. Phải xen ENV hoặc DETAIL.
+
+   - **Stop and wait for Boss approval:** Sau khi có bảng storyboard → trình Boss xem. **Chỉ tiếp tục Stage 4.1 khi Boss duyệt storyboard.**
+
 1. **Stage 4.1: Visual Style Selection & Setup** ➔
    - **Bước 1 — Hỏi Boss chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `flow/` và hỏi Boss muốn dùng style nào.
    - **Bước 2 — Load style:** Nếu Boss chọn → load file style đó. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `04s_visual_style_warm_storybook.md`.
@@ -46,34 +87,46 @@ Coslient must follow this strict step-by-step sub-stage workflow:
      **Ví dụ:** Câu chuyện về người mẹ già nhớ con → "desaturated muted warm earth tones, soft faded sepia shadows, pale winter morning light, gentle lifted grays"
      **Ví dụ:** Câu chuyện về ngày hè sum vầy → "vibrant honey-gold sunlight, amber-warm shadows, saturated joyful colors, golden bokeh"
      Stop and wait for Boss's explicit approval of both visual direction AND Color Tone.
-   - **Bước 4 — Lock & Broadcast Color Tone:** Sau khi Boss duyệt, Color Tone String này được **KHÓA CỨNG** cho toàn bộ video. Ghi vào đầu file `04_image_prompts.txt` dưới dạng:
+   - **Bước 4 — Lock & Broadcast Color Tone:** Sau khi Boss duyệt, Color Tone String này được **KHÓA CỨNG** cho toàn bộ video. Ghi vào đầu file `04_image_prompts.txt` và vào mục `LOCKED COLOR TONE` trong file `03_storyboard.md` của dự án:
      `# LOCKED COLOR TONE: [Color Tone String]`
      Mọi agent trong Stage 4.3 đều nhận và bắt buộc dùng nguyên văn Color Tone String này.
-2. **Stage 4.2: Initial Test Prompts & Iteration** ➔ Provide exactly 10 high-fidelity sample test prompts (length > 500 characters) based on the locked style.
-3. **Stage 4.3: Multi-Agent Story-Beat Generation** ➔
-   - **Quy trình bắt buộc — Chia theo STORY BEAT (không phải đoạn nhạc):**
-     - **Bước A — Story Beat Mapping:** Từ **concept đã duyệt** (không phải lyrics), xác định 5-7 EMOTIONAL BEAT của câu chuyện. Mỗi beat = một khoảnh khắc cảm xúc khác nhau = 1 agent riêng biệt.
-       Emotional beat không phải đoạn nhạc. Ví dụ:
-       - Beat 1: *Thiết lập thế giới* — cảm xúc: yên tĩnh, xa xôi, chờ đợi
-       - Beat 2: *Nhân vật trong không gian quen thuộc* — ấm áp, hàng ngày, routine
-       - Beat 3: *Căng thẳng / Longing* — cô đơn, nhớ nhung, khoảng cách
-       - Beat 4: *Kết nối / Cao trào* — ấm áp, sum vầy, xúc động
-       - Beat 5: *Di sản / Dư âm* — tĩnh lặng, tiếc nuối đẹp, vĩnh cửu
-     - **Bước B — Pre-Generation Briefing (BẮT BUỘC):** Trước khi các agent bắt đầu tạo prompt, tất cả agents phải được briefing về **Visual Occupation Map** — bảng phân chia để tránh trùng:
-       - Agent nào đảm nhiệm beat nào
-       - Emotional texture riêng của mỗi beat (cảm xúc + light quality + visual rhythm)
-       - Góc máy nào đã "bị đặt cọc" bởi agent khác
-       - Shot size distribution target cho toàn bộ set
-       - Composition archetype đã dùng / chưa dùng
-     - **Bước C — Parallel Generation:** Mỗi agent tạo **đúng 20 prompts** cho story beat của mình, ghi vào file.
-     - **Bước D — Cross-Agent Deduplication Check:** Sau khi toàn bộ agents hoàn thành, Coslient kiểm tra tổng thể và flag bất kỳ cặp prompt nào quá giống nhau (cùng shot size + cùng composition + cùng action type).
-   - **No Conversational Reporting:** Do not write long reports, summaries, or verbose lists in the chat window. Simply execute and write the generated prompts directly into the target file `projects/video_xxx/docs/04_image_prompts.txt` (or update it incrementally).
-   - **Long-Running / Background Executions:** If Boss requests a massive quantity of prompts (e.g., hundreds of prompts at once), Coslient must use a long-running background task or define a subagent to run it asynchronously, updating the file in the background without blocking Boss.
-   - For each new batch of prompts (whether 10 or 20), Coslient must use **maximum creativity and strictly avoid repeating previous visual motifs, scenes, or compositions** while remaining 100% aligned with the approved story/concept.
-   - Continue this cycle until Boss explicitly says **"stop"** (dừng lại).
-   - Only when Boss says "stop", compile and verify the complete accumulated flat list of prompts in `projects/video_xxx/docs/04_image_prompts.txt`, and transition to Stage 5.
+2. **Stage 4.2: Initial Test Prompts & Iteration** ➔ Provide exactly 10 high-fidelity sample test prompts (length > 500 characters) based on the locked style. Test prompts KHÔNG cần gán Shot ID — chúng chỉ để kiểm tra style và color tone.
+3. **Stage 4.3: Storyboard Execution** ➔
 
-Do not skip any sub-stages. Do not move to Stage 5 before Boss explicitly commands to stop the generation cycle.
+   > [!IMPORTANT]
+   > **Thay đổi cốt lõi:** Không còn batch ảnh rời rạc theo "story beat" độc lập. Mỗi prompt được gán vào đúng 1 Shot ID trong storyboard, viết theo thứ tự tuyến tính, và kế thừa Spatial Anchor từ shot trước.
+
+   - **Shot ID Binding (BẮT BUỘC):**
+     Mỗi prompt bắt đầu bằng metadata gán Shot ID:
+     ```
+     # SB_012 | Chorus 1 | 1:45–1:50 | Type: ENV
+     [Prompt text bắt đầu ở đây...]
+     ```
+
+   - **Spatial Anchor Inheritance (BẮT BUỘC):**
+     Trước khi viết prompt cho Shot N:
+     1. Đọc lại `Spatial Anchor` của Shot N-1 trong file `03_storyboard.md`
+     2. Nếu cùng không gian → giữ nguyên hướng ánh sáng, vị trí đồ vật, vị trí nhân vật trong prompt
+     3. Nếu Shot N là `[NEW LOCATION]` → đặt lại Spatial Anchor hoàn toàn dựa trên storyboard
+
+   - **Quy trình tạo prompts theo Song Section:**
+     - Tạo toàn bộ prompts cho **1 song section** (VD: Intro = 4 shots = 4 prompts)
+     - Trình Boss xem batch đó
+     - Boss duyệt → tạo tiếp section tiếp theo
+     - Boss yêu cầu sửa → sửa rồi mới tạo tiếp
+     - **Không tạo ồ ạt toàn bộ trước khi Boss xem bất kỳ section nào**
+
+   - **Visual Occupation Map (giữ lại — dùng để kiểm tra cross-section):**
+     Sau mỗi 2 sections, Coslient scan và flag bất kỳ cặp prompt nào match cả 3 tiêu chí:
+     cùng shot size + cùng composition type + cùng action category → viết lại để thay đổi ít nhất 2 trong 3.
+
+   - **No Conversational Reporting:** Ghi generated prompts trực tiếp vào `projects/video_xxx/docs/04_image_prompts.txt`, không paste lại toàn bộ vào chat.
+
+   - **Long-Running / Background Executions:** Nếu Boss yêu cầu tạo nhiều sections cùng lúc, dùng subagent chạy background. Mỗi subagent đảm nhiệm 1 song section (không giao chồng chéo).
+
+   - Khi Boss nói **"stop"** hoặc toàn bộ storyboard đã có đủ prompts → compile và verify danh sách cuối cùng trong `04_image_prompts.txt`, transition sang Stage 5.
+
+Do not skip any sub-stages. Do not move to Stage 5 before the storyboard is fully executed.
 
 ---
 
