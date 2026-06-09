@@ -304,8 +304,10 @@ Coslient must follow this strict step-by-step sub-stage workflow:
 
    > 💡 **ULTRA-SHORT PROMPT RULE:** Vì bức ảnh nền từ Bước A đã chiếm 90% công việc (bố cục, ánh sáng, phong cách), prompt ở Bước B cần **CỰC KỲ NGẮN**. Không cần lặp lại mô tả môi trường hay ánh sáng. Để AI tự nhìn ảnh nền và xử lý tương tác.
 
+   > ⚠️ **MANDATORY INGREDIENT CALL RULE:** Nếu trong shot có BẤT KỲ thành phần nào đã được đăng ký trong Character Bible (bao gồm Nhân vật, Prop phụ, hay Không gian khép kín như `@GlassDome`), **BẮT BUỘC** phải gọi `@tag` của nó ra ở Bước B. Không bao giờ được Skip Bước B trừ khi shot đó chỉ toàn là môi trường mở (nước, trời, cát) hoàn toàn trống trơn!
+
    ```
-   [Shot Size] + [Camera Angle], @Character [action/pose]
+   [Shot Size] + [Camera Angle], @Ingredient_1 [action], @Ingredient_2 [action]
    ```
 
    **Ví dụ ĐÚNG (Siêu ngắn - Tối ưu nhất):**
