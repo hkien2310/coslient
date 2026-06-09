@@ -94,16 +94,24 @@ Coslient must follow this strict step-by-step sub-stage workflow:
 1.5. **Stage 4.1.5: Character Design — Google Flow @Character System** ➔
 
    > [!IMPORTANT]
-   > **Tách biệt 2 việc:**
-   > 1. **Flow @Character System** — upload reference images để ghim consistency khi VEO 3 generate video
-   > 2. **Image Generation Tool** — Boss chọn tool riêng (không phải Nano Banana) để tạo ảnh đẹp hơn
+   > **Pipeline 2 bước tạo ảnh (BẮT BUỘC khi có nhân vật):**
    >
-   > Flow @Character feature CHỈ dùng cho những thứ THẬT SỰ cần consistency xuyên suốt video.
-   > Môi trường → mô tả bằng text trong prompt (không cần upload lên Flow Character).
+   > ```
+   > Bước A: External Image Tool          Bước B: Nano Banana (Flow)          Bước C: VEO 3
+   >   Tạo ENV/scene KHÔNG có nhân vật  →  Ghép @Character vào ảnh nền      →  Animate video
+   >   (đẹp, nịnh mắt, 30-60 cảnh)         ("Character Compositor")
+   >   Cảnh nào cần render mới → tạo ở đây  Đảm bảo character đồng bộ
+   >                                         xuyên suốt toàn bộ video
+   > ```
+   >
+   > **Lý do 2 bước:** External tool tạo cảnh đẹp hơn Nano Banana, nhưng không có character consistency.
+   > Nano Banana giải quyết consistency. Kết hợp = đẹp VÀ nhất quán.
+   >
+   > **Flow @Character** = chỉ upload characters thật sự (người, body part quan trọng). Không upload environment.
 
    **Bước 0 — Story Type Check:**
-   - `Type A: No Character` → **SKIP Stage 4.1.5**, sang Stage 4.2
-   - `Type B/C: Có nhân vật` → **Full Character workflow bắt buộc**
+   - `Type A: No Character` → **SKIP Stage 4.1.5**, sang Stage 4.2 (tạo ảnh trực tiếp bằng external tool)
+   - `Type B/C: Có nhân vật` → **Pipeline 2 bước bắt buộc**
 
    **Bước 1 — Tạo file Character Bible (BẮT BUỘC với Type B/C):**
    Dùng template `flow/04s_character_bible_template.md` → tạo `projects/video_xxx/docs/04_character_bible.md`.
@@ -112,70 +120,85 @@ Coslient must follow this strict step-by-step sub-stage workflow:
    ```
    ✅ UPLOAD LÊN FLOW @CHARACTER:
    - Nhân vật (người, sinh vật) — consistency quan trọng nhất
-   - Bộ trang phục/costume đặc trưng khác nhau của cùng nhân vật
-   - Body part quan trọng (VD: @BrassHand — xuất hiện 13 shots)
-   - Không gian NHỎ/KHÉP KÍN lặp lại nhiều (VD: @GlassDome — tuỳ chọn)
+   - Costume variants khác nhau của cùng nhân vật (@OldMan nhà vs @DivingSuit biển)
+   - Body part quan trọng lặp lại nhiều (VD: @BrassHand — 13 shots)
+   - Không gian NHỎ/KHÉP KÍN nếu muốn ghim (VD: @GlassDome — tuỳ chọn)
 
-   ❌ KHÔNG CẦN UPLOAD — dùng Environment Pack Keywords trong text:
-   - Môi trường RỘNG/MỞ (đáy biển, rừng, đồng bằng, bầu trời)
-   - Mỗi shot ở vị trí khác nhau trong cùng khu vực → variation là tự nhiên
-   - Bối cảnh chỉ cần "cảm giác chung" không cần "chi tiết giống hệt"
+   ❌ KHÔNG CẦN UPLOAD — tạo ở external tool + mô tả bằng text keyword:
+   - Môi trường RỘNG/MỞ (đáy biển, rừng, bầu trời)
+   - Mỗi shot tự nhiên ở vị trí khác nhau trong khu vực → variation tự nhiên
    ```
 
-   **Bước 3 — Tạo reference images cho @Characters (dùng tool Boss chọn):**
+   **Bước 3 — Tạo reference images cho @Characters:**
    ```
-   Với mỗi @Character cần upload:
-   - Ảnh 1: Multi-angle overview (front + side + 3/4 trong 1 frame) — để Flow hiểu silhouette
-   - Ảnh 2: Close-up detail (face, texture, key feature) — để Flow hiểu chi tiết quan trọng
-   - Character Info: đoạn text mô tả 50-150 từ điền vào Flow khi upload (BẮT BUỘC)
+   Dùng bất kỳ image gen tool nào (external tool hoặc Nano Banana):
+   - Ảnh 1: Multi-angle overview (front + side + 3/4 trong 1 frame)
+   - Ảnh 2: Close-up detail (face, texture, key feature)
+   - Character Info: mô tả 50-150 từ điền vào Flow khi upload (BẮT BUỘC)
 
-   Thứ tự generate:
-   1. Nhân vật chính (quan trọng nhất)
-   2. Costume variants (VD: @OldMan trong nhà vs @DivingSuit ngoài biển)
+   Thứ tự:
+   1. Nhân vật chính
+   2. Costume variants
    3. Body part / detail character (VD: @BrassHand)
-   4. Enclosed environment nếu cần (VD: @GlassDome — 1 ảnh thôi, không cần kỹ)
+   4. Enclosed environment nếu cần (1 ảnh, không cần kỹ)
    ```
 
    **Bước 4 — Upload lên Flow và đặt @tag names:**
-   - Upload cả 2 ảnh per character lên Flow
-   - Đặt tên: PascalCase, no spaces (`@OldMan`, `@DivingSuit`, `@BrassHand`)
-   - Điền Character Info vào ô text khi upload
-   - Ghi URLs và @tag names vào Character Bible
+   - Upload 2 ảnh per character → đặt tên PascalCase (`@OldMan`, `@DivingSuit`, `@BrassHand`)
+   - Điền Character Info → Ghi vào Character Bible
 
    **Bước 5 — Chuẩn bị Environment Pack Keywords (cho môi trường mở):**
    ```
-   Với mỗi môi trường mở, viết sẵn 1 chuỗi keyword ~20-30 từ:
-   VD: @DeepAbyss → "near-black deep ocean abyss, massive dark rocky formations,
+   Với mỗi môi trường mở, viết sẵn 1 chuỗi keyword ~20-30 từ để dùng trong Bước B:
+   VD (DeepAbyss): "near-black deep ocean abyss, massive dark rocky formations,
        faint bioluminescent cyan points, crushing depth, distant whale silhouette"
-   VD: @Seagrass → "shallow seagrass meadow, dappled sunlight from surface above,
+   VD (Seagrass):  "shallow seagrass meadow, dappled sunlight from surface above,
        blue-green underwater ambient, caustic light patterns on sand"
-
-   Paste keyword pack này vào text prompt của mỗi shot thay vì dùng @tag.
    ```
 
-   **Bước 6 — 3-Slot Budget Planning:**
+   **Bước 6 — 3-Slot Budget Planning (Nano Banana / Bước B):**
    ```
-   Flow nhận tối đa 3 @tags per prompt.
-   Standard allocation:
-   - Slot 1: @Character (nhân vật)
-   - Slot 2: @EnclosedEnvironment (nếu cần — VD: @GlassDome)
-            hoặc để trống nếu môi trường tả bằng text
+   Flow nhận tối đa 3 @tags per prompt khi composite:
+   - Slot 1: @Character (nhân vật chính của cảnh)
+   - Slot 2: @EnclosedEnvironment (nếu cần — VD: @GlassDome) hoặc để trống
    - Slot 3: @StyleRef
+   + text: environment pack keywords của location này
    ```
 
-   **Bước 7 — Shot Prompt Format:**
+   **Stop and wait for Boss approval:** Sau khi tạo Character chính → trình Boss xem.
+   Chỉ tiếp tục Stage 4.2 khi Boss approve character look.
 
+2. **Stage 4.2: Scene Generation (External Tool) + Character Compositing (Nano Banana)** ➔
+
+   > **Đây là workflow 2 bước cho MỌI shot có nhân vật:**
+
+   **Bước A — Tạo environment/scene images (External Image Tool):**
    ```
-   [Shot size], @Character [action] in @Environment,
-   [1 camera movement],
-   [lighting keywords],
-   Audio: [specific ambient sounds]. No music. No score. No dialogue.
+   - Tạo TẤT CẢ các cảnh môi trường/bối cảnh KHÔNG có nhân vật
+   - Số lượng: thoải mái (30-60 cảnh cho project 48 shots)
+   - Cảnh nào cần render ảnh mới → tạo ở đây
+   - Không cần nghĩ đến character consistency ở bước này
+   - Mục tiêu: cảnh đẹp, đúng góc, đúng ánh sáng, đúng mood
    ```
 
-   **Stop and wait for Boss approval:** Sau khi generate Character chính và 2 environments đối lập nhất (ví dụ: warm interior vs dark abyss) → trình Boss xem. Chỉ tiếp tục khi Boss approve character look và cross-environment consistency.
+   **Bước B — Character Compositing (Nano Banana trong Flow):**
+   ```
+   Với mỗi shot cần nhân vật:
+   1. Input: ảnh nền từ Bước A (upload làm reference/style image)
+   2. Prompt: @Character [action] + environment keywords + style
+   3. Nano Banana ghép nhân vật vào ảnh nền → character đồng bộ với @tag
+
+   Shot không có nhân vật (ENV shots, DETAIL không có tay) → dùng thẳng ảnh từ Bước A
+   ```
+
+   **Bước C — Video Generation (VEO 3):**
+   ```
+   Input: ảnh đã composite từ Bước B (hoặc trực tiếp từ Bước A nếu không có character)
+   + @Character tags + text prompt
+   → VEO 3 animate thành video clip
+   ```
 
 
-2. **Stage 4.2: Initial Test Prompts & Iteration** ➔ Provide exactly 10 high-fidelity sample test prompts (length > 500 characters) based on the locked style. Test prompts KHÔNG cần gán Shot ID — chúng chỉ để kiểm tra style, color tone, và kiểm tra mức độ ăn nhập của character references.
 3. **Stage 4.3: Storyboard Execution** ➔
 
    > [!IMPORTANT]
