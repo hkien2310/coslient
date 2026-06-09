@@ -182,19 +182,156 @@ Coslient must follow this strict step-by-step sub-stage workflow:
    ```
 
    **Bước B — Character Compositing (Nano Banana trong Flow):**
+
+   > Đây là bước kỹ thuật nhất. Chất lượng của shot phụ thuộc 100% vào việc kiểm soát 4 yếu tố sau:
+
+   ---
+
+   ### ⚠️ LUẬT NỀN TẢNG: Minimalist Compositing Rule
    ```
-   Với mỗi shot cần nhân vật:
-   1. Input: ảnh nền từ Bước A (upload làm reference/style image)
-   2. Prompt TỐI GIẢN: @Character [action] + environment lighting keywords.
-   
-   ⚠️ QUAN TRỌNG (MINIMALIST COMPOSITING RULE):
-   TUYỆT ĐỐI KHÔNG dùng keyword style (claymation, stop-motion) ở bước này. 
-   Nếu dùng, Nano Banana sẽ "đất-sét-hóa" làm hỏng ảnh nền. 
-   Hãy để ảnh nền tự giữ style của nó, và @Character tự giữ style của nhân vật.
-   
-   Ví dụ ĐÚNG: "Medium wide shot, @DivingSuit walking slowly. Dense flowing seagrass, dappled sunlight from above, caustic light."
-   3. Nano Banana ghép nhân vật vào ảnh nền → character đồng bộ + nền giữ nguyên.
+   TUYỆT ĐỐI KHÔNG dùng keyword style (claymation, stop-motion, Laika...)
+   trong prompt của Bước B.
+   → Nếu dùng, Nano Banana sẽ "đất-sét-hóa" ảnh nền gốc, phá nát công sức Bước A.
+   → Hãy để ảnh nền tự giữ style của nó, @Character tự giữ style của nhân vật.
+   → Style của nhân vật đã được lưu bên trong @tag rồi, không cần nhắc lại.
    ```
+
+   ---
+
+   ### 🎯 YẾU TỐ 1: SCALE (Tỷ lệ kích thước)
+   ```
+   Vấn đề thường gặp: Nhân vật quá to (character overwhelms scene)
+                     hoặc quá nhỏ (character disappears in environment)
+
+   CÁCH KIỂM SOÁT — Dùng Shot Size + Spatial Relationship Language:
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Muốn nhân vật LỚN trong frame:  "Medium shot, @Character..."  │
+   │  Muốn nhân vật TRUNG BÌNH:       "Wide shot, @Character..."    │
+   │  Muốn nhân vật NHỎ/XA:          "Extreme wide shot, @Character │
+   │                                   standing small in the         │
+   │                                   distance..."                  │
+   └─────────────────────────────────────────────────────────────────┘
+
+   Nếu vẫn sai scale → thêm Anchor Reference:
+   "...@DivingSuit stands at 1/4 height of the rock formations..."
+   "...@BrassHand filling only the bottom-left corner of frame..."
+
+   Nếu vẫn sai → Dùng tính năng Iterative Editing của Flow:
+   Gõ tiếp: "Make the character smaller in the frame"
+   hoặc:    "Move character to background, smaller scale"
+   ```
+
+   ---
+
+   ### 🎯 YẾU TỐ 2: POSITION (Vị trí trong frame)
+   ```
+   Vấn đề thường gặp: Nhân vật đứng chính giữa (quá cứng, thiếu điện ảnh)
+                     hoặc bị lệch không tự nhiên
+
+   CÁCH KIỂM SOÁT — Dùng Rule of Thirds + Spatial Anchoring:
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Giữa trái:  "centered left third of frame"                    │
+   │  Giữa phải:  "positioned in right third of frame"              │
+   │  Trung tâm:  "centered in frame" (chỉ dùng khi muốn tạo sức   │
+   │               mạnh, dignity — kiểu Kubrick symmetry)           │
+   │  Góc dưới:   "standing in the lower-center of frame"           │
+   └─────────────────────────────────────────────────────────────────┘
+
+   Anchor vật thể làm mốc (hiệu quả nhất):
+   "...@DivingSuit standing directly in front of the large rock..."
+   "...@BrassHand reaching toward the glass bottle on the left..."
+
+   Dùng Foreground/Midground/Background để định vị chiều sâu:
+   "...@DivingSuit in the midground, with seagrass in the foreground..."
+   ```
+
+   ---
+
+   ### 🎯 YẾU TỐ 3: COLOR HARMONIZATION (Hài hòa màu sắc)
+   ```
+   Vấn đề thường gặp: Nhân vật trông như bị "cắt dán" vì màu không khớp nền
+                     (ví dụ: giáp đồng quá sáng trong môi trường tối)
+
+   CÁCH KIỂM SOÁT — Mô tả ánh sáng MÀU SẮC chiếu lên nhân vật:
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Môi trường SÁNG/XANH (seagrass):                              │
+   │  "blue-green ambient light washing over the suit"               │
+   │  "teal-blue underwater light reflecting on brass surface"       │
+   │                                                                 │
+   │  Môi trường TỐI (deep abyss):                                  │
+   │  "only faint cyan bioluminescent light hitting the suit"        │
+   │  "suit cast in near-darkness, only rim light visible"           │
+   │                                                                 │
+   │  Môi trường ẤM (glass dome, firelight):                        │
+   │  "warm amber firelight casting on the suit"                     │
+   │  "orange-gold light from the left side"                         │
+   └─────────────────────────────────────────────────────────────────┘
+
+   ⚡ Kỹ thuật nâng cao: "Color Temperature Match"
+   Khi thấy nhân vật lạc màu so với nền, thêm:
+   "...lit by the same [warm amber / cool teal / cyan bioluminescent]
+    light as the surrounding environment..."
+   ```
+
+   ---
+
+   ### 🎯 YẾU TỐ 4: PERSPECTIVE & CAMERA ANGLE (Phối cảnh)
+   ```
+   Vấn đề thường gặp: Nhân vật đứng "phẳng", không cảm giác depth
+                     hoặc góc máy của nhân vật không khớp góc ảnh nền
+
+   CÁCH KIỂM SOÁT — Dùng Camera Angle Language khớp với ảnh nền:
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Ảnh nền có horizon thấp (nhìn lên): "Low angle shot, looking  │
+   │                                       up at @DivingSuit"        │
+   │  Ảnh nền có horizon cao (nhìn xuống):"High angle, @Character   │
+   │                                       seen from above"          │
+   │  Ảnh nền ngang tầm mắt:              "Eye-level shot"          │
+   └─────────────────────────────────────────────────────────────────┘
+
+   Mô tả tương quan perspective với vật thể trong cảnh:
+   "...@DivingSuit dwarfed by massive rock formations in background..."
+   "...@BrassHand in extreme foreground, environment blurred behind..."
+
+   Dùng Depth of Field để hợp nhất nhân vật với nền:
+   "...subject in sharp focus, background slightly defocused..."
+   (Tạo cảm giác nhân vật "thuộc về" môi trường đó)
+   ```
+
+   ---
+
+   ### 📐 CÔNG THỨC PROMPT HOÀN CHỈNH (Bước B)
+
+   ```
+   [Shot Size] + [Camera Angle], @Character [action/pose],
+   [Spatial Position] + [Anchor Object],
+   [Lighting Color Match on character],
+   [Depth/Perspective keywords]
+   ```
+
+   **Ví dụ ĐÚNG (đầy đủ):**
+   ```
+   "Wide shot, low angle, @DivingSuit walking slowly forward, centered
+    in lower third of frame, seagrass in foreground, rock formation
+    behind. Blue-green ambient light washing over the brass suit.
+    Subject in sharp focus, background slightly defocused."
+   ```
+
+   **Ví dụ ĐÚNG (tối giản):**
+   ```
+   "Medium wide shot, @DivingSuit standing small in the lower center
+    of frame. Dense flowing seagrass, dappled sunlight from above,
+    caustic light patterns."
+   ```
+
+   **Nếu kết quả vẫn chưa đạt → Dùng tính năng Iterative Editing của Flow:**
+   ```
+   - Scale sai:    "Make the character smaller" / "Make the character larger"
+   - Vị trí sai:   "Move character to the right" / "Move character further back"
+   - Màu sai:      "Adjust the character's lighting to match the teal ambient"
+   - Perspective:  "Lower the camera angle, look up at the character"
+   ```
+
 
    **Bước C — Video Generation (VEO 3):**
    ```
