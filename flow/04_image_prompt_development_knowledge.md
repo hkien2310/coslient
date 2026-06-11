@@ -23,9 +23,9 @@ The goal is to create images that are:
 Coslient should behave like a visual director, not a prompt spammer.
 
 > [!IMPORTANT]
-> **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng.
-> Style mặc định hiện tại: xem `04s_visual_style_warm_storybook.md`
-> Khi Boss chỉ định style khác, load file style tương ứng thay thế.
+> **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng trong thư mục `flow/styles/`.
+> Style mặc định hiện tại: xem `flow/styles/04s_visual_style_warm_storybook.md`
+> Khi Boss chỉ định style khác, load file style tương ứng trong `flow/styles/` thay thế.
 
 ---
 
@@ -79,7 +79,7 @@ Dừng lại và đợi Boss duyệt. Sau khi Boss approve, ghi kết quả vào
 
 ### PHASE 1: Visual Style & Color Tone
 
-**Bước 1 — Chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `flow/` và hỏi Boss muốn dùng style nào. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `04s_visual_style_warm_storybook.md`.
+**Bước 1 — Chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `flow/styles/` và hỏi Boss muốn dùng style nào. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `flow/styles/04s_visual_style_warm_storybook.md`.
 
 **Bước 2 — Story Color Tone Selection (BẮT BUỘC):**
 Dựa trên emotional arc của câu chuyện, xác định và đề xuất 1 Color Tone String duy nhất (5-8 từ khóa màu sắc) cho toàn bộ video:
@@ -116,6 +116,12 @@ Số shots thực tế tạo ra (X2 BUFFER) = Số shots cần thiết × 2
 
 **Bước 2 — Tạo Sequential Shot List theo format sau:**
 
+> [!IMPORTANT]
+> **DIVERSITY ROTATION RULE (BẮT BUỘC KHI VIẾT SHOT LIST):**
+> Trong mỗi cụm 4 shots, xoay vòng Focus Category:
+> `Shot 1: Character Action → Shot 2: Fragmented Macro → Shot 3: Environment hoặc Still Life → Shot 4: Character Action`
+> Camera angle cũng phải xoay vòng: `Eye-level → Low angle → High angle → Unusual (overhead/through/over-shoulder) → lặp lại`
+
 ```
 SEQUENTIAL SHOT LIST — [Tên dự án]
 Tổng thời lượng: [X]s  |  Shots tối thiểu: [Y]  |  Shots thực tế (×2): [Y×2]
@@ -123,6 +129,8 @@ LOCKED COLOR TONE: [Color Tone String]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 [SECTION NAME] (~[Xs] = [N] shots tối thiểu → TẠO [N×2] shots)
+ENERGY LEVEL: [QUIET / LOW / RISING / HIGH / MAXIMUM / INTIMATE]
+EDIT CUE: [Dùng khi nhạc làm gì — VD: "dùng khi chorus bùng lên, cắt ~1.5s/shot"]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Shot [XX] | Location: [INTERIOR/EXTERIOR — Tên địa điểm]
@@ -134,8 +142,25 @@ Camera angle: [Eye-level / Low-ground / Overhead / Through-frame / Over-shoulder
 Focus category: [Character Action / Environment / Traces & Still Life / Fragmented Macro]
 ```
 
+**SAU KHI VIẾT XONG SHOT LIST CHO MỖI SECTION — DIVERSITY CHECK BẮT BUỘC:**
+
+```
+✅ DIVERSITY CHECK — [SECTION NAME] ([N] shots):
+□ Character Action:           _/_  (cần ≥40% — VD: 12 shots → ≥5)
+□ Environment (vắng người):   _/_  (cần ≥20% — VD: 12 shots → ≥2)
+□ Traces & Still Life:        _/_  (cần ≥20% — VD: 12 shots → ≥2)
+□ Fragmented Macro:           _/_  (cần ≥20% — VD: 12 shots → ≥2)
+□ Unusual angles (low/overhead/through/over-shoulder): _/_ (cần ≥3 per 20 shots)
+□ Wide/Establishing shots:    _/_  (cần ≥3 per 20 shots)
+□ Hero shots (3 lớp depth + góc lạ + ánh sáng đặc biệt): _/_ (cần ≥2 per 20 shots)
+→ PASS: YES / NO
+```
+
+> [!CAUTION]
+> **Nếu PASS = NO → KHÔNG được sang Phase 3.** Viết lại các shots chưa đủ diversity cho section đó trước.
+
 **Bước 3 — Boss review Shot List:**
-Dừng lại và đợi Boss duyệt. Chỉ tiến hành Phase 3 sau khi Shot List được approve.
+Dừng lại và đợi Boss duyệt. Chỉ tiến hành Phase 2.5 sau khi Shot List được approve.
 
 **Quy tắc "Carries from / Leads to" (BẮT BUỘC):**
 - Mỗi shot PHẢI ghi rõ nó **bước vào từ đâu** (về không gian + hành động) và **dẫn đến đâu**
@@ -144,15 +169,95 @@ Dừng lại và đợi Boss duyệt. Chỉ tiến hành Phase 3 sau khi Shot Li
 
 ---
 
+### PHASE 2.5: Editor's Cue Sheet (OUTPUT BẮT BUỘC SAU PHASE 2)
+
+> [!IMPORTANT]
+> **Đây là output mới bắt buộc** — tạo ngay sau khi Shot List được Boss approve, TRƯỚC khi sang Phase 3.
+> Mục đích: Chuyển giao thông tin editorial từ AI sang Boss (người sẽ tự dựng video).
+> Boss mở file này song song với CapCut khi edit — đây là bản đồ duy nhất cần trong lúc dựng.
+
+**Tạo file:** `projects/video_xxx/docs/04_editor_cue_sheet.md`
+
+**Format chuẩn:**
+
+```markdown
+# EDITOR'S CUE SHEET — [Tên video]
+> Mở file này song song với CapCut khi dựng.
+> KHÔNG CẦN khớp lyrics từng câu — chỉ cần khớp CẢM XÚC của đoạn nhạc.
+
+## 3 NGUYÊN TẮC EDIT
+1. **ENERGY SYNC:** Khi nhạc tăng → cắt nhanh hơn. Khi nhạc lặng → giữ ảnh lâu hơn.
+2. **KHÔNG MINH HỌA LYRICS:** Lyrics nói "mèo dính mưa" → KHÔNG cần tìm ảnh có mèo.
+   Chỉ cần ảnh có cùng CẢM GIÁC (cô đơn, ẩm ướt, chờ đợi). Một cánh cửa hé mở dưới mưa = đủ.
+3. **HERO SHOTS:** Mỗi section có 1–2 ảnh đặc biệt đẹp nhất → đặt tại đỉnh cảm xúc của đoạn đó.
+
+---
+
+## EDITING MAP
+
+| Đoạn nhạc | Timing | Energy | Folder ảnh | Nhịp cắt | Ghi chú edit |
+|---|---|---|---|---|---|
+| INTRO | ~0–[Xs] | QUIET | renders/INTRO/ | ~3s/shot | Mở chậm. Wide shots trước. |
+| VERSE 1 | ~[X]–[X]s | LOW | renders/VERSE1/ | ~2.5s/shot | Intimate. Macro + detail. |
+| PRE-CHORUS 1 | ~[X]–[X]s | RISING | renders/PRECHORUS1/ | ~2s/shot | Cắt nhanh dần. Góc lạ. |
+| CHORUS 1 | ~[X]–[X]s | HIGH | renders/CHORUS1/ | ~1.5s/shot | Hero shots. Wide + ánh sáng. |
+| VERSE 2 | ~[X]–[X]s | LOW-MID | renders/VERSE2/ | ~2.5s/shot | Đa dạng hơn V1. Still Life. |
+| PRE-CHORUS 2 | ~[X]–[X]s | RISING | renders/PRECHORUS2/ | ~2s/shot | Tương tự PC1. |
+| CHORUS 2 | ~[X]–[X]s | HIGH+ | renders/CHORUS2/ | ~1.5s/shot | Lớn hơn Chorus 1. |
+| BRIDGE | ~[X]–[X]s | INTIMATE | renders/BRIDGE/ | ~3s/shot | Rất chậm. Close-up + macro. |
+| FINAL CHORUS | ~[X]–[X]s | MAXIMUM | renders/FINALCHORUS/ | ~1s/shot | Cắt nhanh nhất. Payoff shots. |
+| OUTRO | ~[X]–[X]s | QUIET | renders/OUTRO/ | ~4–5s/shot | Tĩnh. Still life. Fade dần. |
+
+---
+
+## HERO SHOTS LIST
+*(AI điền vào sau khi viết shot list — đây là các shots Boss nên ưu tiên đặt tại đỉnh cảm xúc)*
+- Shot [XX]: [Mô tả ngắn] → dùng tại đỉnh [SECTION]
+- Shot [XX]: [Mô tả ngắn] → dùng tại đỉnh [SECTION]
+```
+
+**Sau khi tạo Cue Sheet xong → tiến hành Phase 3.**
+
+---
+
 ### PHASE 3: Sequential Scene Generation (với X2 Buffer)
 
-Sau khi Shot List được Boss approve, Coslient tạo prompt theo đúng thứ tự từ Shot 01 đến Shot cuối:
+Sau khi Shot List và Editor's Cue Sheet được tạo xong, Coslient tạo prompt theo đúng thứ tự từ Shot 01 đến Shot cuối.
 
 **Asset Bible — Upload Policy:**
 - Tối đa **5 ảnh Asset Bible** cho 1 video. Boss upload toàn bộ 1 lần trước khi generate cảnh.
 - Vì toàn bộ ảnh reference đã được upload sẵn, **KHÔNG CẦN** ghi `[Ref: ...]` trong output.
 
-**Format output trong file:**
+**Format output — TÁCH FILE THEO SECTION (THAY ĐỔI MỚI):**
+
+> [!IMPORTANT]
+> **Không còn dùng 1 file `04_image_prompts.txt` duy nhất.** Thay vào đó, tạo **1 file riêng cho mỗi section nhạc** trong thư mục `projects/video_xxx/docs/renders/`.
+> Mục đích: Boss render từng folder → ảnh được tổ chức sẵn theo đoạn nhạc → không cần rename sau khi render.
+
+**Cấu trúc files output:**
+```
+projects/video_xxx/docs/renders/
+├── 01_INTRO.txt
+├── 02_VERSE1.txt
+├── 03_PRECHORUS1.txt
+├── 04_CHORUS1.txt
+├── 05_VERSE2.txt
+├── 06_PRECHORUS2.txt
+├── 07_CHORUS2.txt
+├── 08_BRIDGE.txt
+├── 09_FINALCHORUS.txt
+└── 10_OUTRO.txt
+```
+
+**Header bắt buộc ở đầu mỗi file:**
+```
+# SECTION: [SECTION NAME] | ENERGY: [QUIET/LOW/RISING/HIGH/MAXIMUM/INTIMATE]
+# TIMING: ~[Xs]–[Xs] | SHOTS: [XX]–[XX] | CUT PACE: ~[N]s/shot
+# DÙNG KHI: [mô tả ngắn — VD: "nhạc stripped back, chỉ cello + vocal"]
+
+```
+
+**Format prompt trong file:**
 
 ```
 [prompt hoàn chỉnh trên 1 dòng duy nhất]
@@ -162,13 +267,17 @@ Sau khi Shot List được Boss approve, Coslient tạo prompt theo đúng thứ
 
 - Mỗi prompt trên 1 dòng duy nhất, không xuống hàng
 - Giữa các prompt: 1 dòng trống
-- Không có header, không có label, không có số thứ tự
+- Không có số thứ tự trong prompt — thứ tự được xác định bởi vị trí trong file
 
-**Ví dụ output chuẩn:**
+**Ví dụ output chuẩn (file 04_CHORUS1.txt):**
 ```
+# SECTION: CHORUS 1 | ENERGY: HIGH
+# TIMING: ~60s–90s | SHOTS: 025–036 | CUT PACE: ~1.5s/shot
+# DÙNG KHI: nhạc bùng lên mạnh nhất, hook line chính
+
 Wide establishing shot, eye-level, the cozy vintage glass dome home resting on the ocean floor, warm amber firelight spilling from the curved glass windows into the dark water, softly blurred seagrass swaying in the foreground, the glowing dome sitting solidly in the mid-ground, endless deep oceanic darkness filling the background, nostalgic stop-motion animation style, miniature diorama, extremely tactile hand-crafted textures, Laika Studios claymation aesthetic, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, soft bioluminescent accents, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
 
-Close-up shot, eye-level, inside the cozy vintage glass dome home, rustic wooden furniture, glowing fireplace, a crackling real fire dancing in the stone hearth, macro photography, shallow depth of field, nostalgic stop-motion animation style, miniature diorama, extremely tactile hand-crafted textures, Laika Studios claymation aesthetic, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, soft bioluminescent accents, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
+Close-up shot, low-ground angle, inside the cozy vintage glass dome home, rustic wooden furniture, glowing fireplace, a crackling real fire dancing in the stone hearth, macro photography, shallow depth of field, nostalgic stop-motion animation style, miniature diorama, extremely tactile hand-crafted textures, Laika Studios claymation aesthetic, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, soft bioluminescent accents, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
 ```
 
 **Cấu trúc nội dung prompt (9 thành phần):**
@@ -181,10 +290,6 @@ Close-up shot, eye-level, inside the cozy vintage glass dome home, rustic wooden
 7. Style anchor (từ file style active)
 8. LOCKED COLOR TONE (copy nguyên văn)
 9. `16:9` + Negative anchor: `no internal glow, no magical particles, no sparkles, no children, no kids, no aura`
-
-**Quy tắc ghi file:**
-- File output: `projects/video_xxx/docs/04_image_prompts.txt`
-- Output là prompt thuần — editor tự biết thứ tự dựa vào vị trí trong file
 
 **No Conversational Reporting:** Không viết report dài trong chat. Tạo prompt xong → ghi thẳng vào file.
 

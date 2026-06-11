@@ -1,12 +1,12 @@
-# Coslient GPT Knowledge — Animation Prompt Development v3.0
+# Coslient GPT Knowledge — Animation Prompt Development v4.0
 
 ## Purpose
 
 This file defines how Coslient handles the animation stage after the image set is ready.
 
-Turn approved images into video clips using VEO 3 — with 1 universal prompt applied to all clips.
+Turn approved images into video clips using VEO 3 — with a minimal-lock prompt applied to all clips.
 
-> **v3.0 Update:** Universal prompt approach. Research-backed keywords. Audio control integrated. Fallback protocol included.
+> **v4.0 Update:** Triết lý mới — AI-inferred motion. Không dùng universal camera/motion directive nữa. VEO 3 tự đọc ảnh và nội suy tất cả: camera move, character motion, ambient physics. Chỉ khóa cứng audio rules + no-effect protection.
 
 ---
 
@@ -23,11 +23,12 @@ VEO 3 generates video and audio in a single pass via image-to-video mode.
 
 **Những điều quan trọng nhất:**
 
-- VEO đọc ảnh gốc trước khi đọc prompt. **Prompt không cần mô tả lại visual** — chỉ cần nói về camera, motion, style, audio
-- VEO weight những từ đầu tiên của prompt mạnh hơn — front-load camera + motion
-- **Audio cues trong VEO 3 không chỉ control sound — chúng còn là motion physics anchor.** Viết `"leaves responding gently to air"` trong prompt → VEO tự animate lá cây theo gió thật. Đây là behavior riêng của VEO 3
-- Image-to-video mode thường ra silent clip theo mặc định — đây là tốt cho music video vì mày có nhạc riêng
-- Prompt length tối ưu: **75–125 từ**. Quá 175 từ → conflicting instructions → chất lượng giảm
+- VEO đọc ảnh gốc trước khi đọc prompt. Nó đã biết nhân vật đang làm gì, ánh sáng đến từ đâu, không gian là gì
+- **Prompt chi tiết về camera/motion = nhiễu.** Nó tạo ra xung đột với những gì VEO tự nội suy từ ảnh → character drift, ảnh vỡ
+- Để VEO tự quyết định: camera move, character movement, ambient physics (seagrass sway, steam, fabric)
+- Chỉ áp đặt những gì VEO không thể tự biết từ ảnh: **audio rules + no-effect lock**
+- Image-to-video mode thường ra silent clip theo mặc định — đây là tốt cho music video vì mình có nhạc riêng
+- Prompt length tối ưu: **càng ngắn càng tốt.** Mục tiêu: dưới 60 từ
 
 ---
 
@@ -46,46 +47,21 @@ Cái làm video trông rẻ tiền không phải là con rồng hay không gian 
 - Ethereal mist quanh nhân vật
 - Bất kỳ hiệu ứng nào chỉ tồn tại trong video game hoặc cheap AI
 
-**Test trước khi dùng bất kỳ motion nào:**
-> "Cái này có tồn tại trong thế giới thật không?" → Không → Bỏ.
+---
+
+## Prompt Duy Nhất — Paste vào TẤT CẢ clip (nguyên xi, không thêm gì)
+
+```
+Audio: Diegetic environmental sound only — soft ambient sounds natural to this scene. No music. No score. No dialogue. No vocals. No voiceover. If no suitable sound can be generated, output silence rather than music.
+
+No internal glow. No magical particles. No sparkles. No floating light effects. No added visual effects not present in the source image.
+```
+
+**Để VEO tự nội suy:** camera movement, character motion, ambient physics. Đừng can thiệp trừ khi clip bị sai rõ ràng.
 
 ---
 
-## Universal Prompt — Dùng cho TẤT CẢ clip
-
-```
-Slow, steady cinematic push-in, smooth and tripod-stable. Soft natural ambient 
-motion in the scene — fabric, hair, leaves, or steam responding gently to air. 
-Warm golden-hour lighting, long soft shadows, lifted warm tones. Rich warm 
-cinematic color grading, preserve handcrafted miniature diorama style with 
-tactile materials, smooth cinematic motion, fluid character movement, shallow 
-depth of field. Serene, intimate, contemplative mood.
-
-Audio: Diegetic environmental sound only — soft ambient sounds natural to this 
-scene. No music. No score. No dialogue. No vocals. No voiceover. If no suitable 
-sound can be generated, output silence rather than music.
-```
-
-### Lý do từng phần — để không vô tình sửa sai
-
-| Phần | Lý do |
-|------|-------|
-| `Slow, steady cinematic push-in` | Motion verb cụ thể — "cinematic" alone là placebo, nhưng kết hợp với "push-in" thì có tác dụng thật |
-| `smooth and tripod-stable` | Positive anchor, không dùng "no camera shake" vì VEO thường ignore negative instructions |
-| `fabric, hair, leaves, or steam responding gently to air` | Physics anchor — trigger VEO animate đúng vật thể theo vật lý thật |
-| `Warm golden-hour lighting` | Top-tier keyword — shift palette sang warm amber |
-| `long soft shadows, lifted warm tones` | Ngăn vùng tối lạnh, giữ Coslient DNA |
-| `rich warm cinematic color grading` | Color control — giữ tông ấm, không dùng aesthetic retro/film |
-| `shallow depth of field` | Subject nổi, background blur tự nhiên — đây là tính chất quang học của ống kính, không phải retro look |
-| `Serene, intimate, contemplative mood` | Cụ thể hơn "emotional" — VEO hiểu và apply đúng tone |
-| `Diegetic environmental sound only` | Filmmaking term — VEO comply ~70% với cụm này |
-| `soft ambient sounds natural to this scene` | Flexible nhưng grounded — VEO tự chọn sound phù hợp với ảnh |
-| `No music. No score. No dialogue. No vocals. No voiceover.` | 5 exclusion riêng biệt — combine với diegetic → ~85-90% compliance |
-| `If no suitable sound can be generated, output silence rather than music` | Fallback instruction — ngăn VEO default sang music khi confused |
-
----
-
-## Quy tắc bắt buộc khi dùng Universal Prompt
+## Quy tắc bắt buộc
 
 ### Rule 1 — Không mô tả lại nhân vật hay cảnh
 VEO đã thấy ảnh gốc. Thêm description về visual sẽ khiến model re-interpret → character drift, ảnh vỡ.
@@ -95,7 +71,6 @@ VEO đã thấy ảnh gốc. Thêm description về visual sẽ khiến model re
 VEO hiểu quotes = command generate dialogue + lip-sync. Kể cả trong audio section.
 
 ### Rule 3 — Clip length: 8 giây (default)
-Đây là native output duration của VEO 3 image-to-video. Dùng parameter `"duration": 8` nếu qua API.
 
 ### Rule 4 — Frame bridging giữa các clip
 Last frame của clip A → làm start frame của clip B.
@@ -105,79 +80,30 @@ Khi đổi location hoàn toàn: generate ảnh tĩnh mới làm anchor trước
 ```bash
 ffmpeg -i input.mp4 -an output_no_audio.mp4
 ```
-Sau đó overlay nhạc riêng trong editor. Đây là workflow chuẩn của professional.
-
----
-
-## Keywords CẤM trong Animation Prompt
-
-**Motion keywords nguy hiểm — gây distortion:**
-- `zoom in fast` → face warping
-- `orbit around subject` → face morphing (VEO phải hallucinate góc không có trong ảnh)
-- `handheld shake` (không có "subtle/micro") → jitter không kiểm soát
-- `pan while zooming` → horizon distortion
-- `drone flyover` → unrealistic physics
-- `dynamic movement` (vague) → AI tự chọn path ngẫu nhiên
-- `scene changes` → trigger cut attempts, phá single-clip flow
-
-**Cách dùng negative cho VEO 3:**
-- ❌ "no camera shake" → VEO thường ignore
-- ✅ "tripod-stable framing" → positive anchor, VEO hiểu
+Sau đó overlay nhạc riêng trong editor.
 
 ---
 
 ## Fallback Protocol — Khi 1 clip cụ thể ra sai
 
-Sau khi batch toàn bộ, nếu 1 vài clip bị vỡ hoặc sound lạ, viết prompt riêng cho clip đó:
+Chỉ can thiệp khi clip bị VEO xử lý sai rõ ràng (ảnh vỡ, motion quá aggressive, camera lắc). Thêm đúng **1 cụm fix** vào đầu prompt — không viết lại cả đống.
+
+| Triệu chứng | Thêm vào đầu prompt |
+|:---|:---|
+| Camera bị giật/lắc | `Tripod-stable framing.` |
+| Nhân vật bị biến dạng | `Hold source image fidelity, subtle motion only.` |
+| Cảnh bị zoom quá nhanh | `Slow gentle motion throughout.` |
+| Motion quá nhiều / hỗn loạn | `Static or near-static, preserve composition.` |
+
+Sau khi thêm cụm fix → vẫn giữ nguyên phần audio + no-effect lock phía dưới. Không thêm gì khác.
 
 **Cấu trúc fallback:**
 ```
-[Shot type]. [1 gentle action]. [Reinforcement của cảnh trong ảnh].
-[Paste full style + audio block từ universal prompt]
-```
+[1 cụm fix từ bảng trên].
 
-**Ví dụ — cảnh bà ngồi bên cửa sổ:**
-```
-Static medium shot, subtle micro-movements, preserve facial expression and posture. 
-Figure sits quietly by window, slight natural breathing motion, hands still. 
-Warm golden-hour lighting, long soft shadows, lifted warm tones. Rich warm 
-cinematic color grading, preserve handcrafted miniature diorama style with 
-tactile materials, smooth cinematic motion, fluid character movement, shallow 
-depth of field. Serene, intimate, contemplative mood.
+Audio: Diegetic environmental sound only — soft ambient sounds natural to this scene. No music. No score. No dialogue. No vocals. No voiceover. If no suitable sound can be generated, output silence rather than music.
 
-Audio: Diegetic environmental sound only — distant birds through window glass, 
-quiet house ambient, faint ceramic settle. No music. No score. No dialogue. 
-No vocals. No voiceover. If no suitable sound can be generated, output silence 
-rather than music.
-```
-
-**Ví dụ — cảnh ngoài vườn:**
-```
-Slow gentle parallax dolly-in, foreground-background depth separation. 
-Figure moves slowly through garden, natural weight and gait. 
-Warm golden-hour lighting, long soft shadows, lifted warm tones. Rich warm 
-cinematic color grading, preserve handcrafted miniature diorama style with 
-tactile materials, smooth cinematic motion, fluid character movement, shallow 
-depth of field. Serene, intimate, contemplative mood.
-
-Audio: Diegetic environmental sound only — birdsong from multiple directions, 
-light wind through leaves, soft footsteps on grass. No music. No score. 
-No dialogue. No vocals. No voiceover. If no suitable sound can be generated, 
-output silence rather than music.
-```
-
-**Ví dụ — cảnh siêu thực (grounded):**
-```
-Static medium shot, hold still, preserve all elements exactly as in source image. 
-Natural ambient motion only — no magical effects, no added light, no particles. 
-Warm golden-hour lighting, long soft shadows, lifted warm tones. Rich warm 
-cinematic color grading, preserve handcrafted miniature diorama style with 
-tactile materials, smooth cinematic motion, fluid character movement, shallow 
-depth of field. Serene, contemplative mood.
-
-Audio: Diegetic environmental sound only — natural physical sounds matching the 
-environment in the scene. No music. No score. No dialogue. No vocals. 
-No voiceover. If no suitable sound can be generated, output silence rather than music.
+No internal glow. No magical particles. No sparkles. No floating light effects. No added visual effects not present in the source image.
 ```
 
 ---
@@ -186,20 +112,19 @@ No voiceover. If no suitable sound can be generated, output silence rather than 
 
 ```
 1. Có đủ ảnh gốc (đã qua Stage 4)
-2. Copy universal prompt → paste vào VEO cho từng ảnh
-3. Không thêm gì về visual — paste nguyên xi
-4. Clip length: 8 giây
-5. Batch xong → review toàn bộ
-6. Clip nào sai → dùng fallback protocol, viết prompt riêng
-7. Strip audio VEO nếu cần: ffmpeg -i input.mp4 -an output.mp4
-8. Overlay nhạc trong editor
-9. Frame bridging khi edit: last frame A → start frame B
+2. Copy prompt duy nhất → paste vào VEO cho từng ảnh (không thêm gì)
+3. Clip length: 8 giây
+4. Batch xong → review toàn bộ
+5. Clip nào sai → thêm đúng 1 cụm fix từ bảng fallback
+6. Strip audio VEO nếu cần: ffmpeg -i input.mp4 -an output.mp4
+7. Overlay nhạc trong editor
+8. Frame bridging khi edit: last frame A → start frame B
 ```
 
 ---
 
 ## Core rule
 
-Ảnh tốt + universal prompt đúng = 90% công việc xong. Kiểm soát thật sự đến từ **chất lượng ảnh gốc** — prompt chỉ là lớp hướng dẫn thêm về camera, style, audio.
+VEO 3 là một visual director. Ảnh tốt + để nó tự đọc = 90% công việc xong. Kiểm soát thật sự đến từ **chất lượng ảnh gốc** — prompt chỉ là lớp bảo vệ audio và no-effect. Đừng nghĩ mình thông minh hơn model khi nó đang nhìn thấy hình ảnh.
 
 Mọi clip phải có thể chạm tay vào được.

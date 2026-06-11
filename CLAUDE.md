@@ -20,26 +20,39 @@ coslient-video/
 │   ├── 00_coslient_gpt_core_knowledge.md
 │   ├── 01_idea_intake_and_selection_knowledge.md
 │   ├── 02_concept_development_knowledge.md
-│   ├── 03_suno_song_development_knowledge_v4.md      <-- Hướng dẫn làm nhạc Suno mới
-│   ├── archive/                                      <-- Lưu trữ các tài liệu cũ không còn dùng
+│   ├── 03_suno_song_development_knowledge_v7.md     <-- Hướng dẫn làm nhạc Suno
+│   ├── archive/                                     <-- Lưu trữ tài liệu cũ không còn dùng
 │   ├── 04_image_prompt_development_knowledge.md
-│   ├── 04s_visual_style_alabaster_nomad.md           <-- Style module "Sacred Monochrome" (v2.0 tổng quát)
-│   ├── 04s_visual_style_desert_editorial.md          <-- Style module "Void Stage Couture" (v2.0 tổng quát)
-│   ├── 04s_visual_style_warm_storybook.md            <-- Style module Warm storybook mặc định
+│   ├── editor_guide.md                              <-- Hướng dẫn edit video cho Boss
+│   |
+│   ├── styles/                                      <-- Tất cả style modules (chọn 1 khi bắt đầu Stage 4)
+│   │   ├── 04s_visual_style_warm_storybook.md       <-- MẶC ĐỊNH
+│   │   ├── 04s_visual_style_nostalgic_diorama.md
+│   │   ├── 04s_visual_style_warm_cartoon.md
+│   │   ├── 04s_visual_style_old_world_claymation.md
+│   │   ├── 04s_visual_style_alabaster_nomad.md
+│   │   ├── 04s_visual_style_desert_editorial.md
+│   │   └── 04s_visual_style_neo_pop_theater.md
+│   |
 │   ├── 05_animation_prompt_knowledge.md
 │   ├── 06_youtube_positioning_seo_knowledge.md
+│   ├── 06b_youtube_shorts_seo_knowledge.md          <-- SEO cho YouTube Shorts
 │   ├── 07_social_content_repurposing_knowledge.md
-│   ├── 07b_text_post_strategy_knowledge.md           <- Facebook/Instagram text posts
+│   ├── 07b_text_post_strategy_knowledge.md          <-- Facebook/Instagram text posts
 │   ├── 08_audience_psychology_knowledge.md
 │   ├── 09_content_strategy_planning_knowledge.md
 │   ├── 10_community_growth_knowledge.md
 │   ├── 11_audience_research_knowledge.md
-│   ├── 12_deslop_quality_gate_knowledge.md            <- Anti-AI-slop quality gate
-│   ├── 13_competitor_intelligence_knowledge.md       <- Competitor channel analysis
-│   ├── 14_title_thumbnail_ab_testing_knowledge.md   <- Post-publish CTR/AVD optimization
-│   ├── 15_content_ideation_knowledge.md              <- Structured brainstorming before Stage 1
-│   ├── concept_brainstorm.md
-│   └── image_prompting_guide.md
+│   ├── 12_deslop_quality_gate_knowledge.md          <-- Anti-AI-slop quality gate
+│   ├── 13_competitor_intelligence_knowledge.md      <-- Competitor channel analysis
+│   ├── 14_title_thumbnail_ab_testing_knowledge.md   <-- Post-publish CTR/AVD optimization
+│   ├── 15_content_ideation_knowledge.md             <-- Structured brainstorming before Stage 1
+│   ├── 16_concept_dedup_knowledge.md
+│   ├── concept_index.md
+│   ├── idea_pipeline.md
+│   ├── idea_archive.md
+│   ├── clean_lyrics_rules.md
+│   └── archive/                                     <-- Files cũ đã archive
 └── projects/                <-- Thư mục chứa các dự án video cụ thể
     └── [video_name]/
         └── docs/            <-- Nơi lưu trữ toàn bộ file tài liệu (.md và .txt) của dự án
@@ -105,7 +118,7 @@ Tạo các "tờ căn cước" cho mọi element xuất hiện nhiều lần tro
 Sau khi Boss approve → Ghi vào file `projects/video_xxx/docs/04_asset_bible.md`. Từ đây mọi prompt cảnh đều phải reference nguyên văn mô tả từ file này.
 
 ### PHASE 1 — Visual Style & Color Tone
-- Liệt kê và hỏi Boss chọn style trong các file `04s_visual_style_*.md`. Mặc định: `04s_visual_style_warm_storybook.md`.
+- Liệt kê và hỏi Boss chọn style trong các file `04s_visual_style_*.md` trong `flow/styles/`. Mặc định: `flow/styles/04s_visual_style_warm_storybook.md`.
 - Đề xuất 1 Color Tone String (5-8 từ khóa) bản sắc của câu chuyện → Boss duyệt → Ghi vào đầu file `04_image_prompts.txt` dưới dạng `# LOCKED COLOR TONE: [...]`.
 
 ### PHASE 2 — Sequential Shot List
@@ -113,17 +126,25 @@ Tạo bảng phân cảnh tuyến tính bám sát timeline bài nhạc (Intro �
 - **X2 BUFFER BẮT BUỘC:** Tính số shots tối thiểu = tổng thời lượng (s) ÷ 5, rồi nhân đôi.
   Ví dụ: Bài 4 phút = 240s ÷ 5 = 48 shots cần thiết → Tạo 96 shots.
 - Mỗi shot ghi rõ: Location / Action / Carries-from / Leads-to / Shot size / Camera angle / Focus category
+- **ENERGY LEVEL + EDIT CUE:** Mỗi section phải ghi rõ Energy (QUIET/LOW/RISING/HIGH/MAXIMUM/INTIMATE) và Edit Cue.
+- **DIVERSITY CHECK BẮT BUỘC** sau mỗi section: đếm Focus Category, unusual angles, hero shots. Nếu FAIL → viết lại trước khi sang bước tiếp.
 
 Dừng và đợi Boss duyệt Shot List trước khi tiếp tục.
 
+### PHASE 2.5 — Editor's Cue Sheet (OUTPUT BẮT BUỘC MỚI)
+Tạo ngay sau khi Shot List được approve. File này Boss mở song song CapCut khi dựng.
+- Tạo file `projects/video_xxx/docs/04_editor_cue_sheet.md`
+- Gồm: Bảng Editing Map (timing + energy + folder ảnh + nhịp cắt + ghi chú), Hero Shots List, 3 Nguyên tắc Edit.
+
 ### PHASE 3 — Sequential Scene Generation
 Tạo prompt theo đúng thứ tự từ Shot 01 đến cuối. Mỗi prompt:
-- Bắt đầu bằng `[Shot XX]` để editor dễ đối chiếu khi dựng
+- **FILE THEO SECTION (MỚI):** Không dùng 1 file duy nhất nữa. Tạo 1 file `.txt` riêng cho mỗi section trong `docs/renders/` (VD: `01_INTRO.txt`, `04_CHORUS1.txt`...)
+- Mỗi file có header: section name, energy, timing, cut pace, edit cue
 - Reference nguyên văn từ Asset Bible (địa điểm, nhân vật, đạo cụ)
 - Có đủ 3 lớp chiều sâu: Foreground → Mid-ground → Background
 - Luôn kết thúc bằng LOCKED COLOR TONE nguyên văn + `16:9`
 - Negative anchor: `no internal glow, no magical particles, no sparkles, no children, no kids`
-- Ghi thẳng vào `projects/video_xxx/docs/04_image_prompts.txt` (không báo cáo dài trong chat)
+- Ghi thẳng vào file (không báo cáo dài trong chat)
 
 Chi tiết đầy đủ: Xem `flow/04_image_prompt_development_knowledge.md` và file style đang active.
 
