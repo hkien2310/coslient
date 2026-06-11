@@ -696,16 +696,148 @@ and felt your hand still warm              (6 syl — medium, resolve)
 **Nguyên tắc "Breathing Room":**
 Cứ mỗi 4-6 dòng trong verse nên có 1 dòng ngắn hơn, hoặc theo sau bởi `[instrumental fill]`.
 
+**Vowel Openness Rule (BẮT BUỘC — mới v8.0):**
+
+Nốt cao của melody (climax dòng, cuối chorus) PHẢI rơi vào nguyên âm Mửe. Nếu rơi vào nguyên âm đÓNG → Suno hát vẻ, ngoẹo giọng, mất cảm xúc.
+
+| Loại | Nguyên âm | Âm thanh | Dùng ở nốt cao? |
+|---|---|---|---|
+| **Mửe (open)** | AH, OH, AY, OW, AW | Mườn gào, dễ kéo dài | ✅ THỢI ĐIỂM |
+| **Nửa mửe** | EH, UH, EE, OO | Được, nhưng kém hơn | ⚠໵ ĐƯỢC NẺu CẦN |
+| **ĐÓNG (closed)** | IH, IM, IN, IT, IG, -NK | Nghẹt, bị cắt | ❌ TRÁNH Ở NốT CAO |
+
+**Ví dụ:**
+```
+❌  "I still think of him"    → nốt cao rơi vào "him" (closed -IM) → Suno cắt đuột
+✅  "I still call his name"   → nốt cao rơi vào "name" (open AY) → Suno kéo dài mườn
+
+❌  "the garden in the dark" → nốt cao rơi vào "dark" (closed -RK) → Suno đương ngoẹo
+✅  "the garden full of light" → nốt cao rơi vào "light" (open AY/I) → bay len
+```
+
+**Singability Self-Test (chạy trước khi submit):**
+
+Hát thử từng dòng chorus theo giai điệu dự định. Đánh dấu bất kỳ chỗ nào:
+
+```
+☐ Miệng cảm giác gưƣng té khi hát → consonant cluster quá dày (VD: "strengths", "sixths")
+☐ Giọng bị nhặt xuống cuối dòng → nguyên âm đóng, đổi sang từ có nguyên âm mửe
+☐ Phải nghế hơi giữa chừng mà không có dấu câu nào → dòng quá dài, cắt
+☐ Đoạn nào khó nhớ sau 1 lần đọc → không có rhythmic anchor, viết lại
+☐ Hai dòng liền có cùng điểm ngắng hơi (cùng syllable count và cùng vowel) → mónótone, đổi 1 trong 2
+```
+
+> [!CAUTION]
+> Nếu bất kỳ ô nào bị check → sửa trước khi tiếp tục. Không submit lyrics chưa qua Singability Test cho Suno.
+
 ### F5. Rhyme Rules — Anti-Mechanical
+
+> [!IMPORTANT]
+> **VẦN = ÂM THANH, KHÔNG PHẢI CHỮ VIẾT**
+> Đây là nguyên tắc nền tảng. AI hay nhầm vần theo mắt (cùng chữ cuối) thay vì vần theo tai (cùng âm cuối). Khi hát, người nghe nghe âm — không đọc chữ.
+
+**Định nghĩa đúng của vần:**
+Hai từ vần với nhau khi **âm nguyên âm nhấn + mọi thứ sau đó** nghe giống nhau.
+
+```
+"rain" / "pain"   → cùng âm /AYN/  → ✅ vần
+"love" / "move"   → tận -ove giống nhau NHƯNG âm khác (/ʌV/ vs /uːV/) → ❌ KHÔNG vần
+"home" / "alone"  → âm /OHM/ vs /OHN/ — gần giống → ✅ near rhyme (vần gần)
+"light" / "write" → âm /AYT/ vs /AYT/ → ✅ vần (dù chữ khác hoàn toàn)
+"word"  / "heard" → âm /ɜːRD/ vs /ɜːRD/ → ✅ vần (dù cách đánh vần khác)
+```
+
+**Bẫy phổ biến nhất của AI khi viết lyrics:**
+
+| Cặp từ | Nhìn thì vần? | Nghe thì vần? | Ghi chú |
+|---|---|---|---|
+| `love / move` | ✅ (cùng -ove) | ❌ | Âm khác: /ʌv/ vs /uːv/ |
+| `blood / food` | ✅ (cùng -ood) | ❌ | Âm khác: /ʌd/ vs /uːd/ |
+| `word / lord` | ❌ (chữ khác) | ✅ | Âm giống: /ɜːrd/ ≈ /ɔːrd/ (near rhyme) |
+| `night / white` | ❌ (chữ khác) | ✅ | Âm giống: /AYT/ = /AYT/ |
+| `said / dead` | ❌ (chữ khác) | ✅ | Âm giống: /ɛd/ = /ɛd/ |
+| `gone / bone` | ✅ (cùng -one) | ❌ | Âm khác: /ɒn/ vs /oʊn/ |
+
+**Cách AI kiểm tra vần — So sánh IPA:**
+Với mỗi cặp từ nghi ngờ, tra IPA phonetic của cả 2 từ, sau đó so sánh **phần từ nguyên âm nhấn trở về sau**:
+
+```
+Bước 1: Xác định nguyên âm nhấn của mỗi từ
+Bước 2: Lấy âm từ đó đến hết từ (ký hiệu IPA)
+Bước 3: So sánh 2 chuỗi âm đó
+
+→ Giống nhau hoàn toàn = perfect rhyme
+→ Gần giống (cùng nguyên âm, khác phụ âm cuối 1 chút) = near rhyme
+→ Khác = KHÔNG vần, dù chữ viết trông giống nhau
+```
+
+**Ví dụ áp dụng:**
+```
+"love"  → IPA: /lʌv/ → phần vần: /ʌv/
+"move"  → IPA: /muːv/ → phần vần: /uːv/
+→ /ʌv/ ≠ /uːv/ → KHÔNG vần ❌
+
+"light" → IPA: /laɪt/ → phần vần: /aɪt/
+"write" → IPA: /raɪt/ → phần vần: /aɪt/
+→ /aɪt/ = /aɪt/ → VẦN ✅
+
+"stone" → IPA: /stoʊn/ → phần vần: /oʊn/
+"road"  → IPA: /roʊd/ → phần vần: /oʊd/
+→ /oʊn/ ≈ /oʊd/ (cùng nguyên âm, khác phụ âm cuối) → NEAR RHYME ✅
+```
+
+
+---
 
 Trộn lẫn **vần chính xác** với **vần gần đúng** để tránh cảm giác thơ trẻ con.
 
-*   **Near Rhymes:** *home / alone*, *stone / road*, *wind / skin*, *rise / light*.
-*   **Internal Rhyming:** *The **cup** was chipped, the tea was **hot**, I sat upon the porch and **thought***.
+*   **Near Rhymes (vần gần):** *home / alone*, *stone / road*, *wind / skin*, *rise / light* — âm cuối gần giống nhau, không đồng nhất hoàn toàn.
+*   **Internal Rhyming (vần trong dòng):** *The **cup** was chipped, the tea was **hot**, I sat upon the porch and **thought*** — vần xuất hiện giữa dòng, không chỉ cuối dòng.
+
+
+**Rhyme Scheme Map (BẮT BUỘC chọn trước khi viết):**
+
+Không viết thiếu scheme. Chọn 1 scheme cho Verse và 1 scheme cho Chorus trước, rồi viết dồn theo.
+
+| Scheme | Pattern | Cảm giác | Dùng khi nào |
+|---|---|---|---|
+| **ABAB** | dòng 1↔dòng 3, dòng 2↔dòng 4 | Cân bằng, folk classic | Verse có 4 dòng, narrative rõ ràng |
+| **ABCB** | chỉ dòng 2↔dòng 4 vần, dòng 1&3 tự do | Tự nhiên, không gượng | Mặc định cho verse (dễ viết nhất, ít máy móc nhất) |
+| **AABB** | cặp dòng vần liền nhau | Vui, dứt khoát | Chorus nghe trực tiếp, hook bắt tai |
+| **AAAA** | tất cả cùng vần | Mạnh, ám ảnh | Bridge nhấn mạnh, lầu vựng (dùng tiết kiệm) |
+| **ABA** (3 dòng) | dòng 1↔dòng 3, dòng 2 tự do | Âm ư, hé mở | Pre-chorus ngắn, cầu nối cảm xúc |
+| **Không vần** | không vần chút nào | Thơ tự do, spoken-word | Bridge nội tâm rất sâu, phải đặc biệt chủ ý |
+
+**Quy tắc phối scheme:**
+- Verse: dùng ABCB (tự nhiên) hoặc ABAB (cân bằng)
+- Chorus: dùng AABB hoặc ABAB — nếu chorus là 4 dòng
+- Bridge: thường ABA hoặc không vần hẳn
+- **Không đổi scheme giữa Chorus 1 và Chorus 2** — bị mất cảm giác quen thuộc
+
+**Consonant Landing Rule (BẮT BUỘC — mới v8.0):**
+
+Suno xử lý phụ âm cuối dòng khác nhau. Nếu dòng kết bằng phụ âm cứng (hard stop) → Suno cắt đuột, mất vần khi nghe dù bảng chữ trông có vần.
+
+| Phụ âm cuối | Loại | Nhạn xét | Dùng cuối dòng vần? |
+|---|---|---|---|
+| -N, -M, -L, -NG | Soft nasal/liquid | Vang rơi, Suno kéo ra được | ✅ TỐT |
+| -R | Liquid (US English) | Mờ, giai điệu vẫn được | ✅ ĐƯỢC |
+| -D, -Z, -V | Soft stop | Chấp nhận được | ⚠໵ OK |
+| **-T, -K, -P, -CK** | Hard stop | Cắt đứt melody | ❌ HẠN CHừe CUỐI DÒNG VẦN |
+| **-ST, -XT, -NK, -ND** | Cluster | Ngặt giọng, mất vang | ❌ KHÔNG DÙNG CUỐI DÒNG |
+
+**Ví dụ:**
+```
+❌  "...the porch in the dark"  → cuối -RK = hard, Suno cắt đứt
+✅  "...the porch in the rain"  → cuối -N = nasal, Suno vang rơi tự nhiên
+
+❌  "...we built"              → cuối -LT = cluster, gượng
+✅  "...we made"              → cuối -D = soft, mườn hơn
+```
 
 **Anti-Mechanical Rhyme Test (BẮT BUỘC):**
 1.  Đọc to chorus — đoán được 100% từ vần tiếp theo → quá máy móc, sửa lại.
-2.  \>60% là perfect rhymes → bẻ một nửa sang near rhymes.
+2.  >60% là perfect rhymes → bẻ một nửa sang near rhymes.
 3.  Từ đó được chọn CHỈ VÌ nó vần? → Xóa và viết lại.
 4.  Cùng cặp vần xuất hiện ở cả Verse và Chorus? → Đổi một bên.
 
