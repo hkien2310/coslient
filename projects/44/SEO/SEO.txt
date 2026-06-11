@@ -1,0 +1,123 @@
+STAGE: Publishing & SEO Setup
+STATUS: action required
+
+Toàn bộ gói tài nguyên SEO từ A-Z cho The Summer Glass đã sẵn sàng. Metadata được viết hoàn toàn bằng tiếng Anh để đánh thẳng vào tệp khán giả 45+ (Âu/Mỹ). Boss chỉ cần copy và dán vào YouTube Studio.
+
+1. TIÊU ĐỀ (YOUTUBE TITLES)
+Thuật toán YouTube hiện tại ưu tiên tiêu đề kết hợp giữa tên bài hát, thể loại và một yếu tố khơi gợi cảm xúc.
+
+Option 1 (Tối ưu cảm xúc - Khuyên dùng): The Summer Glass - A Song for Those Who Miss the Stars (Original Acoustic Folk)
+
+Option 2 (Tối ưu thị giác & nghệ thuật): The Summer Glass | Cinematic Stop-Motion Miniature Music Video
+
+Option 3 (Tối ưu tò mò & kể chuyện): I Built a Miniature Universe to Remember My Father | The Summer Glass
+
+2. MÔ TẢ (VIDEO DESCRIPTION)
+Đoạn này tối ưu từ khóa ở 3 dòng đầu tiên, đồng thời cung cấp đầy đủ lyrics để khán giả Âu/Mỹ có thể vừa nghe vừa đọc.
+
+[Bắt đầu copy từ đây]
+
+Everything heavy belongs to the ground.
+"The Summer Glass" is an original cinematic acoustic folk song about leaving the weight of the world behind, looking up at the stars, and finding the quiet memories we thought we lost. Set in a handcrafted diorama miniature world, this stop-motion music video explores the beautiful contrast between a tired, noisy city and the magnificent, healing silence of a steampunk night sky.
+
+If you ever feel overwhelmed by how fast the world is moving, take a breath, sit back, and look through the glass.
+
+👇 Let me know in the comments: When was the last time you truly stopped to look at the night sky?
+
+🎧 Music & Visual Style:
+Genre: Cinematic Mid-Tempo Americana / Acoustic Folk (76 BPM)
+Visuals: Surreal Handcrafted Diorama Miniature & Stop-Motion Animation
+
+📖 Lyrics:
+[Intro]
+I carried the heavy brass out to the porch...
+and let the hot afternoon go.
+
+[Verse 1]
+The city was tired, the highway was loud,
+just rushing the people below.
+I set up the legs on the old wooden floor,
+and wiped off the dust from the lens.
+I waited a while for the streetlights to fade...
+and for the night sky to begin.
+
+[Pre-Chorus]
+We get so used to the noise and the gray.
+We let the beautiful things slip away.
+
+[Chorus]
+But everything heavy belongs to the ground!
+And the sky is just holding the past.
+I thought I had lost all the magic we knew,
+in a world that was moving too fast.
+But fifty long years just melted away...
+when I looked through the summer glass.
+
+[Verse 2]
+I closed my left eye and I focused the wheel,
+and the silver came into the frame.
+I was back in the yard with my dad by my side,
+calling the planets by name.
+The exact same design, shining down on the roof,
+like a promise that time couldn't break.
+
+[Pre-Chorus]
+We get so used to the noise and the gray.
+We let the beautiful things slip away.
+
+[Chorus]
+But everything heavy belongs to the ground!
+And the sky is just holding the past.
+I thought I had lost all the magic we knew,
+in a world that was moving too fast.
+But fifty long years just melted away...
+when I looked through the summer glass.
+
+[Bridge]
+You can’t stop the clock, and you can’t stop the years!
+We grow up, and we worry, and we try!
+But all of that trouble just falls out of sight...
+when you finally look up at the sky!
+
+[Final Chorus]
+Yeah, everything heavy belongs to the ground!
+And the sky is just holding the past.
+I thought I had lost all the magic we knew,
+in a world that was moving too fast!
+But fifty long years just melted away...
+they just melted away.
+Yeah, I found you again...
+in the summer glass.
+
+[Outro]
+Everything heavy belongs to the ground...
+I looked through the glass.
+
+#AcousticFolk #StopMotionAnimation #DioramaArt #OriginalMusic #Nostalgia #SteampunkArt #HealingMusic
+[Kết thúc copy]
+
+3. THẺ TAGS (YOUTUBE TAGS)
+Copy nguyên cụm này dán vào ô Tags, YouTube sẽ tự động chia dấu phẩy.
+
+the summer glass, original acoustic folk song, cinematic folk music, stop motion animation music video, handcrafted diorama miniature, steampunk art style, nostalgic music for older adults, healing acoustic music, father and son memory, miniature world art, americana folk 76 bpm, relax and look at the stars, emotional folk song, stop motion miniature aesthetic
+
+4. BÌNH LUẬN GHIM (PINNED COMMENT)
+Rất quan trọng để kích thích tương tác (Engagement Rate) ngay khi video vừa lên sóng. Khán giả lớn tuổi rất thích kể câu chuyện của đời họ nếu được hỏi đúng cách.
+
+"We get so used to the noise and the gray, we let the beautiful things slip away..." ✨ I wanted this song and this miniature world to be a gentle reminder to pause. Who is the person you think of when you look up at the stars? Share your stories below, I read every single one of them. 👇
+
+5. CHIẾN LƯỢC THUMBNAIL
+Khán giả mục tiêu lướt YouTube thường bị thu hút bởi sự tương phản ánh sáng mạnh và ánh mắt có hồn. Boss nên chọn 1 trong 2 frame hình sau từ bộ ảnh đã generate để làm Thumbnail:
+
+Cận cảnh gương mặt: Khuôn mặt người đàn ông lớn tuổi nhìn qua ống kính viễn vọng, trong con ngươi phản chiếu ánh sáng vàng rực rỡ của bầu trời cơ học. Text trên ảnh (nếu có): Everything Heavy Belongs To The Ground.
+
+Toàn cảnh đối lập (Scale Contrast): Bóng lưng người đàn ông đứng trên hiên nhà tối tăm, đối diện là một bầu trời sa bàn rực sáng, khổng lồ.
+
+6. CÀI ĐẶT BACKEND (ADVANCED SETTINGS)
+Video Language: English (United States) - Bắt buộc để thuật toán phân phối chuẩn sang US/EU.
+
+Category: Music (hoặc Film & Animation nếu Boss muốn nhấn mạnh vào yếu tố làm phim Stop-motion).
+
+End Screen: Để 1 video có vibe chữa lành tương tự của kênh + 1 nút Subscribe.
+
+Boss lên lịch xuất bản nhé. Mọi thứ đã được đóng gói hoàn chỉnh!

@@ -56,7 +56,13 @@ Do not default to:
 - **STRICT BAN ON SHARP OBJECTS/WEAPONS:** Never feature knives, blades, swords, broken glass shards, or any other sharp, dangerous, or violent objects. The visual world and story must remain a 100% safe, healing sanctuary at all times.
 
 ## Workflow order
-Always follow this stage order unless Boss explicitly overrides it:
+
+> [!IMPORTANT]
+> **Brainstorm là chế độ TÁCH BIỆT hoàn toàn, không phải một bước trong flow.**
+> Brainstorm chỉ chạy khi Boss **chủ động yêu cầu**. Nó không tự động kích hoạt trong bất kỳ bước nào bên dưới.
+> Xem `15_content_ideation_knowledge.md` và phần Brainstorm Mode bên dưới.
+
+### Production Flow (chạy khi Boss có idea sẵn):
 1. idea intake and selection
 1.5. story research — **bắt buộc sau khi chọn idea, trước khi viết concept** (tìm câu chuyện thực tế trên mạng liên quan đến theme, lấy chi tiết cụ thể làm tư liệu chống AI-hoá)
 2. concept development
@@ -65,6 +71,42 @@ Always follow this stage order unless Boss explicitly overrides it:
 5. animation prompt development
 6. SEO and platform packaging
 7. social content repurposing (optional, after YouTube publish)
+
+### Brainstorm Mode (chỉ chạy khi Boss explicit request):
+**Pre-Stage 0** — Content Ideation (`15_content_ideation_knowledge.md`)
+- Trigger duy nhất: Boss nói "brainstorm", "gợi ý idea", "hết idea", "tìm chủ đề mới", "không biết làm gì tiếp"
+- Output: danh sách idea có score → Boss chọn → đi vào Stage 1
+- **Không tự kích hoạt** khi Boss nói "start", "làm video mới", hay bất kỳ production trigger nào khác
+
+## Pipeline Files — BẮT BUỘC DUY TRÌ
+
+Coslient GPT chịu trách nhiệm giữ 2 files này luôn đúng. Boss không cần sửa tay.
+
+| File | Mục đích | Khi nào update |
+|---|---|---|
+| `flow/idea_pipeline.md` | Ý tưởng đang active (inbox, backlog, in-progress, cut) | Sau mỗi evaluate + sau mỗi bước production |
+| `flow/idea_archive.md` | Mọi video đã publish — không bao giờ xoá | Khi video published |
+
+### Kanban Web Mapping
+Boss kéo tay card trên web theo đúng stage trong `idea_pipeline.md`:
+```
+idea_pipeline.md Stage    →  Web Kanban Column
+──────────────────────────────────────────────
+inbox / brainstorm         →  Ideas
+selected / concept         →  Scripting  
+research / song / image    →  Production
+animation / seo            →  Ready
+published                  →  Published (rồi archive)
+```
+
+### Web → Coslient Sync
+Khi Boss muốn evaluate ideas từ web:
+1. Boss copy text từ Kanban "Ideas" column
+2. Paste vào section INBOX của `idea_pipeline.md`
+3. Coslient chạy evaluate, update file
+4. Boss đọc kết quả và kéo card web cho khớp
+
+---
 
 ## Extended knowledge areas
 Beyond the production pipeline, Coslient also has knowledge about:

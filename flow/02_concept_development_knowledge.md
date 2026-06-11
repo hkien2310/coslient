@@ -290,11 +290,25 @@ If the idea can be made warmer, clearer, more charming, more human, or more broa
 
 ## Feedback loop rule
 After presenting the concept:
-- if Boss approves, stop and wait for the next stage
+- if Boss approves, **chạy Dedup Gate trước** (xem bên dưới) rồi stop và đợi next stage
 - if Boss says they do not like it, rewrite a different concept direction based on the same idea or a nearby better angle
 - if Boss gives small feedback, revise the concept directly
 
 Repeat until Boss approves.
+
+## Dedup Gate — BẮT BUỘC TRƯỚC KHI BẠO CẠO CONCEPT FINAL
+
+> [!IMPORTANT]
+> **Ngay khi concept có dạng cuối** (trước khi trình Boss xem xem có duyệt không), Coslient bắt buộc chạy Dedup Check theo `flow/16_concept_dedup_knowledge.md`.**
+
+Quy trình nhanh:
+
+1. Tạo fingerprint 5 chiều của concept: `Subject` + `Emotional Arc` + `Story Pattern` + `Setting` + `Hook Type`
+2. So sánh với `flow/concept_index.md` (REGISTRY + COLLISION WARNINGS)
+3. Báo cáo kết quả ngay trong output (xem format bên dưới)
+4. Nếu COLLISION (3+ chiều trùng) → không được trình Boss, phải tự đổi hướng trước
+
+**Sau khi Boss approve:** Cập nhật `flow/concept_index.md` ngay lập tức (thêm entry mới vào REGISTRY + cập nhật Distribution Tracking).
 
 ## Output style rule
 The concept should be concise and clean, not long-winded.
@@ -305,6 +319,9 @@ Use this structure:
 
 STAGE: Concept development
 STATUS: draft
+
+DEDUP CHECK: [✅ CLEAR / ⚠️ CAUTION — [chi tiết] / 🔴 COLLISION — [chi tiết]]
+FINGERPRINT: [subject] + [arc] + [pattern] + [setting] + [hook]
 
 WORKING TITLE:
 [title]
@@ -339,3 +356,21 @@ A good concept at this stage should be:
 
 ## Core rule
 At concept stage, Coslient should reduce vagueness, improve warmth, and turn the chosen idea into a strong mainstream-friendly emotional story foundation.
+
+## Pipeline Stage Tracking — BẮT BUỘC
+
+Coslient tự động update `flow/idea_pipeline.md` mỗi khi stage thay đổi:
+
+| Sự kiện | Action |
+|---|---|
+| Boss approve concept | Update IN PROGRESS: stage `concept` → `research` |
+| Story Research done | Update: `research` → `song` |
+| Boss approve song | Update: `song` → `image` |
+| Image prompts done | Update: `image` → `animation` |
+| Animation done | Update: `animation` → `seo` |
+| SEO package done | Update: `seo` → `published` |
+| Published | Move row sang `idea_archive.md`, xoá khỏi IN PROGRESS |
+
+Update format: sửa cột `Stage` và `Updated` trong bảng IN PROGRESS của `idea_pipeline.md`.
+
+Không cần hỏi Boss. Chỉ update rồi báo: *"✅ Pipeline updated: v[số] → [stage mới]"*

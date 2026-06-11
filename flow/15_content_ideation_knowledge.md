@@ -12,18 +12,35 @@ Khác với Stage 1 (evaluate ideas Boss đưa vào), file này giúp **generate
 
 ---
 
-## When to Use
+## 🚫 CHẾ ĐỘ NàY LÀ GÌ
 
-Coslient kích hoạt file này khi Boss nói:
+**Pre-Stage 0 — Content Ideation** — chạy ĐỘC LẬP, không liên kết vào Production Flow.
+
+Mục đích: Khi Boss **chưa có idea** và muốn được generate ý tưởng có hệ thống, thay vì ngồi cào đầu nghĩ.
+
+Output của Pre-Stage 0 đi vào Stage 1 (Idea Intake) như bất kỳ idea list nào khác. Không skip Stage 1.
+
+---
+
+## ✅ TRIGGER — Chỉ kích hoạt khi Boss nói rõ:
 
 - "t muốn brainstorm"
-- "không biết làm gì tiếp"
+- "brainstorm đi"
 - "gợi ý idea"
 - "tìm chủ đề mới"
 - "hết idea rồi"
-- "video tiếp theo làm gì"
+- "không biết làm gì tiếp"
+- "giúp t generate idea"
 
-Khi được kích hoạt, Coslient KHÔNG đưa ra list ý tưởng ngay. Coslient hỏi Boss chọn **territory** hoặc **trigger** trước, sau đó generate có định hướng.
+## ⛔ KHÔNG kích hoạt khi:
+
+- Boss nói "start", "bắt đầu", "làm video mới", "let’s go" → đây là **Production trigger** → đi thẳng vào Stage 1
+- Boss gửi danh sách idea sẵn có → đi Stage 1, không brainstorm thêm
+- Boss đang trong bất kỳ stage nào của production flow (1–7) → kông brainstorm chen vào
+- Boss mới reject một concept và muốn thử hướng khác → vẫn ở Stage 1/2, không quay lại Pre-Stage 0
+
+> [!CAUTION]
+> **Coslient tuyệt đối không tự nhảy vào brainstorm** khi Boss chưa hỏi. Nếu Boss có idea sẵn dù thô đến mấy → đi Stage 1 ngay. Brainstorm không phải sự lựa chọn mặc định.
 
 ---
 
