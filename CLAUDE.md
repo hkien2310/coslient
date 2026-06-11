@@ -92,23 +92,40 @@ Trước khi bắt đầu BẤT KỲ hành động nào (viết, tạo file, ch�
 
 ---
 
-## 🎯 5. QUY TẮC PHÁT TRIỂN HÌNH ẢNH (STAGE 4 - IMAGE PROMPTING)
+## 🎯 5. QUY TẮC PHÁT TRIỂN HÌNH ẢNH (STAGE 4 — PRODUCTION DESIGN PIPELINE)
 
-Hình ảnh là khâu quan trọng nhất. Agent phải tuân thủ nghiêm ngặt các quy chuẩn sau:
-- **Tách dòng & Không ký tự lạ:** Mỗi prompt trên **1 dòng duy nhất**, phân cách bằng **đúng 1 dòng trống**. Không dùng tiền tố `A_001|` hay số thứ tự.
-- **Độ dài Prompt:** Luôn viết prompt chi tiết **> 500 ký tự**.
-- **Phong cách:** Load từ file style module trong `flow/`. Mặc định: `04s_visual_style_warm_storybook.md`.
-- **⚠️ Kiểm tra tương thích phong cách (Style Fit Check — BẮT BUỘC):** Trước khi bắt đầu viết prompt ảnh (Stage 4), Agent **BẮT BUỘC** phải đánh giá xem concept/câu chuyện hiện tại có phù hợp với 1 trong 3 phong cách hình ảnh đang có hay không:
-    1. `04s_visual_style_warm_storybook.md` — Warm Storybook
-    2. `04s_visual_style_alabaster_nomad.md` — Sacred Monochrome (Alabaster Nomad)
-    3. `04s_visual_style_desert_editorial.md` — Void Stage Couture (Desert Editorial)
+Hình ảnh là khâu quan trọng nhất. Agent tuân thủ nghiêm ngặt quy trình 3 Phase sau:
 
-  **Nếu không có phong cách nào trong 3 cái trên phù hợp với câu chuyện**, Agent **KHÔNG ĐƯỢC tự ý ép dùng** một phong cách không khớp. Thay vào đó, Agent phải **dừng lại và yêu cầu Boss đi tìm kiếm/nghiên cứu một phong cách hình ảnh mới** phù hợp hơn trước khi tiếp tục Stage 4.
-- **Triết lý Thiết kế 2 Lớp tối cao:**
-  1. *Lớp 1 - Xương sống kịch bản (Story Skeleton):* Nội dung cảnh quay bám sát cấu trúc bài hát và tuyến nhân vật theo concept đã duyệt.
-  2. *Lớp 2 - Lớp áo phong cách (Visual Style Overlay):* Phủ style anchor từ file style đang active lên trên.
-- **Quy trình tạo Prompt tăng dần:** Mỗi lần Boss yêu cầu → tạo **đúng 10 prompt mới** (> 500 ký tự), ghi thẳng vào file `projects/video_xxx/04_image_prompts.txt`. Chỉ dừng khi Boss nói **"stop"**.
-- **Chi tiết đầy đủ:** Xem `flow/04_image_prompt_development_knowledge.md` (kỹ thuật prompt) và file style tương ứng (style anchor, material, color, lighting).
+### PHASE 0 — Asset Bible (BẮT BUỘC — LÀM TRƯỚC KHI LÀM BẤT CỨ THỨ GÌ)
+Tạo các "tờ căn cước" cho mọi element xuất hiện nhiều lần trong video:
+- **Character Sheet** (luôn cần): Prompt turnaround 3 góc (front / side / 3/4), nền trung tính, style anchor active
+- **Location Sheet** (khi địa điểm xuất hiện ≥ 3 lần): Interior + Exterior song song, không có nhân vật
+- **Prop Sheet** (tùy): Đạo cụ biểu tượng xuất hiện nhiều + mang tính nhận dạng cao
+
+Sau khi Boss approve → Ghi vào file `projects/video_xxx/docs/04_asset_bible.md`. Từ đây mọi prompt cảnh đều phải reference nguyên văn mô tả từ file này.
+
+### PHASE 1 — Visual Style & Color Tone
+- Liệt kê và hỏi Boss chọn style trong các file `04s_visual_style_*.md`. Mặc định: `04s_visual_style_warm_storybook.md`.
+- Đề xuất 1 Color Tone String (5-8 từ khóa) bản sắc của câu chuyện → Boss duyệt → Ghi vào đầu file `04_image_prompts.txt` dưới dạng `# LOCKED COLOR TONE: [...]`.
+
+### PHASE 2 — Sequential Shot List
+Tạo bảng phân cảnh tuyến tính bám sát timeline bài nhạc (Intro → Verse → Chorus...):
+- **X2 BUFFER BẮT BUỘC:** Tính số shots tối thiểu = tổng thời lượng (s) ÷ 5, rồi nhân đôi.
+  Ví dụ: Bài 4 phút = 240s ÷ 5 = 48 shots cần thiết → Tạo 96 shots.
+- Mỗi shot ghi rõ: Location / Action / Carries-from / Leads-to / Shot size / Camera angle / Focus category
+
+Dừng và đợi Boss duyệt Shot List trước khi tiếp tục.
+
+### PHASE 3 — Sequential Scene Generation
+Tạo prompt theo đúng thứ tự từ Shot 01 đến cuối. Mỗi prompt:
+- Bắt đầu bằng `[Shot XX]` để editor dễ đối chiếu khi dựng
+- Reference nguyên văn từ Asset Bible (địa điểm, nhân vật, đạo cụ)
+- Có đủ 3 lớp chiều sâu: Foreground → Mid-ground → Background
+- Luôn kết thúc bằng LOCKED COLOR TONE nguyên văn + `16:9`
+- Negative anchor: `no internal glow, no magical particles, no sparkles, no children, no kids`
+- Ghi thẳng vào `projects/video_xxx/docs/04_image_prompts.txt` (không báo cáo dài trong chat)
+
+Chi tiết đầy đủ: Xem `flow/04_image_prompt_development_knowledge.md` và file style đang active.
 
 ---
 

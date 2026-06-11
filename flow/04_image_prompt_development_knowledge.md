@@ -34,153 +34,209 @@ Coslient should behave like a visual director, not a prompt spammer.
 This stage begins only after Boss has approved the song.
 
 Coslient must follow this strict step-by-step sub-stage workflow:
-1. **Stage 4.1: Visual Style Selection & Setup** ➔
-   - **Bước 1 — Hỏi Boss chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `flow/` và hỏi Boss muốn dùng style nào.
-   - **Bước 2 — Load style:** Nếu Boss chọn → load file style đó. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `04s_visual_style_warm_storybook.md`.
-   - **Bước 3 — Story Color Tone Selection (BẮT BUỘC trước khi làm bất cứ thứ gì):**
-     Dựa trên **emotional arc của câu chuyện** (không phải style), xác định và đề xuất 1 Color Tone duy nhất cho toàn bộ video. Coslient phải phân tích:
-     - Cảm xúc chủ đạo của câu chuyện là gì? (buồn / hy vọng / ấm áp / cô đơn / rực rỡ...)
-     - Thời điểm trong ngày câu chuyện diễn ra? (bình minh / chiều tà / đêm...)
-     - Điểm cảm xúc cao nhất và thấp nhất của câu chuyện?
-     Sau phân tích → đề xuất **1 Color Tone String** (chuỗi 5-8 từ khóa màu sắc) dựa trên câu chuyện, tham khảo Color DNA Reference trong style file đang active để chọn từ ngữ phù hợp với kỹ thuật render của style đó.
-     **Ví dụ:** Câu chuyện về người mẹ già nhớ con → "desaturated muted warm earth tones, soft faded sepia shadows, pale winter morning light, gentle lifted grays"
-     **Ví dụ:** Câu chuyện về ngày hè sum vầy → "vibrant honey-gold sunlight, amber-warm shadows, saturated joyful colors, golden bokeh"
-     Stop and wait for Boss's explicit approval of both visual direction AND Color Tone.
-   - **Bước 4 — Lock & Broadcast Color Tone:** Sau khi Boss duyệt, Color Tone String này được **KHÓA CỨNG** cho toàn bộ video. Ghi vào đầu file `04_image_prompts.txt` dưới dạng:
-     `# LOCKED COLOR TONE: [Color Tone String]`
-     Mọi agent trong Stage 4.3 đều nhận và bắt buộc dùng nguyên văn Color Tone String này.
-2. **Stage 4.2: Initial Test Prompts & Iteration** ➔ Provide exactly 10 high-fidelity sample test prompts (length > 500 characters) based on the locked style.
-3. **Stage 4.3: Multi-Agent Story-Beat Generation** ➔
-   - **Quy trình bắt buộc — Chia theo STORY BEAT (không phải đoạn nhạc):**
-     - **Bước A — Story Beat Mapping:** Từ **concept đã duyệt** (không phải lyrics), xác định 5-7 EMOTIONAL BEAT của câu chuyện. Mỗi beat = một khoảnh khắc cảm xúc khác nhau = 1 agent riêng biệt.
-       Emotional beat không phải đoạn nhạc. Ví dụ:
-       - Beat 1: *Thiết lập thế giới* — cảm xúc: yên tĩnh, xa xôi, chờ đợi
-       - Beat 2: *Nhân vật trong không gian quen thuộc* — ấm áp, hàng ngày, routine
-       - Beat 3: *Căng thẳng / Longing* — cô đơn, nhớ nhung, khoảng cách
-       - Beat 4: *Kết nối / Cao trào* — ấm áp, sum vầy, xúc động
-       - Beat 5: *Di sản / Dư âm* — tĩnh lặng, tiếc nuối đẹp, vĩnh cửu
-     - **Bước B — Pre-Generation Briefing (BẮT BUỘC):** Trước khi các agent bắt đầu tạo prompt, tất cả agents phải được briefing về **Visual Occupation Map** — bảng phân chia để tránh trùng:
-       - Agent nào đảm nhiệm beat nào
-       - Emotional texture riêng của mỗi beat (cảm xúc + light quality + visual rhythm)
-       - Góc máy nào đã "bị đặt cọc" bởi agent khác
-       - Shot size distribution target cho toàn bộ set
-       - Composition archetype đã dùng / chưa dùng
-     - **Bước C — Parallel Generation:** Mỗi agent tạo **đúng 20 prompts** cho story beat của mình, ghi vào file.
-     - **Bước D — Cross-Agent Deduplication Check:** Sau khi toàn bộ agents hoàn thành, Coslient kiểm tra tổng thể và flag bất kỳ cặp prompt nào quá giống nhau (cùng shot size + cùng composition + cùng action type).
-   - **No Conversational Reporting:** Do not write long reports, summaries, or verbose lists in the chat window. Simply execute and write the generated prompts directly into the target file `projects/video_xxx/docs/04_image_prompts.txt` (or update it incrementally).
-   - **Long-Running / Background Executions:** If Boss requests a massive quantity of prompts (e.g., hundreds of prompts at once), Coslient must use a long-running background task or define a subagent to run it asynchronously, updating the file in the background without blocking Boss.
-   - For each new batch of prompts (whether 10 or 20), Coslient must use **maximum creativity and strictly avoid repeating previous visual motifs, scenes, or compositions** while remaining 100% aligned with the approved story/concept.
-   - Continue this cycle until Boss explicitly says **"stop"** (dừng lại).
-   - Only when Boss says "stop", compile and verify the complete accumulated flat list of prompts in `projects/video_xxx/docs/04_image_prompts.txt`, and transition to Stage 5.
 
-Do not skip any sub-stages. Do not move to Stage 5 before Boss explicitly commands to stop the generation cycle.
+### PHASE 0: Asset Bible Creation (BẮT BUỘC — Trước tất cả mọi thứ)
+
+> [!IMPORTANT]
+> **Asset Bible là nền tảng của toàn bộ pipeline.** Không tạo bất kỳ cảnh nào trước khi Asset Bible được Boss duyệt. Đây là "tờ căn cước" của mọi element xuất hiện nhiều lần — mọi prompt sau này đều phải reference về đây.
+
+**Bước 1 — Xác định các Asset cần tạo:**
+Dựa vào concept đã duyệt, Coslient liệt kê:
+- **Character Sheet (BẮT BUỘC):** Nhân vật chính (luôn cần)
+- **Location Sheet (BẮT BUỘC nếu xuất hiện ≥ 3 lần):** Các địa điểm lặp lại nhiều (nhà, khu vườn, căn phòng...)
+- **Prop Sheet (TÙY CHỌN):** Đạo cụ biểu tượng xuất hiện nhiều và mang tính nhận dạng cao
+
+**Bước 2 — Tạo Asset Bible Prompts:**
+
+*Character Sheet prompt format:*
+```
+Wide character concept sheet of [mô tả nhân vật chi tiết: tuổi, vóc dáng, trang phục, biểu hiện khuôn mặt]. 3-angle turnaround showing front, side, and 3/4 views in one frame, standing in a neutral cozy warm-lit space. [Style anchor từ file style active]. White/neutral background. Character reference sheet layout. No background story elements.
+```
+
+*Location Sheet prompt format:*
+```
+Location concept sheet of [tên địa điểm], showing [interior view] and [exterior view] side by side in one frame. [Mô tả chi tiết: vật liệu, ánh sáng, đặc điểm nổi bật]. [Style anchor]. Reference sheet layout, white label space at bottom. No characters present.
+```
+
+*Prop Sheet prompt format:*
+```
+Prop concept sheet of [tên đạo cụ], showing [multiple angles / scale reference]. [Mô tả chi tiết chất liệu, màu sắc, tình trạng]. [Style anchor]. White/neutral background. Reference sheet layout.
+```
+
+**Bước 3 — Boss review & APPROVE Asset Bible:**
+Dừng lại và đợi Boss duyệt. Sau khi Boss approve, ghi kết quả vào file `projects/video_xxx/docs/04_asset_bible.md`.
+
+- **LOCK:** Từ đây, mọi prompt Scene đều PHẢI bao gồm cụm từ:
+  - Nhân vật: `[exact character description from asset bible], consistent character design`
+  - Địa điểm: `same location interior/exterior as established in asset bible`
+  - Đạo cụ: `same [prop name] as reference, consistent prop design`
+
+> [!IMPORTANT]
+> **Reference Note trong Phase 3:** Mỗi prompt output sẽ có dòng header ghi rõ những tờ Asset Bible nào cần dùng làm ảnh reference khi generate cảnh đó.
+> Label chuẩn: `Character Sheet`, `Location Interior`, `Location Exterior`, `Prop Sheet`
 
 ---
 
-## Multi-Agent Coordination Protocol
+### PHASE 1: Visual Style & Color Tone
+
+**Bước 1 — Chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `flow/` và hỏi Boss muốn dùng style nào. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `04s_visual_style_warm_storybook.md`.
+
+**Bước 2 — Story Color Tone Selection (BẮT BUỘC):**
+Dựa trên emotional arc của câu chuyện, xác định và đề xuất 1 Color Tone String duy nhất (5-8 từ khóa màu sắc) cho toàn bộ video:
+- Cảm xúc chủ đạo là gì? (buồn / hy vọng / ấm áp / cô đơn / rực rỡ...)
+- Thời điểm trong ngày? (bình minh / chiều tà / đêm...)
+- Điểm cảm xúc cao nhất và thấp nhất?
+
+**Ví dụ:** Câu chuyện về ông lão chăm sóc đáy biển → `"deep oceanic teal, warm amber lamplight, muted rusted brass, soft bioluminescent accents, velvety deep-sea blue"`
+
+Stop and wait for Boss's explicit approval of Color Tone.
+
+**Bước 3 — Lock Color Tone:** Ghi vào đầu file `04_image_prompts.txt` dưới dạng:
+`# LOCKED COLOR TONE: [Color Tone String]`
+Mọi prompt sau đều dùng nguyên văn string này — không synonym, không paraphrase.
+
+---
+
+### PHASE 2: Sequential Shot List
 
 > [!IMPORTANT]
-> Protocol này BẮT BUỘC khi dùng multi-agent generation. Mục tiêu: ngăn ảnh bị trùng nhau và đảm bảo toàn bộ set có đủ đa dạng góc độ, bố cục, chiều sâu.
+> **Đây là trái tim của quy trình mới.** Thay vì chia theo Story Beat trừu tượng, Coslient tạo một Shot List tuyến tính bám sát TIMELINE bài nhạc. Mỗi shot là một cảnh cụ thể, kế tiếp về mặt vật lý và cảm xúc với cảnh trước.
 
-### Bước B — Visual Occupation Map (Template)
-
-Trước khi bất kỳ agent nào bắt đầu viết prompt, Coslient tạo và gửi bản **Visual Occupation Map** cho tất cả agents:
-
+**Bước 1 — Tính số shots cần thiết:**
 ```
-VISUAL OCCUPATION MAP — [Tên dự án]
-Tổng số story beats: [N]   |   Target tổng: [N × 20] prompts
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-LOCKED COLOR TONE (từ câu chuyện — BẮT BUỘC NGUYÊN VĂN trong mọi prompt):
-[Điền Color Tone String đã được Boss duyệt ở Stage 4.1 Bước 3]
-Ví dụ: "desaturated muted warm earth tones, soft faded sepia shadows, pale winter morning light, gentle lifted grays"
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PHÂN CÔNG STORY BEAT:
-(Dựa trên concept đã duyệt — không phải đoạn nhạc)
-- Agent 1: [Tên beat — vd: "Thiết lập thế giới"]
-  Emotional texture: [yên tĩnh / xa xôi / chờ đợi...]
-  Visual feel: [wide / still / muted light / slow visual rhythm]
-  Ảnh cần tạo: cảnh vật, không gian trước khi nhân vật xuất hiện
-
-- Agent 2: [Tên beat — vd: "Nhân vật trong không gian quen thuộc"]
-  Emotional texture: [ấm / routine / an toàn...]
-  Visual feel: [medium / warm light / domestic detail]
-  Ảnh cần tạo: nhân vật trong sinh hoạt hàng ngày, vật thể quen thuộc
-
-- Agent 3: [Tên beat — vd: "Longing / Khoảng cách"]
-  Emotional texture: [cô đơn / nhớ nhung / thiếu vắng...]
-  Visual feel: [slightly darker / narrower frame / sparse / empty chair]
-  Ảnh cần tạo: dấu vết của ai đó vắng mặt, nhân vật nhìn ra xa
-
-- Agent 4: [Tên beat — vd: "Kết nối / Cao trào"]
-  Emotional texture: [ấm áp / sum vầy / xúc động...]
-  Visual feel: [brighter / fuller frame / warm golden light]
-  Ảnh cần tạo: khoảnh khắc kết nối, chia sẻ, trao đổi
-
-- Agent 5: [Tên beat — vd: "Di sản / Dư âm"]
-  Emotional texture: [tĩnh lặng / vĩnh cửu / tiếc nuối đẹp...]
-  Visual feel: [wide / still / late light / objects left behind]
-  Ảnh cần tạo: vật thể bà để lại, vườn vẫn sống, thời gian trôi
-
-- [...thêm beat nếu concept cần...]
-
-FOCUS CATEGORY TARGET (mỗi block 20 prompts):
-- Character Action (toàn vẹn nhân vật): ~40% (8 shots)
-- Establishing/Environment (không người): ~20% (4 shots)
-- Traces & Still Life (đồ vật, dấu vết): ~20% (4 shots)
-- Fragmented/Macro (cận cảnh tay, gáy, vải... không mặt): ~20% (4 shots)
-
-SHOT SIZE TARGET (toàn set):
-- Wide/Establishing: ~15% → [N×3] shots
-- Medium-wide / Full: ~40% → [N×8] shots
-- Medium: ~20% → [N×4] shots
-- Close emotional: ~15% → [N×3] shots
-- Detail/Object: ~10% → [N×2] shots
-
-CAMERA ANGLE — MỖI AGENT PHẢI COVER ÍT NHẤT 3 TRONG SỐ NÀY:
-[ ] Eye-level intimate
-[ ] Slightly low angle (dignity)
-[ ] Gentle high angle (tenderness)
-[ ] Ground-level / low-ground (journey, path)
-[ ] Overhead / bird's-eye (object arrangement)
-[ ] Over-the-shoulder
-[ ] Through doorway / window frame
-[ ] Through foreground obstruction (foliage, curtain, fence rail)
-
-COMPOSITION ARCHETYPE — không agent nào dùng cùng archetype quá 3 lần:
-[ ] Centered symmetrical
-[ ] Asymmetrical thirds
-[ ] Frame-within-frame (doorway, window, arch)
-[ ] Strong leading line (path, fence, stairs)
-[ ] Negative space dominant
-[ ] Layered tableau (foreground + mid + background)
-[ ] Figure on path / walking away
-[ ] Hands and object close interaction
-[ ] Silhouette against light
-[ ] Reflective (water, glass, mirror)
-[ ] Over-the-shoulder looking out
-[ ] Low-ground looking up at figure
-
-DEPTH RULES — BẮT BUỘC ĐỦ 3 LOẠI trong mỗi 20-prompt block:
-- Deep focus (environment matters): ≥ 4 shots
-- Moderate depth (subject leads, background adds): ≥ 10 shots
-- Shallow focus (one face/hand/object): ≥ 4 shots
-- Selective focus (rare symbolic moment): ≥ 2 shots
-
-"ĐÃ CHIẾM" (Claimed slots — cập nhật sau khi mỗi agent hoàn thành):
-- Agent 1 đã dùng: [list composition archetypes]
-- Agent 2 đã dùng: [...]
+Số shots cần thiết = Tổng thời lượng bài nhạc (giây) ÷ 5 giây/shot
+Số shots thực tế tạo ra (X2 BUFFER) = Số shots cần thiết × 2
 ```
 
-### Bước D — Deduplication Red Flags
+> [!IMPORTANT]
+> **QUY TẮC X2 BUFFER — BẮT BUỘC — KHÔNG NGOẠI LỆ:**
+> Luôn tạo **gấp đôi** số shots tối thiểu cần thiết cho mỗi phân đoạn nhạc.
+> Mục đích: Khi cắt ghép, Boss có đủ lựa chọn để cắt nhanh, đổi góc máy, hoặc giữ cảnh dài hơn.
+> Ví dụ: Verse 1 = 30 giây → cần 6 shots → tạo 12 shots. Final Chorus = 40 giây → cần 8 shots → tạo 16 shots.
 
-Sau khi tất cả agents xong, Coslient scan và flag bất kỳ cặp prompt nào match CẢ 3 tiêu chí sau:
-- Cùng shot size (ví dụ: cả hai đều medium shot)
-- Cùng composition type (ví dụ: cả hai đều frame-within-frame)
-- Cùng action category (ví dụ: cả hai đều "elderly person sitting at table")
+**Bước 2 — Tạo Sequential Shot List theo format sau:**
 
-Nếu có red flag → viết lại prompt bị flag để thay đổi ít nhất 2 trong 3 tiêu chí.
+```
+SEQUENTIAL SHOT LIST — [Tên dự án]
+Tổng thời lượng: [X]s  |  Shots tối thiểu: [Y]  |  Shots thực tế (×2): [Y×2]
+LOCKED COLOR TONE: [Color Tone String]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[SECTION NAME] (~[Xs] = [N] shots tối thiểu → TẠO [N×2] shots)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Shot [XX] | Location: [INTERIOR/EXTERIOR — Tên địa điểm]
+Action: [Mô tả hành động/trạng thái cụ thể]
+Carries from: Shot [XX-1] — [Lý do vật lý/cảm xúc tại sao cảnh này nối tiếp]
+Leads to: Shot [XX+1] — [Cảnh kế tiếp sẽ là gì]
+Shot size: [Wide / Medium-wide / Medium / Close / Detail]
+Camera angle: [Eye-level / Low-ground / Overhead / Through-frame / Over-shoulder...]
+Focus category: [Character Action / Environment / Traces & Still Life / Fragmented Macro]
+```
+
+**Bước 3 — Boss review Shot List:**
+Dừng lại và đợi Boss duyệt. Chỉ tiến hành Phase 3 sau khi Shot List được approve.
+
+**Quy tắc "Carries from / Leads to" (BẮT BUỘC):**
+- Mỗi shot PHẢI ghi rõ nó **bước vào từ đâu** (về không gian + hành động) và **dẫn đến đâu**
+- Không có cảnh nào được "xuất hiện từ hư không" — phải có lý do vật lý hoặc cảm xúc rõ ràng
+- Không gian phải nhất quán: Nếu Shot 5 nhân vật ở bên trái khung, Shot 6 nhân vật không thể đột ngột ở bên phải mà không có lý do
+
+---
+
+### PHASE 3: Sequential Scene Generation (với X2 Buffer)
+
+Sau khi Shot List được Boss approve, Coslient tạo prompt theo đúng thứ tự từ Shot 01 đến Shot cuối:
+
+**Asset Bible — Upload Policy:**
+- Tối đa **5 ảnh Asset Bible** cho 1 video. Boss upload toàn bộ 1 lần trước khi generate cảnh.
+- Vì toàn bộ ảnh reference đã được upload sẵn, **KHÔNG CẦN** ghi `[Ref: ...]` trong output.
+
+**Format output trong file:**
+
+```
+[prompt hoàn chỉnh trên 1 dòng duy nhất]
+
+[prompt hoàn chỉnh trên 1 dòng duy nhất]
+```
+
+- Mỗi prompt trên 1 dòng duy nhất, không xuống hàng
+- Giữa các prompt: 1 dòng trống
+- Không có header, không có label, không có số thứ tự
+
+**Ví dụ output chuẩn:**
+```
+Wide establishing shot, eye-level, the cozy vintage glass dome home resting on the ocean floor, warm amber firelight spilling from the curved glass windows into the dark water, softly blurred seagrass swaying in the foreground, the glowing dome sitting solidly in the mid-ground, endless deep oceanic darkness filling the background, nostalgic stop-motion animation style, miniature diorama, extremely tactile hand-crafted textures, Laika Studios claymation aesthetic, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, soft bioluminescent accents, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
+
+Close-up shot, eye-level, inside the cozy vintage glass dome home, rustic wooden furniture, glowing fireplace, a crackling real fire dancing in the stone hearth, macro photography, shallow depth of field, nostalgic stop-motion animation style, miniature diorama, extremely tactile hand-crafted textures, Laika Studios claymation aesthetic, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, soft bioluminescent accents, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
+```
+
+**Cấu trúc nội dung prompt (9 thành phần):**
+1. Shot size + camera angle (từ Shot List)
+2. Location reference → `same [location name] interior/exterior as established in asset bible`
+3. Character reference → `[exact character description from asset bible], consistent character design` (bỏ qua nếu Environment shot)
+4. Action cụ thể (từ Shot List)
+5. Foreground layer → Mid-ground layer → Background layer (3 lớp chiều sâu)
+6. Prop reference nếu có → `same [prop name] as reference`
+7. Style anchor (từ file style active)
+8. LOCKED COLOR TONE (copy nguyên văn)
+9. `16:9` + Negative anchor: `no internal glow, no magical particles, no sparkles, no children, no kids, no aura`
+
+**Quy tắc ghi file:**
+- File output: `projects/video_xxx/docs/04_image_prompts.txt`
+- Output là prompt thuần — editor tự biết thứ tự dựa vào vị trí trong file
+
+**No Conversational Reporting:** Không viết report dài trong chat. Tạo prompt xong → ghi thẳng vào file.
+
+**Long-Running Executions:** Nếu Boss yêu cầu tạo nhiều shots cùng lúc, dùng subagent chạy nền, cập nhật file liên tục mà không block Boss.
+
+---
+
+Do not skip any Phase. Do not move to Phase 3 before Shot List is approved. Do not move to Phase 4 before all prompts are generated. Do not move to Stage 5 before all renders are merged.
+
+---
+
+### PHASE 4: Parallel Render via Subagents
+
+Sau khi toàn bộ prompts đã được ghi vào `04_image_prompts.txt`, Coslient tiến hành render song song theo quy trình sau:
+
+**Quy tắc bắt buộc:**
+- Phải dùng **subagent** — tuyệt đối không viết script để render
+- Mỗi subagent nhận một batch prompt, render theo thứ tự, ghi kết quả vào thư mục riêng
+- Boss không cần làm gì trong quá trình này
+
+**Bước 1 — Chia batch:**
+- Đọc `04_image_prompts.txt`, đếm tổng số prompts
+- Chia đều thành các batch, mỗi batch tối đa **25 prompts**
+- Ví dụ: 100 prompts → 4 batch (Batch A: 1–25, Batch B: 26–50, Batch C: 51–75, Batch D: 76–100)
+
+**Bước 2 — Spawn subagents song song:**
+- Spawn tất cả các subagent **cùng lúc** (không tuần tự)
+- Mỗi subagent nhận:
+  - Danh sách prompts của batch đó (copy nguyên văn từ file)
+  - Thư mục output: `projects/video_xxx/renders/batch_X/`
+  - Chỉ thị: render từng prompt theo thứ tự, đặt tên file `001.png`, `002.png`...
+- Coslient theo dõi tiến độ và báo cáo khi từng batch hoàn thành
+
+**Bước 3 — Merge kết quả:**
+- Sau khi tất cả subagent hoàn thành, Coslient merge toàn bộ ảnh vào thư mục `projects/video_xxx/renders/final/`
+- Đặt lại tên file theo thứ tự liên tục: `001.png` → `100.png`
+- Báo cáo tổng số ảnh render thành công / thất bại cho Boss
+
+**Xử lý lỗi:**
+- Nếu 1 subagent thất bại → spawn lại subagent mới cho batch đó, không ảnh hưởng batch khác
+- Nếu 1 prompt lỗi → ghi log vào `projects/video_xxx/renders/errors.txt`, bỏ qua, tiếp tục
+
+---
+
+## Cross-Shot Deduplication Check
+
+Sau khi toàn bộ shots được tạo, Coslient scan và flag bất kỳ cặp shot nào match CẢ 3 tiêu chí sau:
+- Cùng shot size
+- Cùng composition type
+- Cùng action category
+
+Nếu có → viết lại prompt bị flag để thay đổi ít nhất 2 trong 3 tiêu chí.
 
 ---
 
