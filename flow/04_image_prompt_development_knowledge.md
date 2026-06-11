@@ -46,6 +46,9 @@ Dựa vào concept đã duyệt, Coslient liệt kê:
 - **Location Sheet (BẮT BUỘC nếu xuất hiện ≥ 3 lần):** Các địa điểm lặp lại nhiều (nhà, khu vườn, căn phòng...)
 - **Prop Sheet (TÙY CHỌN):** Đạo cụ biểu tượng xuất hiện nhiều và mang tính nhận dạng cao
 
+> [!IMPORTANT]
+> **Location Expansion Rule:** Asset Bible locations là cốt lõi cho consistency, nhưng **tối thiểu 30% prompts trong Phase 3 PHẢI xảy ra ở location NGOÀI Asset Bible** — phù hợp với thế giới của video (đường làng, chợ, bãi cỏ, bếp nhỏ, xe, ga tàu, mái hiên hàng xóm...). Nếu toàn bộ prompts chỉ xảy ra trong 3 địa điểm Asset Bible → thế giới trở nên chật hẹp và lặp lại.
+
 **Bước 2 — Tạo Asset Bible Prompts:**
 
 *Character Sheet prompt format:*
@@ -97,15 +100,80 @@ Mọi prompt sau đều dùng nguyên văn string này — không synonym, khôn
 
 ---
 
-### PHASE 2: Internal Shot Planning (AI tự làm — không cần Boss duyệt)
+### PHASE 2: Diversity Blueprint (AI tự làm — không cần Boss duyệt)
 
-Coslient tự lập kế hoạch shots theo timeline bài nhạc. Đây là bước **nội bộ** — không cần trình Boss, không cần approval, không có gate nào.
+Coslient tự lập kế hoạch trước khi sinh bất kỳ prompt nào. **Bắt buộc điền đủ Blueprint này trong đầu trước — không được sinh prompt trước khi plan xong.**
 
-**Cách AI lên kế hoạch nội bộ:**
-- Tính tổng số prompts cần tạo: `thời lượng bài (giây) ÷ 5 × 2` (X2 buffer để Boss có lựa chọn khi edit)
-- Phân bổ prompts theo timeline nhạc (INTRO → VERSE → CHORUS...) để câu chuyện hình ảnh có arc tự nhiên
-- Trong mỗi cụm 4-5 prompts, tự xoay vòng: character action → macro/detail → environment/still life → character action. Tự đa dạng góc máy (eye-level, low, overhead, through-frame)
-- Không cần trình bày kế hoạch này ra ngoài. Tự làm rồi sinh prompts thẳng.
+**Bước 1 — Tính tổng số prompts:**
+```
+Tổng prompts = thời lượng bài (giây) ÷ 5 × 2   (X2 buffer)
+```
+
+**Bước 2 — Time of Day Rotation (phân bổ đều):**
+Không để toàn bộ prompts xảy ra cùng một thời điểm trong ngày.
+```
+Dawn / Morning sớm  (~25%)  — ánh sáng mềm xanh-vàng, sương, không khí lạnh
+Midday              (~20%)  — ánh sáng cứng, bóng đổ rõ, chói chang
+Late afternoon/Dusk (~35%)  — ánh vàng nghiêng, bóng dài, ấm nhất
+Night / Lamplight   (~20%)  — tối xung quanh, chỉ có nguồn sáng nhân tạo
+```
+
+**Bước 3 — Weather & Atmosphere Pool (chọn ≥ 3 loại cho video):**
+```
+□ Clear, calm         — bầu trời xanh, không khí trong
+□ Overcast, diffused  — mây trắng phủ, ánh sáng đều, mềm
+□ Light rain          — mưa nhỏ, ướt mặt đường, hơi nước
+□ After rain          — mặt đường ướt còn phản chiếu, không khí sạch
+□ Morning mist        — sương mờ ở cây cối, tầm nhìn giảm nhẹ
+□ Wind                — vải bay, lá rơi, tóc bị thổi
+□ Hot / hazy          — không khí rung rinh, bụi, nền mờ
+```
+Không để toàn bộ video có thời tiết giống nhau. Mưa nhẹ và sương sáng tạo texture hoàn toàn khác.
+
+**Bước 4 — Character Mood Arc (theo emotional arc bài nhạc):**
+Nhân vật phải có nhiều trạng thái cảm xúc vật lý — không phải lúc nào cũng "gentle".
+```
+Contemplative / still     — ngồi im, nhìn xa, thở chậm
+Gentle activity           — chuyển động nhẹ nhàng, tập trung vào tay
+Physical effort           — tư thế căng, mồ hôi, gắng sức nhỏ
+Rest / exhausted          — ngồi dựa, đầu cúi, hơi thở nặng
+Quiet joy                 — khóe miệng nhếch nhẹ, tư thế mở
+Grief / longing           — vai sụp, tay nắm chặt, nhìn xuống
+Determined                — lưng thẳng, bước chắc, ánh mắt hướng về phía trước
+Tender / surprised        — tay đặt nhẹ, đầu nghiêng, mắt mở to
+```
+
+**Bước 5 — Location Pool (bắt buộc ≥ 30% ngoài Asset Bible):**
+Dựa vào concept, brainstorm 5-8 locations bổ sung phù hợp với thế giới video.
+Ví dụ (ông già học đàn): đường làng, chợ sáng, bãi cỏ sau nhà, bếp, mái hiên, trong xe, ga xe buýt nhỏ, vườn nhà hàng xóm.
+
+**Bước 6 — Focus Category Quota (mỗi 20 prompts):**
+```
+Character Action:    8/20  (40%) — nhân vật tương tác/hành động toàn vẹn
+Environment:         4/20  (20%) — chỉ cảnh, không người
+Traces & Still Life: 4/20  (20%) — dấu vết sự sống, đồ vật
+Fragmented Macro:    4/20  (20%) — cận tay, vai, vật thể — không lấy mặt
+```
+
+**Bước 7 — Diversity Quota (mỗi 20 prompts — tham chiếu Diversity quota doctrine):**
+```
+4 wide/establishing  |  6 medium narrative  |  3 intimate
+2 symbolic detail    |  2 quiet/reset       |  1 payoff
+1 transition         |  1 centered/symmetrical
+```
+
+**Bước 8 — Action Pool cho Character Action shots:**
+Không để nhân vật chỉ sit/stand/look. Xoay vòng từ pool sau — không lặp action trong 5 prompts liền trước:
+```
+Vật lý:    kneeling, crouching, lying down, carrying, pulling, bending over
+Tay:       kneading dough, pruning plants, folding, writing, painting, fixing, stirring
+Di chuyển: walking slowly, pausing at doorway, turning around, climbing steps
+Quan sát:  gazing out window, watching rain, reading, listening with eyes closed
+Ritual:    making tea, lighting candle, watering plants, feeding birds, hanging laundry
+Cảm xúc:  pressing hand to chest, leaning against wall, holding something tightly, touching a surface gently
+```
+
+Sau khi plan xong → sinh prompts thẳng. Không cần trình bày Blueprint ra ngoài.
 
 ---
 
@@ -152,6 +220,19 @@ Close-up shot, low-ground angle, inside the cozy vintage glass dome home, rustic
 **No Conversational Reporting:** Không viết report dài trong chat. Tạo prompt xong → ghi thẳng vào file.
 
 **Long-Running Executions:** Dùng subagent chạy nền, cập nhật file liên tục mà không block Boss.
+
+**Inline Pre-Check — Mỗi 20 prompts (BẮT BUỘC):**
+Dừng lại sau mỗi 20 prompts và kiểm tra nhanh trước khi sinh tiếp:
+```
+□ Time of day: có ≥ 2 thời điểm khác nhau trong 20 prompts này không?
+□ Weather: có ≥ 1 prompt với thời tiết khác clear/calm không?
+□ Character mood: nhân vật có ≥ 3 trạng thái cảm xúc khác nhau không?
+□ Action: có action nào lặp ≥ 3 lần trong 20 prompts không? Nếu có → rewrite
+□ Location: có ≥ 1 prompt ở ngoài Asset Bible locations không?
+□ Focus category: đủ 8 character / 4 environment / 4 traces / 4 macro chưa?
+□ Camera angle: có ≥ 3 unusual angles (low-ground, overhead, through-frame) không?
+```
+Nếu bất kỳ ô nào fail → sửa prompts vi phạm trước khi tiếp tục 20 prompts tiếp theo.
 
 ---
 
@@ -200,8 +281,38 @@ Dựa vào concept, liệt kê 15-20 hoạt động thường ngày của nhân 
 - Vẫn dùng character reference từ Asset Bible nếu nhân vật xuất hiện trong shot
 - Vẫn dùng LOCKED COLOR TONE + style anchor
 
-**Bước 3 — Đa dạng hóa bắt buộc:**
-Xoay vòng: có nhân vật / chỉ dấu vết nhân vật để lại / outdoor / indoor / sáng / chiều / tĩnh / động. Không để toàn bộ world prompts cùng 1 kiểu.
+**Bước 3 — World Life Action Pool (chọn từ đây, không tự brainstorm):**
+AI thường brainstorm world life rồi lặp lại cùng 4-5 hoạt động. Dùng pool dưới đây và bắt buộc cover ≥ 10 loại hoạt động khác nhau trong toàn bộ 04_world_prompts.txt:
+```
+Ngoài trời:
+□ Chăm vườn / tưới cây / nhổ cỏ
+□ Đi bộ một mình trên đường vắng
+□ Ngồi trên bãi cỏ / nằm nhìn mây
+□ Cho chim ăn / quan sát thiên nhiên
+□ Lái xe / đi xe đạp chầm chậm
+□ Đứng nhìn mưa từ mái hiên
+□ Thu hoạch / hái quả / cắt hoa
+□ Ngồi trên bậc thềm nhìn ra đường
+
+Trong nhà:
+□ Làm bánh / nhào bột / nướng
+□ Nấu ăn chậm rãi / khuấy nồi
+□ Pha trà / cà phê một mình
+□ Sửa đồ vật cũ bằng tay
+□ Gấp quần áo / phơi đồ
+□ Đọc sách cũ / lật trang
+□ Nhìn ra cửa sổ từ bên trong
+□ Ngủ trưa / nghỉ ngơi
+
+Dấu vết (không có người):
+□ Ghế trống trên hiên, tách trà còn hơi
+□ Đôi giày đặt cạnh cửa
+□ Công cụ vườn dựng vào tường
+□ Áo khoác treo trên móc
+```
+
+**Bước 4 — Đa dạng hóa bắt buộc:**
+Xoay vòng: có nhân vật / chỉ dấu vết để lại / outdoor / indoor / sáng / chiều / tĩnh / động. Không để toàn bộ world prompts cùng 1 kiểu. Áp dụng cùng Time of Day Rotation và Weather Pool như Phase 2.
 
 ---
 
