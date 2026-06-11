@@ -121,30 +121,21 @@ Sau khi Boss approve → Ghi vào file `projects/video_xxx/docs/04_asset_bible.m
 - Liệt kê và hỏi Boss chọn style trong các file `04s_visual_style_*.md` trong `flow/styles/`. Mặc định: `flow/styles/04s_visual_style_warm_storybook.md`.
 - Đề xuất 1 Color Tone String (5-8 từ khóa) bản sắc của câu chuyện → Boss duyệt → Ghi vào đầu file `04_image_prompts.txt` dưới dạng `# LOCKED COLOR TONE: [...]`.
 
-### PHASE 2 — Sequential Shot List
-Tạo bảng phân cảnh tuyến tính bám sát timeline bài nhạc (Intro → Verse → Chorus...):
-- **X2 BUFFER BẮT BUỘC:** Tính số shots tối thiểu = tổng thời lượng (s) ÷ 5, rồi nhân đôi.
-  Ví dụ: Bài 4 phút = 240s ÷ 5 = 48 shots cần thiết → Tạo 96 shots.
-- Mỗi shot ghi rõ: Location / Action / Carries-from / Leads-to / Shot size / Camera angle / Focus category
-- **ENERGY LEVEL + EDIT CUE:** Mỗi section phải ghi rõ Energy (QUIET/LOW/RISING/HIGH/MAXIMUM/INTIMATE) và Edit Cue.
-- **DIVERSITY CHECK BẮT BUỘC** sau mỗi section: đếm Focus Category, unusual angles, hero shots. Nếu FAIL → viết lại trước khi sang bước tiếp.
+### PHASE 2 — Internal Shot Planning (AI tự làm, không cần Boss duyệt)
+AI tự lên kế hoạch nội bộ:
+- Tính tổng prompts cần tạo: `thời lượng (giây) ÷ 5 × 2` (X2 buffer)
+- Phân bổ theo timeline nhạc (INTRO → VERSE → CHORUS...) để câu chuyện hình ảnh có arc tự nhiên
+- Tự xoay vòng góc máy và loại cảnh trong mỗi cụm 4-5 prompts (character → macro → environment → character)
+- Không trình bày kế hoạch này ra ngoài. Tự làm rồi sinh prompts thẳng.
 
-Dừng và đợi Boss duyệt Shot List trước khi tiếp tục.
-
-### PHASE 2.5 — Editor's Cue Sheet (OUTPUT BẮT BUỘC MỚI)
-Tạo ngay sau khi Shot List được approve. File này Boss mở song song CapCut khi dựng.
-- Tạo file `projects/video_xxx/docs/04_editor_cue_sheet.md`
-- Gồm: Bảng Editing Map (timing + energy + folder ảnh + nhịp cắt + ghi chú), Hero Shots List, 3 Nguyên tắc Edit.
-
-### PHASE 3 — Sequential Scene Generation
-Tạo prompt theo đúng thứ tự từ Shot 01 đến cuối. Mỗi prompt:
-- **FILE THEO SECTION (MỚI):** Không dùng 1 file duy nhất nữa. Tạo 1 file `.txt` riêng cho mỗi section trong `docs/renders/` (VD: `01_INTRO.txt`, `04_CHORUS1.txt`...)
-- Mỗi file có header: section name, energy, timing, cut pace, edit cue
+### PHASE 3 — Prompt Generation
+Sinh toàn bộ prompts → ghi vào **1 file duy nhất** `projects/video_xxx/docs/04_image_prompts.txt`.
+- Mỗi prompt trên 1 dòng, cách nhau 1 dòng trống
+- Không có header, không label section, không số thứ tự, không metadata nào
 - Reference nguyên văn từ Asset Bible (địa điểm, nhân vật, đạo cụ)
 - Có đủ 3 lớp chiều sâu: Foreground → Mid-ground → Background
-- Luôn kết thúc bằng LOCKED COLOR TONE nguyên văn + `16:9`
-- Negative anchor: `no internal glow, no magical particles, no sparkles, no children, no kids`
-- Ghi thẳng vào file (không báo cáo dài trong chat)
+- Luôn kết thúc bằng LOCKED COLOR TONE nguyên văn + `16:9` + negative anchor
+- Ghi thẳng vào file, không báo cáo dài trong chat
 
 Chi tiết đầy đủ: Xem `flow/04_image_prompt_development_knowledge.md` và file style đang active.
 
