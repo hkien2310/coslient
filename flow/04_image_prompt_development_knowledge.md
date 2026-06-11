@@ -155,7 +155,73 @@ Close-up shot, low-ground angle, inside the cozy vintage glass dome home, rustic
 
 ---
 
-Do not skip any Phase. Do not move to Phase 3 before Shot List is approved. Do not move to Phase 4 before all prompts are generated. Do not move to Stage 5 before all renders are merged.
+Do not skip any Phase. Do not move to Phase 4 before all prompts are generated. Do not move to Stage 5 before all renders are merged.
+
+---
+
+### PHASE 3.5: World Life Prompts
+
+Sau khi sinh xong `04_image_prompts.txt`, sinh thêm **1 file thứ hai** — cùng số lượng, cùng nhân vật, cùng style — nhưng nội dung là **cuộc sống của nhân vật ngoài câu chuyện chính**.
+
+**File output:** `projects/video_xxx/docs/04_world_prompts.txt`
+
+---
+
+**Đây là gì:**
+
+Nếu câu chuyện là "ông già học đàn" → `04_image_prompts.txt` là ông học đàn, cầm đàn, nhìn sheet nhạc...
+
+`04_world_prompts.txt` là **phần còn lại của cuộc đời ông** — những thứ không ai nhắc đến trong bài hát nhưng vẫn đang xảy ra:
+- Ông chăm vườn buổi sáng sớm
+- Ông ngồi nướng bánh, bột dính tay
+- Ông đi dạo trên con đường quen
+- Ông nằm trên bãi cỏ nhìn mây trôi
+- Ông lái xe ra chợ
+- Ông uống trà một mình nhìn ra cửa sổ
+- Bóng ông đổ xuống mặt đường lúc chiều
+
+> Vẫn có thể có mặt ông trong nhiều shots — nhưng ông đang **sống**, không đang **kể chuyện**.
+
+**Tác dụng khi edit:** Boss cắt xen kẽ 2 file. Story prompts = narrative backbone. World prompts = breathing room, texture, chiều sâu. Người xem cảm nhận đây là người thật với cả cuộc đời thật — không phải nhân vật tồn tại chỉ để hát bài này.
+
+---
+
+**Cách sinh:**
+
+**Bước 1 — Brainstorm cuộc sống nhân vật (nội bộ, không cần trình Boss):**
+Dựa vào concept, liệt kê 15-20 hoạt động thường ngày của nhân vật — những thứ KHÔNG xuất hiện trong bài nhạc. Hỏi:
+- *Ông/bà này làm gì vào buổi sáng? Buổi tối? Cuối tuần?*
+- *Khi vui? Khi mệt? Khi một mình?*
+- *Ngoài trời? Trong bếp? Trên xe?*
+
+**Bước 2 — Sinh prompts, cùng cấu trúc 9 thành phần như Phase 3:**
+- Action = hoạt động cuộc sống thường ngày (không phải story beat)
+- Location = có thể mở rộng ra ngoài Asset Bible (vườn, chợ, đường, bếp, bãi cỏ, xe...)
+- Vẫn dùng character reference từ Asset Bible nếu nhân vật xuất hiện trong shot
+- Vẫn dùng LOCKED COLOR TONE + style anchor
+
+**Bước 3 — Đa dạng hóa bắt buộc:**
+Xoay vòng: có nhân vật / chỉ dấu vết nhân vật để lại / outdoor / indoor / sáng / chiều / tĩnh / động. Không để toàn bộ world prompts cùng 1 kiểu.
+
+---
+
+**Format output — giống Phase 3, prompts thô:**
+```
+[prompt hoàn chỉnh trên 1 dòng duy nhất]
+
+[prompt hoàn chỉnh trên 1 dòng duy nhất]
+```
+
+**Ví dụ (câu chuyện: ông già học đàn):**
+```
+Medium shot, low-ground angle, elderly man with silver hair and weathered hands kneeling in a small garden at dawn, carefully pressing soil around the base of a tomato plant, morning dew still on the leaves, terracotta pots lined along a stone wall in the foreground, a modest wooden house visible softly in the background, warm storybook illustration style, handcrafted texture, golden morning light, soft amber and sage green, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
+
+Wide shot, overhead angle, a worn kitchen table viewed from above, flour dusted across the wooden surface, elderly man's large rough hands mid-motion shaping bread dough, a chipped ceramic bowl and a small jar of honey to the side, afternoon light falling through a curtained window, warm storybook illustration style, handcrafted texture, golden hour amber, soft cream and ochre tones, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
+
+Wide establishing shot, eye-level, elderly man walking alone along a tree-lined road at dusk, hands loosely in pockets, posture relaxed and unhurried, long shadow stretching ahead on the gravel path, autumn leaves scattered on the ground, the road curving gently out of sight, warm storybook illustration style, handcrafted texture, dusky amber and muted olive, soft violet shadows, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
+
+Close-up, eye-level, a pair of large worn hands resting open on the knees of a man sitting on a wooden porch step, calloused palms and thick fingers slightly curled, a cup of tea sitting beside the foot on the step, late afternoon light casting long shadows across the planks, warm storybook illustration style, handcrafted texture, aged amber and deep walnut wood tones, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura
+```
 
 ---
 
