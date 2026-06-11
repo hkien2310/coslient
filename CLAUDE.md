@@ -66,6 +66,8 @@ coslient-video/
 
 ⚠️ **Quy tắc dọn dẹp (Strict Cleanup Rule):** Mọi mã nguồn, tệp tin script bổ trợ (như Python, Shell script...) tự sinh trong quá trình chạy nền hoặc giải quyết công việc bắt buộc phải được **XÓA BỎ NGAY LẬP TỨC** sau khi hoàn thành nhiệm vụ để giữ cho workspace luôn sạch bóng code rác.
 
+🚫 **TUYỆT ĐỐI CẤM dùng Python script / Shell heredoc để ghi file.** Xem mục 6 để biết quy tắc chi tiết.
+
 ---
 
 ## 🔄 3. QUY TRÌNH HÀNH ĐỘNG DÀNH CHO AGENT MỚI (AGENT RUNBOOK)
@@ -144,6 +146,49 @@ Chi tiết đầy đủ: Xem `flow/04_image_prompt_development_knowledge.md` và
 ## 🛠️ 6. QUY TẮC QUẢN LÝ DỰ ÁN & LỆNH ĐIỀU HÀNH
 - **RTK (Rust Token Killer):** Khi chạy các lệnh terminal trên macOS của Boss, luôn sử dụng tool `rtk` (ví dụ: `rtk git status` để tiết kiệm token và đảm bảo hiệu năng).
 - **Hạn chế hỏi thừa:** Chủ động đọc file, phân tích sâu, và đề xuất giải pháp mạnh mẽ nhất kèm lý do ngắn gọn thay vì hỏi Boss chọn lựa mơ hồ.
+
+### 🚫 FILE WRITING RULE — ZERO TOLERANCE
+
+> [!CAUTION]
+> **NGHIÊM CẤM** dùng Python script, Shell heredoc, hoặc bất kỳ script nào để ghi/sửa file trong workspace này.
+
+Agent **BẮT BUỘC** dùng native agent tools:
+
+| Tình huống | Tool phải dùng |
+|---|---|
+| Tạo file mới | `write_to_file` |
+| Sửa 1 đoạn liên tục trong file | `replace_file_content` |
+| Sửa nhiều đoạn không liền nhau trong cùng file | `multi_replace_file_content` |
+| Xoá file / thao tác filesystem | `run_command` với `rm`, `cp`, `mv` — KHÔNG viết content qua đây |
+
+**Lý do:** Python/Shell scripts để ghi file:
+- Dễ crash syntax error khi content có ký tự đặc biệt (`'`, `"`, backtick, `\n`)
+- Không có diff preview — Boss không thấy gì thay đổi
+- Không có undo — nếu sai phải làm lại từ đầu
+- Lãng phí token và thời gian
+
+**Ngoại lệ duy nhất được phép dùng `run_command`:**
+- Archive/copy file: `cp`, `mv`
+- Xóa file: `rm`
+- Đọc cấu trúc thư mục: `ls`, `find`, `wc`
+- Git operations: `git add`, `git commit`, `git push`
+- Chạy dev server hoặc build tool
+
+### 🚫 IMAGE GENERATION RULE — ZERO TOLERANCE
+
+> [!CAUTION]
+> **NGHIÊM CẤM dùng Python script để generate ảnh hàng loạt.**
+
+Khi gen ảnh (Phase 4), Agent **BẮT BUỘC**:
+- Dùng `invoke_subagent` để spawn parallel agents
+- Mỗi subagent gọi image generation tool **trực tiếp từng prompt một**
+- **KHÔNG** bọc calls trong Python wrapper script
+
+**Lý do Python script image gen KHÔNG đảm bảo:**
+- Crash giữa chừng → không biết bao nhiêu ảnh đã xong, bao nhiêu chưa
+- Không có per-prompt retry — 1 lỗi có thể drop cả batch
+- Không có visibility — Boss không thấy progress real-time
+- Khó debug khi fail — phải chạy lại từ đầu toàn bộ batch
 
 ---
 
