@@ -25,25 +25,3 @@ Người làm vườn của đáy biển: Từ việc xây nhà cho cua ẩn sĩ
 
 AUDIENCE FIT:
 Sự tinh tế trong cách kể chuyện (nhỏ -> lớn) giúp khán giả không bị ngợp, mà từ từ chìm đắm vào lòng tốt vô điều kiện của ông lão, tạo ra hiệu ứng "Healing" hoàn hảo.
-
-CAST & WORLD LIST:
-> File ingredient chi tiết: projects/video_052/docs/04_character_bible.md
-
-CHARACTERS:
-- Character   | @OldMan      | ~5 shots  | Ông lão gầy guộc, râu tóc bạc, mặc áo len/đồ bình thường (thấy mặt, dùng cảnh trong nhà)
-- Character   | @DivingSuit  | ~18 shots | Bộ đồ lặn đồng cổ điển rỉ sét, cồng kềnh, không thấy mặt bên trong (dùng cảnh ngoài biển)
-- Character   | @BrassHand   | ~13 shots | Bàn tay đồng khổng lồ nặng nề — visual motif trung tâm của story
-
-ENVIRONMENTS:
-- Environment | @GlassDome   | ~5 shots  | Ngôi nhà vòm kính dưới biển — ấm áp, lò sưởi, ánh đèn vàng
-- Environment | @Seagrass    | ~15 shots | Đáy biển nông — cỏ biển, san hô nhỏ, ánh sáng dappled từ mặt nước
-- Environment | @SandyBed    | ~7 shots  | Bãi cát cô quạnh có rác — chai thuỷ tinh, mảnh vỡ, tối hơn @Seagrass
-- Environment | @DeepAbyss   | ~20 shots | Vực sâu gần tối — đá khổng lồ, bioluminescence cyan, cá voi xa xa
-
-RECURRING PROPS:
-- Prop        | @HermitCrab  | ~6 shots  | Cua ẩn sĩ nhỏ xíu không vỏ + chai thuỷ tinh cũ
-- Prop        | @CoralSeed   | ~6 shots  | Hạt mầm san hô phát sáng bioluminescent — vừa lọt lòng bàn tay
-- Prop        | @MantaRay    | ~7 shots  | Cá đuối khổng lồ (wingspan > 3x nhân vật) — bị vướng xích, được giải cứu
-
-STORY TYPE:
-- [x] Type B: Single Character Journey

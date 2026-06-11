@@ -1,12 +1,12 @@
-# Coslient GPT Knowledge — Animation Prompt Development v4.0
+# Coslient GPT Knowledge — Animation Prompt Development v3.0
 
 ## Purpose
 
-This file defines how Coslient handles the animation stage using **Google Flow** (Nano Banana image gen + VEO 3 video gen).
+This file defines how Coslient handles the animation stage after the image set is ready.
 
-Workflow: Generate ingredients → @tag trong Flow → generate image frames → animate với VEO 3 → assemble trong Scenebuilder.
+Turn approved images into video clips using VEO 3 — with 1 universal prompt applied to all clips.
 
-> **v4.0 Update:** Google Flow native workflow. @tag character/environment system. Scenebuilder continuity protocol. Camera vocabulary for VEO 3. Universal audio control updated.
+> **v3.0 Update:** Universal prompt approach. Research-backed keywords. Audio control integrated. Fallback protocol included.
 
 ---
 
@@ -109,32 +109,6 @@ Sau đó overlay nhạc riêng trong editor. Đây là workflow chuẩn của pr
 
 ---
 
-## Shot Bridge Protocol (MỚI — Storyboard-Driven Workflow)
-
-> [!IMPORTANT]
-> Storyboard đã thiết kế sẵn tính liên tục giữa các clips. Khi animate theo storyboard, dùng bảng này để quyết định cách nối từng clip — thay vì phải sắp xếp thủ công trong editor.
-
-### Ba loại Bridge:
-
-| Loại | Khi nào dùng | Cách xử lý |
-|------|-------------|-----------|
-| **Direct Bridge** | Shot N+1 cùng không gian với Shot N | Last frame của Shot N → làm input image cho Shot N+1 |
-| **Environmental Bridge** | Shot N+1 là `[NEW LOCATION]` | Tạo 1 ENV Shot (cảnh không người) làm "xả" trước khi vào location mới. **KHÔNG** dùng last frame của Shot N làm start frame cho Shot N+1 |
-| **Detail Bridge** | Time jump (sáng → tối, ngày → năm sau) | Tạo 1 DETAIL Shot (cận vật thể) làm visual bridge — không cần match spatial anchor |
-
-### Khi nào KHÔNG dùng last frame làm start frame:
-- Shot N+1 là `[NEW LOCATION]` → KHÔNG dùng (AI sẽ bị confused về không gian)
-- Shot N+1 là time-jump rõ ràng → KHÔNG dùng
-- Hai shots có emotional contrast quá lớn (vui cực ↔ buồn sâu) → dùng Environmental Bridge xen giữa
-
-### Checklist trước khi batch VEO (dùng cùng file `03_storyboard.md`):
-- [ ] Mọi Shot ID đã có prompt tương ứng trong `04_image_prompts.txt`?
-- [ ] Các Shot Bridge đã được đánh dấu (Direct / Environmental / Detail)?
-- [ ] Mọi `[NEW LOCATION]` shot đã có Environmental Bridge trước đó?
-- [ ] Không có 2 close-up liên tiếp cùng hướng nào sẽ gây jump cut?
-
----
-
 ## Keywords CẤM trong Animation Prompt
 
 **Motion keywords nguy hiểm — gây distortion:**
@@ -208,91 +182,18 @@ No voiceover. If no suitable sound can be generated, output silence rather than 
 
 ---
 
-## Google Flow Native Workflow (v4.0)
-
-> [!IMPORTANT]
-> **Đây là workflow chính thức.** Toàn bộ image generation và video generation xảy ra trong Google Flow.
-
-### Bước 1 — Chuẩn bị Ingredients
-```
-Tất cả ingredients đã upload và approve (từ 04_character_bible.md)
-@OldMan, @BrassHand, @GlassDome, @Seagrass, @SandyBed, @DeepAbyss,
-@HermitCrab, @CoralSeed, @MantaRay, @StyleRef
-```
-
-### Bước 2 — Generate Source Frames (Nano Banana)
-Generate source image cho mỗi shot theo storyboard.
-Dùng Shot Prompt Template từ `04_character_bible.md`:
-```
-[Shot size], @[Character] [action] in @[Environment],
-[1 camera movement intent — cho VEO đọc sau],
-[lighting keywords]
-```
-Approve frames trước khi animate.
-
-### Bước 3 — Animate với VEO 3
-Paste Universal Prompt vào VEO 3 cho từng approved frame:
-```
-[Xem Universal Prompt section phía trên]
-```
-Dùng @tags trong VEO prompt để maintain character consistency:
-```
-Slow steady push-in, @OldMan kneeling gently, @DeepAbyss surrounding,
-static almost-locked frame with micro-movements,
-near-darkness with faint bioluminescent cyan light,
-Audio: deep ocean pressure hum, distant water movement. No music. No score. No dialogue.
-```
-
-### Bước 4 — Scenebuilder Assembly
-
-| Transition | Cách xử lý |
-|-----------|------------|
-| Cùng location, shot tiếp theo | **"Add to Scene"** → VEO tự maintain continuity |
-| Extend clip dài hơn | **"Extend"** → chain seamlessly |
-| Đổi location | **"Jump To"** + ENV bridge shot trước |
-| Time jump | Generate DETAIL shot bridge → rồi "Add to Scene" |
-
-> [!CAUTION]
-> KHÔNG generate từng clip hoàn toàn độc lập nếu có thể tránh. Dùng "Add to Scene" để Flow giữ continuity tốt hơn.
-
-### Bước 5 — Audio
-- Review toàn bộ clips: audio VEO có phù hợp không?
-- Strip audio nếu lạ: `ffmpeg -i input.mp4 -an output.mp4`
-- Overlay nhạc trong editor
-
----
-
-## Camera Vocabulary cho VEO 3 (Reference)
-
-| Camera Move | Prompt Term tốt nhất | Tránh |
-|-------------|---------------------|-------|
-| Dolly in | `slow dolly-in` hoặc `slow steady push-in` | `zoom in` |
-| Dolly out | `slow dolly-out revealing context` | `pull back fast` |
-| Pan | `slow horizontal pan` | `pan while zooming` |
-| Tilt | `tilt up slowly` / `tilt down` | — |
-| Static | `static locked frame, no camera movement` | `no camera shake` |
-| Tracking | `lateral tracking shot moving with subject` | `orbit around` |
-| Low angle | `low ground-level angle looking up at figure` | — |
-| Over-shoulder | `over-the-shoulder framing, camera behind figure` | — |
-
-> [!NOTE]
-> **1 camera movement per generation.** Không mix nhiều movements trong 1 clip.
-> VEO weights đầu prompt → front-load camera movement + shot type.
-
----
-
-## Workflow thực tế (updated)
+## Workflow thực tế
 
 ```
-1. Tất cả ingredients đã upload lên Flow (@tags ready)
-2. Generate source frame với Nano Banana (dùng @tags + shot prompt)
-3. Boss approve frame → animate với VEO 3
-4. Paste Universal Prompt vào VEO → dùng @tags trong text
-5. Dùng "Add to Scene" cho shot tiếp theo cùng location
-6. Dùng "Jump To" khi đổi location (+ ENV bridge shot)
-7. Clip sai → fallback protocol, viết prompt riêng
-8. Strip audio VEO nếu lạ: ffmpeg -i input.mp4 -an output.mp4
-9. Overlay nhạc trong Scenebuilder hoặc editor
+1. Có đủ ảnh gốc (đã qua Stage 4)
+2. Copy universal prompt → paste vào VEO cho từng ảnh
+3. Không thêm gì về visual — paste nguyên xi
+4. Clip length: 8 giây
+5. Batch xong → review toàn bộ
+6. Clip nào sai → dùng fallback protocol, viết prompt riêng
+7. Strip audio VEO nếu cần: ffmpeg -i input.mp4 -an output.mp4
+8. Overlay nhạc trong editor
+9. Frame bridging khi edit: last frame A → start frame B
 ```
 
 ---

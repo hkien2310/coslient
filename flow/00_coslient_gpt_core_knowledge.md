@@ -61,8 +61,7 @@ Always follow this stage order unless Boss explicitly overrides it:
 1.5. story research — **bắt buộc sau khi chọn idea, trước khi viết concept** (tìm câu chuyện thực tế trên mạng liên quan đến theme, lấy chi tiết cụ thể làm tư liệu chống AI-hoá)
 2. concept development
 3. song development
-3.5. storyboard planning — **BẮT BUỘC sau khi Boss duyệt bài hát, trước khi viết image prompts** (map từng shot vào song structure theo timecode, viết bảng Storyboard, Boss duyệt storyboard xong mới sang Stage 4)
-4. image prompt development (thực thi storyboard: mỗi prompt = 1 shot, viết theo Shot ID, kế thừa Spatial Anchor từ shot trước)
+4. image prompt development
 5. animation prompt development
 6. SEO and platform packaging
 7. social content repurposing (optional, after YouTube publish)
