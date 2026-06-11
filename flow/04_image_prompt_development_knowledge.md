@@ -120,13 +120,43 @@ Prop concept sheet of [tên đạo cụ], showing [multiple angles / scale refer
 
 **Bước 3 — Boss approve → ghi vào `projects/video_xxx/docs/04_asset_bible.md`**
 
-Sau khi lock, mọi prompt Scene phải dùng:
-- Nhân vật: `[exact character description from asset bible], consistent character design`
-- Địa điểm: `same [location name] interior/exterior as established in asset bible`
-- Đạo cụ: `same [prop name] as reference, consistent prop design`
+> [!IMPORTANT]
+> **Location Shorthand — BắT BUỘC tạo ngay sau khi lock:**
+> Model AI không đọc được file của chúng ta. Nó không biết “same [location] as established in asset bible” là cái gì.
+> Chỉ có character ref image là thật — vì chúng ta upload hình đó cho model thấy.
+> Location không có ref image → phải mô tả thật trong prompt.
+
+Sau khi Boss approve Location Sheet, AI trích xuất **Location Shorthand** cho mỗi địa điểm:
+- Là chuỗi 6–10 từ khoá tóm tắt các yếu tố nhận diện cốt lõi của location
+- Cùng shorthand → model từng render ra cảnh giống nhau → tạo consistency
+- Lưu trong `04_asset_bible.md` dưới mục **“Location Shorthands”**
+- Dùng nguyên văn trong mọi prompt có location đó
+
+**Cách tạo Location Shorthand:**
+```
+① Lấy 2–3 yếu tố kiến trúc nổi bật nhất (vật liệu tường, cửa sổ, sàn...)
+② Lấy 1–2 đồ vật đặc trưng (chiếc ghế, nồi, đèn, kệ gỗ...)
+③ Lấy 1 ánh sáng đặc trưng (warm amber lamp, diffused window light, fireplace glow)
+④ Gộp lại thành chuỗi comma-separated
+```
+
+**Ví dụ Location Shorthands:**
+```
+Kitchen  : cluttered farmhouse kitchen, rough stone walls, copper pots hanging, warm hearth glow
+Workshop : small woodworking workshop, amber oil lamp overhead, rough timber walls, heavy oak workbench, woodshavings floor
+Garden   : overgrown cottage garden, mossy stone path, weathered wooden fence, dappled afternoon light through oak branches
+Living room: cozy sitting room, faded floral armchair, fireplace with iron grate, warm amber lamplight
+```
+
+**Quy tắc trong prompt:**
+- Nhân vật: Upload 1 character ref image cho model → trong prompt chỉ cần short ID (`the old man`, `he`)
+- Địa điểm (Asset Bible): Copy nguyên văn Location Shorthand vào prompt — không viết “same as”
+- Địa điểm (extended): Mô tả thả tự nhiên theo assignment
+- Đạo cụ (có Prop Sheet): Mô tả ngắn + “same [prop name] style” (có thể dùng nếu upload prop ref)
 
 > [!NOTE]
-> **Upload Policy:** Tối đa 5 ảnh Asset Bible cho 1 video. Boss upload toàn bộ 1 lần trước khi generate. Không ghi label asset reference trong prompt output — chỉ dùng text description.
+> **Upload Policy:** Tối đa 5 ảnh Asset Bible cho 1 video. Boss upload toàn bộ 1 lần trước khi generate.
+> Độ ưu tiên: Character Sheet → bắt buộc upload. Location Sheet → upload nếu slot còn. Prop Sheet → chỉ upload nếu quan trọng và còn slot.
 
 ---
 
@@ -358,7 +388,9 @@ Sinh toàn bộ prompts theo thứ tự Pre-Assignment Table, ghi vào **1 file 
 > **Chúng ta dùng 1 character ref image duy nhất.** Model AI đã thấy hình nhân vật — không cần mô tả lại ngoại hình. Thay thế toàn bộ character physical description bằng **short identifier** (2-4 từ). Nếu không có nhân vật trong shot — bỏ qua hẳn.
 
 1. Shot size + camera angle
-2. Location (`same [location name] interior/exterior as established in asset bible` hoặc extended location mới)
+2. Location — **dùng Location Shorthand nguyên văn** (Asset Bible location) hoặc mô tả tự nhiên (extended location)
+   - ❌ SAI: `same kitchen interior as established in asset bible` — model không biết file đó là gì
+   - ✅ ĐÚNG: `cluttered farmhouse kitchen, rough stone walls, copper pots hanging, warm hearth glow`
 3. **Character short ID** — **Bỏ qua nếu là Environment / Still Life / Trace shot**
    - Dùng: `the old man`, `he`, `the woman`, `her`, `the craftsman`... — không mô tả ngoại hình
    - Chỉ viết action + tư thế: `the old man kneeling slowly`, `he reaches toward the shelf`
@@ -374,11 +406,11 @@ Sinh toàn bộ prompts theo thứ tự Pre-Assignment Table, ghi vào **1 file 
 **So sánh độ dài trước / sau ref optimization:**
 
 ```
-❌ KHÔNG REF — 520 chờ:
+❌ SAI — model không hiểu “same as” + thừa character desc:
 Medium shot, low-ground angle, elderly man with silver hair and weathered calloused hands wearing a faded linen shirt and worn brown suspenders, consistent character design, sitting at same workshop interior as established in asset bible, slowly running his hands along the grain of a half-carved wooden boat on the workbench, woodshavings scattered in the foreground, his hands and torso in mid-ground, soft amber lamplight through dusty window in background, warm storybook illustration style, handcrafted texture, aged paper, soft amber and sage green, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
 
-✅ CÓ REF — 290 chờ:
-Medium shot, low-ground angle, same workshop interior as established in asset bible, the old man sitting at the workbench slowly running his hands along the grain of a half-carved wooden boat, woodshavings scattered in the foreground, his hands and torso in mid-ground, soft amber lamplight through dusty window in background, warm storybook illustration style, handcrafted texture, aged paper, soft amber and sage green, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
+✅ ĐÚNG — ref + Location Shorthand — ngắn hơn 44%:
+Medium shot, low-ground angle, small woodworking workshop, amber oil lamp overhead, rough timber walls, heavy oak workbench, woodshavings floor, the old man sitting at the workbench slowly running his hands along the grain of a half-carved wooden boat, woodshavings scattered in the foreground, his hands and torso in mid-ground, soft amber lamplight through dusty window in background, warm storybook illustration style, handcrafted texture, aged paper, soft amber and sage green, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
 ```
 
 **Điều không bỏ được dù có ref:**
@@ -395,13 +427,13 @@ Medium shot, low-ground angle, same workshop interior as established in asset bi
 
 ---
 
-**Ví dụ output chuẩn (ref-optimized):**
+**Ví dụ output chuẩn (ref-optimized + Location Shorthand):**
 ```
-Wide establishing shot, eye-level, same cozy vintage glass dome home exterior as established in asset bible, morning mist drifting past the curved glass windows, autumn leaves on the ocean floor in the foreground, the dome solid in the mid-ground, endless dark oceanic depth in the background, nostalgic stop-motion animation style, miniature diorama, extremely tactile hand-crafted textures, Laika Studios claymation aesthetic, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
+Wide establishing shot, eye-level, glass dome home submerged in ocean, curved glass windows with morning mist drifting past, ocean floor covered in autumn leaves, deep seagrass in the foreground, the dome solid in the mid-ground, endless dark oceanic depth in the background, handcrafted stop-motion puppet technique, physical clay-and-fabric texture, miniature diorama, extremely tactile hand-crafted textures, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
 
-Overhead close-up, same kitchen interior as established in asset bible, the old man's hands mid-motion kneading bread dough on a worn table, flour dusted across the wooden surface, a chipped ceramic bowl and jar of honey beside him, diffused morning light through a curtained window, nostalgic stop-motion animation style, miniature diorama, extremely tactile hand-crafted textures, Laika Studios claymation aesthetic, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
+Overhead close-up, cluttered farmhouse kitchen, rough stone walls, copper pots hanging, warm hearth glow, the old man's hands mid-motion kneading bread dough on a worn table, flour dusted across the wooden surface, a chipped ceramic bowl and jar of honey beside him, diffused morning light through a curtained window, handcrafted stop-motion puppet technique, physical clay-and-fabric texture, miniature diorama, extremely tactile hand-crafted textures, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
 
-Medium shot, through-doorway framing, village road at dusk, the old man walking slowly with hands in pockets, long shadow stretching ahead on gravel in the foreground, his unhurried figure in the mid-ground, autumn trees lining the road curving out of sight in the background, nostalgic stop-motion animation style, miniature diorama, extremely tactile hand-crafted textures, Laika Studios claymation aesthetic, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
+Medium shot, through-doorway framing, village road at dusk, the old man walking slowly with hands in pockets, long shadow stretching ahead on gravel in the foreground, his unhurried figure in the mid-ground, autumn trees lining the road curving out of sight in the background, handcrafted stop-motion puppet technique, physical clay-and-fabric texture, miniature diorama, extremely tactile hand-crafted textures, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
 ```
 
 
@@ -500,7 +532,83 @@ Quy tắc:
 
 ---
 
+## Third-Party ToS Compliance
+
+> [!CAUTION]
+> Banned Words (section dưới) cover **content filter** — từ làm AI từ chối prompt.
+> Section này cover **ToS compliance** — nội dung được generate ra nhưng vi phạm điều khoản nền tảng.
+> **Hai tầng khác nhau, cần check cả hai.**
+
+---
+
+### A. Tuyệt đối không dùng tên studio / hãng / thương hiệu trong prompt
+
+Model AI không được phép tái tạo phong cách có bản quyền theo tên thương hiệu. Dùng tên studio là vi phạm ToS của hầu hết platform và có thể bị từ chối hoặc tạo ra nội dung infringe copyright.
+
+| ❌ Không được dùng | ✅ Thay bằng |
+|---|---|
+| `Laika Studios aesthetic` | `handcrafted stop-motion puppet technique, physical clay-and-fabric texture` |
+| `Laika-style puppet` | `handcrafted stop-motion puppet, wire armature and silicone skin construction` |
+| `Pixar-style 3D` | `smooth stylized 3D animation, subsurface scattering skin, appealing proportions` |
+| `Disney style` | `warm stylized animation, expressive character proportions` |
+| `Studio Ghibli` | `hand-painted watercolor animation, soft natural environments, gentle character movement` |
+| `DreamWorks style` | `stylized CGI animation, dynamic character expression` |
+| `Tim Burton style` | `gothic whimsical proportions, expressionist shadow play, twisted silhouettes` |
+| `Wes Anderson style` | `symmetrical composition, pastel color palette, flat graphic depth` |
+
+**Quy tắc chung:** Mô tả **kỹ thuật và visual result**, không mô tả **tên chủ sở hữu**.
+
+---
+
+### B. Không dùng tên nghệ sĩ còn sống trong prompt
+
+Hầu hết platform (Midjourney, DALL-E, Adobe Firefly) cấm dùng tên nghệ sĩ còn sống vì lý do bản quyền và consent.
+
+| ❌ Không được dùng | ✅ Thay bằng |
+|---|---|
+| `in the style of [living artist]` | Mô tả kỹ thuật: brushwork, color palette, composition style |
+| `Hayao Miyazaki art style` | `hand-painted background with watercolor depth, soft natural lighting` |
+| `Edward Hopper style` | `realist painting, solitary figure in empty interior, strong directional light` |
+
+**Nghệ sĩ đã mất nhiều thập kỷ:** Một số platform cho phép (VD: Rembrandt, Monet) nhưng Coslient không cần dùng vì style files đã đủ mô tả.
+
+---
+
+### C. Platform-specific — Commercial Use
+
+Coslient là YouTube channel = **commercial use**. Một số platform free tier chỉ cho personal use.
+
+| Platform | Commercial OK? | Lưu ý |
+|---|---|---|
+| Midjourney Basic ($10/mo) | ❌ | Cần Standard tier trở lên |
+| Midjourney Standard ($30/mo) | ✅ | Full commercial rights |
+| DALL-E 3 (paid API) | ✅ | Images owned by creator |
+| Adobe Firefly | ✅ | Designed for commercial, IP-indemnified |
+| Flux.1 [dev] | ❌ | Non-commercial only |
+| Flux.1 [schnell] | ✅ | Apache 2.0 |
+| Flux.1 [pro] (API) | ✅ | Commercial via API |
+| Stable Diffusion base (SDXL) | ✅ | Apache 2.0 |
+
+> [!WARNING]
+> Nếu Boss đang dùng free tier Midjourney → toàn bộ content trên YouTube có thể vi phạm ToS.
+
+---
+
+### D. Không reference real person likeness
+
+| ❌ Không được dùng | Lý do |
+|---|---|
+| Tên người thật (chính trị gia, celeb...) | Vi phạm ToS mọi platform |
+| Mô tả giống cụ thể người thật | Deepfake risk, vi phạm ToS |
+| Logo / brand visual của công ty | Trademark infringement |
+| Copyrighted character (Mickey, Batman...) | Copyright infringement |
+
+Coslient characters phải là **original fictional characters** — không based on real person, không similar to protected IP.
+
+---
+
 ## Render Safety Rule — Banned Words (ZERO TOLERANCE)
+
 
 > [!CAUTION]
 > **Một số từ/cụm từ kích hoạt content filter của image gen AI → prompt bị từ chối hoặc render ra ảnh sai hoàn toàn.** Kiểm tra toàn bộ prompts trước khi ghi file.

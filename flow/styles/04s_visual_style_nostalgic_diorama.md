@@ -24,7 +24,7 @@ File này chứa toàn bộ DNA thị giác cho phong cách **Nostalgic Diorama*
 - **Nghệ thuật của sự già cỗi (The Art of Weathering):** KHÔNG có cái gì là "mới". Mọi bề mặt đều sần sùi, nứt nẻ, mục nát, rỉ sét, hoặc bị rêu phong tàn phá.
 - **Chất liệu thủ công (Tactile Textures):** Nhân vật và đồ vật trông như được nặn từ đất sét (clay), chạm khắc từ gỗ, hoặc may bằng vải nỉ/len (felt/yarn).
 - **Ánh sáng thể tích & Bụi (Volumetric Light & Dust):** Không gian luôn lơ lửng những hạt bụi li ti được chiếu sáng bởi các tia nắng hắt qua cửa sổ (God rays) hoặc ánh sáng hoàng hôn.
-- **Tỷ lệ cường điệu (Exaggerated Proportions):** Tay chân khẳng khiu như que củi, bàn tay to nhăn nheo, mũi to, đầu to. Phong cách đặc sệt của Laika Studios (Coraline) hoặc Tim Burton.
+- **Tỷ lệ cường điệu (Exaggerated Proportions):** Tay chân khẳng khiu như que củi, bàn tay to nhăn nheo, mũi to, đầu to. Phong cách stop-motion puppet với tỷ lệ giả tạo đặc trưng của animation thủ công.
 
 ### Hình ảnh nên cảm nhận như:
 - extremely tactile, hand-crafted miniature diorama
@@ -45,7 +45,7 @@ File này chứa toàn bộ DNA thị giác cho phong cách **Nostalgic Diorama*
 
 ### Full style anchor (dùng cho prompt > 500 ký tự)
 ```
-nostalgic stop-motion animation style, [SUBJECT], miniature diorama, extremely tactile hand-crafted textures, weathered and aged surfaces, macro photography with shallow depth of field, heavy bokeh, earthy muted color palette, floating dust motes, warm cinematic golden hour lighting, spindly exaggerated character proportions, Laika studios claymation aesthetic, highly detailed rustic environment
+nostalgic stop-motion animation style, [SUBJECT], miniature diorama, extremely tactile hand-crafted textures, weathered and aged surfaces, macro photography with shallow depth of field, heavy bokeh, earthy muted color palette, floating dust motes, warm cinematic golden hour lighting, spindly exaggerated character proportions, handcrafted stop-motion puppet technique, physical clay-and-fabric texture, highly detailed rustic environment
 ```
 
 ### Short style anchor (dùng cho prompt ngắn hơn)
@@ -152,7 +152,7 @@ Sự bùng nổ của chất liệu thực tế:
 
 ### Dynamic template chuẩn hóa
 ```
-Macro photography, shallow depth of field, [Cỡ cảnh: Close-up / Wide shot], [SUBJECT] with exaggerated spindly proportions and deep wrinkles, [Hành động], nostalgic stop-motion animation style, miniature diorama, wearing highly textured weathered [Trang phục], standing in a cluttered rustic [Bối cảnh], highly tactile materials, weathered and aged surfaces, earthy muted color palette, warm cinematic golden hour lighting, volumetric light rays highlighting floating dust motes, heavy bokeh, Laika claymation aesthetic, 16:9
+Macro photography, shallow depth of field, [Cỡ cảnh: Close-up / Wide shot], [SUBJECT] with exaggerated spindly proportions and deep wrinkles, [Hành động], nostalgic stop-motion animation style, miniature diorama, wearing highly textured weathered [Trang phục], standing in a cluttered rustic [Bối cảnh], highly tactile materials, weathered and aged surfaces, earthy muted color palette, warm cinematic golden hour lighting, volumetric light rays highlighting floating dust motes, heavy bokeh, handcrafted stop-motion puppet technique, physical clay-and-fabric texture, 16:9
 ```
 
 ---

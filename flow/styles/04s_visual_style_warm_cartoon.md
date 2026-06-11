@@ -3,7 +3,7 @@
 > **Style ID:** `warm_cartoon`
 > **Status:** 🔵 Available Option
 > **Version:** 1.0
-> **Dùng cho:** Video cần phong cách hoạt hình 3D mượt mà, ấm áp kiểu Pixar/DreamWorks — nhân vật đa dạng tuổi, cảm xúc rõ ràng, ánh sáng golden hour cinematic, sắc nét và rực rỡ.
+> **Dùng cho:** Video cần phong cách hoạt hình 3D mượt mà, ấm áp kiểu smooth stylized 3D CGI — nhân vật đa dạng tuổi, cảm xúc rõ ràng, ánh sáng golden hour cinematic, sắc nét và rực rỡ.
 
 ---
 
@@ -17,7 +17,7 @@ Khi Boss muốn style này, chỉ định `style: warm_cartoon` trong brief. Sty
 
 | warm_storybook | warm_cartoon |
 |----------------|-------------|
-| Claymation / stop-motion puppet feel | Smooth Pixar-style 3D CGI render |
+| Claymation / stop-motion puppet feel | Smooth smooth stylized 3D CGI render |
 | Matte porcelain-clay skin | Subsurface scattering, soft luminous skin |
 | Handcrafted tactile texture | Polished digital smoothness |
 | Elderly characters mặc định | Mọi lứa tuổi — linh hoạt |
@@ -70,13 +70,13 @@ Khi Boss muốn style này, chỉ định `style: warm_cartoon` trong brief. Sty
 ### Full style anchor (dùng cho prompt > 500 ký tự)
 
 ```
-warm golden hour Pixar-style 3D cartoon cinema, smooth stylized 3D character with expressive proportions, soft subsurface scattering on luminous warm skin, vibrant warm color palette of honey-gold, soft amber, peachy cream, and sky blue, cinematic golden hour outdoor lighting with warm rim light wrapping the subject, rich tonal depth with glowing highlights and warm shadow detail, shallow depth of field with warm soft bokeh, emotionally readable expressive face and body language, clean stylized world with natural outdoor warmth, 16:9, not claymation, not flat cartoon, not photorealistic, not waxy plastic
+warm golden hour smooth stylized 3D animation cinema, smooth stylized 3D character with expressive proportions, soft subsurface scattering on luminous warm skin, vibrant warm color palette of honey-gold, soft amber, peachy cream, and sky blue, cinematic golden hour outdoor lighting with warm rim light wrapping the subject, rich tonal depth with glowing highlights and warm shadow detail, shallow depth of field with warm soft bokeh, emotionally readable expressive face and body language, clean stylized world with natural outdoor warmth, 16:9, not claymation, not flat cartoon, not photorealistic, not waxy plastic
 ```
 
 ### Short style anchor (dùng cho prompt ngắn hơn)
 
 ```
-warm golden hour Pixar-style 3D cartoon, smooth stylized character, soft subsurface scattering, honey-gold warm lighting, expressive proportions, shallow depth of field, warm soft bokeh, vibrant warm palette, 16:9
+warm golden hour smooth stylized 3D cartoon, smooth stylized character, soft subsurface scattering, honey-gold warm lighting, expressive proportions, shallow depth of field, warm soft bokeh, vibrant warm palette, 16:9
 ```
 
 ### Negative style anchor (dùng khi model bị drift)
@@ -93,7 +93,7 @@ Style này đòi hỏi sự cân bằng giữa "đủ stylized để là cartoon
 
 | ❌ Tránh | ✅ Thay bằng |
 |----------|-------------|
-| claymation, clay puppet | smooth Pixar-style 3D render, stylized 3D animation |
+| claymation, clay puppet | smooth smooth stylized 3D render, stylized 3D animation |
 | matte porcelain skin | soft luminous skin with subsurface scattering |
 | visible fiber texture | clean smooth fabric with soft color detail |
 | waxy shiny 3D surface | polished matte-smooth 3D with natural diffuse shading |
@@ -152,7 +152,7 @@ Khi close-up: luôn thêm `separated hair strands catching warm backlight, clear
 
 Gương mặt phải beautiful, readable, và stylized — không photorealistic, không uncanny.
 
-Dùng: `smooth stylized Pixar-style face, expressive warm eyes with soft catch light, appealing cartoon proportions, emotionally readable expression, soft rounded features, luminous warm skin with gentle subsurface glow`
+Dùng: `smooth stylized smooth stylized face, expressive warm eyes with soft catch light, appealing cartoon proportions, emotionally readable expression, soft rounded features, luminous warm skin with gentle subsurface glow`
 
 Tránh: `photorealistic skin texture, harsh facial lines, sunken cheeks, dead blank eyes, waxy plastic skin, uncanny valley proportions`
 
@@ -165,7 +165,7 @@ Tránh: `deformed hands, fused fingers, overly detailed realistic hands, lumpy k
 ### Character Rendering Lock
 
 Khi render nhân vật, luôn áp dụng:
-- **Bắt buộc:** `smooth stylized Pixar-style 3D character, expressive appealing proportions, soft subsurface scattering on warm skin, emotionally readable face`
+- **Bắt buộc:** `smooth stylized smooth stylized 3D character, expressive appealing proportions, soft subsurface scattering on warm skin, emotionally readable face`
 - **Tránh tuyệt đối:** photorealistic skin, claymation texture, waxy shine, uncanny valley, dead eyes
 - **Trang phục:** Warm-toned, clean fabric, luôn thêm: `soft warm-toned clothing with clean fabric detail`
 
@@ -307,12 +307,12 @@ Trong context này, "HDR" không phải tone-mapping cực đoan. Nó có nghĩa
 **Cinematic richness:**
 - `cinematic warm color grading, not flat, not washed out`
 - `filmic warm color science, rich shadow warmth, glowing rim highlight`
-- `Pixar-quality cinematic lighting richness, every surface has warm tonal identity`
+- `cinematic lighting richness with tonal identity on every surface, subsurface scattering warmth`
 
 ### Full Style Anchor HDR-Enhanced
 
 ```
-warm golden hour Pixar-style 3D cartoon cinema, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering creating warm internal skin glow, luminous warm skin with gentle peach subsurface luminosity, vibrant warm color palette of honey-gold, soft amber, peachy cream, and sky blue, cinematic golden hour directional light from one side with warm amber rim light wrapping subject, rich cinematic tonal depth with glowing highlights and honey-amber shadow detail, warm honey-gold bokeh background, shallow depth of field, emotionally readable expressive face, clean stylized outdoor world, 16:9, not claymation, not flat cartoon, not photorealistic, not waxy plastic
+warm golden hour smooth stylized 3D animation cinema, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering creating warm internal skin glow, luminous warm skin with gentle peach subsurface luminosity, vibrant warm color palette of honey-gold, soft amber, peachy cream, and sky blue, cinematic golden hour directional light from one side with warm amber rim light wrapping subject, rich cinematic tonal depth with glowing highlights and honey-amber shadow detail, warm honey-gold bokeh background, shallow depth of field, emotionally readable expressive face, clean stylized outdoor world, 16:9, not claymation, not flat cartoon, not photorealistic, not waxy plastic
 ```
 
 ---
@@ -404,24 +404,24 @@ generic fantasy kingdoms, dark forests, cold cityscapes, futuristic settings, st
 ### Full template
 
 ```
-[scene + subject + emotional action], [shot size / composition], [one specific natural light detail — rim light, bokeh, shadow, sky], warm golden hour Pixar-style 3D cartoon cinema, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering on warm luminous skin, [key environment / props], vibrant warm palette of honey-gold and amber and peach and sky blue, cinematic golden hour light with warm rim and soft bokeh, shallow depth of field, [emotion], 16:9, not claymation, not flat cartoon, not photorealistic, avoid waxy skin, avoid cold shadows, avoid pitch-black darkness
+[scene + subject + emotional action], [shot size / composition], [one specific natural light detail — rim light, bokeh, shadow, sky], warm golden hour smooth stylized 3D animation cinema, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering on warm luminous skin, [key environment / props], vibrant warm palette of honey-gold and amber and peach and sky blue, cinematic golden hour light with warm rim and soft bokeh, shallow depth of field, [emotion], 16:9, not claymation, not flat cartoon, not photorealistic, avoid waxy skin, avoid cold shadows, avoid pitch-black darkness
 ```
 
 ### Compressed template
 
 ```
-[scene + subject + action], [shot size], [one natural light detail], warm golden hour Pixar-style 3D cartoon cinema, smooth stylized character, soft subsurface scattering, expressive proportions, warm amber rim light, honey-gold bokeh, shallow depth of field, [emotion], 16:9
+[scene + subject + action], [shot size], [one natural light detail], warm golden hour smooth stylized 3D animation cinema, smooth stylized character, soft subsurface scattering, expressive proportions, warm amber rim light, honey-gold bokeh, shallow depth of field, [emotion], 16:9
 ```
 
 ### Dynamic template chuẩn hóa
 
 ```
-[Chủ thể + Hành động theo concept], [Góc máy & Bố cục động], [Chi tiết ánh sáng tự nhiên cụ thể — rim light / bokeh / shadow / sky], [Môi trường & Props theo kịch bản], warm golden hour Pixar-style 3D cartoon cinema, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering creating warm internal skin glow, [Màu sắc & Ánh sáng Golden Hour theo bối cảnh], shallow depth of field with warm honey-gold bokeh, 16:9, not claymation not flat cartoon not photorealistic, avoid waxy skin, avoid cold blue shadows, avoid pitch-black
+[Chủ thể + Hành động theo concept], [Góc máy & Bố cục động], [Chi tiết ánh sáng tự nhiên cụ thể — rim light / bokeh / shadow / sky], [Môi trường & Props theo kịch bản], warm golden hour smooth stylized 3D animation cinema, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering creating warm internal skin glow, [Màu sắc & Ánh sáng Golden Hour theo bối cảnh], shallow depth of field with warm honey-gold bokeh, 16:9, not claymation not flat cartoon not photorealistic, avoid waxy skin, avoid cold blue shadows, avoid pitch-black
 ```
 
 ### Example prompt (outdoor portrait — loại mạnh nhất cho style này)
 
-A young curly-haired child looking upward with a gentle curious smile, low camera angle looking up at the subject, late afternoon golden sun from behind creating warm amber rim light wrapping around curly hair like a halo, warm golden hour Pixar-style 3D cartoon cinema, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering on warm peach-luminous skin, expressive warm eyes catching soft afternoon light, soft warm-toned clothing, painterly sky background with warm peach-amber clouds slightly out of focus, shallow depth of field with honey-gold bokeh, joyful wonder, 16:9, not claymation, not flat cartoon, not photorealistic, avoid waxy skin, avoid harsh cold shadows
+A young curly-haired child looking upward with a gentle curious smile, low camera angle looking up at the subject, late afternoon golden sun from behind creating warm amber rim light wrapping around curly hair like a halo, warm golden hour smooth stylized 3D animation cinema, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering on warm peach-luminous skin, expressive warm eyes catching soft afternoon light, soft warm-toned clothing, painterly sky background with warm peach-amber clouds slightly out of focus, shallow depth of field with honey-gold bokeh, joyful wonder, 16:9, not claymation, not flat cartoon, not photorealistic, avoid waxy skin, avoid harsh cold shadows
 
 ---
 
@@ -429,7 +429,7 @@ A young curly-haired child looking upward with a gentle curious smile, low camer
 
 ### Dùng nhiều
 
-warm golden hour Pixar-style 3D cartoon, smooth stylized 3D character, expressive appealing proportions, soft subsurface scattering, warm luminous skin, internal skin glow, honey-gold, amber, peach, cream, sky blue, cinematic golden hour, warm rim light wrapping, shallow depth of field, warm honey-gold bokeh, expressive warm eyes, emotionally readable expression, soft voluminous hair with separated curls, clean warm-toned fabric, natural outdoor setting, warm shadow detail, dappled sunlight, late afternoon glow, painterly warm sky, joyful wonder, wholesome delight, emotionally alive, warm internal glow, cinematic tonal richness, not flat not washed out
+warm golden hour smooth stylized 3D cartoon, smooth stylized 3D character, expressive appealing proportions, soft subsurface scattering, warm luminous skin, internal skin glow, honey-gold, amber, peach, cream, sky blue, cinematic golden hour, warm rim light wrapping, shallow depth of field, warm honey-gold bokeh, expressive warm eyes, emotionally readable expression, soft voluminous hair with separated curls, clean warm-toned fabric, natural outdoor setting, warm shadow detail, dappled sunlight, late afternoon glow, painterly warm sky, joyful wonder, wholesome delight, emotionally alive, warm internal glow, cinematic tonal richness, not flat not washed out
 
 ### Tránh hoặc dùng rất ít
 
@@ -439,7 +439,7 @@ claymation, stop-motion puppet, clay texture, matte porcelain, handcrafted imper
 
 ## 13. Style Fingerprint (Compact Summary)
 
-Warm Golden Hour Cartoon Cinema. Smooth Pixar-style 3D animation with expressive appealing character proportions, soft subsurface scattering on luminous warm skin, and cinematic golden hour lighting as the visual signature. Vibrant warm palette (honey-gold, amber, peach, cream, sky blue) — no cold tones, no dark shadows, no claymation texture. Characters of any age rendered with emotional clarity and cartoon warmth. Outdoor-strong: golden hour rim light wrapping subjects, warm bokeh backgrounds, shallow depth of field, painterly sky. Rich tonal depth: warm shadow detail, glowing highlights, subsurface skin glow. Single natural everyday detail in each frame — observed from real light, real warmth, real outdoor moments. No text, no magical elements, no handcraft imperfection. **The world is familiar but lit like the most beautiful afternoon you've ever seen.**
+Warm Golden Hour Cartoon Cinema. Smooth smooth stylized 3D animation with expressive appealing character proportions, soft subsurface scattering on luminous warm skin, and cinematic golden hour lighting as the visual signature. Vibrant warm palette (honey-gold, amber, peach, cream, sky blue) — no cold tones, no dark shadows, no claymation texture. Characters of any age rendered with emotional clarity and cartoon warmth. Outdoor-strong: golden hour rim light wrapping subjects, warm bokeh backgrounds, shallow depth of field, painterly sky. Rich tonal depth: warm shadow detail, glowing highlights, subsurface skin glow. Single natural everyday detail in each frame — observed from real light, real warmth, real outdoor moments. No text, no magical elements, no handcraft imperfection. **The world is familiar but lit like the most beautiful afternoon you've ever seen.**
 
 ---
 
@@ -447,16 +447,16 @@ Warm Golden Hour Cartoon Cinema. Smooth Pixar-style 3D animation with expressive
 
 | Boss nói | Sửa |
 |----------|-----|
-| Trông như claymation / handcraft | Tăng `smooth Pixar-style 3D`, `soft subsurface scattering`, `polished stylized render`. Bỏ `matte clay`, `handcrafted`, `textured surface`. |
+| Trông như claymation / handcraft | Tăng `smooth smooth stylized 3D`, `soft subsurface scattering`, `polished stylized render`. Bỏ `matte clay`, `handcrafted`, `textured surface`. |
 | Skin trông waxy / plastic | Thêm `soft subsurface scattering`, `warm internal skin glow`, `luminous peach skin tone`. Bỏ `glossy`, `waxy`, `plastic finish`. Điều chỉnh ánh sáng: tránh highlight quá mạnh trực tiếp. |
 | Thiếu ấm / quá lạnh | Thêm `warm golden hour lighting`, `honey-amber rim light`, `warm shadow detail`, `honey-gold bokeh`. Kiểm tra shadow color — phải warm, không phải cold gray. |
 | Ảnh phẳng / thiếu chiều sâu | Thêm `shallow depth of field`, `warm bokeh background`, `cinematic tonal depth`, `rich warm tonal gradient`. Đổi camera angle: `low camera angle looking up`, `shot through foreground foliage`. |
-| Nhân vật trông uncanny / creepy | Tăng `expressive appealing proportions`, `smooth stylized Pixar-style face`, `emotionally readable expression`. Bỏ bất cứ gì về realistic proportions, photorealistic detail. |
+| Nhân vật trông uncanny / creepy | Tăng `expressive appealing proportions`, `smooth stylized smooth stylized face`, `emotionally readable expression`. Bỏ bất cứ gì về realistic proportions, photorealistic detail. |
 | Thiếu cảm xúc / nhân vật cold | Tăng `expressive warm eyes`, `emotionally readable micro-expression`, `clear body language`. Thêm gesture hoặc action cụ thể. |
 | Tóc bệt / fused | Thêm `soft voluminous hair with clearly separated curls/strands`, `hair catching warm backlight`, `clear hairline`. Bỏ `blob hair`, `solid hair mass`. |
 | Quá tối | Thêm `warm golden hour lighting`, `lifted warm shadows`, `no pitch-black darkness`. Chuyển setting sang outdoor golden hour hoặc cozy indoor warm lamp light. |
 | Nhàm chán / boring | Thêm một chi tiết ánh sáng tự nhiên cụ thể (rim light trên tóc, bokeh lá cây, dappled shadow trên mặt đất). Đổi camera angle thấp hơn. Thêm emotional action rõ hơn. |
-| Trông quá giống Pixar y chang / thiếu identity riêng | Tăng warm palette cụ thể của Coslient: `honey-gold dominant`, `peach-cream skin`, `amber shadow`. Giảm generic Pixar blue-teal shadows. Style này là **Pixar warm** không phải generic Pixar. |
+| Trông quá giống smooth CGI generic / thiếu identity riêng | Tăng warm palette cụ thể của Coslient: `honey-gold dominant`, `peach-cream skin`, `amber shadow`. Giảm generic smooth CGI blue-teal shadows. Style này là **Coslient warm** không phải generic smooth CGI. |
 
 ---
 
@@ -468,7 +468,7 @@ Warm Golden Hour Cartoon Cinema. Smooth Pixar-style 3D animation with expressive
 ### Block chính (gắn vào cuối prompt)
 
 ```
-warm golden hour Pixar-style 3D cartoon color grading, honey-gold and amber split-tone, soft warm subsurface skin glow, luminous peach-cream highlights, warm amber shadow floor with no cold gray, vibrant warm palette of honey-gold and soft amber and peachy cream, warm honey-gold bokeh atmosphere
+warm golden hour smooth stylized 3D cartoon color grading, honey-gold and amber split-tone, soft warm subsurface skin glow, luminous peach-cream highlights, warm amber shadow floor with no cold gray, vibrant warm palette of honey-gold and soft amber and peachy cream, warm honey-gold bokeh atmosphere
 ```
 
 ### Negative block (gắn vào negative prompt)
@@ -480,5 +480,5 @@ cold blue shadows, cold teal color grading, gray shadows, neon colors, flat cart
 ### Ví dụ tích hợp đầy đủ
 
 ```
-A young curly-haired child crouching down to examine a glowing firefly cupped in both hands, low camera angle looking up slightly, late afternoon golden sun from behind creating warm amber rim light wrapping through curly hair, warm honey-toned meadow grass in foreground, painterly peach-amber sky with soft clouds slightly out of focus in background, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering on luminous warm peach skin, joyful quiet wonder, warm golden hour Pixar-style 3D cartoon color grading, honey-gold and amber split-tone, soft warm subsurface skin glow, luminous peach-cream highlights, warm amber shadow floor with no cold gray, vibrant warm palette of honey-gold and soft amber and peachy cream, warm honey-gold bokeh atmosphere, 16:9, not claymation, not flat cartoon, not photorealistic, avoid waxy plastic skin, avoid cold blue shadows, avoid pitch-black darkness
+A young curly-haired child crouching down to examine a glowing firefly cupped in both hands, low camera angle looking up slightly, late afternoon golden sun from behind creating warm amber rim light wrapping through curly hair, warm honey-toned meadow grass in foreground, painterly peach-amber sky with soft clouds slightly out of focus in background, smooth stylized 3D character with expressive appealing proportions, soft subsurface scattering on luminous warm peach skin, joyful quiet wonder, warm golden hour smooth stylized 3D cartoon color grading, honey-gold and amber split-tone, soft warm subsurface skin glow, luminous peach-cream highlights, warm amber shadow floor with no cold gray, vibrant warm palette of honey-gold and soft amber and peachy cream, warm honey-gold bokeh atmosphere, 16:9, not claymation, not flat cartoon, not photorealistic, avoid waxy plastic skin, avoid cold blue shadows, avoid pitch-black darkness
 ```
