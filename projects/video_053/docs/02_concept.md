@@ -54,6 +54,6 @@ Tệp 50+. Người đã từng mất người thân và biết rằng "nói yê
 
 ## VISUAL STYLE
 
-`warm_storybook` — Handcrafted miniature diorama, macro photography, tilt-shift lens, warm amber lighting, smooth hand-painted character aesthetic. Chi tiết trong: `flow/styles/04s_visual_style_warm_storybook.md`
+`warm_storybook` — Handcrafted miniature diorama, macro photography, tilt-shift lens, warm amber lighting, smooth hand-painted character aesthetic. Chi tiết trong: `styles/04s_visual_style_warm_storybook.md`
 
 **Locked Color Tone:** `aged honey-amber, dusty warm cream, pale autumn gold, muted morning mist, soft iron-gray`

@@ -50,17 +50,12 @@ File này chứa toàn bộ DNA thị giác cho phong cách **Void Stage Couture
 
 ### Full style anchor (dùng cho prompt > 500 ký tự)
 ```
-vibrant surreal fashion editorial, [SUBJECT in structured high-fashion couture with bold color-blocking], [SURREAL EVENT], desaturated minimalist void stage background under bright sky, rich tactile fabric textures, bold oversized signature accessories as undeniable visual anchor, wind-swept hair and blowing fabrics, directional crisp daylight with sculpting shadows lifted to warm tones, shallow depth of field locked on primary anchor, 16:9, modern artistic illustration, avoid waxy skin, avoid creepy puppet face, avoid flat overlit washing, avoid heavy black shadows, avoid messy cluttered background
+vibrant surreal fashion editorial, [SUBJECT in structured high-fashion couture with bold color-blocking], [SURREAL EVENT], desaturated minimalist void stage background under bright sky, rich tactile fabric textures, bold oversized signature accessories as undeniable visual anchor, wind-swept hair and blowing fabrics, directional crisp daylight with sculpting shadows lifted to warm tones, shallow depth of field locked on primary anchor, 16:9, modern artistic illustration
 ```
 
 ### Short style anchor (dùng cho prompt ngắn hơn)
 ```
 vibrant surreal fashion editorial, structured high-fashion couture, bold color-blocking, bold oversized accessories, desaturated minimalist void stage, crisp daylight, wind-swept motion, 16:9
-```
-
-### Negative style anchor (dùng khi model bị drift)
-```
-dirty sand, dry desert bushes, messy rocks, sandstorm, gritty survival realism, dark heavy shadows, gloomy night, cold dark blue tones, magic dust, floating runes, waxy skin, glossy plastic shine, glossy 3D, deformed hands, dull desaturated clothing, plain simple garments
 ```
 
 ### Style Intensity (3 mức độ)
@@ -106,14 +101,14 @@ Phong cách này KHÔNG khóa cứng vào một kiểu nhân vật cụ thể. *
 
 ### Hair rule
 Tóc là ngôn ngữ gió chính — bất kể kiểu tóc nào:
-`elegant wind-swept hair with flowing strands blowing dynamically, avoid blob-like solid hair, avoid stiff motionless hair`
+`elegant wind-swept hair with flowing strands blowing dynamically
 
 ### Face rule
 Gương mặt sang trọng như người mẫu bìa tạp chí — bất kể tuổi tác:
 `elegant dignified face, luminous skin, majestic presence, [nếu lớn tuổi: handsome and gracefully aging face, soft refined character lines] [nếu trẻ: striking high-fashion bone structure, clear luminous complexion]`
 
 ### Hands rule
-`clean elegant hands, natural finger postures, sleeve of structured coat partially covering wrists, avoid deformed fingers`
+`clean elegant hands, natural finger postures, sleeve of structured coat partially covering wrists
 
 ### Character Rendering Lock
 Khi nhân vật xuất hiện, luôn áp dụng:
@@ -337,7 +332,7 @@ Một phần của trang phục hoặc phụ kiện biến hoá thành vật ch�
 
 ### Full template
 ```
-[subject + majestic emotional action], [shot size / composition], [SURREAL EVENT using 1 of 3 principles], vibrant surreal fashion editorial, [subject] in structured high-fashion couture [garment type] with bold [color pair] color-blocking, [bold signature accessory], desaturated minimalist [void stage type] void background under [sky description], rich [fabric texture] detail, wind-swept hair and blowing fabrics, shallow depth of field, bright crisp natural daylight with soft lifted shadows, 16:9, modern artistic illustration, avoid waxy skin, avoid creepy puppet face, avoid heavy black shadows, avoid messy cluttered background
+[subject + majestic emotional action], [shot size / composition], [SURREAL EVENT using 1 of 3 principles], vibrant surreal fashion editorial, [subject] in structured high-fashion couture [garment type] with bold [color pair] color-blocking, [bold signature accessory], desaturated minimalist [void stage type] void background under [sky description], rich [fabric texture] detail, wind-swept hair and blowing fabrics, shallow depth of field, bright crisp natural daylight with soft lifted shadows, 16:9, modern artistic illustration
 ```
 
 ### Compressed template
@@ -347,12 +342,12 @@ Một phần của trang phục hoặc phụ kiện biến hoá thành vật ch�
 
 ### Dynamic template chuẩn hóa
 ```
-[Chủ thể + Thần thái kiêu hãnh + Hành động], [Góc máy & Bố cục], [SỰ KIỆN SIÊU THỰC cụ thể], vibrant surreal fashion editorial, structured high-fashion couture [Trang phục dệt thêu cụ thể] with bold [Cặp màu block], [Phụ kiện bản lớn đặc trưng], desaturated minimalist [Loại void stage] background, wind-swept blowing fabrics, shallow depth of field, [Ánh sáng daylight rực rỡ], 16:9, avoid waxy skin, avoid cluttered background
+[Chủ thể + Thần thái kiêu hãnh + Hành động], [Góc máy & Bố cục], [SỰ KIỆN SIÊU THỰC cụ thể], vibrant surreal fashion editorial, structured high-fashion couture [Trang phục dệt thêu cụ thể] with bold [Cặp màu block], [Phụ kiện bản lớn đặc trưng], desaturated minimalist [Loại void stage] background, wind-swept blowing fabrics, shallow depth of field, [Ánh sáng daylight rực rỡ], 16:9
 ```
 
 ### Example prompt
 ```
-Wide shot of a dignified elderly man standing alone on a pristine white salt flat, his structured royal-blue tweed overcoat catching fierce wind, a massive red fox wearing a matching royal-blue silk scarf sits beside him gazing into the same direction, vibrant surreal fashion editorial, bold brass pocket watch chain, thick orange cashmere scarf flying dramatically, desaturated flat salt void background merging with pale lavender sky at the horizon, crisp studio-like natural daylight, rich woven tweed fabric texture visible on every fold, shallow depth of field, 16:9, modern artistic illustration, avoid waxy skin, avoid messy rocks, avoid dark shadows
+Wide shot of a dignified elderly man standing alone on a pristine white salt flat, his structured royal-blue tweed overcoat catching fierce wind, a massive red fox wearing a matching royal-blue silk scarf sits beside him gazing into the same direction, vibrant surreal fashion editorial, bold brass pocket watch chain, thick orange cashmere scarf flying dramatically, desaturated flat salt void background merging with pale lavender sky at the horizon, crisp studio-like natural daylight, rich woven tweed fabric texture visible on every fold, shallow depth of field, 16:9, modern artistic illustration
 ```
 
 ---
@@ -401,14 +396,8 @@ Vibrant surreal high-fashion editorial on a desaturated minimalist void stage. A
 vibrant fashion editorial color grade, teal and orange split-tone, highly saturated couture subject against desaturated minimalist void, crisp sculpting daylight, warm lifted shadow floor with burnt-sienna undertone, rich tactile fabric color, clean editorial finish, subtle microcontrast on fabric texture
 ```
 
-### Negative block (gắn vào negative prompt)
-
-```
-muddy colors, gritty, warm brown background, dark heavy shadows, muted desaturated clothing, cold flat lighting, oversaturated background, neon, pitch-black shadows
-```
-
 ### Ví dụ tích hợp đầy đủ
 
 ```
-Wide shot of a dignified elderly man standing alone on a pristine white salt flat, his structured royal-blue chunky woven tweed overcoat catching fierce wind, a massive red fox wearing a matching royal-blue silk scarf sits beside him gazing the same direction, vibrant surreal fashion editorial, bold brass pocket watch chain as primary anchor, thick orange cashmere scarf flying dramatically, desaturated flat salt void background merging with pale lavender sky, wind-swept blowing fabrics, shallow depth of field, vibrant fashion editorial color grade, teal and orange split-tone, highly saturated couture subject against desaturated minimalist void, crisp sculpting daylight, warm lifted shadow floor with burnt-sienna undertone, rich tactile fabric color, clean editorial finish, subtle microcontrast on fabric texture, 16:9, avoid waxy skin, avoid messy rocks, avoid dark shadows, muddy colors, cold flat lighting
+Wide shot of a dignified elderly man standing alone on a pristine white salt flat, his structured royal-blue chunky woven tweed overcoat catching fierce wind, a massive red fox wearing a matching royal-blue silk scarf sits beside him gazing the same direction, vibrant surreal fashion editorial, bold brass pocket watch chain as primary anchor, thick orange cashmere scarf flying dramatically, desaturated flat salt void background merging with pale lavender sky, wind-swept blowing fabrics, shallow depth of field, vibrant fashion editorial color grade, teal and orange split-tone, highly saturated couture subject against desaturated minimalist void, crisp sculpting daylight, warm lifted shadow floor with burnt-sienna undertone, rich tactile fabric color, clean editorial finish, subtle microcontrast on fabric texture, 16:9
 ```

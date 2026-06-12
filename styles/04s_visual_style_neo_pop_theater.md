@@ -44,22 +44,13 @@ File này chứa toàn bộ DNA thị giác cho phong cách **Neo-Pop Theater** 
 
 ### Full style anchor (dùng cho prompt > 500 ký tự)
 ```
-vibrant neo-pop theater style, [SUBJECT] wearing avant-garde oversized couture with bold geometric patterns, giant signature geometric accessories, synchronized quirky movement, standing in dead-center of frame, perfectly symmetrical composition, pristine flat solid [BACKGROUND COLOR] background, bright soft studio lighting, crisp and flawless textures, hyper-detailed pop-surrealism editorial, 16:9, absolute zero film grain, pristine clean, avoid noisy retro filter, avoid messy clutter
+vibrant neo-pop theater style, [SUBJECT] wearing avant-garde oversized couture with bold geometric patterns, giant signature geometric accessories, synchronized quirky movement, standing in dead-center of frame, perfectly symmetrical composition, pristine flat solid [BACKGROUND COLOR] background, bright soft studio lighting, crisp and flawless textures, hyper-detailed pop-surrealism editorial, 16:9, absolute zero film grain, pristine clean
 ```
 
 ### Short style anchor (dùng cho prompt ngắn hơn)
 ```
 symmetrical neo-pop theater, avant-garde fashion, bold color-blocking, oversized geometric accessories, pristine solid [BACKGROUND COLOR] background, crisp soft lighting, flawless texture, zero grain, 16:9
 ```
-
-### Negative style anchor (dùng khi model bị drift)
-```
-children, kids, film grain, noise, vintage filter, retro camera damage, dirt, dust, messy realistic background, casual clothes, smiling, natural expressive faces, asymmetrical, gloomy heavy shadows, realistic landscape, cluttered details
-```
-
----
-
-## 3. Character Design (Style-Specific)
 
 ### Quy tắc CHỌN MẶT GỬI VÀNG (Faces & Identities Lock)
 Để tạo ra sự siêu thực và cảm giác "trình diễn nghệ thuật", biểu cảm con người thông thường bị loại bỏ. Tùy thuộc vào kịch bản của từng Video, hãy **CHỌN ĐÚNG 1 LOẠI NHÂN VẬT DƯỚI ĐÂY** và áp dụng xuyên suốt từ đầu đến cuối video:
@@ -117,7 +108,7 @@ Sự siêu thực ở đây cần phong phú, không chỉ là "to nhỏ". Dư�
 
 ### Dynamic template chuẩn hóa
 ```
-Wide symmetrical shot, [Số lượng nhân vật trưởng thành], [Chọn 1: deadpan stoic expressions / wearing artistic geometric masks], [Hành động/Tạo dáng], vibrant neo-pop theater style, wearing avant-garde oversized [Loại trang phục] featuring bold [Họa tiết caro/sọc], wearing giant signature [Hình khối] accessories, standing against a pristine seamless flat [CỐ ĐỊNH 1 BACKGROUND COLOR] solid color background, [Surreal Device từ Thư viện], bright soft studio lighting, flawless pristine texture, hyper-detailed pop-art editorial, 16:9, absolute zero film grain, avoid messy background, no children
+Wide symmetrical shot, [Số lượng nhân vật trưởng thành], [Chọn 1: deadpan stoic expressions / wearing artistic geometric masks], [Hành động/Tạo dáng], vibrant neo-pop theater style, wearing avant-garde oversized [Loại trang phục] featuring bold [Họa tiết caro/sọc], wearing giant signature [Hình khối] accessories, standing against a pristine seamless flat [CỐ ĐỊNH 1 BACKGROUND COLOR] solid color background, [Surreal Device từ Thư viện], bright soft studio lighting, flawless pristine texture, hyper-detailed pop-art editorial, 16:9, absolute zero film grain
 ```
 
 ---
@@ -127,6 +118,6 @@ Wide symmetrical shot, [Số lượng nhân vật trưởng thành], [Chọn 1: 
 | Boss nói | Sửa |
 | :--- | :--- |
 | **Video bị nhảy màu nền liên tục** | Ép cứng `[Background Color]` giống hệt nhau cho mọi câu prompt trong video đó. Khóa góc máy (Static camera). |
-| **Nhân vật không đúng "Vibe" / Dính trẻ em** | Thêm cường độ negative prompt `NO children, NO kids`. Bắt buộc gài keyword: `deadpan stoic expression, motionless face, quirky performative stance` HOẶC `face entirely obscured by geometric mask`. |
+| **Nhân vật không đúng "Vibe" / Dính trẻ em** | . Bắt buộc gài keyword: `deadpan stoic expression, motionless face, quirky performative stance` HOẶC `face entirely obscured by geometric mask`. |
 | **Siêu thực còn nghèo nàn** | Áp dụng 1 trong 4 quy tắc ở Section 6. Ví dụ thêm: `holding a surreal impossible oversized object` hoặc `massive flat geometric shape hovering`. |
 | **Ảnh dính hạt/grain giống phim cũ** | Tăng cụm `pristine, flawless, ultra-clean, 3D smooth texture`. |

@@ -16,13 +16,14 @@ Bản hướng dẫn này giúp bất kỳ AI Agent nào (Claude, Gemini, Antigr
 ```text
 coslient-video/
 ├── CLAUDE.md                <-- Hướng dẫn này (Mở đọc ĐẦU TIÊN)
-├── flow/                    <-- Nơi duy nhất chứa toàn bộ tài liệu vận hành
+├── flow_vn/                 <-- Nơi duy nhất chứa toàn bộ tài liệu vận hành
 │   ├── 00_coslient_gpt_core_knowledge.md
 │   ├── 01_idea_intake_and_selection_knowledge.md
 │   ├── 02_concept_development_knowledge.md
 │   ├── 03_suno_song_development_knowledge_v7.md     <-- Hướng dẫn làm nhạc Suno
 │   ├── archive/                                     <-- Lưu trữ tài liệu cũ không còn dùng
-│   ├── 04_image_prompt_development_knowledge.md
+│   ├── 04a_image_scene_sequence_knowledge.md
+│   ├── 04b_image_prompt_technique_knowledge.md
 │   ├── editor_guide.md                              <-- Hướng dẫn edit video cho Boss
 │   |
 │   ├── styles/                                      <-- Tất cả style modules (chọn 1 khi bắt đầu Stage 4)
@@ -78,8 +79,8 @@ Khi mới khởi động hoặc bắt đầu phiên chat mới với Boss:
 1.  **Đọc file [CLAUDE.md](file:///Users/hoangkien/Youtube/coslient-video/CLAUDE.md) (file này)** để hiểu luật chơi chung.
 2.  **Hỏi Boss project nào đang làm** hoặc kiểm tra folder `projects/` để tìm đúng dự án theo ngữ cảnh Boss cung cấp.
 3.  **Đọc các file docs trong `projects/video_xxx/docs/`** để xác định đang ở Stage mấy (file nào đã có = stage đó đã qua, file nào chưa có = stage đó chưa làm).
-4.  **Đọc file tương ứng trong `flow/`** để xử lý đúng Stage tiếp theo.
-    *   *Ví dụ:* Nếu đã có `03_song_lyrics.md` nhưng chưa có `04_image_prompts.txt` → đang ở Stage 4. Đọc `04_image_prompt_development_knowledge.md`.
+4.  **Đọc file tương ứng trong `flow_vn/`** để xử lý đúng Stage tiếp theo.
+    *   *Ví dụ:* Nếu đã có `03_song_lyrics.md` nhưng chưa có `04_image_prompts.txt` → đang ở Stage 4. Đọc `04a_image_scene_sequence_knowledge.md` và `04b_image_prompt_technique_knowledge.md`.
 5.  **Ghi file kết quả** vào thư mục `projects/video_xxx/docs/` sau khi Boss duyệt. Không cần cập nhật dashboard.
 
 ---
@@ -120,26 +121,29 @@ Tạo các "tờ căn cước" cho mọi element xuất hiện nhiều lần tro
 Sau khi Boss approve → Ghi vào file `projects/video_xxx/docs/04_asset_bible.md`. Từ đây mọi prompt cảnh đều phải reference nguyên văn mô tả từ file này.
 
 ### PHASE 1 — Visual Style & Color Tone
-- Liệt kê và hỏi Boss chọn style trong các file `04s_visual_style_*.md` trong `flow/styles/`. Mặc định: `flow/styles/04s_visual_style_warm_storybook.md`.
+- Liệt kê và hỏi Boss chọn style trong các file `04s_visual_style_*.md` trong `flow_vn/styles/`. Mặc định: `flow_vn/styles/04s_visual_style_warm_storybook.md`.
 - Đề xuất 1 Color Tone String (5-8 từ khóa) bản sắc của câu chuyện → Boss duyệt → Ghi vào đầu file `04_image_prompts.txt` dưới dạng `# LOCKED COLOR TONE: [...]`.
 
 ### PHASE 2 — Internal Shot Planning (AI tự làm, không cần Boss duyệt)
 AI tự lên kế hoạch nội bộ:
-- Tính tổng prompts cần tạo: `thời lượng (giây) ÷ 5 × 2` (X2 buffer)
+- Tính tổng prompts cần tạo: `thời lượng (giây) ÷ 1.5`
 - Phân bổ theo timeline nhạc (INTRO → VERSE → CHORUS...) để câu chuyện hình ảnh có arc tự nhiên
 - Tự xoay vòng góc máy và loại cảnh trong mỗi cụm 4-5 prompts (character → macro → environment → character)
 - Không trình bày kế hoạch này ra ngoài. Tự làm rồi sinh prompts thẳng.
 
 ### PHASE 3 — Prompt Generation
-Sinh toàn bộ prompts → ghi vào **1 file duy nhất** `projects/video_xxx/docs/04_image_prompts.txt`.
-- Mỗi prompt trên 1 dòng, cách nhau 1 dòng trống
-- Không có header, không label section, không số thứ tự, không metadata nào
-- Reference nguyên văn từ Asset Bible (địa điểm, nhân vật, đạo cụ)
-- Có đủ 3 lớp chiều sâu: Foreground → Mid-ground → Background
-- Luôn kết thúc bằng LOCKED COLOR TONE nguyên văn + `16:9` + negative anchor
-- Ghi thẳng vào file, không báo cáo dài trong chat
+> [!CAUTION]
+> **NGHIÊM CẤM** để Main Agent tự viết toàn bộ hàng trăm prompts trong một lần (sẽ dẫn đến hiện tượng văn phong lười biếng, "1 màu").
 
-Chi tiết đầy đủ: Xem `flow/04_image_prompt_development_knowledge.md` và file style đang active.
+BẮT BUỘC dùng `invoke_subagent` để chia nhỏ việc viết prompt:
+- Chia theo section (Verse/Chorus) thành các lô (mỗi lô 15-20 prompts).
+- Viết **Section Creative Brief** cho từng lô (mục tiêu cảm xúc, năng lượng, ý nghĩa chuyển tiếp) trước khi giao cho Subagent.
+- Giao cho mỗi Subagent: Section Creative Brief, Story Context, Asset Bible, và File Style. Subagent tự sáng tạo prompt — không có bảng điền sẵn.
+- Main Agent đóng vai trò Trưởng nhóm (Orchestrator): thu thập kết quả, chạy Quality Gate kiểm tra trùng lặp, sau đó ghép lại và ghi vào **1 file duy nhất** `projects/video_xxx/docs/04_image_prompts.txt`.
+- Format file cuối cùng: Mỗi prompt trên 1 dòng, cách nhau 1 dòng trống. Không header, không số thứ tự, không metadata.
+- Luôn kết thúc bằng LOCKED COLOR TONE nguyên văn + `16:9` + negative anchor.
+
+Chi tiết đầy đủ: Xem `flow_vn/04b_image_prompt_technique_knowledge.md` và file style đang active.
 
 ---
 

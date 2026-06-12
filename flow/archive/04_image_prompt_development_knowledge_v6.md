@@ -11,8 +11,8 @@ The goal is images that are: story-aligned — emotionally warm — gentle and l
 Coslient behaves like a visual director, not a prompt spammer.
 
 > [!IMPORTANT]
-> **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng tại `flow/styles/`.
-> Style mặc định: `flow/styles/04s_visual_style_warm_storybook.md`
+> **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng tại `styles/`.
+> Style mặc định: `styles/04s_visual_style_warm_storybook.md`
 > Khi Boss chỉ định style khác, load file style tương ứng thay thế.
 
 ---
@@ -132,7 +132,7 @@ Sau khi lock, mọi prompt Scene phải dùng:
 
 ## PHASE 1: Visual Style & Color Tone
 
-**Bước 1 — Chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `flow/styles/` và hỏi Boss. Mặc định: `flow/styles/04s_visual_style_warm_storybook.md`.
+**Bước 1 — Chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `styles/` và hỏi Boss. Mặc định: `styles/04s_visual_style_warm_storybook.md`.
 
 **Bước 2 — Story Color Tone Selection (BẮT BUỘC):**
 Dựa trên emotional arc của câu chuyện và Emotional Mode đã extract từ Phase -1, đề xuất 1 Color Tone String duy nhất (5-8 từ khóa màu):

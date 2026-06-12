@@ -53,11 +53,6 @@ nostalgic stop-motion animation style, [SUBJECT], miniature diorama, extremely t
 nostalgic stop-motion diorama, tactile hand-crafted textures, weathered rustic environment, macro photography, shallow depth of field, earthy muted colors, floating dust, cinematic lighting
 ```
 
-### Negative style anchor (dùng khi model bị drift)
-```
-pristine, smooth plastic, ultra-clean, flat lighting, neon colors, modern, perfect realism, glossy, digital 3D render, perfectly proportioned humans, sterile environment
-```
-
 ### Style Intensity (3 mức độ)
 
 | Mức độ | Khi nào dùng | Áp dụng |
@@ -172,7 +167,7 @@ pristine, clean, smooth, flawless, neon, flat lighting, digital render, modern, 
 | Boss nói | Sửa |
 | :--- | :--- |
 | **Nhìn quá ảo, giống 3D máy tính** | Nhồi thêm cụm `stop-motion puppet, claymation, hand-crafted tactile materials, yarn hair`. Tăng cụm `macro photography, shallow depth of field` để ép nó ra hiệu ứng chụp mô hình. |
-| **Ảnh bị trơn láng, sạch sẽ quá** | Bơm thêm `heavily weathered, rusted, chipped paint, deeply wrinkled, dirt, floating dust motes`. Dùng Negative: `pristine, smooth, clean`. |
+| **Ảnh bị trơn láng, sạch sẽ quá** | Bơm thêm `heavily weathered, rusted, chipped paint, deeply wrinkled, dirt, floating dust motes`. . |
 | **Màu sắc bị tươi rực rỡ quá** | Thêm cụm `muted earthy tones, desaturated colors, rustic aesthetic`. |
 | **Mất cảm giác "sa bàn/diorama"** | Bắt buộc phải có `heavy bokeh, extreme shallow depth of field`. Cho thêm vài vật thể làm tiền cảnh bị mờ nhòe (blurred foreground elements). |
 

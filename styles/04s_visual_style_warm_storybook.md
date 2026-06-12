@@ -76,12 +76,6 @@ handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle l
 handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome gracefully aging face, clean smooth features, kind eyes, soft wool-like hair, subtle fabric detail, realistic adult body proportions, correct head-to-body ratio, bright luminous warm-gold daylight or amber night light, lifted soft warm shadows, 16:9
 ```
 
-### Negative style anchor (dùng khi model bị drift)
-
-```
-avoid chibi, avoid oversized head, avoid oversized eyes, avoid cute anime proportions, avoid doll-like toy body, avoid solid clay hair, chunky sculpted hair mass, melted texture, blob-like hair, plastic finish, heavy claymation look, deep wrinkles, harsh facial lines, sunken cheeks, hollow eyes, cracked skin, waxy skin, creepy puppet face, pitch-black darkness, heavy black shadows, gloomy night, cold dark blue tones, muddy colors, harsh dark contrast, glossy plastic shine, glossy 3D, deformed hands
-```
-
 ---
 
 ## 3. Style Migration Notes (từ style cũ)
@@ -249,12 +243,6 @@ Không ép gold một cách giả tạo.
 ..., an aged porcelain-blue mug placed near her elbow, ...
 ```
 
-### Negative — Khi accent bị sai
-
-```
-avoid oversaturated accent colors, avoid large areas of non-warm color, avoid cold blue backgrounds, avoid bright green plants overwhelming the frame, avoid pink dominating the palette
-```
-
 ### Vì sao không dùng màu khác
 
 - **Đỏ / cam đậm:** Quá aggressive, phá tone healing.
@@ -266,7 +254,7 @@ avoid oversaturated accent colors, avoid large areas of non-warm color, avoid co
 ### Ví dụ tích hợp đầy đủ vào prompt
 
 ```
-An elderly woman standing by a sunlit kitchen window, medium shot framed through a doorway, her hands resting on the windowsill beside a small sage-green ceramic pot with a single dried stem, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle apron detail, smooth matte porcelain skin, warm morning daylight streaming through, cream honey-gold palette with a small dusty sage-green accent on the pot, rich tonal depth, lifted soft warm shadows, tender and peaceful, 16:9, no text no handwriting no magical elements, avoid waxy face, muddy skin, pitch-black darkness
+An elderly woman standing by a sunlit kitchen window, medium shot framed through a doorway, her hands resting on the windowsill beside a small sage-green ceramic pot with a single dried stem, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle apron detail, smooth matte porcelain skin, warm morning daylight streaming through, cream honey-gold palette with a small dusty sage-green accent on the pot, rich tonal depth, lifted soft warm shadows, tender and peaceful, 16:9
 ```
 
 ---
@@ -347,7 +335,7 @@ Trong context AI image generation cho style này, "HDR" không có nghĩa là to
 Đặt ngay sau phần ánh sáng (lighting description), trước phần emotional tone:
 
 ```
-[scene + subject + action], [shot size + composition], [lighting description], [HDR/tonal richness keywords], [style anchor], [character + material], [emotion], 16:9, [negatives]
+[scene + subject + action], [shot size + composition], [lighting description], [HDR/tonal richness keywords], [style anchor], [character + material], [emotion], 16:9
 ```
 
 ### Quy tắc kết hợp: HDR + Warm Storybook
@@ -359,12 +347,6 @@ Trong context AI image generation cho style này, "HDR" không có nghĩa là to
 | Cảnh buổi tối ấm cúng | `luminous indigo-blue night sky, warm amber interior glow, rich tonal depth with detailed shadow warmth, no flat darkness` |
 | Cảnh ngoài vườn | `bright layered outdoor light, rich green shadow detail, luminous warm-gold highlights on surfaces, volumetric depth` |
 | Close-up tay/mặt/đồ vật | `rich close-up tonal richness, micro-contrast on skin texture, warm highlight with detailed shadow, tonal depth` |
-
-### Negative keywords cho HDR
-
-```
-not flat, not washed out, not overexposed, not HDR-extreme, not tone-mapped unrealistic, avoid burnt highlights, avoid grey flat shadows, avoid muddy dark areas
-```
 
 ### Full Style Anchor HDR-Enhanced (dùng thay cho anchor cũ khi cần độ sâu tonal cao nhất)
 
@@ -464,24 +446,24 @@ empty generic fantasy spaces, overdesigned magical kingdoms, futuristic CGI room
 ### Full template
 
 ```
-[scene + subject + emotional action], [shot size / composition], [one specific grounded everyday detail — lighting, gesture, or object observed closely], handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult body proportions, correct head-to-body ratio of a real adult person, [key props/materials], warm natural daylight, airy cream honey peach palette, [emotion], 16:9, no text no handwriting no letters no paper flowers no magical elements, avoid chibi, avoid oversized head, avoid oversized eyes, avoid cute anime proportions, avoid heavy texture, waxy face, muddy skin, fused hair and skin, creepy puppet face, plastic shine, no children no kids
+[scene + subject + emotional action], [shot size / composition], [one specific grounded everyday detail — lighting, gesture, or object observed closely], handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult body proportions, correct head-to-body ratio of a real adult person, [key props/materials], warm natural daylight, airy cream honey peach palette, [emotion], 16:9
 ```
 
 ### Compressed template
 
 ```
-[scene + subject + action], [shot size], [one grounded everyday detail], handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, kind elderly face, realistic adult body proportions, correct head-to-body ratio, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte wood, warm natural daylight, cream honey peach palette, [emotion], 16:9, no text no handwriting no magical elements, avoid chibi, avoid oversized head, no children no kids
+[scene + subject + action], [shot size], [one grounded everyday detail], handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, kind elderly face, realistic adult body proportions, correct head-to-body ratio, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte wood, warm natural daylight, cream honey peach palette, [emotion], 16:9
 ```
 
 ### Dynamic template chuẩn hóa
 
 ```
-[Chủ thể + Hành động theo concept], [Góc máy & Bố cục động], [Chi tiết đời thường cụ thể quan sát được — ánh sáng / cử chỉ / đồ vật], [Vật thể & Bối cảnh theo kịch bản], handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult body proportions, correct head-to-body ratio of a real adult person, [Ánh sáng & Màu sắc Luminous động theo ngày/đêm], 16:9, no text no handwriting no magical floating objects, avoid chibi, avoid oversized head, avoid oversized eyes, avoid cute anime proportions, avoid deep wrinkles, harsh facial lines, waxy skin, creepy puppet face, pitch-black darkness, no children no kids
+[Chủ thể + Hành động theo concept], [Góc máy & Bố cục động], [Chi tiết đời thường cụ thể quan sát được — ánh sáng / cử chỉ / đồ vật], [Vật thể & Bối cảnh theo kịch bản], handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult body proportions, correct head-to-body ratio of a real adult person, [Ánh sáng & Màu sắc Luminous động theo ngày/đêm], 16:9
 ```
 
 ### Example prompt (ĐÃ SỬA — không chibi, không chữ viết, không phép thuật)
 
-Cozy miniature kitchen in bright late-morning light, an elderly woman standing beside a wooden table with both hands resting lightly on its surface, medium shot framed through a doorway, slanted morning sunlight casting long warm shadows across the worn wooden floor, a single ceramic mug steaming gently near her elbow, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, soft natural elderly face, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle apron detail, smooth matte wood, realistic adult body proportions, correct head-to-body ratio of a real adult person, cream honey peach palette, tender and inviting, 16:9, no text no handwriting no magical elements, avoid chibi, avoid oversized head, avoid oversized eyes, avoid waxy face, muddy skin, fused hair and skin, creepy puppet face
+Cozy miniature kitchen in bright late-morning light, an elderly woman standing beside a wooden table with both hands resting lightly on its surface, medium shot framed through a doorway, slanted morning sunlight casting long warm shadows across the worn wooden floor, a single ceramic mug steaming gently near her elbow, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, soft natural elderly face, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle apron detail, smooth matte wood, realistic adult body proportions, correct head-to-body ratio of a real adult person, cream honey peach palette, tender and inviting, 16:9
 
 ---
 
@@ -507,9 +489,9 @@ Soft handcrafted storybook miniature world, warm gentle loving atmosphere, **rea
 
 | Boss nói | Sửa |
 |----------|-----|
-| **Nhân vật bị chibi / đầu to / mắt to** | **ƯU TIÊN SỬA NGAY:** Thêm `realistic adult body proportions, correct head-to-body ratio of a real adult person` vào positive. Thêm `avoid chibi, avoid oversized head, avoid oversized eyes, avoid cute anime proportions, avoid doll-like toy body` vào negative. Bỏ mọi cụm từ "cute", "adorable", "tiny character". |
+| **Nhân vật bị chibi / đầu to / mắt to** | **ƯU TIÊN SỬA NGAY:** Thêm `realistic adult body proportions, correct head-to-body ratio of a real adult person` vào positive. Bỏ mọi cụm từ "cute", "adorable", "tiny character". |
 | Thiếu accent / flat tone | Thêm 1 focal accent object vào prompt: `a small sage-green ceramic pot`, `an aged porcelain-blue mug`, hoặc `a pale dusty-rose flower in a glass bottle`. Đặt ngay sau phần action/object, trước style anchor. |
-| Accent bị vỡ / quá sặc sỡ | Thêm negative: `avoid oversaturated accent colors, avoid large areas of non-warm color`. Đổi sang shade nhạt hơn: `muted`, `faded`, `dusty`. |
+| Accent bị vỡ / quá sặc sỡ | Đổi sang shade nhạt hơn: `muted`, `faded`, `dusty`. |
 | Quá nặng / heavy | Giảm texture language, bỏ "visible fibers", "wax-clay", "highly detailed texture". Thêm "smooth", "soft", "subtle", "airy", "warm gentle loving atmosphere" |
 | Nhân vật creepy | Tăng "soft natural elderly face", "kind eyes", "balanced facial proportions", "avoid creepy puppet face". Bỏ "sculpted wrinkles", "puppet realism" |
 | Tóc bệt / fused | Thêm "fluffy needle-felted wool hair with visible fine fibers", "clear hairline", "avoid fused hair and skin", "avoid blob-like hair" |
@@ -533,14 +515,8 @@ Soft handcrafted storybook miniature world, warm gentle loving atmosphere, **rea
 storybook illustration style, vintage 35mm film look, warm golden-hour light, soft lifted blacks, amber split-tone highlights, gentle film halation, muted earthy ochre-sienna palette, subtle 35mm grain
 ```
 
-### Negative block (gắn vào negative prompt)
-
-```
-cold blue tones, neon colors, high saturation, harsh shadows, photorealistic, 3D render, oversaturated, sharp digital edges, vivid, modern color grading
-```
-
 ### Ví dụ tích hợp đầy đủ
 
 ```
-An elderly woman sitting quietly by the kitchen window, her hands resting on a warm honey-toned wooden table, a faded sage-green ceramic mug steaming gently beside her, soft morning light falling across her face, medium shot seen through a doorway, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, kind eyes, soft wool-like hair, subtle apron detail, storybook illustration style, vintage 35mm film look, warm golden-hour light, soft lifted blacks, amber split-tone highlights, gentle film halation, muted earthy ochre-sienna palette, subtle 35mm grain, 16:9, no text no handwriting no magical elements, avoid waxy face, muddy skin, cold blue tones, neon colors
+An elderly woman sitting quietly by the kitchen window, her hands resting on a warm honey-toned wooden table, a faded sage-green ceramic mug steaming gently beside her, soft morning light falling across her face, medium shot seen through a doorway, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, kind eyes, soft wool-like hair, subtle apron detail, storybook illustration style, vintage 35mm film look, warm golden-hour light, soft lifted blacks, amber split-tone highlights, gentle film halation, muted earthy ochre-sienna palette, subtle 35mm grain, 16:9
 ```

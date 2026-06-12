@@ -70,36 +70,6 @@ handcrafted stop-motion puppet, wire armature and silicone skin construction, ha
 handcrafted stop-motion puppet, wire armature and silicone skin construction, European village cinema, tilt-shift macro, [CHARACTER per story], warm soft silicone puppet skin, warm natural skin tone, naturally soft fine hair with clean silhouette, realistic human proportions, [clothing per story], stone village cobblestone setting, warm amber lantern against cool stone, cinematic depth of field, 16:9
 ```
 
-### Negative style anchor (dùng khi model bị drift)
-
-```
-avoid goblin, avoid troll, avoid creature, avoid monster, avoid exaggerated nose, avoid oversized ears, avoid grotesque features, avoid rough matted fibrous skin, avoid horror creature face, avoid chibi, avoid oversized head, avoid oversized cute eyes, avoid smooth porcelain skin, avoid warm_storybook aesthetic, avoid plastic shine, avoid glossy 3D, avoid Pixar-style smooth animation, avoid flat clean architecture, avoid healing-cozy pastel palette, avoid cream honey gold color palette, avoid children no kids, avoid magical floating elements, avoid text handwriting
-```
-
----
-
-## 3. So sánh với warm_storybook (BẮT BUỘC đọc)
-
-> [!IMPORTANT]
-> Hai style này là đối cực nhau. Đừng trộn lẫn keyword của chúng.
-
-| Yếu tố | `warm_storybook` | `old_world_claymation` |
-|--------|-----------------|----------------------|
-| **Da nhân vật** | Smooth matte porcelain skin | Smooth matte clay skin — warm beige, natural, aged beautifully |
-| **Nếp nhăn** | Chỉ laugh lines nhẹ | Soft laugh lines — đẹp lão, không horror |
-| **Bàn tay** | Clean elegant elderly hands | Long gentle expressive hands — có warmth |
-| **Khuôn mặt** | Balanced, clean | **Đẹp lão tự nhiên** — có chiều sâu, hiền hậu |
-| **Tóc** | Fluffy needle-felted wool hair | Naturally soft fine hair, clean silhouette, theo nhân vật |
-| **Palette** | Cream, honey-gold, amber | Stone gray, dusty olive, terracotta orange |
-| **Kiến trúc** | Cozy kitchens, warm interiors | Weathered stone village, cobblestone streets |
-| **Lighting** | Soft warm daylight | Strong amber/cool contrast |
-| **Mood** | Healing, welcoming, gentle | Literary, melancholic-tender — NOT horror or dark |
-| **Sheep** | Soft felted props (nếu có) | COMPANION MOTIF xuyên suốt |
-
----
-
-## 4. Character Design
-
 ### Nguyên tắc cốt lõi
 
 > [!IMPORTANT]
@@ -342,36 +312,36 @@ Buồn được phép ở đây — nhưng không bi thảm. Như một nhân v�
 ### Full template
 
 ```
-[scene + subject + emotional action], [shot size / composition], [one specific grounded physical detail — light, gesture, or object], handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, macro photography, tilt-shift lens, kind naturally beautiful elderly human face with warm gentle eyes full of wisdom, gracefully aging with soft laugh lines, warm soft silicone puppet skin with warm natural skin tone, wild wispy silver-white hair, realistic adult human body proportions with correct head-to-body ratio, long gentle expressive puppet hands, [clothing from vintage European artisan wardrobe], [one terracotta orange accent object], [stone village setting detail], [lighting: warm amber interior OR golden hour sunset OR cool overcast exterior], rich cinematic depth of field with atmospheric background blur, 16:9, avoid goblin, avoid troll, avoid creature, avoid exaggerated nose or ears, avoid rough matted skin, avoid chibi, avoid glossy 3D, no text no handwriting no magical elements, no children
+[scene + subject + emotional action], [shot size / composition], [one specific grounded physical detail — light, gesture, or object], handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, macro photography, tilt-shift lens, kind naturally beautiful elderly human face with warm gentle eyes full of wisdom, gracefully aging with soft laugh lines, warm soft silicone puppet skin with warm natural skin tone, wild wispy silver-white hair, realistic adult human body proportions with correct head-to-body ratio, long gentle expressive puppet hands, [clothing from vintage European artisan wardrobe], [one terracotta orange accent object], [stone village setting detail], [lighting: warm amber interior OR golden hour sunset OR cool overcast exterior], rich cinematic depth of field with atmospheric background blur, 16:9
 ```
 
 ### Compressed template
 
 ```
-[scene + subject + action], [shot size], handcrafted stop-motion puppet, wire armature and silicone skin construction, European village cinema, tilt-shift macro, kind beautiful elderly human face, warm gentle eyes, gracefully aging, warm soft silicone puppet skin, soft laugh lines, realistic adult proportions, wild white hair, chunky knit or tweed clothing, [terracotta orange accent], stone village cobblestone setting, warm amber lantern against cool stone, cinematic depth of field, 16:9, avoid goblin avoid creature, avoid chibi, no children
+[scene + subject + action], [shot size], handcrafted stop-motion puppet, wire armature and silicone skin construction, European village cinema, tilt-shift macro, kind beautiful elderly human face, warm gentle eyes, gracefully aging, warm soft silicone puppet skin, soft laugh lines, realistic adult proportions, wild white hair, chunky knit or tweed clothing, [terracotta orange accent], stone village cobblestone setting, warm amber lantern against cool stone, cinematic depth of field, 16:9
 ```
 
 ### Dynamic template chuẩn hóa
 
 ```
-[Chủ thể + Hành động theo concept], [Góc máy & Bố cục — framing qua arch/door/alley], [Một chi tiết vật lý cụ thể], [Props cụ thể theo kịch bản], handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, macro photography, tilt-shift lens, kind naturally beautiful elderly human face, warm gentle eyes full of life and wisdom, gracefully aging with soft natural laugh lines, warm soft silicone puppet skin with warm natural skin tone (clean surface not rough not fibrous), wild wispy silver-white hair, realistic adult human body proportions with correct head-to-body ratio, long gentle expressive puppet hands, [trang phục vintage artisan: chunky knit sweater / worn tweed coat / flat cap / sage green beret], [terracotta orange accent object cụ thể], [stone village bối cảnh cụ thể], [lighting contrast: warm amber source + cool stone ambient], rich cinematic depth of field, 16:9, avoid goblin, avoid troll, avoid creature, avoid exaggerated nose or ears, avoid rough matted fibrous skin, avoid chibi, avoid oversized head, avoid glossy 3D, no text no handwriting, no children
+[Chủ thể + Hành động theo concept], [Góc máy & Bố cục — framing qua arch/door/alley], [Một chi tiết vật lý cụ thể], [Props cụ thể theo kịch bản], handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, macro photography, tilt-shift lens, kind naturally beautiful elderly human face, warm gentle eyes full of life and wisdom, gracefully aging with soft natural laugh lines, warm soft silicone puppet skin with warm natural skin tone (clean surface not rough not fibrous), wild wispy silver-white hair, realistic adult human body proportions with correct head-to-body ratio, long gentle expressive puppet hands, [trang phục vintage artisan: chunky knit sweater / worn tweed coat / flat cap / sage green beret], [terracotta orange accent object cụ thể], [stone village bối cảnh cụ thể], [lighting contrast: warm amber source + cool stone ambient], rich cinematic depth of field, 16:9
 ```
 
 ### Example prompts
 
 **Ví dụ 1 — Shepherd on stone steps:**
 ```
-A kind elderly shepherd gently hunched forward climbing ancient cobblestone steps, wide shot from side profile, small felted wool sheep walking alongside him at his feet, woven terracotta-orange backpack on his back, walking stick in hand, handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, macro photography, tilt-shift lens, kind naturally beautiful elderly human face with warm gentle eyes and soft laugh lines, gracefully aging, warm soft silicone puppet skin with warm natural skin tone, wild wispy silver-white hair, realistic adult body proportions, chunky sage-green knit jacket and olive trousers, rough stone village steps with Mediterranean stone buildings blurred in background, cool overcast blue-gray daylight, rich cinematic depth of field, 16:9, avoid goblin, avoid creature, avoid exaggerated features, avoid chibi, no text
+A kind elderly shepherd gently hunched forward climbing ancient cobblestone steps, wide shot from side profile, small felted wool sheep walking alongside him at his feet, woven terracotta-orange backpack on his back, walking stick in hand, handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, macro photography, tilt-shift lens, kind naturally beautiful elderly human face with warm gentle eyes and soft laugh lines, gracefully aging, warm soft silicone puppet skin with warm natural skin tone, wild wispy silver-white hair, realistic adult body proportions, chunky sage-green knit jacket and olive trousers, rough stone village steps with Mediterranean stone buildings blurred in background, cool overcast blue-gray daylight, rich cinematic depth of field, 16:9
 ```
 
 **Ví dụ 2 — Indoor tea scene:**
 ```
-A kind elderly man sitting at a rustic wooden table pouring tea from a terracotta orange enamel kettle, medium shot from slight side angle, steam rising gently from a ceramic cup, a small felted wool sheep resting quietly beside him on the table, a vintage wooden radio glowing amber in the background, handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, tilt-shift macro, kind naturally beautiful elderly human face with warm gentle eyes full of wisdom and quiet peace, gracefully aging with soft natural laugh lines, warm soft silicone puppet skin, wild wispy white hair, worn dark tweed jacket, rough stone cottage interior, deep warm amber lamp light, 16:9, avoid goblin, avoid creature, avoid exaggerated features, avoid chibi, no text
+A kind elderly man sitting at a rustic wooden table pouring tea from a terracotta orange enamel kettle, medium shot from slight side angle, steam rising gently from a ceramic cup, a small felted wool sheep resting quietly beside him on the table, a vintage wooden radio glowing amber in the background, handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, tilt-shift macro, kind naturally beautiful elderly human face with warm gentle eyes full of wisdom and quiet peace, gracefully aging with soft natural laugh lines, warm soft silicone puppet skin, wild wispy white hair, worn dark tweed jacket, rough stone cottage interior, deep warm amber lamp light, 16:9
 ```
 
 **Ví dụ 3 — Sunset shepherd with lantern:**
 ```
-A kind elderly shepherd bending gently to pet a small sheep on a cobblestone street at dusk, medium shot, a warm amber lantern glowing on the stone wall beside a weathered teal-blue wooden door, handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, tilt-shift macro, kind naturally beautiful elderly human face, warm eyes catching the golden lantern light, gracefully aging, warm soft silicone puppet skin, wild wispy white hair, dark tweed coat and gray flat cap, cobblestone street with blurred flock of sheep in background, deep golden hour sunset casting warm orange light against cool stone walls, cinematic depth of field, 16:9, avoid goblin, avoid creature, avoid chibi
+A kind elderly shepherd bending gently to pet a small sheep on a cobblestone street at dusk, medium shot, a warm amber lantern glowing on the stone wall beside a weathered teal-blue wooden door, handcrafted stop-motion puppet, wire armature and silicone skin construction, handcrafted European village cinema, tilt-shift macro, kind naturally beautiful elderly human face, warm eyes catching the golden lantern light, gracefully aging, warm soft silicone puppet skin, wild wispy white hair, dark tweed coat and gray flat cap, cobblestone street with blurred flock of sheep in background, deep golden hour sunset casting warm orange light against cool stone walls, cinematic depth of field, 16:9
 ```
 
 ---
@@ -398,11 +368,11 @@ Old World European Stop-Motion Puppet village world — **kind, melancholic, bea
 
 | Boss nói | Sửa |
 |----------|-----|
-| **Nhân vật trông như goblin / creature / kỳ dị** | **SỬA NGAY:** Xóa mọi keyword exaggerated. Dùng: `kind naturally beautiful elderly human face, gracefully aging with soft laugh lines, warm gentle eyes, warm soft silicone puppet skin`. Negative: `avoid goblin, avoid creature, avoid exaggerated nose or ears, avoid horror wrinkles`. |
+| **Nhân vật trông như goblin / creature / kỳ dị** | **SỬA NGAY:** Xóa mọi keyword exaggerated. Dùng: `kind naturally beautiful elderly human face, gracefully aging with soft laugh lines, warm gentle eyes, warm soft silicone puppet skin`. |
 | **Mặt không đẹp / thiếu warmth** | Thêm: `kind and naturally beautiful, warm gentle eyes full of wisdom and quiet joy, dignified gracefully aging face, peaceful melancholic expression`. |
-| **Da quá rough / fibrous** | Dùng: `warm soft silicone puppet skin, warm natural skin tone, clean smooth surface`. Negative: `avoid rough texture, avoid fibrous skin`. |
-| **Tóc trông như rơm / matted** | Dùng: `wild wispy silver-white hair, natural fluffy strands, softly disheveled`. Negative: `avoid matted hair, avoid straw-like texture`. |
-| **Nhân vật bị chibi / đầu to** | Thêm: `realistic adult body proportions, correct head-to-body ratio`. Negative: `avoid chibi, avoid oversized head`. |
+| **Da quá rough / fibrous** | Dùng: `warm soft silicone puppet skin, warm natural skin tone, clean smooth surface`. |
+| **Tóc trông như rơm / matted** | Dùng: `wild wispy silver-white hair, natural fluffy strands, softly disheveled`. |
+| **Nhân vật bị chibi / đầu to** | Thêm: `realistic adult body proportions, correct head-to-body ratio`. |
 | **Thiếu terracotta orange** | Thêm 1 orange accent: `terracotta orange enamel kettle`, `rust-orange woven scarf`, `terracotta-orange backpack`. |
 | **Lighting quá phẳng** | Thêm: `warm amber lantern glow against cool blue-gray stone`, `deep amber interior vs cool stone exterior`. |
 | **Thiếu cừu** | Thêm: `small felted wool sheep with dense curly cream-white wool coat, small black stick legs, stop-motion puppet scale`. |

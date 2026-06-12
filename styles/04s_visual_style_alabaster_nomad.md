@@ -51,17 +51,12 @@ File này chứa toàn bộ DNA thị giác cho phong cách **Sacred Monochrome*
 
 ### Full style anchor (dùng cho prompt > 500 ký tự)
 ```
-sacred monochrome surrealism, [SUBJECT in flowing draped robes of same tone as environment], [SURREAL EVENT], near-monochromatic [dominant tone] world where subject creature and architecture share the same dry matte material, [massive creature/structure] with [material-matching texture], directional haze light from one side with soft volumetric depth, subtle rim highlight sculpting form, deep tonal contrast within monochromatic range, perfectly still mirror-like water reflections, extremely shallow depth of field, minimalist and sacred atmosphere, high-end visual aesthetic, 16:9, modern artistic illustration, avoid waxy skin, avoid glossy plastic, avoid aggressive expressions, avoid flat overcast lighting, avoid colorful saturated clothing
+sacred monochrome surrealism, [SUBJECT in flowing draped robes of same tone as environment], [SURREAL EVENT], near-monochromatic [dominant tone] world where subject creature and architecture share the same dry matte material, [massive creature/structure] with [material-matching texture], directional haze light from one side with soft volumetric depth, subtle rim highlight sculpting form, deep tonal contrast within monochromatic range, perfectly still mirror-like water reflections, extremely shallow depth of field, minimalist and sacred atmosphere, high-end visual aesthetic, 16:9, modern artistic illustration
 ```
 
 ### Short style anchor (dùng cho prompt ngắn hơn)
 ```
 sacred monochrome surrealism, near-monochromatic world, massive [creature/structure] in same material as environment, flowing draped robes, still water reflections, diffused hazy daylight, sacred silence, 16:9
-```
-
-### Negative style anchor (dùng khi model bị drift)
-```
-yellow sand, gritty survival, messy bushes, aggressive creature, fiery destruction, harsh shadows, dark moody night, colorful saturated clothing, waxy plastic skin, glossy 3D, deformed hands, crowded background, chaotic debris, high contrast lighting
 ```
 
 ### Style Intensity (3 mức độ)
@@ -107,7 +102,7 @@ Phong cách này KHÔNG khóa cứng vào một kiểu nhân vật. **BẤT KỲ
 
 ### Hair rule
 Tóc hoà vào thế giới — bất kể kiểu tóc:
-`[hair style] with fine particles of [world's dominant material] dusted on strands, wind-drifted wisps, avoid glossy shiny hair`
+`[hair style] with fine particles of [world's dominant material] dusted on strands, wind-drifted wisps
 
 ### Face rule
 Gương mặt thanh tao mang chiều sâu nội tâm — bất kể tuổi tác:
@@ -115,7 +110,7 @@ Gương mặt thanh tao mang chiều sâu nội tâm — bất kể tuổi tác:
 
 ### Hands rule
 Bàn tay là công cụ giao tiếp linh hồn:
-`clean delicate hands, soft natural fingers gently touching [creature/object], peaceful sacred gesture, avoid clenched fists`
+`clean delicate hands, soft natural fingers gently touching [creature/object], peaceful sacred gesture
 
 ### Character Rendering Lock
 Khi nhân vật xuất hiện, luôn áp dụng:
@@ -364,7 +359,7 @@ Nhân vật mang trên cơ thể các dấu ấn phát sáng — ký tự cổ, 
 
 ### Full template
 ```
-[subject + serene action of connection/contemplation], [shot size / composition], [SURREAL EVENT using 1 of 4 principles], sacred monochrome surrealism, near-monochromatic [dominant tone] world, [subject] in flowing draped [fabric] robes matching the world's tone, [massive creature/structure] with [material-matching texture] and [accent glow] eyes, fine [material] dust particles floating in hazy diffused daylight, perfectly still mirror-like [water color] water reflections, extremely shallow depth of field, minimalist and sacred atmosphere, 16:9, modern artistic illustration, avoid waxy skin, avoid glossy plastic, avoid aggressive expressions, avoid colorful saturated clothing, avoid dark pitch-black shadows
+[subject + serene action of connection/contemplation], [shot size / composition], [SURREAL EVENT using 1 of 4 principles], sacred monochrome surrealism, near-monochromatic [dominant tone] world, [subject] in flowing draped [fabric] robes matching the world's tone, [massive creature/structure] with [material-matching texture] and [accent glow] eyes, fine [material] dust particles floating in hazy diffused daylight, perfectly still mirror-like [water color] water reflections, extremely shallow depth of field, minimalist and sacred atmosphere, 16:9, modern artistic illustration
 ```
 
 ### Compressed template
@@ -374,12 +369,12 @@ Nhân vật mang trên cơ thể các dấu ấn phát sáng — ký tự cổ, 
 
 ### Dynamic template chuẩn hóa
 ```
-[Chủ thể + Cử chỉ tĩnh lặng], [Góc máy & Bố cục đối xứng], [SỰ KIỆN SIÊU THỰC cụ thể theo 1 trong 4 nguyên tắc], sacred monochrome surrealism, near-monochromatic [Tone chủ đạo] world, [Chủ thể] in flowing draped [Vải] robes, [Sinh vật/Kiến trúc khổng lồ] with [Chất liệu cùng gia đình] and [Accent glow], fine [Bụi vật liệu] particles floating, [Ánh sáng khuếch tán sương mù], still mirror-like water reflections, 16:9, avoid waxy skin, avoid aggressive expressions, avoid colorful clothing
+[Chủ thể + Cử chỉ tĩnh lặng], [Góc máy & Bố cục đối xứng], [SỰ KIỆN SIÊU THỰC cụ thể theo 1 trong 4 nguyên tắc], sacred monochrome surrealism, near-monochromatic [Tone chủ đạo] world, [Chủ thể] in flowing draped [Vải] robes, [Sinh vật/Kiến trúc khổng lồ] with [Chất liệu cùng gia đình] and [Accent glow], fine [Bụi vật liệu] particles floating, [Ánh sáng khuếch tán sương mù], still mirror-like water reflections, 16:9
 ```
 
 ### Example prompt
 ```
-A wide symmetrical shot of a solitary elderly man in flowing draped sandstone-colored linen robes standing knee-deep in perfectly still amber water, gently placing his palm on the massive snout of a colossal sand-clay whale whose arching spine forms a series of monolithic stone bridges stretching across the horizon, the whale's tail gradually dissolving into glowing gold sand particles suspended in the hazy warm air, sacred monochrome surrealism, near-monochromatic warm sandstone tone world, ancient gold glow emanating from the whale's half-closed eye, fine sand dust floating like soft mist, diffused atmospheric daylight, extremely shallow depth of field, 16:9, modern artistic illustration, avoid glossy plastic skin, avoid aggressive expression, avoid colorful clothing
+A wide symmetrical shot of a solitary elderly man in flowing draped sandstone-colored linen robes standing knee-deep in perfectly still amber water, gently placing his palm on the massive snout of a colossal sand-clay whale whose arching spine forms a series of monolithic stone bridges stretching across the horizon, the whale's tail gradually dissolving into glowing gold sand particles suspended in the hazy warm air, sacred monochrome surrealism, near-monochromatic warm sandstone tone world, ancient gold glow emanating from the whale's half-closed eye, fine sand dust floating like soft mist, diffused atmospheric daylight, extremely shallow depth of field, 16:9, modern artistic illustration
 ```
 
 ---
@@ -427,14 +422,8 @@ Sacred monochrome surrealism. A near-monochromatic world (85-90% same tone) wher
 near-monochromatic world, bleach bypass color grading, desaturated chalk-white and pale ivory palette, diffused hazy atmospheric daylight, soft lifted shadow detail retaining dominant tone warmth, ancient dry matte stone material color, faded matte finish, subtle fine grain texture
 ```
 
-### Negative block (gắn vào negative prompt)
-
-```
-colorful saturated colors, warm orange tones, neon, vivid, high saturation, glossy, sharp pitch-black shadows, modern look, realistic photography, digital render
-```
-
 ### Ví dụ tích hợp đầy đủ
 
 ```
-A solitary woman in flowing draped ivory linen robes standing knee-deep in perfectly still pale-silver water, gently placing her palm on the massive chalk-white snout of a colossal stone whale whose arching spine bridges the horizon, wide symmetrical shot, sacred monochrome surrealism, near-monochromatic alabaster world, material unity: figure creature water architecture all in same dry matte chalk-limestone tone, fine white sand dust floating like mist, near-monochromatic world, bleach bypass color grading, desaturated chalk-white and pale ivory palette, diffused hazy atmospheric daylight, soft lifted shadow detail retaining dominant tone warmth, ancient dry matte stone material color, faded matte finish, subtle fine grain texture, 16:9, avoid glossy plastic, avoid colorful saturated colors, neon, vivid, high saturation
+A solitary woman in flowing draped ivory linen robes standing knee-deep in perfectly still pale-silver water, gently placing her palm on the massive chalk-white snout of a colossal stone whale whose arching spine bridges the horizon, wide symmetrical shot, sacred monochrome surrealism, near-monochromatic alabaster world, material unity: figure creature water architecture all in same dry matte chalk-limestone tone, fine white sand dust floating like mist, near-monochromatic world, bleach bypass color grading, desaturated chalk-white and pale ivory palette, diffused hazy atmospheric daylight, soft lifted shadow detail retaining dominant tone warmth, ancient dry matte stone material color, faded matte finish, subtle fine grain texture, 16:9
 ```

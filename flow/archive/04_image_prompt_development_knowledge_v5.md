@@ -23,9 +23,9 @@ The goal is to create images that are:
 Coslient should behave like a visual director, not a prompt spammer.
 
 > [!IMPORTANT]
-> **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng trong thư mục `flow/styles/`.
-> Style mặc định hiện tại: xem `flow/styles/04s_visual_style_warm_storybook.md`
-> Khi Boss chỉ định style khác, load file style tương ứng trong `flow/styles/` thay thế.
+> **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng trong thư mục `styles/`.
+> Style mặc định hiện tại: xem `styles/04s_visual_style_warm_storybook.md`
+> Khi Boss chỉ định style khác, load file style tương ứng trong `styles/` thay thế.
 
 ---
 
@@ -82,7 +82,7 @@ Dừng lại và đợi Boss duyệt. Sau khi Boss approve, ghi kết quả vào
 
 ### PHASE 1: Visual Style & Color Tone
 
-**Bước 1 — Chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `flow/styles/` và hỏi Boss muốn dùng style nào. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `flow/styles/04s_visual_style_warm_storybook.md`.
+**Bước 1 — Chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `styles/` và hỏi Boss muốn dùng style nào. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `styles/04s_visual_style_warm_storybook.md`.
 
 **Bước 2 — Story Color Tone Selection (BẮT BUỘC):**
 Dựa trên emotional arc của câu chuyện, xác định và đề xuất 1 Color Tone String duy nhất (5-8 từ khóa màu sắc) cho toàn bộ video:
