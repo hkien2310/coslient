@@ -16,44 +16,31 @@ Bản hướng dẫn này giúp bất kỳ AI Agent nào (Claude, Gemini, Antigr
 ```text
 coslient-video/
 ├── CLAUDE.md                <-- Hướng dẫn này (Mở đọc ĐẦU TIÊN)
-├── flow_vn/                 <-- Nơi duy nhất chứa toàn bộ tài liệu vận hành
+├── flow/                    <-- Nơi duy nhất chứa toàn bộ tài liệu vận hành
 │   ├── 00_coslient_gpt_core_knowledge.md
 │   ├── 01_idea_intake_and_selection_knowledge.md
 │   ├── 02_concept_development_knowledge.md
-│   ├── 03_suno_song_development_knowledge_v7.md     <-- Hướng dẫn làm nhạc Suno
-│   ├── archive/                                     <-- Lưu trữ tài liệu cũ không còn dùng
-│   ├── 04a_image_scene_sequence_knowledge.md
-│   ├── 04b_image_prompt_technique_knowledge.md
-│   ├── editor_guide.md                              <-- Hướng dẫn edit video cho Boss
-│   |
-│   ├── styles/                                      <-- Tất cả style modules (chọn 1 khi bắt đầu Stage 4)
-│   │   ├── 04s_visual_style_warm_storybook.md       <-- MẶC ĐỊNH
-│   │   ├── 04s_visual_style_nostalgic_diorama.md
-│   │   ├── 04s_visual_style_warm_cartoon.md
-│   │   ├── 04s_visual_style_old_world_claymation.md
-│   │   ├── 04s_visual_style_alabaster_nomad.md
-│   │   ├── 04s_visual_style_desert_editorial.md
-│   │   └── 04s_visual_style_neo_pop_theater.md
-│   |
+│   ├── 03_suno_song_development_knowledge_v7.md      <-- Hướng dẫn làm nhạc Suno mới
+│   ├── archive/                                      <-- Lưu trữ các tài liệu cũ không còn dùng
+│   ├── 04_image_prompt_development_knowledge.md
 │   ├── 05_animation_prompt_knowledge.md
 │   ├── 06_youtube_positioning_seo_knowledge.md
-│   ├── 06b_youtube_shorts_seo_knowledge.md          <-- SEO cho YouTube Shorts
 │   ├── 07_social_content_repurposing_knowledge.md
-│   ├── 07b_text_post_strategy_knowledge.md          <-- Facebook/Instagram text posts
+│   ├── 07b_text_post_strategy_knowledge.md           <- Facebook/Instagram text posts
 │   ├── 08_audience_psychology_knowledge.md
 │   ├── 09_content_strategy_planning_knowledge.md
 │   ├── 10_community_growth_knowledge.md
 │   ├── 11_audience_research_knowledge.md
-│   ├── 12_deslop_quality_gate_knowledge.md          <-- Anti-AI-slop quality gate
-│   ├── 13_competitor_intelligence_knowledge.md      <-- Competitor channel analysis
-│   ├── 14_title_thumbnail_ab_testing_knowledge.md   <-- Post-publish CTR/AVD optimization
-│   ├── 15_content_ideation_knowledge.md             <-- Structured brainstorming before Stage 1
-│   ├── 16_concept_dedup_knowledge.md
-│   ├── concept_index.md
-│   ├── idea_pipeline.md
-│   ├── idea_archive.md
-│   ├── clean_lyrics_rules.md
-│   └── archive/                                     <-- Files cũ đã archive
+│   ├── 12_deslop_quality_gate_knowledge.md            <- Anti-AI-slop quality gate
+│   ├── 13_competitor_intelligence_knowledge.md       <- Competitor channel analysis
+│   ├── 14_title_thumbnail_ab_testing_knowledge.md   <- Post-publish CTR/AVD optimization
+│   ├── 15_content_ideation_knowledge.md              <- Structured brainstorming before Stage 1
+│   ├── concept_brainstorm.md
+│   └── image_prompting_guide.md
+├── style/                   <-- Thư mục chứa các tài liệu định hình phong cách visual
+│   ├── 04s_visual_style_alabaster_nomad.md           <-- Style module "Sacred Monochrome" (v2.0 tổng quát)
+│   ├── 04s_visual_style_desert_editorial.md          <-- Style module "Void Stage Couture" (v2.0 tổng quát)
+│   ├── 04s_visual_style_warm_storybook.md            <-- Style module Warm storybook mặc định
 └── projects/                <-- Thư mục chứa các dự án video cụ thể
     └── [video_name]/
         └── docs/            <-- Nơi lưu trữ toàn bộ file tài liệu (.md và .txt) của dự án
@@ -67,8 +54,6 @@ coslient-video/
 
 ⚠️ **Quy tắc dọn dẹp (Strict Cleanup Rule):** Mọi mã nguồn, tệp tin script bổ trợ (như Python, Shell script...) tự sinh trong quá trình chạy nền hoặc giải quyết công việc bắt buộc phải được **XÓA BỎ NGAY LẬP TỨC** sau khi hoàn thành nhiệm vụ để giữ cho workspace luôn sạch bóng code rác.
 
-🚫 **TUYỆT ĐỐI CẤM dùng Python script / Shell heredoc để ghi file.** Xem mục 6 để biết quy tắc chi tiết.
-
 ---
 
 ## 🔄 3. QUY TRÌNH HÀNH ĐỘNG DÀNH CHO AGENT MỚI (AGENT RUNBOOK)
@@ -79,8 +64,8 @@ Khi mới khởi động hoặc bắt đầu phiên chat mới với Boss:
 1.  **Đọc file [CLAUDE.md](file:///Users/hoangkien/Youtube/coslient-video/CLAUDE.md) (file này)** để hiểu luật chơi chung.
 2.  **Hỏi Boss project nào đang làm** hoặc kiểm tra folder `projects/` để tìm đúng dự án theo ngữ cảnh Boss cung cấp.
 3.  **Đọc các file docs trong `projects/video_xxx/docs/`** để xác định đang ở Stage mấy (file nào đã có = stage đó đã qua, file nào chưa có = stage đó chưa làm).
-4.  **Đọc file tương ứng trong `flow_vn/`** để xử lý đúng Stage tiếp theo.
-    *   *Ví dụ:* Nếu đã có `03_song_lyrics.md` nhưng chưa có `04_image_prompts.txt` → đang ở Stage 4. Đọc `04a_image_scene_sequence_knowledge.md` và `04b_image_prompt_technique_knowledge.md`.
+4.  **Đọc file tương ứng trong `flow/`** để xử lý đúng Stage tiếp theo.
+    *   *Ví dụ:* Nếu đã có `03_song_lyrics.md` nhưng chưa có `04_image_prompts.txt` → đang ở Stage 4. Đọc `04_image_prompt_development_knowledge.md`.
 5.  **Ghi file kết quả** vào thư mục `projects/video_xxx/docs/` sau khi Boss duyệt. Không cần cập nhật dashboard.
 
 ---
@@ -108,91 +93,29 @@ Trước khi bắt đầu BẤT KỲ hành động nào (viết, tạo file, ch�
 
 ---
 
-## 🎯 5. QUY TẮC PHÁT TRIỂN HÌNH ẢNH (STAGE 4 — PRODUCTION DESIGN PIPELINE)
+## 🎯 5. QUY TẮC PHÁT TRIỂN HÌNH ẢNH (STAGE 4 - IMAGE PROMPTING)
 
-Hình ảnh là khâu quan trọng nhất. Agent tuân thủ nghiêm ngặt quy trình 3 Phase sau:
+Hình ảnh là khâu quan trọng nhất. Agent phải tuân thủ nghiêm ngặt các quy chuẩn sau:
+- **Tách dòng & Không ký tự lạ:** Mỗi prompt trên **1 dòng duy nhất**, phân cách bằng **đúng 1 dòng trống**. Không dùng tiền tố `A_001|` hay số thứ tự.
+- **Độ dài Prompt:** Luôn viết prompt chi tiết **> 500 ký tự**.
+- **Phong cách:** Load từ file style module trong `style/`. Mặc định: `style/04s_visual_style_warm_storybook.md`.
+- **⚠️ Kiểm tra tương thích phong cách (Style Fit Check — BẮT BUỘC):** Trước khi bắt đầu viết prompt ảnh (Stage 4), Agent **BẮT BUỘC** phải đánh giá xem concept/câu chuyện hiện tại có phù hợp với 1 trong 3 phong cách hình ảnh đang có hay không:
+    1. `style/04s_visual_style_warm_storybook.md` — Warm Storybook
+    2. `style/04s_visual_style_alabaster_nomad.md` — Sacred Monochrome (Alabaster Nomad)
+    3. `style/04s_visual_style_desert_editorial.md` — Void Stage Couture (Desert Editorial)
 
-### PHASE 0 — Asset Bible (BẮT BUỘC — LÀM TRƯỚC KHI LÀM BẤT CỨ THỨ GÌ)
-Tạo các "tờ căn cước" cho mọi element xuất hiện nhiều lần trong video:
-- **Character Sheet** (luôn cần): Prompt turnaround 3 góc (front / side / 3/4), nền trung tính, style anchor active
-- **Location Sheet** (khi địa điểm xuất hiện ≥ 3 lần): Interior + Exterior song song, không có nhân vật
-- **Prop Sheet** (tùy): Đạo cụ biểu tượng xuất hiện nhiều + mang tính nhận dạng cao
-
-Sau khi Boss approve → Ghi vào file `projects/video_xxx/docs/04_asset_bible.md`. Từ đây mọi prompt cảnh đều phải reference nguyên văn mô tả từ file này.
-
-### PHASE 1 — Visual Style & Color Tone
-- Liệt kê và hỏi Boss chọn style trong các file `04s_visual_style_*.md` trong `flow_vn/styles/`. Mặc định: `flow_vn/styles/04s_visual_style_warm_storybook.md`.
-- Đề xuất 1 Color Tone String (5-8 từ khóa) bản sắc của câu chuyện → Boss duyệt → Ghi vào đầu file `04_image_prompts.txt` dưới dạng `# LOCKED COLOR TONE: [...]`.
-
-### PHASE 2 — Internal Shot Planning (AI tự làm, không cần Boss duyệt)
-AI tự lên kế hoạch nội bộ:
-- Tính tổng prompts cần tạo: `thời lượng (giây) ÷ 1.5`
-- Phân bổ theo timeline nhạc (INTRO → VERSE → CHORUS...) để câu chuyện hình ảnh có arc tự nhiên
-- Tự xoay vòng góc máy và loại cảnh trong mỗi cụm 4-5 prompts (character → macro → environment → character)
-- Không trình bày kế hoạch này ra ngoài. Tự làm rồi sinh prompts thẳng.
-
-### PHASE 3 — Prompt Generation
-> [!CAUTION]
-> **NGHIÊM CẤM** để Main Agent tự viết toàn bộ hàng trăm prompts trong một lần (sẽ dẫn đến hiện tượng văn phong lười biếng, "1 màu").
-
-BẮT BUỘC dùng `invoke_subagent` để chia nhỏ việc viết prompt:
-- Chia theo section (Verse/Chorus) thành các lô (mỗi lô 15-20 prompts).
-- Viết **Section Creative Brief** cho từng lô (mục tiêu cảm xúc, năng lượng, ý nghĩa chuyển tiếp) trước khi giao cho Subagent.
-- Giao cho mỗi Subagent: Section Creative Brief, Story Context, Asset Bible, và File Style. Subagent tự sáng tạo prompt — không có bảng điền sẵn.
-- Main Agent đóng vai trò Trưởng nhóm (Orchestrator): thu thập kết quả, chạy Quality Gate kiểm tra trùng lặp, sau đó ghép lại và ghi vào **1 file duy nhất** `projects/video_xxx/docs/04_image_prompts.txt`.
-- Format file cuối cùng: Mỗi prompt trên 1 dòng, cách nhau 1 dòng trống. Không header, không số thứ tự, không metadata.
-- Luôn kết thúc bằng LOCKED COLOR TONE nguyên văn + `16:9` + negative anchor.
-
-Chi tiết đầy đủ: Xem `flow_vn/04b_image_prompt_technique_knowledge.md` và file style đang active.
+  **Nếu không có phong cách nào trong 3 cái trên phù hợp với câu chuyện**, Agent **KHÔNG ĐƯỢC tự ý ép dùng** một phong cách không khớp. Thay vào đó, Agent phải **dừng lại và yêu cầu Boss đi tìm kiếm/nghiên cứu một phong cách hình ảnh mới** phù hợp hơn trước khi tiếp tục Stage 4.
+- **Triết lý Thiết kế 2 Lớp tối cao:**
+  1. *Lớp 1 - Xương sống kịch bản (Story Skeleton):* Nội dung cảnh quay bám sát cấu trúc bài hát và tuyến nhân vật theo concept đã duyệt.
+  2. *Lớp 2 - Lớp áo phong cách (Visual Style Overlay):* Phủ style anchor từ file style đang active lên trên.
+- **Quy trình tạo Prompt tăng dần:** Mỗi lần Boss yêu cầu → tạo **đúng 10 prompt mới** (> 500 ký tự), ghi thẳng vào file `projects/video_xxx/04_image_prompts.txt`. Chỉ dừng khi Boss nói **"stop"**.
+- **Chi tiết đầy đủ:** Xem `flow/04_image_prompt_development_knowledge.md` (kỹ thuật prompt) và file style tương ứng trong `style/` (style anchor, material, color, lighting).
 
 ---
 
 ## 🛠️ 6. QUY TẮC QUẢN LÝ DỰ ÁN & LỆNH ĐIỀU HÀNH
 - **RTK (Rust Token Killer):** Khi chạy các lệnh terminal trên macOS của Boss, luôn sử dụng tool `rtk` (ví dụ: `rtk git status` để tiết kiệm token và đảm bảo hiệu năng).
 - **Hạn chế hỏi thừa:** Chủ động đọc file, phân tích sâu, và đề xuất giải pháp mạnh mẽ nhất kèm lý do ngắn gọn thay vì hỏi Boss chọn lựa mơ hồ.
-
-### 🚫 FILE WRITING RULE — ZERO TOLERANCE
-
-> [!CAUTION]
-> **NGHIÊM CẤM** dùng Python script, Shell heredoc, hoặc bất kỳ script nào để ghi/sửa file trong workspace này.
-
-Agent **BẮT BUỘC** dùng native agent tools:
-
-| Tình huống | Tool phải dùng |
-|---|---|
-| Tạo file mới | `write_to_file` |
-| Sửa 1 đoạn liên tục trong file | `replace_file_content` |
-| Sửa nhiều đoạn không liền nhau trong cùng file | `multi_replace_file_content` |
-| Xoá file / thao tác filesystem | `run_command` với `rm`, `cp`, `mv` — KHÔNG viết content qua đây |
-
-**Lý do:** Python/Shell scripts để ghi file:
-- Dễ crash syntax error khi content có ký tự đặc biệt (`'`, `"`, backtick, `\n`)
-- Không có diff preview — Boss không thấy gì thay đổi
-- Không có undo — nếu sai phải làm lại từ đầu
-- Lãng phí token và thời gian
-
-**Ngoại lệ duy nhất được phép dùng `run_command`:**
-- Archive/copy file: `cp`, `mv`
-- Xóa file: `rm`
-- Đọc cấu trúc thư mục: `ls`, `find`, `wc`
-- Git operations: `git add`, `git commit`, `git push`
-- Chạy dev server hoặc build tool
-
-### 🚫 IMAGE GENERATION RULE — ZERO TOLERANCE
-
-> [!CAUTION]
-> **NGHIÊM CẤM dùng Python script để generate ảnh hàng loạt.**
-
-Khi gen ảnh (Phase 4), Agent **BẮT BUỘC**:
-- Dùng `invoke_subagent` để spawn parallel agents
-- Mỗi subagent gọi image generation tool **trực tiếp từng prompt một**
-- **KHÔNG** bọc calls trong Python wrapper script
-
-**Lý do Python script image gen KHÔNG đảm bảo:**
-- Crash giữa chừng → không biết bao nhiêu ảnh đã xong, bao nhiêu chưa
-- Không có per-prompt retry — 1 lỗi có thể drop cả batch
-- Không có visibility — Boss không thấy progress real-time
-- Khó debug khi fail — phải chạy lại từ đầu toàn bộ batch
 
 ---
 

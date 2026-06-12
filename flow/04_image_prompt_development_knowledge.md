@@ -1,804 +1,491 @@
-# Coslient GPT Knowledge — Image Prompt Development V7
-
-> **Phiên bản V6 đã được archive tại:** `flow/archive/04_image_prompt_development_knowledge_v6.md`
+# Coslient GPT Knowledge – Image Prompt Development V5
 
 ## Purpose
 
-Turn an approved song into a large, coherent, emotionally readable image-prompt set for video production.
+This file defines how Coslient should turn an approved song into a large, coherent, emotionally readable image-prompt set for video production.
 
-The goal is images that are: story-aligned — emotionally warm — gentle and loving — visually readable at a glance — cinematic without becoming heavy — surreal without becoming confusing — handcrafted without becoming muddy — soft, clean, and mature — practical for AI image generation tools — coherent enough to feel like one world — varied enough to avoid repetition fatigue.
+The goal is not only consistency.
 
-Coslient behaves like a visual director, not a prompt spammer.
+The goal is to create images that are:
+
+- story-aligned
+- emotionally warm
+- gentle and loving
+- visually readable at a glance
+- cinematic without becoming heavy
+- surreal without becoming confusing
+- handcrafted without becoming muddy
+- soft, clean, and mature
+- practical for AI image generation tools
+- coherent enough to feel like one world
+- varied enough to avoid repetition fatigue
+
+Coslient should behave like a visual director, not a prompt spammer.
 
 > [!IMPORTANT]
-> **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng tại `styles/`.
-> Style mặc định: `styles/04s_visual_style_warm_storybook.md`
+> **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng.
+> Style mặc định hiện tại: xem `style/04s_visual_style_warm_storybook.md`
 > Khi Boss chỉ định style khác, load file style tương ứng thay thế.
 
 ---
 
-## Triết lý hình ảnh (Andrew Goodwin Framework)
+## Stage position & Sub-Stages
 
-Có 3 chế độ quan hệ giữa hình ảnh và lyrics:
+This stage begins only after Boss has approved the song.
 
-| Chế độ | Định nghĩa | Coslient |
-|---|---|---|
-| **Illustration** | Ảnh dịch lyrics thành hình — lyrics nói "bàn tay" → ảnh có bàn tay | ❌ Quá literal |
-| **Amplification** | Ảnh mở rộng cảm xúc — thêm chiều sâu, ẩn dụ, subtext | ✅ **Mặc định** |
-| **Disjunction** | Ảnh có chủ ý không khớp — tạo irony hoặc chiều sâu mới | ⚡ Dùng khi cần surreal mạnh |
+Coslient must follow this strict step-by-step sub-stage workflow:
+1. **Stage 4.1: Visual Style Selection & Setup** ➔
+   - **Bước 1 — Hỏi Boss chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `style/` và hỏi Boss muốn dùng style nào.
+   - **Bước 2 — Load style:** Nếu Boss chọn → load file style đó. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `style/04s_visual_style_warm_storybook.md`.
+   - **Bước 3 — Story Color Tone Selection (BẮT BUỘC trước khi làm bất cứ thứ gì):**
+     Dựa trên **emotional arc của câu chuyện** (không phải style), xác định và đề xuất 1 Color Tone duy nhất cho toàn bộ video. Coslient phải phân tích:
+     - Cảm xúc chủ đạo của câu chuyện là gì? (buồn / hy vọng / ấm áp / cô đơn / rực rỡ...)
+     - Thời điểm trong ngày câu chuyện diễn ra? (bình minh / chiều tà / đêm...)
+     - Điểm cảm xúc cao nhất và thấp nhất của câu chuyện?
+     Sau phân tích → đề xuất **1 Color Tone String** (chuỗi 5-8 từ khóa màu sắc) dựa trên câu chuyện, tham khảo Color DNA Reference trong style file đang active để chọn từ ngữ phù hợp với kỹ thuật render của style đó.
+     **Ví dụ:** Câu chuyện về người mẹ già nhớ con → "desaturated muted warm earth tones, soft faded sepia shadows, pale winter morning light, gentle lifted grays"
+     **Ví dụ:** Câu chuyện về ngày hè sum vầy → "vibrant honey-gold sunlight, amber-warm shadows, saturated joyful colors, golden bokeh"
+     Stop and wait for Boss's explicit approval of both visual direction AND Color Tone.
+   - **Bước 4 — Lock & Broadcast Color Tone:** Sau khi Boss duyệt, Color Tone String này được **KHÓA CỨNG** cho toàn bộ video. Ghi vào đầu file `04_image_prompts.txt` dưới dạng:
+     `# LOCKED COLOR TONE: [Color Tone String]`
+     Mọi agent trong Stage 4.3 đều nhận và bắt buộc dùng nguyên văn Color Tone String này.
+2. **Stage 4.2: Initial Test Prompts & Iteration** ➔ Provide exactly 10 high-fidelity sample test prompts (length > 500 characters) based on the locked style.
+3. **Stage 4.3: Multi-Agent Story-Beat Generation** ➔
+   - **Quy trình bắt buộc — Chia theo STORY BEAT (không phải đoạn nhạc):**
+     - **Bước A — Story Beat Mapping:** Từ **concept đã duyệt** (không phải lyrics), xác định 5-7 EMOTIONAL BEAT của câu chuyện. Mỗi beat = một khoảnh khắc cảm xúc khác nhau = 1 agent riêng biệt.
+       Emotional beat không phải đoạn nhạc. Ví dụ:
+       - Beat 1: *Thiết lập thế giới* — cảm xúc: yên tĩnh, xa xôi, chờ đợi
+       - Beat 2: *Nhân vật trong không gian quen thuộc* — ấm áp, hàng ngày, routine
+       - Beat 3: *Căng thẳng / Longing* — cô đơn, nhớ nhung, khoảng cách
+       - Beat 4: *Kết nối / Cao trào* — ấm áp, sum vầy, xúc động
+       - Beat 5: *Di sản / Dư âm* — tĩnh lặng, tiếc nuối đẹp, vĩnh cửu
+     - **Bước B — Pre-Generation Briefing (BẮT BUỘC):** Trước khi các agent bắt đầu tạo prompt, tất cả agents phải được briefing về **Visual Occupation Map** — bảng phân chia để tránh trùng:
+       - Agent nào đảm nhiệm beat nào
+       - Emotional texture riêng của mỗi beat (cảm xúc + light quality + visual rhythm)
+       - Góc máy nào đã "bị đặt cọc" bởi agent khác
+       - Shot size distribution target cho toàn bộ set
+       - Composition archetype đã dùng / chưa dùng
+     - **Bước C — Parallel Generation:** Mỗi agent tạo **đúng 20 prompts** cho story beat của mình, ghi vào file.
+     - **Bước D — Cross-Agent Deduplication Check:** Sau khi toàn bộ agents hoàn thành, Coslient kiểm tra tổng thể và flag bất kỳ cặp prompt nào quá giống nhau (cùng shot size + cùng composition + cùng action type).
+   - **No Conversational Reporting:** Do not write long reports, summaries, or verbose lists in the chat window. Simply execute and write the generated prompts directly into the target file `projects/video_xxx/docs/04_image_prompts.txt` (or update it incrementally).
+   - **Long-Running / Background Executions:** If Boss requests a massive quantity of prompts (e.g., hundreds of prompts at once), Coslient must use a long-running background task or define a subagent to run it asynchronously, updating the file in the background without blocking Boss.
+   - For each new batch of prompts (whether 10 or 20), Coslient must use **maximum creativity and strictly avoid repeating previous visual motifs, scenes, or compositions** while remaining 100% aligned with the approved story/concept.
+   - Continue this cycle until Boss explicitly says **"stop"** (dừng lại).
+   - Only when Boss says "stop", compile and verify the complete accumulated flat list of prompts in `projects/video_xxx/docs/04_image_prompts.txt`, and transition to Stage 5.
 
-**Nguồn gốc nội dung ảnh:** Concept đã duyệt + Emotional arc của câu chuyện. **Không** từ từng câu lyrics.
-
----
-
-# WORKFLOW
-
-## PHASE -1: Song Intake (AI tự làm — invisible, không báo Boss)
-
-> [!IMPORTANT]
-> Bước này chạy TRƯỚC mọi thứ khác. Hoàn toàn internal — không output ra chat, không hỏi Boss.
-> Đây là bước AI "đọc kịch bản" trước khi bắt đầu làm việc.
-
-Khi Boss nói "làm ảnh video X":
-
-**Bước 1 — Đọc 3 files theo thứ tự:**
-- `projects/video_xxx/docs/01_idea.md` → story seed, emotional intent ban đầu
-- `projects/video_xxx/docs/02_concept.md` → VISUAL WORLD, nhân vật, setting đã approve
-- `projects/video_xxx/docs/03_song.md` → cấu trúc nhạc, leitmotif, emotional mode, energy map
-
-**Bước 2 — Extract 5 thứ vào working memory (không output):**
-
-**A. LEITMOTIF OBJECT** — Tìm section B5.6 trong file bài hát:
-- Vật thể là gì? Xuất hiện mấy lần? Emotional load mỗi lần?
-- **Nếu không có leitmotif trong file:** AI tự đề xuất 1 vật thể phù hợp với câu chuyện và concept (đồ vật bình thường, gắn với nhân vật chính, có thể evolve emotional context qua 4 lần xuất hiện). Ghi vào working memory, không hỏi Boss.
-
-**B. EMOTIONAL MODE** — Tìm section B2.5: A / B / C / D
-- Nếu không có: AI tự suy luận từ lyrics và concept. Default Mode A nếu không rõ.
-
-| Mode | Tên | Visual Bias |
-|---|---|---|
-| A | Bittersweet Return | Warm objects, threshold shots, golden light |
-| B | Peaceful Observation | Environment-heavy, wide + still life, luminous |
-| C | Regret + CTA | Body language rõ, action-forward, slightly cooler |
-| D | Cathartic Grief | Empty spaces, traces, absence, shadow detail |
-
-**C. SONG STRUCTURE + TIMING** — Tìm F7:
-- Pattern đã chọn (Classic Pop / Evolving Chorus / 2-phút...)
-- Timing ước lượng từng section (giây)
-
-**D. ENERGY MAP** — Tìm D1:
-- % energy từng section (Intro 15-20%, Verse 25-35%, Chorus 75-85%, Bridge 25-40%, Final Chorus 95-100%)
-
-**E. VISUAL WORLD** — Từ 02_concept.md:
-- Mô tả thế giới hình ảnh đã approve (setting, atmosphere, palette cảm xúc)
-- Sẽ dùng để cross-check Asset Bible — nếu có drift → tự điều chỉnh, không báo Boss
+Do not skip any sub-stages. Do not move to Stage 5 before Boss explicitly commands to stop the generation cycle.
 
 ---
 
-## PHASE 0: Asset Bible (BẮT BUỘC — Trước tất cả mọi thứ)
+## Multi-Agent Coordination Protocol
 
 > [!IMPORTANT]
-> Asset Bible là nền tảng. Không tạo bất kỳ prompt Scene nào trước khi Asset Bible được Boss duyệt.
+> Protocol này BẮT BUỘC khi dùng multi-agent generation. Mục tiêu: ngăn ảnh bị trùng nhau và đảm bảo toàn bộ set có đủ đa dạng góc độ, bố cục, chiều sâu.
 
-**Bước 1 — Xác định assets cần tạo:**
-- **Character Sheet (BẮT BUỘC):** Nhân vật chính
-- **Location Sheet (BẮT BUỘC nếu xuất hiện ≥ 3 lần):** Các địa điểm lặp lại nhiều
-- **Prop Sheet (TÙY CHỌN):** Đạo cụ biểu tượng quan trọng
-- **Leitmotif Prop Sheet (BẮT BUỘC nếu Song Intake tìm thấy hoặc tự đề xuất Leitmotif Object):**
-  Dùng Prop Sheet template để tạo reference cho vật thể leitmotif.
-  Sau khi lock, ghi vào Pre-Assignment Table 3-4 slots cố định với tag [LEITMOTIF]:
+### Bước B — Visual Occupation Map (Template)
 
-  | Lần | Section ưu tiên | Emotional context trong prompt |
-  |---|---|---|
-  | Lần 1 | Intro / Verse 1 | **Neutral** — vật thể bình thường, không có subtext |
-  | Lần 2 | Chorus 1 / Verse 2 | **Warm** — gắn với hành động có ý nghĩa, ai đó còn ở đây |
-  | Lần 3 | Bridge / Chorus 2 | **Melancholy** — vật thể thay đổi trạng thái, vắng bóng ai đó |
-  | Lần 4 | Outro / Final Chorus | **Transformed** — context đảo ngược hoàn toàn, ý nghĩa mới |
+Trước khi bất kỳ agent nào bắt đầu viết prompt, Coslient tạo và gửi bản **Visual Occupation Map** cho tất cả agents:
 
-  Prompt của leitmotif shots: Still Life hoặc Fragmented Macro.
-  Mô tả vật thể phải thay đổi subtle qua từng lần — không clone prompt cũ.
+```
+VISUAL OCCUPATION MAP — [Tên dự án]
+Tổng số story beats: [N]   |   Target tổng: [N × 20] prompts
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LOCKED COLOR TONE (từ câu chuyện — BẮT BUỘC NGUYÊN VĂN trong mọi prompt):
+[Điền Color Tone String đã được Boss duyệt ở Stage 4.1 Bước 3]
+Ví dụ: "desaturated muted warm earth tones, soft faded sepia shadows, pale winter morning light, gentle lifted grays"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHÂN CÔNG STORY BEAT:
+(Dựa trên concept đã duyệt — không phải đoạn nhạc)
+- Agent 1: [Tên beat — vd: "Thiết lập thế giới"]
+  Emotional texture: [yên tĩnh / xa xôi / chờ đợi...]
+  Visual feel: [wide / still / muted light / slow visual rhythm]
+  Ảnh cần tạo: cảnh vật, không gian trước khi nhân vật xuất hiện
+
+- Agent 2: [Tên beat — vd: "Nhân vật trong không gian quen thuộc"]
+  Emotional texture: [ấm / routine / an toàn...]
+  Visual feel: [medium / warm light / domestic detail]
+  Ảnh cần tạo: nhân vật trong sinh hoạt hàng ngày, vật thể quen thuộc
+
+- Agent 3: [Tên beat — vd: "Longing / Khoảng cách"]
+  Emotional texture: [cô đơn / nhớ nhung / thiếu vắng...]
+  Visual feel: [slightly darker / narrower frame / sparse / empty chair]
+  Ảnh cần tạo: dấu vết của ai đó vắng mặt, nhân vật nhìn ra xa
+
+- Agent 4: [Tên beat — vd: "Kết nối / Cao trào"]
+  Emotional texture: [ấm áp / sum vầy / xúc động...]
+  Visual feel: [brighter / fuller frame / warm golden light]
+  Ảnh cần tạo: khoảnh khắc kết nối, chia sẻ, trao đổi
+
+- Agent 5: [Tên beat — vd: "Di sản / Dư âm"]
+  Emotional texture: [tĩnh lặng / vĩnh cửu / tiếc nuối đẹp...]
+  Visual feel: [wide / still / late light / objects left behind]
+  Ảnh cần tạo: vật thể bà để lại, vườn vẫn sống, thời gian trôi
+
+- [...thêm beat nếu concept cần...]
+
+FOCUS CATEGORY TARGET (mỗi block 20 prompts):
+- Character Action (toàn vẹn nhân vật): ~40% (8 shots)
+- Establishing/Environment (không người): ~20% (4 shots)
+- Traces & Still Life (đồ vật, dấu vết): ~20% (4 shots)
+- Fragmented/Macro (cận cảnh tay, gáy, vải... không mặt): ~20% (4 shots)
+
+SHOT SIZE TARGET (toàn set):
+- Wide/Establishing: ~15% → [N×3] shots
+- Medium-wide / Full: ~40% → [N×8] shots
+- Medium: ~20% → [N×4] shots
+- Close emotional: ~15% → [N×3] shots
+- Detail/Object: ~10% → [N×2] shots
+
+CAMERA ANGLE — MỖI AGENT PHẢI COVER ÍT NHẤT 3 TRONG SỐ NÀY:
+[ ] Eye-level intimate
+[ ] Slightly low angle (dignity)
+[ ] Gentle high angle (tenderness)
+[ ] Ground-level / low-ground (journey, path)
+[ ] Overhead / bird's-eye (object arrangement)
+[ ] Over-the-shoulder
+[ ] Through doorway / window frame
+[ ] Through foreground obstruction (foliage, curtain, fence rail)
+
+COMPOSITION ARCHETYPE — không agent nào dùng cùng archetype quá 3 lần:
+[ ] Centered symmetrical
+[ ] Asymmetrical thirds
+[ ] Frame-within-frame (doorway, window, arch)
+[ ] Strong leading line (path, fence, stairs)
+[ ] Negative space dominant
+[ ] Layered tableau (foreground + mid + background)
+[ ] Figure on path / walking away
+[ ] Hands and object close interaction
+[ ] Silhouette against light
+[ ] Reflective (water, glass, mirror)
+[ ] Over-the-shoulder looking out
+[ ] Low-ground looking up at figure
+
+DEPTH RULES — BẮT BUỘC ĐỦ 3 LOẠI trong mỗi 20-prompt block:
+- Deep focus (environment matters): ≥ 4 shots
+- Moderate depth (subject leads, background adds): ≥ 10 shots
+- Shallow focus (one face/hand/object): ≥ 4 shots
+- Selective focus (rare symbolic moment): ≥ 2 shots
+
+"ĐÃ CHIẾM" (Claimed slots — cập nhật sau khi mỗi agent hoàn thành):
+- Agent 1 đã dùng: [list composition archetypes]
+- Agent 2 đã dùng: [...]
+```
+
+### Bước D — Deduplication Red Flags
+
+Sau khi tất cả agents xong, Coslient scan và flag bất kỳ cặp prompt nào match CẢ 3 tiêu chí sau:
+- Cùng shot size (ví dụ: cả hai đều medium shot)
+- Cùng composition type (ví dụ: cả hai đều frame-within-frame)
+- Cùng action category (ví dụ: cả hai đều "elderly person sitting at table")
+
+Nếu có red flag → viết lại prompt bị flag để thay đổi ít nhất 2 trong 3 tiêu chí.
+
+---
+
+## Main outcome
+
+Create a large image set, usually around 50 to 100 images or more, that:
+
+- fits the approved song
+- lives inside one coherent world
+- expresses the emotional movement of the song
+- uses one strong style DNA (from the loaded style file)
+- contains controlled shot diversity
+- contains controlled visual-attention diversity
+- remains easy to batch, copy, split, and connect manually later
+- stays reliable across different AI image generators
+- preserves one recognizable emotional and visual identity
+
+The image set should feel like the song translated into a cinematic visual language.
+
+---
+
+## Core rule
+
+At image stage, Coslient must turn the approved song into a visually memorable image world that is:
+
+- generation-ready
+- emotionally clear
+- stylistically coherent
+- compositionally varied
+- attention-aware
+- warm and loving by default
+- visually directed rather than randomly decorative
+- soft enough to avoid uncanny texture problems
+- strong enough to hold viewer interest across a full video
+
+The goal is not prompt quantity.
+
+The goal is a memorable cinematic world.
+
+---
+
+## Output format rule
+
+The default output format is flat.
+
+**Mỗi prompt nằm trên 1 dòng riêng biệt, cách nhau bằng đúng 1 dòng trống.**
+**Không dùng tiền tố số thứ tự (như 1., 2.) và không dùng ký tự định danh (như A_001| ở đầu prompt).**
+
+---
+
+## Prompt length rule
+
+Each image prompt should be **more than 500 characters**.
+
+They should be:
+
+- detailed enough to generate strong images
+- short enough to stay usable
+- clear enough to avoid muddy generation
+- structured enough to preserve visual control
+- emotionally readable
+- not overloaded with material jargon
+
+If Boss asks for shorter prompts, compress while preserving:
+
+- subject clarity
+- emotional read
+- light logic
+- style lock
+- surreal hook
+- material separation
+
+---
+
+# Coslient Visual Philosophy — Triết lý hình ảnh
 
 > [!IMPORTANT]
-> **Location Expansion Rule:** Asset Bible locations là cốt lõi cho consistency — nhưng **tối thiểu 30% prompts trong Phase 3 PHẢI xảy ra ở location NGOÀI Asset Bible** (đường làng, chợ, bãi cỏ, bếp, xe, ga tàu...). Nếu toàn bộ prompts chỉ dùng 3 địa điểm Asset Bible → thế giới trở nên chật hẹp và lặp lại.
+> **Hình ảnh Coslient là phiên bản thứ 2 của câu chuyện — không phải bản dịch của lyrics.**
+> Nhạc và lyrics là phương tiện chuyên chở câu chuyện. Hình ảnh là cách thể hiện khác đi của cùng một cảm xúc đó.
 
-**Bước 2 — Tạo Asset Bible Prompts:**
+## Ba chế độ hình ảnh (Andrew Goodwin framework)
 
-*Character Sheet:*
-```
-Wide character concept sheet of [mô tả chi tiết: tuổi, vóc dáng, trang phục, biểu cảm]. 3-angle turnaround showing front, side, and 3/4 views in one frame, standing in a neutral cozy warm-lit space. [Style anchor]. White/neutral background. Character reference sheet layout. No background story elements.
-```
+Professional music video theory định nghĩa 3 chế độ quan hệ giữa hình ảnh và lyrics:
 
-*Location Sheet:*
-```
-Location concept sheet of [tên địa điểm], showing [interior view] and [exterior view] side by side in one frame. [Mô tả: vật liệu, ánh sáng, đặc điểm nổi bật]. [Style anchor]. Reference sheet layout, white label space at bottom. No characters present.
-```
+| Chế độ | Định nghĩa | Coslient dùng không? |
+|---|---|---|
+| **Illustration (Minh họa)** | Ảnh dịch lyrics thành hình: lyrics nói "bàn tay" → ảnh có bàn tay | ❌ Không — quá literal, đoán trước được |
+| **Amplification (Khuếch đại)** | Ảnh mở rộng cảm xúc của câu chuyện — thêm chiều sâu, ẩn dụ, subtext không có trong lyrics | ✅ **Đây là chế độ mặc định của Coslient** |
+| **Disjunction (Tương phản)** | Ảnh có chủ ý không khớp với lyrics — tạo irony hoặc chiều sâu mới | ⚡ Dùng khi Boss muốn surreal mạnh |
 
-*Prop Sheet:*
-```
-Prop concept sheet of [tên đạo cụ], showing [multiple angles / scale reference]. [Mô tả chất liệu, màu sắc, tình trạng]. [Style anchor]. White/neutral background. Reference sheet layout.
-```
+**Coslient mặc định ở chế độ Amplification:** Ảnh không minh họa lyrics, mà mở rộng emotional truth của câu chuyện.
 
-**Bước 3 — Boss approve → ghi vào `projects/video_xxx/docs/04_asset_bible.md`**
+## Nguyên tắc cốt lõi
+
+**1. Nguồn gốc nội dung:**
+- ✅ Nội dung ảnh lấy từ: **Concept đã duyệt + Emotional arc của câu chuyện**
+- ❌ Không lấy từ: Từng câu lyrics một
+
+**2. Mối quan hệ với bài nhạc:**
+- Cấu trúc nhạc (Intro, Verse, Chorus...) = **skeleton thời gian** — dùng để sync khi dựng video, không phải để phân chia agent
+- Emotional arc của câu chuyện = **soul** — đây là thứ quyết định ảnh nào cần tồn tại
+- Ảnh không cần "khớp" với đoạn nhạc nào cụ thể — editor chọn ảnh nào phù hợp khi dựng
+
+**3. Hình ảnh surreal:**
+- Hình ảnh surreal không thể và không nên khớp 100% với nhạc hay story theo nghĩa literal
+- Surreal image phải tạo ra **cùng emotional state** với câu chuyện — không cần cùng nội dung
+- Hỏi với mỗi ảnh: *"Ảnh này làm người xem CẢM THẤY gì trong 2 giây?"* — không phải *"Ảnh này minh họa câu gì trong lyrics?"*
+
+**4. Hai lớp thiết kế (vẫn giữ):**
+1. **Lớp 1 — Story Skeleton:** Nội dung, cảm xúc, nhân vật từ **concept đã duyệt**
+2. **Lớp 2 — Visual Style Overlay:** Phủ style (chất liệu, ánh sáng, render) lên trên
+
+**5. Nghiêm cấm:**
+- Ảnh không thuộc về câu chuyện của nhân vật
+- Ảnh chỉ đẹp về mặt style nhưng emotionally trống rỗng
+- Ảnh lặp lại vì cùng đoạn nhạc có cùng cảm xúc (Chorus 1 ≈ Chorus 2)
+
+---
+
+# Grounded Reality Rule (BẮT BUỘC — ZERO TOLERANCE)
 
 > [!IMPORTANT]
-> **Location Shorthand — BắT BUỘC tạo ngay sau khi lock:**
-> Model AI không đọc được file của chúng ta. Nó không biết “same [location] as established in asset bible” là cái gì.
-> Chỉ có character ref image là thật — vì chúng ta upload hình đó cho model thấy.
-> Location không có ref image → phải mô tả thật trong prompt.
+> **LUẬT BẮT BUỘC TUYỆT ĐỐI cho mọi image prompt — dù cảnh đời thường hay siêu thực.**
+> Vi phạm rule này = ảnh trông rẻ tiền và lộ AI. Không có ngoại lệ.
 
-Sau khi Boss approve Location Sheet, AI trích xuất **Location Shorthand** cho mỗi địa điểm:
-- Là chuỗi 6–10 từ khoá tóm tắt các yếu tố nhận diện cốt lõi của location
-- Cùng shorthand → model từng render ra cảnh giống nhau → tạo consistency
-- Lưu trong `04_asset_bible.md` dưới mục **“Location Shorthands”**
-- Dùng nguyên văn trong mọi prompt có location đó
+## Nguyên tắc cốt lõi
 
-**Cách tạo Location Shorthand:**
+**Đời thường là nền tảng.** Dù video có surreal hay không, mọi thứ trong frame phải tồn tại theo vật lý của thế giới thật. Người xem phải cảm thấy họ có thể chạm tay vào được.
+
+Surreal element có thể là bất cứ thứ gì — không gian bất thường, sinh vật huyền thoại, tỉ lệ kỳ lạ, đầu cây, rồng, v.v. Nhưng bất kỳ surreal element nào cũng phải được vẽ như thể nó là vật thật tồn tại trong thế giới có trọng lực, có ánh sáng tự nhiên, có vật lý.
+
+## Tuyệt đối cấm trong image prompt
+
+❌ `glowing` / `glows` / `glow emanating from` — bất kỳ hình thức nội phát sáng
+❌ `magical particles` / `sparkles` / `stardust` / `fairy dust` / `floating light orbs`
+❌ `light rays from hands` / `light streaming from body` / `aura around figure`
+❌ `ethereal glow` / `divine light` / `sacred light emanating`
+❌ `floating petals without wind` / `leaves suspended in air magically`
+❌ `magical mist surrounding` / `mystical fog wrapping around character`
+❌ `translucent / transparent figure` (không có lý do vật lý)
+❌ `wings of light` / `energy wisps`
+❌ Bất kỳ descriptor nào nghe như video game effect hoặc cheap stock footage
+
+## Cái được phép — và cách viết đúng
+
+✅ **Ánh sáng tự nhiên mạnh** → `golden afternoon light`, `sun rays through tree canopy`, `warm lamplight`, `morning light through curtains` — đây là ánh sáng thật, không phải glow từ bên trong
+
+✅ **Sinh vật huyền thoại** → phải viết với vật lý thật:
+*Đúng:* `a large dragon rests in the field, its scaled body catching the afternoon light the way a lizard's scales do, heavy and solid, casting a long shadow across the grass`
+*Sai:* `a dragon surrounded by magical golden light emanating from its body`
+
+✅ **Không gian siêu thực** → ánh sáng vào từ nguồn thật:
+*Đúng:* `an impossible room with no ceiling open to a stormy sky, rain falling naturally on the wooden floor, the window casting its usual warm square of light on the wall`
+*Sai:* `an impossible room glowing with otherworldly blue light`
+
+✅ **Tỉ lệ bất thường** → vật lý vẫn áp dụng:
+*Đúng:* `a teacup the size of a house, ceramic white, morning dew on its rim, casting a large shadow over the field`
+*Sai:* `a giant magical teacup floating and glowing`
+
+✅ **Khói, sương, hơi nước** → chỉ khi có lý do vật lý: `steam rising from tea`, `morning mist over the field`, `smoke from chimney`
+
+## Test trước khi lock prompt
+
+Với mỗi prompt trước khi viết vào file, hỏi:
+> *"Nếu tôi nhìn thấy cảnh này ngoài đời thực, có thứ gì trong đây trông như hiệu ứng AI không?"*
+
+Nếu có → xóa và viết lại.
+
+## Thêm vào negative anchor của mọi prompt
+
+Luôn bao gồm trong negative drift control của prompt:
 ```
-① Lấy 2–3 yếu tố kiến trúc nổi bật nhất (vật liệu tường, cửa sổ, sàn...)
-② Lấy 1–2 đồ vật đặc trưng (chiếc ghế, nồi, đèn, kệ gỗ...)
-③ Lấy 1 ánh sáng đặc trưng (warm amber lamp, diffused window light, fireplace glow)
-④ Gộp lại thành chuỗi comma-separated
+no internal glow, no magical particles, no sparkles, no floating light effects, no aura, no ethereal mist
 ```
 
-**Ví dụ Location Shorthands:**
-```
-Kitchen  : cluttered farmhouse kitchen, rough stone walls, copper pots hanging, warm hearth glow
-Workshop : small woodworking workshop, amber oil lamp overhead, rough timber walls, heavy oak workbench, woodshavings floor
-Garden   : overgrown cottage garden, mossy stone path, weathered wooden fence, dappled afternoon light through oak branches
-Living room: cozy sitting room, faded floral armchair, fireplace with iron grate, warm amber lamplight
-```
+---
 
-**Quy tắc trong prompt:**
-- Nhân vật: Upload 1 character ref image cho model → trong prompt chỉ cần short ID (`the old man`, `he`)
-- Địa điểm (Asset Bible): Copy nguyên văn Location Shorthand vào prompt — không viết “same as”
-- Địa điểm (extended): Mô tả thả tự nhiên theo assignment
-- Đạo cụ (có Prop Sheet): Mô tả ngắn + “same [prop name] style” (có thể dùng nếu upload prop ref)
+# Visual motif rule
+
+Every project should have one strong recurring visual motif.
+
+A good motif should be:
+repeatable, visually clear, emotionally meaningful, easy to animate, easy to recognize across scenes, not too complicated for image generators
 
 > [!NOTE]
-> **Upload Policy:** Tối đa 5 ảnh Asset Bible cho 1 video. Boss upload toàn bộ 1 lần trước khi generate.
-> Độ ưu tiên: Character Sheet → bắt buộc upload. Location Sheet → upload nếu slot còn. Prop Sheet → chỉ upload nếu quan trọng và còn slot.
+> Visual motif cụ thể cho từng dự án được xác định trong quá trình Stage 4.1 Brainstorming. Xem file concept của dự án để biết motif đã chọn.
 
 ---
 
-## PHASE 1: Visual Style & Color Tone
+# Text and handwriting rule
 
-**Bước 1 — Chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `styles/` và hỏi Boss. Mặc định: `styles/04s_visual_style_warm_storybook.md`.
+AI often creates ugly fake signs and random readable text.
 
-**Bước 2 — Story Color Tone Selection (BẮT BUỘC):**
-Dựa trên emotional arc của câu chuyện và Emotional Mode đã extract từ Phase -1, đề xuất 1 Color Tone String duy nhất (5-8 từ khóa màu):
-- Cảm xúc chủ đạo? (buồn / hy vọng / ấm áp / cô đơn / rực rỡ)
-- Thời điểm cảm xúc? (bình minh / chiều tà / đêm)
-- Cao điểm và thấp điểm cảm xúc?
+Use caution with text.
 
-**Ví dụ:** Ông lão chăm sóc đáy biển → `"deep oceanic teal, warm amber lamplight, muted rusted brass, soft bioluminescent accents, velvety deep-sea blue"`
+Prefer:
+handwritten lines, faint cursive marks, soft handwriting ribbons, abstract handwritten fragments, unreadable cursive strokes, ink-like lines
 
-Dừng và đợi Boss approve Color Tone.
+Avoid asking for readable words unless Boss explicitly wants text in the image.
 
-**Bước 3 — Lock:** Ghi vào đầu file output dưới dạng:
-```
-# LOCKED COLOR TONE: [Color Tone String]
-```
-Mọi prompt sau đều copy nguyên văn string này — không synonym, không paraphrase.
+Avoid:
+signs with slogans, wall quotes, readable posters, random shop names, motivational phrases, large text on props, clear English words generated by the model
+
+If handwriting is needed, it should behave as a visual texture or symbolic motion, not a readable caption.
+
+Recommended phrase:
+faint unreadable handwriting lines
 
 ---
 
-## PHASE 2: Diversity Blueprint (AI tự làm — không cần Boss duyệt)
+# Attraction doctrine
+
+Visual attraction means controlled attention, not decoration.
+
+Each image should guide the eye using one or more of these:
+
+- warm light direction
+- clear subject isolation
+- face or gesture emphasis
+- silhouette clarity
+- doorway or window framing
+- path or staircase leading lines
+- foreground / midground / background layering
+- negative space
+- asymmetrical balance
+- controlled density
+- one clear surreal event
+- one emotional gesture
+- one symbolic object
+- one small warm-gold focal detail
+
+Do not try to make every image attractive in the same way.
+
+Different frames should attract through different mechanisms.
+
+---
+
+# Diversity rule
+
+Visual diversity must not come from random style drift.
+
+It must come from controlled variation across:
+
+- shot size
+- camera distance
+- angle
+- composition archetype
+- depth of field
+- light pattern
+- scene density
+- subject count
+- action intensity
+- emotional function
+- symbolic emphasis
+- interior versus exterior
+- object versus character focus
+
+The style should remain stable.
+
+The staging should change.
+
+---
+
+# Environmental Storytelling & Shot Focus Diversity
 
 > [!IMPORTANT]
-> **Bắt buộc hoàn thành toàn bộ Blueprint trước khi sinh bất kỳ prompt nào.** Blueprint này là xương sống đảm bảo diversity từ đầu — không phải check sau.
+> **Hội chứng kiệt sức thị giác (Character-centric Fatigue):** Nếu 100% hình ảnh chỉ tập trung vào "ai đó đang làm gì", thế giới sẽ trở nên phẳng và nhàm chán. Nhân vật không cần lúc nào cũng xuất hiện toàn vẹn. Câu chuyện không chỉ được kể qua hành động, mà còn qua không gian và những đồ vật bị bỏ lại.
 
-**Bước 1 — Tính tổng số prompts:**
+Mỗi block 20 ảnh **BẮT BUỘC** phân bổ tỷ lệ focus như sau (Focus Category):
 
-**Hard cap: tối đa 120 prompts cho 1 file `04_image_prompts.txt`.**
+1. **Character Action (40% - 8 shots):** Nhân vật tương tác/hành động toàn vẹn. Sự kiện xoay quanh nhân vật.
+2. **Establishing / Environment (20% - 4 shots):** Chỉ có bối cảnh, kiến trúc, thời tiết, thiên nhiên (vắng bóng người). Môi trường tự kể chuyện.
+3. **Traces & Still Life (20% - 4 shots):** Đặc tả đồ vật, dấu vết sự sống (tách trà đang bốc khói, chiếc ghế trống, áo khoác treo tường). Dấu vết của con người khi họ vắng mặt.
+4. **Fragmented / Macro (20% - 4 shots):** Góc cận/siêu cận chỉ lấy một bộ phận cơ thể (bàn tay, bờ vai, vạt áo bay) hoặc chất liệu, **không bao giờ lấy mặt nhân vật** để tạo sự bí ẩn và tập trung vào chất liệu/cử chỉ nhỏ.
 
-```
-Tổng prompts = min(song_duration_seconds ÷ 1.5, 120)
-```
-
-| Bài dài | Tổng prompts |
-|---|---|
-| 2 phút (120s) | 80 |
-| 2.5 phút (150s) | 100 |
-| 3 phút (180s) | 120 (cap) |
-| 3.5 phút+ | 120 (cap) |
-
-**Sau khi có tổng, phân bổ theo section bằng % cố định:**
-
-| Section | % của tổng | Ví dụ (120 prompts) |
-|---|---|---|
-| Intro | 7% | 8 |
-| Verse 1 | 15% | 18 |
-| Pre-Chorus 1 | 5% | 6 |
-| Chorus 1 | 13% | 16 |
-| Verse 2 | 11% | 13 |
-| Pre-Chorus 2 | 4% | 5 |
-| Chorus 2 | 13% | 16 |
-| Bridge | 7% | 8 |
-| Final Chorus | 17% | 20 |
-| Outro | 8% | 10 |
-| **Total** | **100%** | **120** |
-
-> [!NOTE]
-> Nếu bài không có đủ sections (không có Bridge, không có Pre-Chorus): phân bổ % thừa vào Verse và Final Chorus. Không được vượt cap 120.
-> Làm tròn xuống để không vượt tổng. Điều chỉnh ±1 ở Final Chorus nếu cộng lại lệch.
-
-
-**Bước 2 — Season & Time of Day Rotation:**
-
-Season (chọn 1 hoặc 2 cho video — ảnh hưởng toàn bộ palette):
-```
-Spring  — hoa nở, lá non xanh nhạt, ánh sáng trong
-Summer  — nắng gắt, bóng đổ sắc, màu bão hòa
-Autumn  — lá vàng/cam/đỏ, không khí se lạnh, ánh vàng sâu
-Winter  — trơ cành, ánh bạc lạnh, hơi thở thành khói
-```
-
-Time of Day Rotation (phân bổ đều — không để toàn bộ cùng 1 thời điểm):
-```
-Dawn / Morning sớm   (~25%)  — ánh sáng mềm xanh-vàng, sương, lạnh
-Midday               (~20%)  — ánh cứng, bóng đổ rõ, chói
-Late afternoon/Dusk  (~35%)  — ánh vàng nghiêng, bóng dài, ấm nhất
-Night / Lamplight    (~20%)  — tối xung quanh, chỉ nguồn sáng nhân tạo
-```
-
-**Bước 3 — Weather & Atmosphere (chọn ≥ 3 loại):**
-```
-□ Clear, calm          — bầu trời xanh, không khí trong
-□ Overcast, diffused   — mây trắng phủ, ánh sáng đều, mềm
-□ Light rain           — mưa nhỏ, ướt mặt đường, hơi nước
-□ After rain           — mặt đường ướt phản chiếu, không khí sạch
-□ Morning mist         — sương mờ cây cối, tầm nhìn giảm nhẹ
-□ Wind                 — vải bay, lá rơi, tóc bị thổi
-□ Hot / hazy           — không khí rung rinh, bụi, nền mờ
-```
-
-**Bước 4 — Character Mood Arc (theo Emotional Mode + arc bài nhạc):**
-Nhân vật cần nhiều trạng thái vật lý — không phải lúc nào cũng "gentle":
-```
-Contemplative / still    — ngồi im, nhìn xa, thở chậm
-Gentle activity          — chuyển động nhẹ, tập trung vào tay
-Physical effort          — tư thế căng, gắng sức nhỏ
-Rest / exhausted         — ngồi dựa, đầu cúi, hơi thở nặng
-Quiet joy                — khóe miệng nhếch nhẹ, tư thế mở
-Grief / longing          — vai sụp, tay nắm chặt, nhìn xuống
-Determined               — lưng thẳng, bước chắc, mắt hướng trước
-Tender / surprised       — tay đặt nhẹ, đầu nghiêng, mắt mở to
-```
-
-**Bước 5 — Location Pool (bắt buộc ≥ 30% ngoài Asset Bible):**
-Brainstorm 5-8 locations bổ sung phù hợp với thế giới video và Visual World đã extract từ Phase -1.
-
-**Bước 6 — Focus Category Quota (mỗi 20 prompts):**
-```
-Character Action:    8 shots (40%) — nhân vật tương tác/hành động toàn vẹn
-Environment:         4 shots (20%) — chỉ cảnh, không người
-Traces & Still Life: 4 shots (20%) — dấu vết sự sống, đồ vật
-Fragmented Macro:    4 shots (20%) — cận tay, vai, vật thể — không lấy mặt
-```
-
-**Bước 7 — Density Distribution:**
-
-Default flat ratio (mỗi 20 prompts khi không có section data):
-```
-Sparse   (3 shots) — 1 subject, negative space, reset, silence
-Moderate (11 shots) — main narrative, character in room/garden
-Rich     (5 shots) — chorus, payoff, garden bloom, community
-Dense    (1 shot)  — final reward, surreal expansion
-```
-
-**Density Override theo Section (ưu tiên hơn flat ratio khi có section data):**
-
-| Section | Sparse | Moderate | Rich | Dense |
-|---|---|---|---|---|
-| Intro | 60% | 30% | 10% | 0% |
-| Verse | 20% | 60% | 15% | 5% |
-| Pre-Chorus | 10% | 45% | 35% | 10% |
-| Chorus | 5% | 30% | 45% | 20% |
-| Bridge | 40% | 45% | 12% | 3% |
-| Final Chorus | 0% | 15% | 45% | 40% |
-| Outro | 65% | 30% | 5% | 0% |
-
-**Bước 8 — Narrative Arc Mapping (theo Song Structure):**
-
-Map narrative arc lên trên song sections — không tạo arc độc lập:
-
-| Song Section | Narrative Function | Visual character |
-|---|---|---|
-| Intro | Setup — thiết lập thế giới | Sparse, wide, không nhân vật |
-| Verse 1 | Rising tension đầu — nhân vật bước vào | Moderate, character introduced |
-| Pre-Chorus | Invitation — cảm xúc dâng | Moderate-Rich, movement |
-| Chorus 1 | Climax mức 1 | Rich, dynamic, leitmotif lần 2 |
-| Verse 2 | Deeper story — đào sâu hơn V1 | Moderate, new angle/location |
-| Chorus 2 | Climax mức 2 — lớn hơn C1 | Rich+, unusual angles |
-| Bridge | Pause + Symbolic | Sparse-Moderate, still life heavy |
-| Final Chorus | Peak + Release | Dense, hero shots concentrated |
-| Outro | Closure — afterglow | Sparse, bookend với Intro |
-
-> [!NOTE]
-> Khi không có song structure rõ: dùng Narrative Arc cũ (Setup 10% / Invitation 10% / Rising tension 20% / Pause 10% / Climax 15% / Symbolic 10% / Release 15% / Closure 10%).
-
-**Bước 8.5 — Opening Sequence + Closure Bookend:**
-
-Làm NGAY SAU Bước 8, TRƯỚC khi điền Pre-Assignment Table.
-
-**Opening Sequence — 3 prompts đầu tiên của INTRO:**
-- **Prompt 1:** Wide establishing — thế giới, mùa, không khí — KHÔNG nhân vật. Sparse.
-- **Prompt 2:** Environmental + dấu vết nhân vật (ánh đèn từ cửa sổ, khói bếp, đôi giày cạnh cửa). Không nhân vật.
-- **Prompt 3:** Nhân vật xuất hiện lần đầu — Full shot, nhìn ra xa, KHÔNG nhìn camera.
-
-→ 3 prompts này là 3 prompts được viết kỹ nhất toàn bộ set. Assign HERO flag cho ít nhất 1 trong 3.
-
-**Closure Bookend — 2 prompts cuối của OUTRO:**
-Phải echo prompt đầu tiên (Prompt 1 của Intro):
-- Cùng location → nhưng khác thời điểm trong ngày (thường chiều tà hoặc đêm)
-- Cùng composition archetype → nhưng KHÔNG có nhân vật
-- Dấu vết thay cho người: ghế trống, cốc nguội, cửa khép nhẹ, ánh đèn tắt
-- Density: Sparse. Không action. Chỉ still life.
-
-→ Ghi rõ trong Pre-Assignment Table: **#001 (INTRO-OPEN)** và **#N (OUTRO-CLOSE)** là cặp bookend.
-
-**Bước 9 — Action Pool cho Character Action shots:**
-Không để nhân vật chỉ sit/stand/look. Không lặp action trong 5 prompts liền trước:
-```
-Vật lý:    kneeling, crouching, lying down, carrying, pulling, bending over
-Tay:       kneading dough, pruning plants, folding, writing, painting, fixing, stirring
-Di chuyển: walking slowly, pausing at doorway, turning around, climbing steps
-Quan sát:  gazing out window, watching rain, reading, listening with eyes closed
-Ritual:    making tea, lighting candle, watering plants, feeding birds, hanging laundry
-Cảm xúc:  pressing hand to chest, leaning against wall, holding something tightly
-```
-
-**Bước 10 — Pre-Assignment Table:**
-
-Điền bảng này cho toàn bộ prompts, có thêm cột SECTION và LEITMOTIF tracking:
-```
-#   | SECTION       | TimeOfDay | Weather  | Season | Mood          | Location        | Focus | Shot  | Density  | Special
-001 | INTRO         | Dawn      | Mist     | Autumn | -             | Garden path     | Env   | Wide  | Sparse   | HERO, BOOKEND-OPEN
-002 | INTRO         | Dawn      | Mist     | Autumn | -             | Kitchen window  | Trace | Wide  | Sparse   | -
-003 | INTRO         | Dawn      | Mist     | Autumn | Contemplative | Garden path     | Char  | Full  | Moderate | -
-004 | VERSE-1       | Dusk      | Clear    | Autumn | Gentle act.   | Kitchen (Asset) | Char  | Med   | Moderate | LEITMOTIF-1
-...
-N   | OUTRO         | Night     | Lamplight| Autumn | -             | Garden path     | Trace | Wide  | Sparse   | BOOKEND-CLOSE
-```
-
-Cột SECTION dùng để tracking nội bộ — không xuất hiện trong output file.
-Bảng này là backbone — mỗi prompt chỉ việc viết vào slot đã assign.
+Đừng ép nhân vật vào mọi khung hình. Một khung hình trống vắng đôi khi chứa nhiều cảm xúc hơn một khung hình có người.
 
 ---
 
-## PHASE 3: Prompt Generation
-
-Sinh toàn bộ prompts theo thứ tự Pre-Assignment Table, ghi vào **1 file duy nhất**.
-
-**File output:** `projects/video_xxx/docs/04_image_prompts.txt`
-
-**Format — prompts thô, không có gì khác:**
-```
-[prompt hoàn chỉnh trên 1 dòng duy nhất]
-
-[prompt hoàn chỉnh trên 1 dòng duy nhất]
-```
-- Mỗi prompt trên 1 dòng, không xuống hàng trong dòng
-- Giữa các prompt: 1 dòng trống
-- Không header, không label, không số thứ tự, không metadata
-
-**Cấu trúc nội dung prompt — Reference-Optimized (7 thành phần):**
+# Global Color Lock System
 
 > [!IMPORTANT]
-> **Chúng ta dùng 1 character ref image duy nhất.** Model AI đã thấy hình nhân vật — không cần mô tả lại ngoại hình. Thay thế toàn bộ character physical description bằng **short identifier** (2-4 từ). Nếu không có nhân vật trong shot — bỏ qua hẳn.
+> **Nguyên tắc cốt lõi: Mỗi video có DUY NHẤT 1 tone màu. Tone màu đó được xác định bởi CÂU CHUYỆN, không phải bởi style.** Style quyết định kỹ thuật render (claymation, Pixar, alabaster...). Câu chuyện quyết định tone màu cảm xúc (ấm/lạnh, tươi/u ám, rực rỡ/muted). Hai thứ này hoàn toàn độc lập.
 
-1. Shot size + camera angle
-2. Location — **dùng Location Shorthand nguyên văn** (Asset Bible location) hoặc mô tả tự nhiên (extended location)
-   - ❌ SAI: `same kitchen interior as established in asset bible` — model không biết file đó là gì
-   - ✅ ĐÚNG: `cluttered farmhouse kitchen, rough stone walls, copper pots hanging, warm hearth glow`
-3. **Character short ID** — **Bỏ qua nếu là Environment / Still Life / Trace shot**
-   - Dùng: `the old man`, `he`, `the woman`, `her`, `the craftsman`... — không mô tả ngoại hình
-   - Chỉ viết action + tư thế: `the old man kneeling slowly`, `he reaches toward the shelf`
-4. Action cụ thể (từ Pre-Assignment Mood + Action Pool)
-5. Foreground layer → Mid-ground layer → Background layer (3 lớp chiều sâu)
-6. Style anchor (từ file style active)
-7. LOCKED COLOR TONE (copy nguyên văn) + `16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting`
+## Quy trình xác định Color Tone (Story-Driven)
 
-**Prop reference:** Nếu có prop sheet — dùng `same [prop name] as reference`. Nếu không có prop sheet — mô tả ngắn gọn.
+1. **Phân tích emotional arc** của câu chuyện → xác định cảm xúc chủ đạo
+2. **Đề xuất Color Tone String** (5-8 từ khóa) phù hợp với cảm xúc đó, tham khảo `Color DNA Reference` trong style file để dùng đúng từ ngữ kỹ thuật của style
+3. **Boss duyệt** Color Tone String
+4. **Lock & broadcast:** Color Tone String được ghi vào `LOCKED COLOR TONE` trong Visual Occupation Map và `# LOCKED COLOR TONE` trong file output — tất cả agents đều nhận nguyên văn
 
----
+## Quy tắc vị trí trong prompt (Token Hierarchy — bắt buộc)
 
-**So sánh độ dài trước / sau ref optimization:**
+- **Màu đồ vật / trang phục** → đặt ở GIỮA prompt, gắn liền với tính từ chất liệu
+- **LOCKED COLOR TONE (tone tổng thể)** → đặt ở CUỐI prompt, trước `16:9`
+- **Negative color block** → đặt trong negative prompt
 
-```
-❌ SAI — model không hiểu “same as” + thừa character desc:
-Medium shot, low-ground angle, elderly man with silver hair and weathered calloused hands wearing a faded linen shirt and worn brown suspenders, consistent character design, sitting at same workshop interior as established in asset bible, slowly running his hands along the grain of a half-carved wooden boat on the workbench, woodshavings scattered in the foreground, his hands and torso in mid-ground, soft amber lamplight through dusty window in background, warm storybook illustration style, handcrafted texture, aged paper, soft amber and sage green, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
+## Kỹ thuật 2 — Materiality Anchoring (Chống Color Bleed)
 
-✅ ĐÚNG — ref + Location Shorthand — ngắn hơn 44%:
-Medium shot, low-ground angle, small woodworking workshop, amber oil lamp overhead, rough timber walls, heavy oak workbench, woodshavings floor, the old man sitting at the workbench slowly running his hands along the grain of a half-carved wooden boat, woodshavings scattered in the foreground, his hands and torso in mid-ground, soft amber lamplight through dusty window in background, warm storybook illustration style, handcrafted texture, aged paper, soft amber and sage green, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
-```
+**Color Bleed** xảy ra khi AI thấy một màu sắc trong prompt rồi bôi màu đó khắp nơi (màu áo lem lên da, màu bối cảnh lem vào nhân vật).
 
-**Điều không bỏ được dù có ref:**
-- Action cụ thể (model không đoán được)
-- Tư thế / body language rõ ràng
-- 3 lớp chiều sâu
-- Style anchor + Color Tone
-- Negative anchor
+**Quy tắc:** Mọi màu sắc trong prompt PHẢI được gắn trực tiếp với một danh từ chất liệu cụ thể. Không có màu "lơ lửng" độc lập.
 
-**Những gì cắt được khi có ref:**
-- Toàn bộ mô tả vật lý (tóc, da, mắt, quần áo, tuổi...)
-- `consistent character design` (ref đã handle)
-- `exact character description from asset bible` (ref đã handle)
-
----
-
-**Ví dụ output chuẩn (ref-optimized + Location Shorthand):**
-```
-Wide establishing shot, eye-level, glass dome home submerged in ocean, curved glass windows with morning mist drifting past, ocean floor covered in autumn leaves, deep seagrass in the foreground, the dome solid in the mid-ground, endless dark oceanic depth in the background, handcrafted stop-motion puppet technique, physical clay-and-fabric texture, miniature diorama, extremely tactile hand-crafted textures, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
-
-Overhead close-up, cluttered farmhouse kitchen, rough stone walls, copper pots hanging, warm hearth glow, the old man's hands mid-motion kneading bread dough on a worn table, flour dusted across the wooden surface, a chipped ceramic bowl and jar of honey beside him, diffused morning light through a curtained window, handcrafted stop-motion puppet technique, physical clay-and-fabric texture, miniature diorama, extremely tactile hand-crafted textures, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
-
-Medium shot, through-doorway framing, village road at dusk, the old man walking slowly with hands in pockets, long shadow stretching ahead on gravel in the foreground, his unhurried figure in the mid-ground, autumn trees lining the road curving out of sight in the background, handcrafted stop-motion puppet technique, physical clay-and-fabric texture, miniature diorama, extremely tactile hand-crafted textures, deep velvety oceanic teal, warm amber lamplight, muted rusted brass, 16:9, no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
-```
-
-
-**Quality Gate — MANDATORY — chạy mỗi 20 prompts:**
-
-Sau khi viết mỗi batch 20 prompts, dừng lại và chạy Deduplication Check:
-
-```
-DEDUPLICATION CHECK — Batch [X]:
-
-Dimension 1 — Shot Type:
-□ Kiểm tra 5 prompts trước có cùng Shot Size không? (all Wide, all Close, all Medium...)
-□ Nếu có 4+ prompts cùng shot size liên tiếp → bắt buộc thay đổi 2 prompts đó
-
-Dimension 2 — Location:
-□ Liệt kê locations dùng trong batch này
-□ Có location nào xuất hiện > 5 lần trong batch không? → phân bổ lại
-□ Asset Bible locations: không vượt quá 70% của batch (30% phải là extended locations)
-
-Dimension 3 — Action:
-□ Liệt kê tất cả Character Action shots trong batch
-□ Có action nào lặp lại trong 5 prompts liên tiếp không? → thay thế bằng action khác từ Action Pool
-
-Dimension 4 — Time of Day:
-□ So sánh phân bổ thực tế với target ratio (Dawn 25% / Midday 20% / Dusk 35% / Night 20%)
-□ Nếu lệch > 15% từ target → điều chỉnh 3 prompts tiếp theo
-
-Dimension 5 — Camera Angle:
-□ Đếm unusual angles (low-ground, overhead, through-frame, over-shoulder)
-□ Phải có ≥ 3 unusual angles trong mỗi 20 prompts
-□ Eye-level không được vượt quá 50% của batch
-
-Dimension 6 — Density:
-□ So sánh Sparse/Moderate/Rich/Dense ratio với Density Override của section đang gen
-□ Nếu có > 4 Moderate liên tiếp → insert 1 Sparse và 1 Rich
-
-Fail bất kỳ ô nào → sửa prompts vi phạm TRƯỚC KHI tiếp tục gen batch tiếp theo.
-```
-
-**No Conversational Reporting:** Không viết report dài trong chat. Tạo prompt xong → ghi thẳng vào file.
-
-**Long-Running Executions:** Dùng subagent chạy nền, cập nhật file liên tục.
-
-
-
-
-## PHASE 4: Parallel Render via Subagents
-
-> [!CAUTION]
-> **NGHIÊM CẤM dùng Python script để generate ảnh.** Lý do: script crash giữa chừng không biết bao nhiêu ảnh đã xong, không có per-prompt retry, không có visibility, lỗi 1 prompt có thể drop cả batch.
->
-> **BẮT BUỘC:** Dùng `invoke_subagent` native. Mỗi subagent nhận 1 batch, gọi image generation tool trực tiếp từng prompt một — không bọc trong script.
-
-**Bước 1 — Đọc và chia batch:**
-- Đọc `projects/video_xxx/docs/04_image_prompts.txt`
-- Mỗi batch: tối đa **20 prompts** (không phải 25 — để subagent có headroom xử lý retry)
-- Đánh số batch: `batch_01`, `batch_02`...
-
-**Bước 2 — Spawn subagents song song (invoke_subagent):**
-
-Spawn tất cả batch cùng lúc. Mỗi subagent nhận prompt sau:
-
-```
-Bạn là image generation agent cho batch [X].
-Nhiệm vụ: Generate lần lượt từng prompt trong danh sách sau.
-Output folder: projects/video_xxx/renders/batch_X/
-Đặt tên file: [số thứ tự 3 chữ số].png (001.png, 002.png...)
-
-Quy tắc:
-- Generate từng prompt một, KHÔNG batch cùng lúc
-- Nếu 1 prompt lỗi → log vào renders/errors.txt (ghi số thứ tự + prompt + lý do), bỏ qua, tiếp tục prompt tiếp theo
-- Sau mỗi 5 prompts → update file renders/batch_X/progress.txt với số đã xong
-- Không dùng Python script để call image gen API — dùng native tool trực tiếp
-- Khi xong toàn bộ batch → báo cáo: tổng số xong / tổng số assign / số lỗi
-
-[Danh sách prompts batch X]
-```
-
-**Bước 3 — Monitor:**
-- Không poll liên tục. Hệ thống tự notify khi subagent xong.
-- Kiểm tra `renders/batch_X/progress.txt` nếu cần biết tiến độ.
-
-**Bước 4 — Merge sau khi tất cả batch xong:**
-- Merge toàn bộ ảnh từ `renders/batch_X/` vào `renders/final/`
-- Đặt lại tên liên tục: `001.png`, `002.png`...
-- Dùng `run_command` với `cp` hoặc `mv` — không script
-
-**Bước 5 — Xử lý lỗi:**
-- Đọc `renders/errors.txt`
-- Re-spawn subagent chỉ cho các prompts lỗi (không re-gen toàn bộ batch)
-- Log final: tổng prompts / thành công / fail
-
----
-
-# DOCTRINES — Kiến thức nền
-
----
-
-## Third-Party ToS Compliance
-
-> [!CAUTION]
-> Banned Words (section dưới) cover **content filter** — từ làm AI từ chối prompt.
-> Section này cover **ToS compliance** — nội dung được generate ra nhưng vi phạm điều khoản nền tảng.
-> **Hai tầng khác nhau, cần check cả hai.**
-
----
-
-### A. Tuyệt đối không dùng tên studio / hãng / thương hiệu trong prompt
-
-Model AI không được phép tái tạo phong cách có bản quyền theo tên thương hiệu. Dùng tên studio là vi phạm ToS của hầu hết platform và có thể bị từ chối hoặc tạo ra nội dung infringe copyright.
-
-| ❌ Không được dùng | ✅ Thay bằng |
-|---|---|
-| `Laika Studios aesthetic` | `handcrafted stop-motion puppet technique, physical clay-and-fabric texture` |
-| `Laika-style puppet` | `handcrafted stop-motion puppet, wire armature and silicone skin construction` |
-| `Pixar-style 3D` | `smooth stylized 3D animation, subsurface scattering skin, appealing proportions` |
-| `Disney style` | `warm stylized animation, expressive character proportions` |
-| `Studio Ghibli` | `hand-painted watercolor animation, soft natural environments, gentle character movement` |
-| `DreamWorks style` | `stylized CGI animation, dynamic character expression` |
-| `Tim Burton style` | `gothic whimsical proportions, expressionist shadow play, twisted silhouettes` |
-| `Wes Anderson style` | `symmetrical composition, pastel color palette, flat graphic depth` |
-
-**Quy tắc chung:** Mô tả **kỹ thuật và visual result**, không mô tả **tên chủ sở hữu**.
-
----
-
-### B. Không dùng tên nghệ sĩ còn sống trong prompt
-
-Hầu hết platform (Midjourney, DALL-E, Adobe Firefly) cấm dùng tên nghệ sĩ còn sống vì lý do bản quyền và consent.
-
-| ❌ Không được dùng | ✅ Thay bằng |
-|---|---|
-| `in the style of [living artist]` | Mô tả kỹ thuật: brushwork, color palette, composition style |
-| `Hayao Miyazaki art style` | `hand-painted background with watercolor depth, soft natural lighting` |
-| `Edward Hopper style` | `realist painting, solitary figure in empty interior, strong directional light` |
-
-**Nghệ sĩ đã mất nhiều thập kỷ:** Một số platform cho phép (VD: Rembrandt, Monet) nhưng Coslient không cần dùng vì style files đã đủ mô tả.
-
----
-
-### C. Platform-specific — Commercial Use
-
-Coslient là YouTube channel = **commercial use**. Một số platform free tier chỉ cho personal use.
-
-| Platform | Commercial OK? | Lưu ý |
-|---|---|---|
-| Midjourney Basic ($10/mo) | ❌ | Cần Standard tier trở lên |
-| Midjourney Standard ($30/mo) | ✅ | Full commercial rights |
-| DALL-E 3 (paid API) | ✅ | Images owned by creator |
-| Adobe Firefly | ✅ | Designed for commercial, IP-indemnified |
-| Flux.1 [dev] | ❌ | Non-commercial only |
-| Flux.1 [schnell] | ✅ | Apache 2.0 |
-| Flux.1 [pro] (API) | ✅ | Commercial via API |
-| Stable Diffusion base (SDXL) | ✅ | Apache 2.0 |
-
-> [!WARNING]
-> Nếu Boss đang dùng free tier Midjourney → toàn bộ content trên YouTube có thể vi phạm ToS.
-
----
-
-### D. Không reference real person likeness
-
-| ❌ Không được dùng | Lý do |
-|---|---|
-| Tên người thật (chính trị gia, celeb...) | Vi phạm ToS mọi platform |
-| Mô tả giống cụ thể người thật | Deepfake risk, vi phạm ToS |
-| Logo / brand visual của công ty | Trademark infringement |
-| Copyrighted character (Mickey, Batman...) | Copyright infringement |
-
-Coslient characters phải là **original fictional characters** — không based on real person, không similar to protected IP.
-
----
-
-## Render Safety Rule — Banned Words (ZERO TOLERANCE)
-
-
-> [!CAUTION]
-> **Một số từ/cụm từ kích hoạt content filter của image gen AI → prompt bị từ chối hoặc render ra ảnh sai hoàn toàn.** Kiểm tra toàn bộ prompts trước khi ghi file.
-
-**Danh sách cấm tuyệt đối — và cách thay thế:**
-
-| ❌ Cấm | ✅ Thay bằng |
-|---|---|
-| `dead leaves` | `fallen leaves`, `dried leaves`, `withered autumn leaves` |
-| `dead of winter` | `deep winter`, `mid-winter stillness` |
-| `dead calm` | `still air`, `motionless surface`, `windless morning` |
-| `dying light` | `fading light`, `last light of evening`, `amber dusk glow` |
-| `dying embers` | `glowing embers`, `fading coals`, `last warmth of the fire` |
-| `dying` (bất kỳ) | `fading`, `aging`, `waning`, `last` |
-| `dead` (bất kỳ) | `still`, `bare`, `quiet`, `empty`, `dried` |
-| `death` | xóa khỏi prompt — không cần thiết trong Coslient |
-| `corpse` / `body` | không dùng trong Coslient |
-| `ghost` / `ghostly` | `faint`, `soft`, `barely visible`, `translucent shadow` |
-| `haunted` / `haunting` | `evocative`, `stirring`, `deeply moving` |
-| `decay` / `decaying` | `weathered`, `aged`, `time-worn`, `worn by years` |
-| `rotting` / `rotten` | `aged wood`, `weathered timber`, `mossy old` |
-| `withering` | `aging gracefully`, `worn at the edges` |
-| `kill` / `killing` | không dùng — kể cả `killing light` → dùng `brilliant light` |
-| `blood` | không dùng trong Coslient |
-| `violence` / `violent` | không dùng trong Coslient |
-| `nude` / `naked` | không dùng trong Coslient |
-| `drug` / `drugs` | không dùng trong Coslient |
-| `suicide` / `self-harm` | không dùng trong Coslient |
-| `weapon` | không dùng trong Coslient |
-| `real person name` | không tag tên người thật (celeb, politician...) |
-| `brand name` | không tag thương hiệu có bản quyền |
-| `child` / `children` / `kid` / `baby` | đã có trong negative anchor — không để trong body prompt |
-
-**Cụm từ thường vô tình xuất hiện trong Coslient context — cần đặc biệt chú ý:**
-```
-"dead leaves blowing"   → "fallen leaves drifting"
-"dying afternoon light" → "late afternoon amber light"
-"ghost of a smile"     → "a faint smile", "the faintest curve of a smile"
-"haunting melody"      → xóa — không cần descriptor âm nhạc trong image prompt
-"decay of time"        → "marks of time", "weathered by years"
-"withered hand"        → "aged hand", "time-worn hand", "gnarled and worn hand"
-```
-
-**Khi nào check:** Sau khi viết mỗi batch 20 prompts, scan nhanh toàn bộ từ trong batch.
-Nếu phát hiện từ cấm → sửa ngay trước khi ghi vào file.
-
----
-
-## Grounded Reality Rule (ZERO TOLERANCE)
-
-> [!IMPORTANT]
-> **LUẬT BẮT BUỘC TUYỆT ĐỐI — mọi prompt, dù cảnh đời thường hay siêu thực. Vi phạm = ảnh trông rẻ tiền và lộ AI.**
-
-**Cốt lõi:** Dù surreal đến đâu, mọi thứ trong frame phải tồn tại theo vật lý thật. Người xem phải cảm thấy có thể chạm tay vào được.
-
-**Tuyệt đối cấm trong prompt:**
-```
-❌ glowing / glow emanating from — bất kỳ hình thức nội phát sáng
-❌ magical particles / sparkles / stardust / fairy dust / floating light orbs
-❌ light rays from hands / aura around figure / ethereal glow / divine light
-❌ floating petals without wind / leaves suspended magically
-❌ magical mist surrounding / mystical fog wrapping character
-❌ translucent / transparent figure (không có lý do vật lý)
-❌ wings of light / energy wisps
-❌ bất kỳ descriptor nào nghe như video game effect
-```
-
-**Được phép — cách viết đúng:**
-- Ánh sáng tự nhiên: `golden afternoon light`, `sun rays through tree canopy`, `warm lamplight` — ánh sáng thật, không phải glow từ bên trong
-- Sinh vật huyền thoại: phải có vật lý thật — `scaled body catching afternoon light the way a lizard's scales do, heavy and solid, casting a long shadow`
-- Khói/sương: chỉ khi có lý do vật lý — `steam rising from tea`, `morning mist over the field`
-
-**Negative anchor bắt buộc trong mọi prompt:**
-```
-no internal glow, no magical particles, no sparkles, no children, no kids, no aura, no text, no handwriting
-```
-
----
-
-## Shot-Size Doctrine
-
-Default bias: medium shot, medium-wide shot, full shot — vì chúng giữ được cả character readability lẫn environmental storytelling.
-
-**Phân bổ khuyến nghị (120 prompts):**
-```
-45–55%  medium / medium-wide / full shots — narrative chính
-15–20%  wide / establishing shots — thiết lập thế giới, closure
-10–15%  close shots — thân mật, bàn tay, nhận thức, tenderness
-10–15%  detail / object shots — motif rhythm, anchors
-5–10%   unusual framing — gia vị, không lạm dụng
-```
-
-Wide shots dùng cho: thiết lập thế giới, emotional distance, pathways, payoff scenes.
-Close shots dùng cho: intimacy, bàn tay, thư, hoa, khoảnh khắc nhận ra.
-Detail shots dùng cho: motif rhythm, symbolic anchors, transition.
-
----
-
-## Camera-Angle Doctrine
-
-Prefer: eye-level, gentle slightly low angle, occasional gentle high angle.
-
-| Góc | Ý nghĩa cảm xúc |
-|---|---|
-| Eye-level | Closeness, honesty |
-| Slightly low | Dignity, wonder |
-| Gentle high | Tenderness, fragility |
-| Low ground-level | Journey, childlike wonder |
-| Overhead | Ritual, object arrangement, intimacy |
-| Over-the-shoulder | Intimacy, shared gaze |
-| Through-the-frame | Depth, mystery, cinematic distance |
-
-> [!IMPORTANT]
-> **Anti-Flatness Rule:** Mỗi 20 prompts PHẢI có:
-> - **≥ 3 shots** từ góc bất thường (low-ground, overhead, through-obstruction, over-shoulder)
-> - **≥ 2 shots** với foreground element mạnh che một phần khung hình
-> - **≥ 2 shots** silhouette hoặc figure-against-light
-> - **≥ 2 shots** layered depth rõ ràng (3 lớp explicit)
-
-**Special angle library (dùng như gia vị — ≥ 3-4 lần mỗi 20 prompts):**
-- **Low-ground:** camera gần sàn nhìn lên figure ở doorway, dọc garden path, theo bước chân
-- **Through-foliage/curtain/fence:** nhìn qua vật cản tự nhiên — tạo mystery và depth
-- **Over-the-shoulder:** camera sau một figure nhìn về phía khác — intimacy và shared perspective
-- **Overhead/bird's-eye:** nhìn thẳng xuống bàn tay sắp xếp đồ vật, bữa ăn, giày cạnh cửa
-- **Framed through architecture:** doorway arch, window, hallway làm hard frame xung quanh subject
-
----
-
-## Depth & Composition Doctrine
-
-> [!IMPORTANT]
-> **Vấn đề đang xảy ra:** Ảnh bị phẳng — quá nhiều prompt chỉ mô tả subject ở mid-ground, không có foreground layer, không có background có ý nghĩa.
-
-**Ba lớp bắt buộc trong mọi cảnh medium, wide, full:**
-1. **Foreground layer** — vật thể gần camera: cành cây, lan can, góc bàn, rèm cửa, bậu cửa sổ
-2. **Mid-ground layer** — nhân vật hoặc hành động chính
-3. **Background layer** — không gian có ý nghĩa: vườn ngoài cửa sổ, hành lang mờ, ánh sáng cuối phòng
-
-**Prompt language cho chiều sâu:**
-- `with a softly blurred [foreground object] in the lower corner`
-- `seen through the opening of a [doorway / window / garden gate]`
-- `camera placed low behind [object], looking up at the figure`
-- `a [foreground element] partially frames the left edge of the shot`
-- `layered depth: [foreground] → [mid figure] → [background space]`
-
-**Hero shots (≥ 2 trong mỗi 20 prompts):**
-Cảnh người xem dừng lại và nhớ mãi — đặc điểm:
-- Bố cục 3 lớp rõ ràng
-- Ánh sáng nổi bật 1 điểm (rim light, slanted ray, pool of warmth)
-- Góc máy khác thường
-- Cảm xúc đọc được ngay trong 1 giây
-
-Ví dụ: *"camera at floor level, looking along a sunlit wooden hallway toward an elderly figure silhouetted in the bright open doorway at the far end"*
-
-**Composition archetypes — rotate qua:**
-centered icon, asymmetrical thirds, frame-within-frame, strong leading-line, negative-space, layered tableau, doorway/threshold, window, porch, object-on-table, reflective (glass/water), figure-on-path, hands-and-object, final wide composition.
-
-Không repeat một archetype > 3 lần liên tiếp.
-
----
-
-## Density Doctrine
-
-Mỗi ảnh có 1 density level:
-
-```
-Sparse  — 1 subject, negative space, reset, silence, 1 symbolic flower
-Moderate — hầu hết narrative moments, character in room/garden (default)
-Rich    — chorus, payoff, garden bloom, town warmth
-Dense   — dùng ít, chỉ cho final reward, surreal expansion
-```
-
-Không để mọi ảnh đều medium-rich. Đó là nguyên nhân của repetition fatigue.
-
----
-
-## Color Lock System
-
-> [!IMPORTANT]
-> **Mỗi video có DUY NHẤT 1 tone màu.** Style quyết định kỹ thuật render (claymation, Pixar...). Câu chuyện quyết định tone màu cảm xúc (ấm/lạnh, tươi/u ám). Hai thứ hoàn toàn độc lập.
-
-**Token Hierarchy trong prompt:**
-- Màu đồ vật/trang phục → GIỮA prompt, gắn với tính từ chất liệu
-- LOCKED COLOR TONE → CUỐI prompt, trước `16:9`
-
-**Materiality Anchoring (chống Color Bleed):**
-Mọi màu sắc PHẢI được gắn trực tiếp với danh từ chất liệu cụ thể:
-
-| ❌ Sai | ✅ Đúng |
-|---|---|
+| ❌ Sai — màu sẽ bị lem | ✅ Đúng — màu được neo vào chất liệu |
+|:---|:---|
 | `a red dress` | `a matte crimson velvet dress` |
 | `blue background` | `a pale dusty-blue linen backdrop` |
 | `warm colors` | `warm honey-toned wooden tabletop` |
@@ -806,152 +493,394 @@ Mọi màu sắc PHẢI được gắn trực tiếp với danh từ chất li�
 
 ---
 
-## Environmental Storytelling & Focus Diversity
+# Shot-size doctrine
+
+Default shot bias:
+medium shot, medium-wide shot, full shot
+
+These should dominate because they preserve both character readability and environmental storytelling.
+
+Use:
+
+wide shots for:
+establishing the world, emotional distance, pathways, gardens, closure, payoff scenes
+
+medium / medium-wide shots for:
+main narrative beats, character and environment together, gentle surreal events, body-language-led emotion
+
+close shots for:
+intimacy, hands, letters, flowers, realization, tenderness
+
+detail shots for:
+motif rhythm, object memory, symbolic anchors, transition moments
+
+Recommended balance across a large set:
+- 45 to 55 percent medium / medium-wide / full shots
+- 15 to 20 percent wide / establishing shots
+- 10 to 15 percent close emotional shots
+- 10 to 15 percent detail / object shots
+- 5 to 10 percent unusual framing shots used as spice
+
+---
+
+# Depth-of-field doctrine
+
+Do not default to shallow depth of field.
+
+Use depth intentionally.
+
+Deep focus:
+Use when environment matters, multiple layers tell the story, village or room geography matters, final or establishing scene needs clarity.
+
+Moderate depth:
+Use when subject should lead, background still adds meaning, most narrative scenes need balance.
+
+Shallow focus:
+Use when one face, hand, letter, or flower matters most, or emotional intimacy is needed.
+
+Selective focus:
+Use rarely for symbolic memory objects, fragile magical events, close-up motif shots.
+
+Avoid excessive blur across too many images.
+
+---
+
+# Camera-angle doctrine
+
+Prefer:
+eye-level, gentle slightly low angle, occasional gentle high angle
+
+Emotional meaning:
+- eye-level = closeness and honesty
+- slightly low angle = dignity and wonder
+- gentle high angle = tenderness and fragility
+- low ground-level = path, journey, childlike wonder
+- overhead = object arrangement or ritual
+- over-the-shoulder = intimacy, shared gaze
+- through-the-frame = depth, mystery, cinematic distance
+
+Avoid overusing:
+extreme low angle, aggressive wide distortion, dutch angle, top-down shots, heroic posing
+
+The camera should feel emotionally inside the world, not like it is showing off.
 
 > [!IMPORTANT]
-> **Character-centric Fatigue:** Nếu 100% ảnh chỉ là "ai đó đang làm gì", thế giới trở nên phẳng. Nhân vật không cần lúc nào cũng xuất hiện. Câu chuyện còn được kể qua không gian và đồ vật bị bỏ lại.
+> **Anti-Flatness Rule:** Đây là vấn đề thực tế quan sát được — ảnh đang bị quá nhiều "mid eye-level, mid shot, center frame". Mỗi 20-prompt block PHẢI có ít nhất:
+> - **3 shots** từ góc bất thường (low-ground, overhead, through-obstruction, over-shoulder)
+> - **2 shots** với foreground element mạnh che một phần khung hình
+> - **2 shots** với silhouette hoặc figure-against-light
+> - **2 shots** với layered depth rõ ràng (foreground object + mid character + background space)
+>
+> Nếu một agent chỉ sản xuất eye-level shots → vi phạm protocol.
 
-**Focus Category Quota — mỗi 20 ảnh:**
-```
-Character Action (40% — 8 shots): nhân vật tương tác/hành động toàn vẹn
-Establishing/Environment (20% — 4 shots): chỉ cảnh, không người, môi trường tự kể chuyện
-Traces & Still Life (20% — 4 shots): đặc tả đồ vật, dấu vết (tách trà bốc khói, ghế trống, áo treo)
-Fragmented/Macro (20% — 4 shots): cận bàn tay, bờ vai, vạt áo — không bao giờ lấy mặt nhân vật
-```
+### Special angle library (dùng như "gia vị" — ít nhất 3-4 lần trong mỗi 20 prompts)
 
-Đừng ép nhân vật vào mọi khung hình. Một khung hình trống vắng đôi khi chứa nhiều cảm xúc hơn.
-
----
-
-## Sequence & Arc Doctrine
-
-Khi viết một set lớn, nghĩ theo waves:
-
-```
-Setup          — thiết lập thế giới, nhân vật, trạng thái ban đầu
-Invitation     — bước vào hành trình/thay đổi
-Rising tension — nỗ lực, khó khăn, cảm xúc dâng
-Pause          — hơi thở, khoảnh khắc tĩnh
-Climax/Peak    — cao điểm cảm xúc
-Symbolic       — đồ vật, ẩn dụ tập trung
-Release        — cảm xúc được giải phóng
-Closure        — afterglow, thế giới sau thay đổi
-```
-
-Không để 30 ảnh đầu làm cùng một việc. Không để set thiếu breathing room.
-
-**Scene-function checklist (1 lần cho toàn bộ set):**
-Kiểm tra có đủ: establishing / character action / domestic action / walking-transition / emotional pause / symbolic object / surreal event / reset / payoff / closure.
+- **Low-ground angle:** camera placed near floor level looking up at a figure in a doorway, along a garden path, at feet walking on wooden floors — creates journey and wonder
+- **Through-foliage / curtain / fence:** camera looks through a natural or domestic obstruction — creates cinematic depth and mystery
+- **Over-the-shoulder:** camera behind one figure looking at another or at a view — creates intimacy and shared perspective
+- **Overhead / bird's-eye:** looking straight down at hands arranging objects on a table, a meal laid out, shoes by a door — creates ritual, intimacy, graphic composition
+- **Framed through interior architecture:** doorway arch, window opening, hallway mouth as hard frame around the subject — creates natural depth layers
+- **Slight dutch / tilted warmly:** NOT horror dutch, but a gentle 5° tilt to suggest quiet unease or dreaming memory — use rarely and intentionally
 
 ---
 
-## Chorus Visual Evolution Doctrine
+# Depth & Spatial Richness Doctrine
 
 > [!IMPORTANT]
-> **Mỗi lần Chorus là một bước escalation — không phải bản copy của Chorus trước.**
+> **Vấn đề đang xảy ra:** Ảnh đang bị phẳng — không có chiều sâu bố cục, thiếu cảnh đặc biệt đẹp. Nguyên nhân: quá nhiều prompt chỉ mô tả subject ở mid-ground, không có foreground layer, không có background với ý nghĩa.
 
-Chorus là emotional peak. Nếu mọi Chorus trông giống nhau → người xem mất cảm nhận về hành trình.
+### Ba lớp bắt buộc trong mọi cảnh không phải close-up
 
-**3 mức Chorus:**
+Mọi cảnh medium, medium-wide, full, hay wide PHẢI có đủ 3 lớp không gian được đề cập rõ trong prompt:
 
-| | Chorus 1 | Chorus 2 | Final Chorus |
-|---|---|---|---|
-| **Density** | Rich | Rich+ | Dense |
-| **Shot composition** | Standard Rich — nhân vật + environment | Tăng complexity — unusual angle bắt buộc | Toàn Hero shots — mọi prompt phải memorable |
-| **Camera** | Eye-level hoặc slightly low | At least 2 unusual angles | Low-ground + Through-frame dominant |
-| **Foreground** | 1 foreground layer OK | Foreground bắt buộc dense/layered | Double foreground — 2 lớp trước subject |
-| **Nhân vật** | Action có ý nghĩa | Action mạnh hơn hoặc emotional peak | Body language rõ nhất, silhouette hoặc motion blur |
-| **Leitmotif** | Lần 2 (Warm) | Lần 3 (Melancholy) | Lần 4 (Transformed) nếu timing phù hợp |
-| **Location** | Asset Bible location | Asset Bible + 1 extended location | Extended location hoặc surreal transformation nhẹ |
+1. **Foreground layer** — vật thể gần camera, có thể mờ nhẹ hoặc sharp: cành cây, lan can, góc bàn, mép cửa, bông hoa, rèm cửa, bậu cửa sổ
+2. **Mid-ground layer** — nhân vật hoặc hành động chính
+3. **Background layer** — không gian có ý nghĩa: vườn ngoài cửa sổ, hành lang mờ, ánh sáng cuối phòng, cửa mở ra đường
 
-**Anti-repetition rules cho Chorus:**
-- Không dùng cùng composition archetype giữa C1 và C2
-- Không dùng cùng camera angle cho hero shot giữa C2 và Final Chorus
-- Nếu C1 dùng Eye-level hero → C2 phải Low-ground hoặc Through-frame
-- Final Chorus: bắt buộc ít nhất 1 shot mà người xem chưa thấy trong toàn bộ video trước đó
+### Prompt language cho chiều sâu
+
+Dùng các cụm từ này để tạo chiều sâu rõ ràng trong prompt:
+
+- `with a softly blurred [foreground object] in the lower corner`
+- `seen through the opening of a [doorway / window / garden gate]`
+- `camera placed low behind [object], looking up at the figure`
+- `soft garden [or room] visible through the window in the background`
+- `a [foreground element] partially frames the left edge of the shot`
+- `layered depth: [foreground] → [mid figure] → [background space]`
+- `the figure stands at the threshold, warm light behind them filling the doorway`
+
+### Đặc biệt đẹp — "Hero shots" (ít nhất 2 trong mỗi 20 prompts)
+
+Một "hero shot" là cảnh mà người xem dừng lại và nhớ mãi. Đặc điểm:
+- Bố cục có chiều sâu mạnh (3 lớp rõ ràng)
+- Ánh sáng làm nổi bật 1 điểm cực kỳ đẹp (rim light, slanted ray, pool of warmth)
+- Góc máy khác thường (low ground, through-frame, over-shoulder)
+- Cảm xúc đọc được ngay trong 1 giây
+
+Ví dụ hero shot descriptions:
+- "camera at floor level, looking along a sunlit wooden hallway toward an elderly figure silhouetted in the bright open doorway at the far end"
+- "looking down through a kitchen window from outside, warm interior light glowing, an elderly woman moving slowly inside, surrounded by warm amber"
+- "through a garden gate, a figure on a porch seen from the garden path, sunlight streaming from the left, long shadows crossing the stone path"
 
 ---
 
-## Character Visibility Doctrine
 
-Human figures phải thường xuyên readable: clear posture, readable silhouette, visible gesture, body language, subject size đủ để mang cảm xúc.
 
-Không lạm dụng: tiny distant figures, decorative background people, repeated face close-ups.
+# Composition doctrine
+
+Compositions should be clean, readable, cinematic, fast to parse, and built around one main subject or one clear interaction.
+
+Prefer:
+rule-of-thirds placement, asymmetrical balance, foreground / midground / background layering, doorway framing, window framing, hallway framing, porch framing, path leading lines, staircase compositions, threshold compositions, strong silhouette, purposeful negative space, large-shape readability before small detail
+
+Do not overstuff the frame.
+
+A simple loving image is stronger than a busy magical image.
+
+---
+
+# Composition archetypes
+
+Across a set, rotate among:
+centered icon, asymmetrical thirds, frame-within-frame, strong leading-line, negative-space, layered tableau, doorway / threshold, window, porch, object-on-table, reflective composition using glass or water, figure-on-path, hands-and-object, gentle final wide composition.
+
+Do not repeat one archetype too many times in a row.
+
+---
+
+# Density doctrine
+
+Every image should have a density level: sparse, moderate, rich, dense.
+
+Use sparse scenes for:
+silence, memory, reset, emotional pause, tenderness, one symbolic flower, negative space.
+
+Use moderate scenes for:
+most narrative moments, domestic storytelling, character in room or garden.
+
+Use rich scenes for:
+chorus, payoff, garden bloom moments, town warmth.
+
+Use dense scenes sparingly for:
+final visual reward, surreal expansion, community or town-square scenes.
+
+Do not make every image medium-rich. That creates repetition fatigue.
+
+---
+
+# Scene-function doctrine
+
+Across a large set, include:
+establishing, character, domestic action, walking / transition, emotional pause, symbolic object/detail, surreal event, reset, payoff, closure.
+
+A good video needs breathing room. Not every image should be a visual climax.
+
+---
+
+# Subject-priority doctrine
+
+Each image should have one dominant read:
+one person, one gesture, one symbolic object, one doorway or window, one surreal event, one emotional posture, one path, one table object, one chair, one mailbox, one flower transformation.
+
+Avoid frames where five things compete equally.
+
+The viewer should understand the image in one second.
+
+---
+
+# Character-visibility doctrine
+
+Human figures should usually be readable.
+
+Prioritize:
+clear posture, readable silhouette, visible gesture, body language, enough subject size to carry emotion.
+
+Do not overuse:
+tiny distant figures, decorative background people, repeated face close-ups, body crops that weaken story value.
 
 > [!CAUTION]
-> **STRICT AGE RULE:** Chỉ được phép có adult/elderly figures. Tuyệt đối KHÔNG có trẻ em, babies, toddlers. Luôn thêm `no children, no kids` vào negative prompt.
-
-**Facial & Gesture Doctrine:**
-- Lowered gaze → tenderness
-- Hand on chair → memory
-- Turned head → guide the eye
-- Figure in doorway → transition
-- Person looking toward garden → hope
-
-Coslient emotion đến từ body language, không phải exaggerated facial acting. Không lạm dụng direct smiling portraits.
+> **STRICT AGE RULE:** Older adult or elderly figures are the ONLY allowed characters. Absolutely NO children, kids, toddlers, or babies. Trẻ em là chủ đề cấm tuyệt đối vì lý do an toàn nội dung. Luôn thêm "no children, no kids" vào negative prompt.
 
 ---
 
-## Subject-Priority Doctrine
+# Facial and gesture doctrine
 
-Mỗi ảnh có một dominant read: một người, một cử chỉ, một đồ vật biểu tượng, một doorway, một surreal event, một emotional posture, một con đường.
+Faces, hands, posture, and gaze direction are powerful attention anchors.
 
-Tránh frame có 5 thứ cạnh tranh ngang nhau. Người xem phải hiểu ảnh trong 1 giây.
+Use them intentionally:
+- a lowered gaze can show tenderness
+- a hand on a chair can show memory
+- a turned head can guide the eye
+- a hand reaching toward a letter can become the emotional center
+- a figure looking toward a garden can create hope
+- a person standing in a doorway can create transition
 
----
+Do not overuse direct smiling portraits.
 
-## Depth-of-Field Doctrine
-
-Không default sang shallow depth of field.
-
-```
-Deep focus    — khi environment quan trọng, nhiều lớp kể chuyện, final/establishing scene
-Moderate      — subject lead, background thêm meaning, hầu hết narrative scenes
-Shallow       — một khuôn mặt, bàn tay, thư, hoa, emotional intimacy
-Selective     — dùng ít — symbolic memory objects, fragile events
-```
-
-Tránh excessive blur qua quá nhiều ảnh.
+Coslient emotion should often come from body language, not exaggerated facial acting.
 
 ---
 
-## Prompt Architecture
+# Warmth rule
 
-Cấu trúc prompt chuẩn:
-1. Scene + subject
-2. Action / emotional state
-3. Shot size / composition
-4. Surreal element nếu có (theo Grounded Reality Rule)
-5. Style anchor (từ file style active)
-6. Character material control (từ file style)
-7. Object material control (từ file style)
-8. Light + color (từ file style)
-9. LOCKED COLOR TONE (copy nguyên văn)
-10. `16:9`
-11. Negative drift control (từ file style + standard anchor)
+Warmth is not only color.
 
-Mỗi prompt > 500 ký tự — đủ chi tiết để generate mạnh.
+Warmth comes from:
+soft daylight, gentle posture, domestic objects, old wood, handwritten letters, paper flowers, calm pacing, lifted shadows, kind eyes, uncluttered composition, emotional restraint.
+
+The image should feel like love without shouting.
 
 ---
 
-## Review Checklist (12 items — trước khi delivery)
+# Prompt architecture
 
-```
-□ 1.  Style lock: toàn bộ prompts có cùng style anchor và Color Tone nguyên văn không?
-□ 2.  Grounded Reality: có prompt nào chứa glow / particles / aura / magical mist không? → xóa
-□ 3.  No text: có prompt nào chứa handwriting / sign / cursive không? → xóa
-□ 4.  Focus diversity: set có đủ Environment + Traces/Still Life shots (không phải toàn Character) không?
-□ 5.  Depth: set có đủ hero shots và 3-layer depth shots không?
-□ 6.  Character age: có figure nào trẻ em không? → xóa
-□ 7.  Narrative arc: set có đủ setup/pause/payoff/closure — không phải toàn "kể chuyện" không?
-□ 8.  World feels alive: có thể xem toàn bộ set và cảm thấy đây là một thế giới có người sinh sống thật không?
-□ 9.  Quality Gate — Location: có ≥ 30% prompts dùng extended location (ngoài Asset Bible) không?
-□ 10. Quality Gate — Action: có action nào lặp lại > 3 lần trong toàn bộ set không? → thay thế
-□ 11. Quality Gate — Chorus: C1 / C2 / Final Chorus có density và camera angle escalate khác nhau không?
-□ 12. Quality Gate — Leitmotif: 4 leitmotif slots có emotional context khác nhau rõ rệt không? (Neutral → Warm → Melancholy → Transformed)
-```
+A strong prompt usually follows this structure:
+
+1. scene and subject
+2. action or emotional state
+3. shot size / composition
+4. gentle surreal event
+5. active style anchor (from loaded style file)
+6. character material control (from loaded style file)
+7. object material control (from loaded style file)
+8. light and color (from loaded style file)
+9. emotional tone
+10. **LOCKED COLOR TONE** (copy nguyên văn từ `LOCKED COLOR TONE` đã xác định ở Stage 4.1 — không được tự ý thay đổi hay diễn giải lại)
+11. 16:9
+12. negative drift control (from loaded style file)
+
+> [!NOTE]
+> Các style anchor, material control, và negative anchor cụ thể nằm trong file style đang active. Xem `style/04s_visual_style_warm_storybook.md` cho style mặc định.
 
 ---
 
-*V7 — Last updated: 2026-06-11*
-*Archive V6: `flow/archive/04_image_prompt_development_knowledge_v6.md`*
+# Reference-informed style rule
+
+If Boss provides reference images, Coslient may use them for:
+style analysis, composition analysis, density analysis, lens-feel analysis, color analysis, attention analysis, material analysis, character softness analysis.
+
+But Coslient must:
+transform, reinterpret, absorb principles, avoid scene cloning, avoid near-composition copying, avoid depending on competitor geometry.
+
+When reference images produce good results, extract the style into a compact style fingerprint before creating more prompts.
+
+---
+
+# Sequence doctrine
+
+When writing a full set, think in waves.
+
+A strong image set often benefits from:
+1. setup
+2. invitation
+3. first gentle magical event
+4. domestic tenderness
+5. journey through rooms or town
+6. emotional pause
+7. surreal expansion
+8. symbolic concentration
+9. release
+10. closure
+11. afterglow
+
+Do not let the first 30 images all do the same job.
+
+---
+
+# Diversity quota doctrine
+
+For every 20-image block, include roughly:
+- 4 establishing or wide spatial scenes
+- 6 medium narrative scenes
+- 3 intimate scenes
+- 2 symbolic detail scenes
+- 2 quiet reset or negative-space scenes
+- 1 centered or symmetrical emotional scene
+- 1 rich visual-payoff scene
+- 1 transition scene
+
+These are not rigid laws. They are anti-repetition control tools.
+
+---
+
+# Review checklist before delivery
+
+Before sending a full set, Coslient should check:
+
+**Style & Character:**
+- Are too many prompts built the same way?
+- Is the style soft and warm enough?
+- Are the characters avoiding wax/mud/clay problems?
+- Is hair separated from skin?
+- Are faces natural and kind?
+- Are hands controlled in close-ups?
+- Is texture too heavy?
+- Is the color palette too dark?
+
+**Text & Magic — ZERO TOLERANCE:**
+- ✅ Does any prompt contain handwriting, letters, envelopes, ink, cursive lines? → REMOVE
+- ✅ Does any prompt contain paper flowers, magical blooming, floating objects, surreal transformations? → REMOVE
+- ✅ Does every prompt (or at minimum every 5th prompt) include "no text no handwriting no magical elements" in the negative?
+
+**Depth & Camera Diversity (Anti-Flatness Check):**
+- Is the lighting too repetitive (too many identical "soft daylight" with no direction)?
+- Are there enough 3-layer depth shots (foreground + mid + background explicitly stated)?
+- Does every 20-prompt block have ≥ 3 shots from unusual angles (low-ground, overhead, through-frame, over-shoulder)?
+- Does every 20-prompt block have ≥ 2 hero shots (strong depth + directional light + unusual angle)?
+- Are there ≥ 2 silhouette or figure-against-light shots per block?
+- Is any composition archetype repeated more than 3 times in a row?
+
+**Color Consistency (Global Color Lock Check):**
+- Does every prompt end with the exact Color Signature Block from the active style file?
+- Are all object/clothing colors anchored to a specific material noun (Materiality Anchoring rule)? No floating color descriptors?
+- Does the negative prompt include the negative color block from the active style file?
+- Is the Color Signature Block identical (word-for-word) across all prompts in the batch? No synonyms, no paraphrasing.
+
+**Narrative & Emotional Range:**
+- Are there enough empty scenes without characters (Establishing/Environment)?
+- Are there enough still life / traces of life scenes?
+- Does the set avoid 100% "character doing action" prompts?
+- Are there enough quiet frames?
+- Are there enough payoff frames?
+- Are the humans readable enough?
+- Are there enough memorable visual hooks?
+- Does each prompt still belong to the same world?
+- Can the first read of each image be understood quickly?
+- Does the full set feel like one visual journey, not one repeated trick?
+
+**Multi-Agent Cross-Check (if applicable):**
+- Has the Visual Occupation Map been validated across all agent outputs?
+- Have any red-flagged duplicate pairs been rewritten?
+
+---
+
+# Special rule for AI-generated text
+
+Because AI image tools often generate ugly fake words, avoid ALL text and handwriting in the warm_storybook style.
+
+For warm_storybook style: **no text, no handwriting, no cursive, no ink lines.** These belong to a different style. Everyday realism is the language of this world.
+
+Avoid:
+specific readable slogans, big signs, wall quotes, shop signs with text, labels, handwriting ribbons, faint cursive, ink lines, unreadable cursive strokes
+
+If Boss needs readable text, handle it separately in editing, not inside the image prompt.
+
+---
+
+# Final rule
+
+Coslient must aim for images that are not only beautiful, but visually directed:
+- clear in what they ask the eye to see first
+- warm in emotional tone
+- soft in material feeling
+- varied in how they attract attention
+- coherent enough to feel like one unforgettable world
+- emotionally readable
+- consistent across different image-generation tools
+- style-locked strongly enough that the world does not drift
+
+Coslient should always remember:
+
+The goal is not prompt quantity.
+
+The goal is a warm, gentle, loving cinematic world.
