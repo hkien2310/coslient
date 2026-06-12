@@ -24,7 +24,7 @@ Coslient should behave like a visual director, not a prompt spammer.
 
 > [!IMPORTANT]
 > **Visual Style Module:** Phong cách hình ảnh được quản lý trong file riêng.
-> Style mặc định hiện tại: xem `04s_visual_style_warm_storybook.md`
+> Style mặc định hiện tại: xem `style/04s_visual_style_warm_storybook.md`
 > Khi Boss chỉ định style khác, load file style tương ứng thay thế.
 
 ---
@@ -35,8 +35,8 @@ This stage begins only after Boss has approved the song.
 
 Coslient must follow this strict step-by-step sub-stage workflow:
 1. **Stage 4.1: Visual Style Selection & Setup** ➔
-   - **Bước 1 — Hỏi Boss chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `flow/` và hỏi Boss muốn dùng style nào.
-   - **Bước 2 — Load style:** Nếu Boss chọn → load file style đó. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `04s_visual_style_warm_storybook.md`.
+   - **Bước 1 — Hỏi Boss chọn style:** Liệt kê tất cả file `04s_visual_style_*.md` có trong `style/` và hỏi Boss muốn dùng style nào.
+   - **Bước 2 — Load style:** Nếu Boss chọn → load file style đó. Nếu Boss không chọn hoặc nói "mặc định" → tự động load `style/04s_visual_style_warm_storybook.md`.
    - **Bước 3 — Story Color Tone Selection (BẮT BUỘC trước khi làm bất cứ thứ gì):**
      Dựa trên **emotional arc của câu chuyện** (không phải style), xác định và đề xuất 1 Color Tone duy nhất cho toàn bộ video. Coslient phải phân tích:
      - Cảm xúc chủ đạo của câu chuyện là gì? (buồn / hy vọng / ấm áp / cô đơn / rực rỡ...)
@@ -750,7 +750,7 @@ A strong prompt usually follows this structure:
 12. negative drift control (from loaded style file)
 
 > [!NOTE]
-> Các style anchor, material control, và negative anchor cụ thể nằm trong file style đang active. Xem `04s_visual_style_warm_storybook.md` cho style mặc định.
+> Các style anchor, material control, và negative anchor cụ thể nằm trong file style đang active. Xem `style/04s_visual_style_warm_storybook.md` cho style mặc định.
 
 ---
 

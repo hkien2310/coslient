@@ -20,12 +20,9 @@ coslient-video/
 │   ├── 00_coslient_gpt_core_knowledge.md
 │   ├── 01_idea_intake_and_selection_knowledge.md
 │   ├── 02_concept_development_knowledge.md
-│   ├── 03_suno_song_development_knowledge_v4.md      <-- Hướng dẫn làm nhạc Suno mới
+│   ├── 03_suno_song_development_knowledge_v7.md      <-- Hướng dẫn làm nhạc Suno mới
 │   ├── archive/                                      <-- Lưu trữ các tài liệu cũ không còn dùng
 │   ├── 04_image_prompt_development_knowledge.md
-│   ├── 04s_visual_style_alabaster_nomad.md           <-- Style module "Sacred Monochrome" (v2.0 tổng quát)
-│   ├── 04s_visual_style_desert_editorial.md          <-- Style module "Void Stage Couture" (v2.0 tổng quát)
-│   ├── 04s_visual_style_warm_storybook.md            <-- Style module Warm storybook mặc định
 │   ├── 05_animation_prompt_knowledge.md
 │   ├── 06_youtube_positioning_seo_knowledge.md
 │   ├── 07_social_content_repurposing_knowledge.md
@@ -40,6 +37,10 @@ coslient-video/
 │   ├── 15_content_ideation_knowledge.md              <- Structured brainstorming before Stage 1
 │   ├── concept_brainstorm.md
 │   └── image_prompting_guide.md
+├── style/                   <-- Thư mục chứa các tài liệu định hình phong cách visual
+│   ├── 04s_visual_style_alabaster_nomad.md           <-- Style module "Sacred Monochrome" (v2.0 tổng quát)
+│   ├── 04s_visual_style_desert_editorial.md          <-- Style module "Void Stage Couture" (v2.0 tổng quát)
+│   ├── 04s_visual_style_warm_storybook.md            <-- Style module Warm storybook mặc định
 └── projects/                <-- Thư mục chứa các dự án video cụ thể
     └── [video_name]/
         └── docs/            <-- Nơi lưu trữ toàn bộ file tài liệu (.md và .txt) của dự án
@@ -97,18 +98,18 @@ Trước khi bắt đầu BẤT KỲ hành động nào (viết, tạo file, ch�
 Hình ảnh là khâu quan trọng nhất. Agent phải tuân thủ nghiêm ngặt các quy chuẩn sau:
 - **Tách dòng & Không ký tự lạ:** Mỗi prompt trên **1 dòng duy nhất**, phân cách bằng **đúng 1 dòng trống**. Không dùng tiền tố `A_001|` hay số thứ tự.
 - **Độ dài Prompt:** Luôn viết prompt chi tiết **> 500 ký tự**.
-- **Phong cách:** Load từ file style module trong `flow/`. Mặc định: `04s_visual_style_warm_storybook.md`.
+- **Phong cách:** Load từ file style module trong `style/`. Mặc định: `style/04s_visual_style_warm_storybook.md`.
 - **⚠️ Kiểm tra tương thích phong cách (Style Fit Check — BẮT BUỘC):** Trước khi bắt đầu viết prompt ảnh (Stage 4), Agent **BẮT BUỘC** phải đánh giá xem concept/câu chuyện hiện tại có phù hợp với 1 trong 3 phong cách hình ảnh đang có hay không:
-    1. `04s_visual_style_warm_storybook.md` — Warm Storybook
-    2. `04s_visual_style_alabaster_nomad.md` — Sacred Monochrome (Alabaster Nomad)
-    3. `04s_visual_style_desert_editorial.md` — Void Stage Couture (Desert Editorial)
+    1. `style/04s_visual_style_warm_storybook.md` — Warm Storybook
+    2. `style/04s_visual_style_alabaster_nomad.md` — Sacred Monochrome (Alabaster Nomad)
+    3. `style/04s_visual_style_desert_editorial.md` — Void Stage Couture (Desert Editorial)
 
   **Nếu không có phong cách nào trong 3 cái trên phù hợp với câu chuyện**, Agent **KHÔNG ĐƯỢC tự ý ép dùng** một phong cách không khớp. Thay vào đó, Agent phải **dừng lại và yêu cầu Boss đi tìm kiếm/nghiên cứu một phong cách hình ảnh mới** phù hợp hơn trước khi tiếp tục Stage 4.
 - **Triết lý Thiết kế 2 Lớp tối cao:**
   1. *Lớp 1 - Xương sống kịch bản (Story Skeleton):* Nội dung cảnh quay bám sát cấu trúc bài hát và tuyến nhân vật theo concept đã duyệt.
   2. *Lớp 2 - Lớp áo phong cách (Visual Style Overlay):* Phủ style anchor từ file style đang active lên trên.
 - **Quy trình tạo Prompt tăng dần:** Mỗi lần Boss yêu cầu → tạo **đúng 10 prompt mới** (> 500 ký tự), ghi thẳng vào file `projects/video_xxx/04_image_prompts.txt`. Chỉ dừng khi Boss nói **"stop"**.
-- **Chi tiết đầy đủ:** Xem `flow/04_image_prompt_development_knowledge.md` (kỹ thuật prompt) và file style tương ứng (style anchor, material, color, lighting).
+- **Chi tiết đầy đủ:** Xem `flow/04_image_prompt_development_knowledge.md` (kỹ thuật prompt) và file style tương ứng trong `style/` (style anchor, material, color, lighting).
 
 ---
 
