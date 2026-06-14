@@ -1,0 +1,19 @@
+# Asset Bible - Video 054 (The Wooden Floor)
+
+# LOCKED COLOR TONE: cold steel grey, flickering neon cyan, warm morning amber, sunlit oak wood, vibrant meadow green
+
+## 1. Character Sheets
+- **Elderly Man:** `Wide character concept sheet of a tired but gentle elderly man, wearing a worn-out heavy coat, gray beard, gentle eyes, age-lined face. showing 1 full body shot and 1 close-up portrait shot side by side in one frame, standing in a neutral cozy warm-lit space. handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult human body proportions, correct head-to-body ratio of a real adult person, bright and luminous color palette of soft cream, honey-gold, and light amber, warm natural daylight or radiant amber light with lifted soft warm shadows, absolutely no pitch-black darkness, peaceful everyday realism, airy and healing mood, 16:9. White/neutral background. Character reference sheet layout. No background story elements.`
+- **Old Dog:** `Wide character concept sheet of an old, loyal Golden Retriever mix dog, greying muzzle, tired but gentle eyes, slightly slow posture. showing 1 full body shot and 1 close-up portrait shot side by side in one frame, standing in a neutral cozy warm-lit space. handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult human body proportions, correct head-to-body ratio of a real adult person, bright and luminous color palette of soft cream, honey-gold, and light amber, warm natural daylight or radiant amber light with lifted soft warm shadows, absolutely no pitch-black darkness, peaceful everyday realism, airy and healing mood, 16:9. White/neutral background. Character reference sheet layout. No background story elements.`
+
+## 2. Prop Sheet
+- **Old Dog Bed:** `Prop concept sheet of a worn, heavily used circular dog bed, flattened cushions, faded brown fabric with visible scratch marks and dog hair. showing multiple angles and scale reference. handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult human body proportions, correct head-to-body ratio of a real adult person, bright and luminous color palette of soft cream, honey-gold, and light amber, warm natural daylight or radiant amber light with lifted soft warm shadows, absolutely no pitch-black darkness, peaceful everyday realism, airy and healing mood, 16:9. White/neutral background. Reference sheet layout.`
+
+## 3. Location Shorthands
+
+> [!NOTE]
+> Các chuỗi dưới đây được dùng NGỮ NGUYÊN VĂN trong prompt thay vì "same location as...".
+
+- **Subway Station:** `underground subway station, cold concrete pillars, flickering neon lights, cold steel grey tones, narrow platform`
+- **Train Carriage:** `old train carriage interior, worn passenger seats, large window, warm sunlight filtering through, metallic and leather textures`
+- **Wooden Cabin:** `wooden cabin porch, vast grassy plain, warm morning amber light, natural oak wood floorboards, damp brown dirt`

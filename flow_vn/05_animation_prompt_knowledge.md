@@ -1,12 +1,12 @@
-# Kiến thức Coslient GPT — Phát triển Prompt Hoạt ảnh v4.0
+# Kiến thức Coslient GPT — Phát triển Prompt Hoạt ảnh v5.0
 
 ## Mục đích
 
 File này xác định cách Coslient xử lý giai đoạn hoạt ảnh sau khi bộ ảnh đã sẵn sàng.
 
-Biến các hình ảnh đã được duyệt thành video clip sử dụng VEO 3 — với một prompt khóa tối thiểu áp dụng cho tất cả các clip.
+Biến các hình ảnh đã được duyệt thành video clip sử dụng VEO 3 — với hệ thống Preset vạn năng để tối ưu đa dạng góc máy mà vẫn duy trì tốc độ sản xuất (workflow efficiency).
 
-> **Cập nhật v4.0:** Triết lý mới — Chuyển động do AI tự suy luận (AI-inferred motion). Không dùng các chỉ thị camera/chuyển động chung (universal camera/motion directive) nữa. VEO 3 tự đọc ảnh và nội suy tất cả: camera move (di chuyển máy ảnh), character motion (chuyển động nhân vật), ambient physics (vật lý môi trường xung quanh). Chỉ khóa cứng audio rules (quy tắc âm thanh) + no-effect protection (bảo vệ không hiệu ứng giả tạo).
+> **Cập nhật v5.0:** Triết lý mới — Định hướng góc máy điện ảnh ngẫu nhiên có kiểm soát (Controlled Cinematic Direction). Chấm dứt việc dùng prompt rỗng để VEO tự bơi (gây ra tình trạng lạm dụng zoom chậm tẻ nhạt). Sử dụng hệ thống 4 Preset vạn năng tích hợp vào Text Replacement (Gõ tắt) của MacOS để bốc thuốc nhanh cho từng ảnh mà không tốn công copy-paste.
 
 ---
 
@@ -49,15 +49,37 @@ Cái làm video trông rẻ tiền không phải là con rồng hay không gian 
 
 ---
 
-## Prompt Duy Nhất — Dán vào TẤT CẢ clip (nguyên xi, không thêm gì)
+## Hệ thống Preset Gõ Tắt (BẮT BUỘC SỬ DỤNG)
 
+**Cài đặt 1 LẦN DUY NHẤT trên Mac:**
+- Vào `System Settings` > `Keyboard` > `Text Replacements`
+- Thêm 4 mục gõ tắt dưới đây (sử dụng dấu phẩy kép để tránh trùng lặp gõ phím thông thường).
+- **Hệ thống 4 Preset này được thiết kế để bao phủ 100% mọi trường hợp ảnh (Mapping trực tiếp 1-1 với 4 loại Tiêu điểm Hình ảnh trong Giai đoạn 4).**
+
+### 1. Preset Môi Trường/Toàn Cảnh (`,,v1`)
+**Dùng cho:** Ảnh Establishing, phong cảnh, kiến trúc rộng (Không có người hoặc người rất nhỏ).
 ```
-Audio: Diegetic environmental sound only — soft ambient sounds natural to this scene. No music. No score. No dialogue. No vocals. No voiceover. If no suitable sound can be generated, output silence rather than music.
-
-No internal glow. No magical particles. No sparkles. No floating light effects. No added visual effects not present in the source image.
+Slow cinematic pan or gentle forward push. Rich environmental physics (wind, water, moving light, atmospheric particles). Do not zoom. Audio: Diegetic environmental sound only. No music. No dialogue. No internal glow. No magical particles. No floating light effects.
 ```
 
-**Để VEO tự nội suy:** di chuyển máy ảnh, chuyển động nhân vật, vật lý môi trường xung quanh. Đừng can thiệp trừ khi clip bị sai rõ ràng.
+### 2. Preset Hành Động Nhân Vật (`,,v2`)
+**Dùng cho:** Nhân vật đang đi lại, làm việc, tương tác với đồ vật (Medium / Full shot).
+```
+Smooth tracking shot following the character's action. Natural character physics (hair, clothing) and environmental motion. Do not zoom. Audio: Diegetic environmental sound only. No music. No dialogue. No internal glow. No magical particles. No floating light effects.
+```
+
+### 3. Preset Cận Cảnh/Biểu Cảm (`,,v3`)
+**Dùng cho:** Cận mặt (chớp mắt, thở), cận bàn tay (Macro), góc nhìn qua vai.
+```
+Subtle handheld camera feel. Intimate character micro-actions (breathing, blinking, gentle tactile movement). Do not zoom. Audio: Diegetic environmental sound only. No music. No dialogue. No internal glow. No magical particles. No floating light effects.
+```
+
+### 4. Preset Tĩnh Vật/Chiều Sâu (`,,v4`)
+**Dùng cho:** Đồ vật mỏ neo (leitmotif), vệt nắng, tách trà, góc phòng tĩnh lặng (Still Life / Traces).
+```
+Static tripod camera. Cinematic rack focus (shifting depth of field) or very slow tilt. Gentle atmospheric motion (dust motes, light shifting). Do not zoom. Audio: Diegetic environmental sound only. No music. No dialogue. No internal glow. No magical particles. No floating light effects.
+```
+
 
 ---
 
@@ -112,9 +134,11 @@ No internal glow. No magical particles. No sparkles. No floating light effects. 
 
 ```
 1. Có đủ ảnh gốc (đã qua Giai đoạn 4)
-2. Copy prompt duy nhất → dán vào VEO cho từng ảnh (không thêm gì)
-3. Độ dài clip: 8 giây
-4. Xử lý hàng loạt (Batch) xong → đánh giá (review) toàn bộ
+2. Nhập hàng loạt ảnh vào VEO 3
+3. Liếc qua từng ảnh, phân loại nó vào 1 trong 4 nhóm (v1, v2, v3, v4)
+4. Dùng tính năng gõ tắt (vd: gõ `,,v1` rồi Enter) để dán preset tương ứng
+5. Độ dài clip: 8 giây
+6. Xử lý hàng loạt (Batch) xong → đánh giá (review) toàn bộ
 5. Clip nào sai → thêm đúng 1 cụm sửa lỗi (fix) từ bảng giao thức dự phòng
 6. Tách âm thanh (Strip audio) VEO nếu cần: ffmpeg -i input.mp4 -an output.mp4
 7. Chèn nhạc (Overlay nhạc) trong trình chỉnh sửa (editor)

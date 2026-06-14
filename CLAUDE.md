@@ -16,27 +16,29 @@ Bản hướng dẫn này giúp bất kỳ AI Agent nào (Claude, Gemini, Antigr
 ```text
 coslient-video/
 ├── CLAUDE.md                <-- Hướng dẫn này (Mở đọc ĐẦU TIÊN)
-├── flow/                    <-- Nơi duy nhất chứa toàn bộ tài liệu vận hành
+├── flow_vn/                 <-- ✅ SOURCE OF TRUTH — Toàn bộ tài liệu vận hành (Tiếng Việt, V7 mới nhất)
 │   ├── 00_coslient_gpt_core_knowledge.md
 │   ├── 01_idea_intake_and_selection_knowledge.md
 │   ├── 02_concept_development_knowledge.md
 │   ├── 03_suno_song_development_knowledge_v7.md      <-- Hướng dẫn làm nhạc Suno mới
-│   ├── archive/                                      <-- Lưu trữ các tài liệu cũ không còn dùng
-│   ├── 04_image_prompt_development_knowledge.md
+│   ├── 04a_image_scene_sequence_knowledge.md         <-- Stage 4: Scene sequence, story beat, leitmotif
+│   ├── 04b_image_prompt_technique_knowledge.md       <-- Stage 4: Kỹ thuật viết prompt, subagent
 │   ├── 05_animation_prompt_knowledge.md
 │   ├── 06_youtube_positioning_seo_knowledge.md
+│   ├── 06b_youtube_shorts_seo_knowledge.md
 │   ├── 07_social_content_repurposing_knowledge.md
-│   ├── 07b_text_post_strategy_knowledge.md           <- Facebook/Instagram text posts
+│   ├── 07b_text_post_strategy_knowledge.md           <-- Facebook/Instagram text posts
 │   ├── 08_audience_psychology_knowledge.md
 │   ├── 09_content_strategy_planning_knowledge.md
 │   ├── 10_community_growth_knowledge.md
 │   ├── 11_audience_research_knowledge.md
-│   ├── 12_deslop_quality_gate_knowledge.md            <- Anti-AI-slop quality gate
-│   ├── 13_competitor_intelligence_knowledge.md       <- Competitor channel analysis
-│   ├── 14_title_thumbnail_ab_testing_knowledge.md   <- Post-publish CTR/AVD optimization
-│   ├── 15_content_ideation_knowledge.md              <- Structured brainstorming before Stage 1
-│   ├── concept_brainstorm.md
-│   └── image_prompting_guide.md
+│   ├── 12_deslop_quality_gate_knowledge.md           <-- Anti-AI-slop quality gate
+│   ├── 13_competitor_intelligence_knowledge.md      <-- Competitor channel analysis
+│   ├── 14_title_thumbnail_ab_testing_knowledge.md   <-- Post-publish CTR/AVD optimization
+│   ├── 15_content_ideation_knowledge.md             <-- Structured brainstorming before Stage 1
+│   └── 16_concept_dedup_knowledge.md
+├── archive/                 <-- 🗄️ Lưu trữ — Không dùng trong sản xuất
+│   └── flow/                <-- Bản tiếng Anh cũ (V5/V6) — tham khảo lịch sử nếu cần
 ├── style/                   <-- Thư mục chứa các tài liệu định hình phong cách visual
 │   ├── 04s_visual_style_alabaster_nomad.md           <-- Style module "Sacred Monochrome" (v2.0 tổng quát)
 │   ├── 04s_visual_style_desert_editorial.md          <-- Style module "Void Stage Couture" (v2.0 tổng quát)
@@ -64,8 +66,8 @@ Khi mới khởi động hoặc bắt đầu phiên chat mới với Boss:
 1.  **Đọc file [CLAUDE.md](file:///Users/hoangkien/Youtube/coslient-video/CLAUDE.md) (file này)** để hiểu luật chơi chung.
 2.  **Hỏi Boss project nào đang làm** hoặc kiểm tra folder `projects/` để tìm đúng dự án theo ngữ cảnh Boss cung cấp.
 3.  **Đọc các file docs trong `projects/video_xxx/docs/`** để xác định đang ở Stage mấy (file nào đã có = stage đó đã qua, file nào chưa có = stage đó chưa làm).
-4.  **Đọc file tương ứng trong `flow/`** để xử lý đúng Stage tiếp theo.
-    *   *Ví dụ:* Nếu đã có `03_song_lyrics.md` nhưng chưa có `04_image_prompts.txt` → đang ở Stage 4. Đọc `04_image_prompt_development_knowledge.md`.
+4.  **Đọc file tương ứng trong `flow_vn/`** để xử lý đúng Stage tiếp theo.
+    *   *Ví dụ:* Nếu đã có `03_song_lyrics.md` nhưng chưa có `04_image_prompts.txt` → đang ở Stage 4. Đọc `flow_vn/04a_image_scene_sequence_knowledge.md` (workflow) rồi `flow_vn/04b_image_prompt_technique_knowledge.md` (kỹ thuật).
 5.  **Ghi file kết quả** vào thư mục `projects/video_xxx/docs/` sau khi Boss duyệt. Không cần cập nhật dashboard.
 
 ---
@@ -109,7 +111,7 @@ Hình ảnh là khâu quan trọng nhất. Agent phải tuân thủ nghiêm ng�
   1. *Lớp 1 - Xương sống kịch bản (Story Skeleton):* Nội dung cảnh quay bám sát cấu trúc bài hát và tuyến nhân vật theo concept đã duyệt.
   2. *Lớp 2 - Lớp áo phong cách (Visual Style Overlay):* Phủ style anchor từ file style đang active lên trên.
 - **Quy trình tạo Prompt tăng dần:** Mỗi lần Boss yêu cầu → tạo **đúng 10 prompt mới** (> 500 ký tự), ghi thẳng vào file `projects/video_xxx/04_image_prompts.txt`. Chỉ dừng khi Boss nói **"stop"**.
-- **Chi tiết đầy đủ:** Xem `flow/04_image_prompt_development_knowledge.md` (kỹ thuật prompt) và file style tương ứng trong `style/` (style anchor, material, color, lighting).
+- **Chi tiết đầy đủ:** Xem `flow_vn/04a_image_scene_sequence_knowledge.md` (workflow + story beat) và `flow_vn/04b_image_prompt_technique_knowledge.md` (kỹ thuật prompt), cùng file style tương ứng trong `style/` (style anchor, material, color, lighting).
 
 ---
 
@@ -135,10 +137,10 @@ Các file này **không phải stage bắt buộc** trong pipeline. Chúng là n
 
 | File | Kích hoạt khi | Mô tả |
 |------|--------------|-------|
-| `07b_text_post_strategy_knowledge.md` | Boss muốn text post cho Facebook/Instagram sau publish | Hook Formula Library (4 loại) + Copy Quality Sweep 4-bước |
-| `08_audience_psychology_knowledge.md` | Khi viết title, hook, CTA, pinned comment | 20+ tâm lý học mô hình + 8 Decision Psychology Triggers mới |
-| `13_competitor_intelligence_knowledge.md` | "phân tích kênh X" / "đối thủ đang làm gì" | 5 Competitor Cards pre-loaded + Monthly Intelligence Routine |
-| `14_title_thumbnail_ab_testing_knowledge.md` | 48-72h sau publish khi Boss share CTR/AVD | Decision Tree + CTR/AVD benchmarks + Hypothesis format |
-| `15_content_ideation_knowledge.md` | "hết idea" / "brainstorm video tiếp theo" | 5 Emotional Territories + 3 Idea-Generation Triggers + Scoring |
+| `flow_vn/07b_text_post_strategy_knowledge.md` | Boss muốn text post cho Facebook/Instagram sau publish | Hook Formula Library (4 loại) + Copy Quality Sweep 4-bước |
+| `flow_vn/08_audience_psychology_knowledge.md` | Khi viết title, hook, CTA, pinned comment | 20+ tâm lý học mô hình + 8 Decision Psychology Triggers mới |
+| `flow_vn/13_competitor_intelligence_knowledge.md` | "phân tích kênh X" / "đối thủ đang làm gì" | 5 Competitor Cards pre-loaded + Monthly Intelligence Routine |
+| `flow_vn/14_title_thumbnail_ab_testing_knowledge.md` | 48-72h sau publish khi Boss share CTR/AVD | Decision Tree + CTR/AVD benchmarks + Hypothesis format |
+| `flow_vn/15_content_ideation_knowledge.md` | "hết idea" / "brainstorm video tiếp theo" | 5 Emotional Territories + 3 Idea-Generation Triggers + Scoring |
 
 **Quy tắc quan trọng:** Các file này không thay thế Stage Gate. File 15 chạy *trước* Stage 1. File 14 chạy *sau* Stage 7. Files 13, 08, 07b chạy *khi Boss hỏi* — không tự động inject vào pipeline.
