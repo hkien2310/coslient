@@ -37,6 +37,7 @@ Khi Boss muốn style mới, tạo file `04s_visual_style_[tên_style].md` theo 
 - grounded in everyday domestic realism — real kitchens, real hands, real small gestures
 - cinematic but not dark or overdramatic
 - **PROPORTIONS: realistic adult human body proportions** — head size, limb length, and body scale must match a real adult person, not a doll or cartoon figure
+- **OPEN & AIRY** — every frame breathes. Generous negative space, one clear subject, room for the eye to rest and wander
 
 ### Người xem nên cảm thấy:
 
@@ -58,6 +59,7 @@ Khi Boss muốn style mới, tạo file `04s_visual_style_[tên_style].md` theo 
 - distorted or deformed
 - dark or pitch-black (no cold gloomy blue night tones)
 - chaotic or noisy
+- **cluttered, cramped, or suffocating** — khung hình bí bách khiến mắt bị kẹt, không có chỗ thở ← nguy cơ drift số 2
 - **chibi, cute anime, oversized head, oversized eyes, toy-like anatomy** ← đây là nguy cơ drift số 1 của style này
 
 ---
@@ -67,13 +69,13 @@ Khi Boss muốn style mới, tạo file `04s_visual_style_[tên_style].md` theo 
 ### Full style anchor (dùng cho prompt > 500 ký tự)
 
 ```
-handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult human body proportions, correct head-to-body ratio of a real adult person, bright and luminous color palette of soft cream, honey-gold, and light amber, warm natural daylight or radiant amber light with lifted soft warm shadows, absolutely no pitch-black darkness, peaceful everyday realism, airy and healing mood, 16:9, not photorealistic, not glossy 3D
+handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult human body proportions, correct head-to-body ratio of a real adult person, bright and luminous color palette of soft cream, honey-gold, and light amber, warm natural daylight or radiant amber light with lifted soft warm shadows, absolutely no pitch-black darkness, open and airy composition, generous negative space, single clear subject, uncluttered background, peaceful everyday realism, airy and healing mood, 16:9, not photorealistic, not glossy 3D
 ```
 
 ### Short style anchor (dùng cho prompt ngắn hơn)
 
 ```
-handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome gracefully aging face, clean smooth features, kind eyes, soft wool-like hair, subtle fabric detail, realistic adult body proportions, correct head-to-body ratio, bright luminous warm-gold daylight or amber night light, lifted soft warm shadows, 16:9
+handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome gracefully aging face, clean smooth features, kind eyes, soft wool-like hair, subtle fabric detail, realistic adult body proportions, correct head-to-body ratio, open and airy composition, generous negative space, bright luminous warm-gold daylight or amber night light, lifted soft warm shadows, 16:9
 ```
 
 ---
@@ -351,7 +353,7 @@ Trong context AI image generation cho style này, "HDR" không có nghĩa là to
 ### Full Style Anchor HDR-Enhanced (dùng thay cho anchor cũ khi cần độ sâu tonal cao nhất)
 
 ```
-handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, bright and luminous color palette of soft cream, honey-gold, and light amber, warm natural daylight or radiant amber light with lifted soft warm shadows, rich tonal depth with luminous highlights and warm shadow detail, HDR-like warm tonal range, micro-contrast between honey and amber and cream tones, absolutely no pitch-black darkness, peaceful everyday realism, airy and healing mood, 16:9, not photorealistic, not glossy 3D
+handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, bright and luminous color palette of soft cream, honey-gold, and light amber, warm natural daylight or radiant amber light with lifted soft warm shadows, rich tonal depth with luminous highlights and warm shadow detail, HDR-like warm tonal range, micro-contrast between honey and amber and cream tones, absolutely no pitch-black darkness, open and airy composition, generous negative space, single clear subject, uncluttered background, peaceful everyday realism, airy and healing mood, 16:9, not photorealistic, not glossy 3D
 ```
 
 ---
@@ -446,13 +448,13 @@ empty generic fantasy spaces, overdesigned magical kingdoms, futuristic CGI room
 ### Full template
 
 ```
-[scene + subject + emotional action], [shot size / composition], [one specific grounded everyday detail — lighting, gesture, or object observed closely], handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult body proportions, correct head-to-body ratio of a real adult person, [key props/materials], warm natural daylight, airy cream honey peach palette, [emotion], 16:9
+[scene + subject + emotional action], [shot size / composition], [one specific grounded everyday detail — lighting, gesture, or object observed closely], open and airy composition, generous negative space, single clear focal point, uncluttered background, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, clean smooth features with minimal soft laugh lines, no deep-cut wrinkles, kind eyes, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte porcelain skin, realistic adult body proportions, correct head-to-body ratio of a real adult person, [key props/materials], warm natural daylight, airy cream honey peach palette, [emotion], 16:9
 ```
 
 ### Compressed template
 
 ```
-[scene + subject + action], [shot size], [one grounded everyday detail], handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, kind elderly face, realistic adult body proportions, correct head-to-body ratio, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte wood, warm natural daylight, cream honey peach palette, [emotion], 16:9
+[scene + subject + action], [shot size], [one grounded everyday detail], open and airy composition, generous negative space, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, kind elderly face, realistic adult body proportions, correct head-to-body ratio, fluffy needle-felted wool hair with visible fine fibers, subtle fabric detail, smooth matte wood, warm natural daylight, cream honey peach palette, [emotion], 16:9
 ```
 
 ### Dynamic template chuẩn hóa
@@ -471,17 +473,17 @@ Cozy miniature kitchen in bright late-morning light, an elderly woman standing b
 
 ### Dùng nhiều
 
-handsome, gracefully aging, elegant elderly face, clean smooth features, minimal soft laugh lines, kind eyes, smooth matte porcelain skin, fluffy needle-felted wool hair with visible fine fibers, clean elegant hands, soft, gentle, warm, loving, tender, welcoming, peaceful, healing, luminous and bright, warm-gold glow, luminous indigo-blue, light amber, cream, honey-gold, warm natural daylight, radiant amber light, lifted soft warm shadows, soft aged paper, smooth matte wood, calm body language, emotional clarity, slanted warm light, long soft shadows, steam rising gently, worn wooden surface, mismatched ceramic mugs, garden gate, open door, half-open window, laundry on a line, worn coat on a hook, a figure pausing at a threshold
+handsome, gracefully aging, elegant elderly face, clean smooth features, minimal soft laugh lines, kind eyes, smooth matte porcelain skin, fluffy needle-felted wool hair with visible fine fibers, clean elegant hands, soft, gentle, warm, loving, tender, welcoming, peaceful, healing, luminous and bright, warm-gold glow, luminous indigo-blue, light amber, cream, honey-gold, warm natural daylight, radiant amber light, lifted soft warm shadows, soft aged paper, smooth matte wood, calm body language, emotional clarity, slanted warm light, long soft shadows, steam rising gently, worn wooden surface, mismatched ceramic mugs, garden gate, open door, half-open window, laundry on a line, worn coat on a hook, a figure pausing at a threshold, **open and airy composition**, **generous negative space**, **single clear subject**, **uncluttered background**, **breathing room**, **minimalist foreground**, **clean empty sky**, **vast open field**, **wide empty corridor**, **solitary figure in open space**
 
 ### Tránh hoặc dùng rất ít
 
-deep wrinkles, harsh facial lines, sunken cheeks, hollow eyes, cracked skin, waxy skin, creepy puppet face, pitch-black darkness, heavy black shadows, gloomy night, cold dark blue tones, moody dark atmosphere, harsh dark contrast, heavy texture, gritty, rough, hyper-detailed, visible fibers, lumpy, muddy, wet clay, horror puppet, glossy 3D, plastic toy, photorealistic skin, surreal chaos, fantasy clutter
+deep wrinkles, harsh facial lines, sunken cheeks, hollow eyes, cracked skin, waxy skin, creepy puppet face, pitch-black darkness, heavy black shadows, gloomy night, cold dark blue tones, moody dark atmosphere, harsh dark contrast, heavy texture, gritty, rough, hyper-detailed, visible fibers, lumpy, muddy, wet clay, horror puppet, glossy 3D, plastic toy, photorealistic skin, surreal chaos, fantasy clutter, **cluttered frame**, **busy background**, **cramped composition**, **too many objects competing for attention**, **no breathing room**, **frame feels suffocating**
 
 ---
 
 ## 13. Style Fingerprint (Compact Summary)
 
-Soft handcrafted storybook miniature world, warm gentle loving atmosphere, **realistic adult human body proportions** (correct head-to-body ratio, no oversized head, no oversized eyes, no chibi anatomy), handsome and gracefully aging elderly characters with clean smooth features and minimal laugh lines, soft wool-like hair, clean elegant hands, smooth matte wood, bright and luminous color palette (cream, honey-gold, light amber, luminous indigo-blue), **one focal accent color per frame** (dusty sage green / faded cornflower blue / pale terracotta rose — max 15% frame area, placed on a specific object only), bright natural daylight or radiant amber light with lifted soft warm shadows (no pitch-black darkness), **grounded in everyday domestic realism** — real kitchens, real gestures, real quiet moments — emotionally readable body language, no deep wrinkles, no waxy skin, no creepy puppet face, no pitch-black gloomy night, **no chibi, no cute anime proportions, no oversized heads**, **no text, no handwriting, no magical transformations, no floating objects**.
+Soft handcrafted storybook miniature world, warm gentle loving atmosphere, **OPEN & AIRY COMPOSITION** — generous negative space, single clear subject, uncluttered background, every frame breathes (≥30% negative space target), **realistic adult human body proportions** (correct head-to-body ratio, no oversized head, no oversized eyes, no chibi anatomy), handsome and gracefully aging elderly characters with clean smooth features and minimal laugh lines, soft wool-like hair, clean elegant hands, smooth matte wood, bright and luminous color palette (cream, honey-gold, light amber, luminous indigo-blue), **one focal accent color per frame** (dusty sage green / faded cornflower blue / pale terracotta rose — max 15% frame area, placed on a specific object only), bright natural daylight or radiant amber light with lifted soft warm shadows (no pitch-black darkness), **grounded in everyday domestic realism** — real kitchens, real gestures, real quiet moments — emotionally readable body language, no deep wrinkles, no waxy skin, no creepy puppet face, no pitch-black gloomy night, **no chibi, no cute anime proportions, no oversized heads**, **no text, no handwriting, no magical transformations, no floating objects**, **no cluttered frames, no busy backgrounds, no cramped compositions**.
 
 ---
 
@@ -501,6 +503,7 @@ Soft handcrafted storybook miniature world, warm gentle loving atmosphere, **rea
 | Quá rối / busy | Giảm objects, focus 1 subject, dùng negative space, bỏ decorative fragments thừa, composition sạch hơn |
 | Chữ viết / phép thuật xuất hiện | Xóa hoàn toàn: không handwriting, letters, envelopes, paper flowers, magical transformations. Thay bằng: chi tiết đời thường cụ thể (hơi nước bốc, tấm rèm, cốc sứ, cửa mở hé). Thêm vào prompt: "no text no handwriting no magical elements" |
 | Ảnh phẳng / flat | Thêm 3 lớp không gian rõ: foreground object + mid character + background space. Đổi góc máy: "camera placed low", "seen through doorway", "through foreground foliage". Làm nổi bật ánh sáng có hướng (slanted rays, rim light, long shadows) |
+| **Ảnh bí / cluttered / ngột ngạt** | **ƯU TIÊN SỬA NGAY:** Xóa bớt objects trong prompt. Thêm `open and airy composition, generous negative space, single clear focal point, uncluttered background`. Chọn wide shot hoặc medium-wide thay vì medium shot. Đặt nhân vật trong không gian mở (cánh đồng, góc phố rộng, hiên nhà thoáng). |
 
 ---
 
@@ -520,3 +523,66 @@ storybook illustration style, vintage 35mm film look, warm golden-hour light, so
 ```
 An elderly woman sitting quietly by the kitchen window, her hands resting on a warm honey-toned wooden table, a faded sage-green ceramic mug steaming gently beside her, soft morning light falling across her face, medium shot seen through a doorway, handcrafted miniature diorama, macro photography, tilt-shift lens, warm gentle loving atmosphere, smooth hand-painted character, handsome and gracefully aging elderly face, kind eyes, soft wool-like hair, subtle apron detail, storybook illustration style, vintage 35mm film look, warm golden-hour light, soft lifted blacks, amber split-tone highlights, gentle film halation, muted earthy ochre-sienna palette, subtle 35mm grain, 16:9
 ```
+
+---
+
+## 16. Open & Airy Composition Doctrine (Học thuyết Khung hình Thoáng)
+
+> [!IMPORTANT]
+> **Đây là nguyên tắc cốt lõi ảnh hưởng đến khả năng viral.** Khung hình thoáng giúp mắt người xem biết nhìn vào đâu ngay lập tức — tạo ra hiệu ứng "scroll stop" tự nhiên trên mọi nền tảng. Khung hình bí làm não mệt và ngón tay lướt tiếp.
+
+### Định nghĩa "Thoáng"
+
+Một khung hình **thoáng** không có nghĩa là trống rỗng — mà có nghĩa là:
+- **Một chủ thể rõ ràng** — mắt người biết nhìn vào đâu ngay khi frame xuất hiện
+- **Không gian âm đủ lớn** — ít nhất 30% diện tích frame không có chi tiết phức tạp
+- **Hậu cảnh sạch** — không có objects cạnh tranh sự chú ý phía sau chủ thể
+- **Ánh sáng có hướng rõ** — gradient sáng tối tự nhiên tạo chiều sâu mà không cần nhiều objects
+
+### Kỹ thuật tạo khung hình thoáng
+
+| Kỹ thuật | Mô tả | Keywords trong prompt |
+|---------|-------|-----------------------|
+| **Sky breathing** | Để phần bầu trời hoặc nền sáng chiếm ≥40% frame | `vast open sky, clean luminous background` |
+| **Solitary figure** | Nhân vật đứng một mình trong không gian rộng, không objects cạnh tranh | `solitary figure in open space, empty surroundings` |
+| **Negative space frame** | Nhân vật lệch sang 1/3, phần còn lại là không gian trống ấm áp | `asymmetrical composition, generous negative space on one side` |
+| **Clean field/ground** | Mặt đất hoặc sàn nhà sạch, không lộn xộn đồ vật | `clean wooden floor, empty meadow ground, uncluttered path` |
+| **Misty depth** | Hậu cảnh mờ dần tự nhiên (tilt-shift) tạo cảm giác thoáng sâu | `softly blurred background, tilt-shift depth, gentle bokeh` |
+| **Open doorway** | Nhân vật ở ngưỡng cửa, phía sau là khoảng sáng mở | `figure at open doorway, bright open space beyond` |
+| **Wide establishing** | Cảnh rộng, nhân vật nhỏ trong khung — tạo sự kính sợ và bình yên | `wide shot, small figure in vast setting` |
+
+### Quy tắc bắt buộc (Mandatory Rules)
+
+1. **Mỗi 5 prompt liên tiếp** phải có ít nhất 1 prompt với negative space ≥50%
+2. **Không bao giờ** mô tả >3 objects riêng biệt trong cùng 1 prompt nếu không phải Still Life
+3. **Intro và Outro** phải có ≥70% prompts là Wide hoặc Negative Space compositions
+4. **Character Action shots**: nhân vật phải có ít nhất 1/3 frame trống xung quanh — không bị objects kẹp 2 bên
+5. **Tránh danh sách objects dài** trong prompt — nhiều objects trong prompt = ảnh bí
+
+### Prompt Language Chuẩn (Bắt buộc thêm vào mọi prompt)
+
+```
+open and airy composition, generous negative space, single clear focal point, uncluttered background
+```
+
+### Ví dụ So sánh
+
+**❌ Bí / Cluttered:**
+```
+An elderly man sitting at a kitchen table surrounded by copper pots, a stack of books, three ceramic mugs, a wooden box, scattered papers, hanging herbs, and a steaming pot on the stove nearby
+```
+
+**✅ Thoáng / Airy:**
+```
+An elderly man sitting quietly at a plain wooden table, a single ceramic mug of tea beside him, open and airy composition, generous negative space, soft morning light streaming through a half-open window, uncluttered background
+```
+
+### Revision Rule
+
+Khi Boss nói **"thoáng hơn"**, **"bớt đồ"**, **"nhìn mệt mắt quá"**, **"bí quá"**:
+1. Xóa tất cả objects trong prompt, chỉ giữ lại 1-2 objects quan trọng nhất
+2. Thêm `open and airy composition, generous negative space, single clear focal point, uncluttered background`
+3. Đổi sang wide shot hoặc negative space composition
+4. Thêm environmental openness: `open sky`, `empty field`, `clean floor`, `vast corridor`
+
+*V7.1 — Cập nhật: Thêm Open & Airy Doctrine*
