@@ -54,7 +54,7 @@ Khi Boss nói "làm ảnh video X":
 - Vật thể là gì? Xuất hiện mấy lần? Sức nặng cảm xúc (Emotional load) mỗi lần?
 - **Nếu không có leitmotif trong file:** AI tự đề xuất 1 vật thể phù hợp với câu chuyện và concept (đồ vật bình thường, gắn với nhân vật chính, có thể phát triển bối cảnh cảm xúc qua 4 lần xuất hiện). Ghi vào bộ nhớ làm việc, không hỏi Boss.
 
-**B. CHẾ ĐỘ CẢM XÚC (EMOTIONAL MODE)** — Tìm phần B2.5: A / B / C / D
+**B. CHẾ độ CẢM XÚC (EMOTIONAL MODE)** — Tìm phần B2.5: A / B / C / D
 - Nếu không có: AI tự suy luận từ lyrics và concept. Mặc định Mode A nếu không rõ.
 
 | Mode | Tên | Thiên hướng hình ảnh (Visual Bias) |
@@ -64,7 +64,7 @@ Khi Boss nói "làm ảnh video X":
 | C | Tiếc nuối + Kêu gọi hành động (Regret + CTA) | Ngôn ngữ cơ thể rõ ràng, hướng đến hành động, tone màu hơi lạnh |
 | D | Nỗi đau được giải tỏa (Cathartic Grief) | Không gian trống trải, dấu vết, sự vắng mặt, chi tiết bóng tối |
 
-**C. CẤU TRÚC BÀI HÁT + THỜI GIAN (SONG STRUCTURE + TIMING)** — Tìm F7:
+**C. CẤU TRÚC BÀI HÀT + THỜI GIAN (SONG STRUCTURE + TIMING)** — Tìm F7:
 - Mẫu (Pattern) đã chọn (Classic Pop / Evolving Chorus / 2-phút...)
 - Thời gian ước lượng từng phần (giây)
 
@@ -73,83 +73,7 @@ Khi Boss nói "làm ảnh video X":
 
 **E. THẾ GIỚI HÌNH ẢNH (VISUAL WORLD)** — Từ 02_concept.md:
 - Mô tả thế giới hình ảnh đã duyệt (bối cảnh, bầu không khí, bảng màu cảm xúc)
-- Sẽ dùng để kiểm tra chéo (cross-check) Asset Bible — nếu có sự sai lệch (drift) → tự điều chỉnh, không báo Boss
-
----
-
-## GIAI ĐOẠN 0: Asset Bible (BẮT BUỘC — Trước tất cả mọi thứ)
-
-> [!IMPORTANT]
-> Asset Bible là nền tảng. Không tạo bất kỳ prompt Scene nào trước khi Asset Bible được Boss duyệt.
-
-**Bước 1 — Xác định assets cần tạo:**
-- **Character Sheet (BẮT BUỘC):** Nhân vật chính
-- **Location Sheet (BẮT BUỘC nếu xuất hiện ≥ 3 lần):** Các địa điểm lặp lại nhiều
-- **Prop Sheet (TÙY CHỌN):** Đạo cụ biểu tượng quan trọng
-- **Leitmotif Prop Sheet (BẮT BUỘC nếu Song Intake tìm thấy hoặc tự đề xuất Leitmotif Object):**
-  Dùng Prop Sheet template để tạo reference cho vật thể leitmotif.
-  Sau khi lock, ghi vào Creative Brief của section tương ứng 3-4 anchor slots cố định với tag [LEITMOTIF]:
-
-  | Lần | Phần ưu tiên | Bối cảnh cảm xúc trong prompt |
-  |---|---|---|
-  | Lần 1 | Intro / Verse 1 | **Trung tính (Neutral)** — vật thể bình thường, không có ẩn ý (subtext) |
-  | Lần 2 | Chorus 1 / Verse 2 | **Ấm áp (Warm)** — gắn với hành động có ý nghĩa, ai đó còn ở đây |
-  | Lần 3 | Bridge / Chorus 2 | **U sầu (Melancholy)** — vật thể thay đổi trạng thái, vắng bóng ai đó |
-  | Lần 4 | Outro / Final Chorus | **Biến đổi (Transformed)** — bối cảnh đảo ngược hoàn toàn, ý nghĩa mới |
-
-  Prompt của các cảnh quay leitmotif: Tĩnh vật (Still Life) hoặc Cận cảnh từng phần (Fragmented Macro).
-  Mô tả vật thể phải thay đổi tinh tế (subtle) qua từng lần — không sao chép (clone) prompt cũ.
-
-> [!IMPORTANT]
-> **Quy tắc mở rộng địa điểm (Location Expansion Rule):** Các địa điểm trong Asset Bible là cốt lõi cho tính nhất quán (consistency) — nhưng **tối thiểu 30% prompts trong Giai đoạn 3 PHẢI xảy ra ở địa điểm NGOÀI Asset Bible** (đường làng, chợ, bãi cỏ, bếp, xe, ga tàu...). Nếu toàn bộ prompts chỉ dùng 3 địa điểm trong Asset Bible → thế giới trở nên chật hẹp và lặp lại.
-
-**Bước 2 — Tạo Asset Bible Prompts:**
-
-*Character Sheet:*
-```
-Wide character concept sheet of [mô tả chi tiết: tuổi, vóc dáng, trang phục, biểu cảm]. 3-angle turnaround showing front, side, and 3/4 views in one frame, standing in a neutral cozy warm-lit space. [Style anchor]. White/neutral background. Character reference sheet layout. No background story elements.
-```
-
-*Location Sheet:*
-```
-Location concept sheet of [tên địa điểm], showing [interior view] and [exterior view] side by side in one frame. [Mô tả: vật liệu, ánh sáng, đặc điểm nổi bật]. [Style anchor]. Reference sheet layout, white label space at bottom. No characters present.
-```
-
-*Prop Sheet:*
-```
-Prop concept sheet of [tên đạo cụ], showing [multiple angles / scale reference]. [Mô tả chất liệu, màu sắc, tình trạng]. [Style anchor]. White/neutral background. Reference sheet layout.
-```
-
-**Bước 3 — Boss duyệt → ghi vào `projects/video_xxx/docs/04_asset_bible.md`**
-
-> [!IMPORTANT]
-> **Ký hiệu rút gọn địa điểm (Location Shorthand) — BẮT BUỘC tạo ngay sau khi chốt (lock):**
-> Model AI không đọc được file của chúng ta. Nó không biết “same [location] as established in asset bible” là cái gì.
-> Chỉ có ảnh tham khảo nhân vật (character ref image) là thật — vì chúng ta tải hình đó lên cho model thấy.
-> Địa điểm không có ảnh tham khảo → phải mô tả thật trong prompt.
-
-Sau khi Boss duyệt Location Sheet, AI trích xuất **Ký hiệu rút gọn địa điểm (Location Shorthand)** cho mỗi địa điểm:
-- Là chuỗi 6–10 từ khoá tóm tắt các yếu tố nhận diện cốt lõi của địa điểm
-- Cùng shorthand → model sẽ kết xuất (render) ra cảnh giống nhau → tạo tính nhất quán
-- Lưu trong `04_asset_bible.md` dưới mục **“Location Shorthands”**
-- Dùng nguyên văn trong mọi prompt có địa điểm đó
-
-**Cách tạo Location Shorthand:** 2-3 yếu tố kiến trúc + 1-2 đồ vật đặc trưng + 1 ánh sáng → comma-separated.
-```
-Kitchen  : cluttered farmhouse kitchen, rough stone walls, copper pots hanging, warm hearth glow
-Workshop : small woodworking workshop, amber oil lamp overhead, rough timber walls, heavy oak workbench, woodshavings floor
-Garden   : overgrown cottage garden, mossy stone path, weathered wooden fence, dappled afternoon light through oak branches
-```
-
-**Quy tắc trong prompt:**
-- Nhân vật: Tải lên 1 ảnh tham khảo nhân vật cho model → trong prompt chỉ cần ID ngắn gọn (`the old man`, `he`)
-- Địa điểm (Asset Bible): Sao chép nguyên văn Location Shorthand vào prompt — không viết “same as”
-- Địa điểm (mở rộng): Mô tả thả tự nhiên theo sự phân công (assignment)
-- Đạo cụ (có Prop Sheet): Mô tả ngắn + “same [prop name] style” (có thể dùng nếu tải lên ảnh tham khảo đạo cụ)
-
-> [!NOTE]
-> **Chính sách Tải lên (Upload Policy):** Tối đa 5 ảnh Asset Bible cho 1 video. Boss tải lên toàn bộ 1 lần trước khi tạo ảnh.
-> Độ ưu tiên: Character Sheet → bắt buộc tải lên. Location Sheet → tải lên nếu còn chỗ trống (slot). Prop Sheet → chỉ tải lên nếu quan trọng và còn chỗ trống.
+- Dùng để đảm bảo tính nhất quán (consistency) với câu chuyện gốc khi viết prompt
 
 ---
 
