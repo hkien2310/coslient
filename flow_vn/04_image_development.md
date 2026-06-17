@@ -44,6 +44,8 @@ Extract 3 thứ vào working memory:
 
 Liệt kê tất cả file `04s_visual_style_*.md` trong `style/` → hỏi Boss chọn.
 
+**Mặc định:** `style/04s_visual_style_nature.md`
+
 Style quyết định tất cả: rendering medium, palette, surreal logic, cách ánh sáng hoạt động, cảm xúc tổng thể. Không có Color Tone Lock riêng — style guide đã handle.
 
 ---
