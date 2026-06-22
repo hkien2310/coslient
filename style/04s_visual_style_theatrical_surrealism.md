@@ -56,6 +56,7 @@ theatrical conceptual surrealism, minimalist atmospheric stage, surreal entity f
 
 Vật thể siêu thực phải được định nghĩa bằng **(1) Trạng thái/Chất liệu** + **(2) Hình bóng rõ ràng**. KHÔNG bó buộc vào một chất liệu cụ thể.
 
+
 **Các ví dụ (mở rộng và linh hoạt):**
 - *Khí/Khói:* `a majestic horse manifested entirely out of swirling dense smoke and glowing embers`
 - *Chất lỏng:* `a recognizable silhouette of a horse formed by floating water droplets and liquid amber`

@@ -45,9 +45,9 @@ Mục đích: Khi Boss **chưa có ý tưởng** và muốn được tạo ý t�
 
 ---
 
-## 5 Vùng Cảm Xúc (The 5 Emotional Territories)
+## 6 Vùng Cảm Xúc (The 6 Emotional Territories)
 
-Đây là 5 "vũ trụ cảm xúc" đã được kiểm chứng với tệp khán giả trên 45 tuổi của Coslient. Mọi ý tưởng mạnh đều xuất phát từ bên trong một trong 5 vùng cảm xúc này.
+Đây là 6 "vũ trụ cảm xúc" đã được kiểm chứng với tệp khán giả trên 45 tuổi của Coslient. Mọi ý tưởng mạnh đều xuất phát từ bên trong một trong 6 vùng cảm xúc này.
 
 ---
 
@@ -101,6 +101,17 @@ Những tình bạn lâu dài, người hàng xóm trở thành gia đình, nh�
 
 ---
 
+### Vùng 6: KHÔNG GIAN MANG KÝ ỨC (PLACES WITH MEMORY)
+
+Những địa điểm mà thời gian và cảm xúc đã in vào — không phải đồ vật bên trong, mà là chính nơi chốn đó. Con đường ai đó từng đi. Bãi biển của một mùa hè không thể quay lại. Cánh đồng trống buổi sáng sau khi đám tang. Góc phố quen lúc bình minh, không một bóng người.
+
+- **Tại sao hiệu quả:** Không gian giải phóng hình ảnh ra khỏi 4 bức tường. Khán giả không chỉ nhớ vật thể — họ nhớ nơi chốn. Nơi chốn gắn với cảm giác cơ thể: mùi gió, ánh sáng buổi sáng, tiếng chân trên sỏi. Những ký ức địa điểm thường mạnh hơn ký ức đồ vật vì chúng kéo cả không khí, âm thanh, ánh sáng về cùng lúc.
+- **Câu hỏi gợi mở ý tưởng:** "Nơi nào bạn không thể quay lại nhưng vẫn thấy mình đứng ở đó trong giấc mơ?"
+- **Các ví dụ:** Con đường làng ai đó rời đi và không về, bờ hồ nơi hai người ngồi lần cuối, căn nhà cũ chỉ còn nền đất, bến xe buổi sáng sớm.
+- **Không gian mặc định:** Ngoài trời, rộng, thoáng — cánh đồng, biển, rừng, đường dài, quảng trường vắng, bến sông.
+
+---
+
 ## 3 Điểm Kích Hoạt Tạo Ý Tưởng (The 3 Idea-Generation Triggers)
 
 Khi Boss bí, dùng một trong 3 điểm kích hoạt này để mở khóa:
@@ -109,11 +120,13 @@ Khi Boss bí, dùng một trong 3 điểm kích hoạt này để mở khóa:
 
 ### Kích hoạt A: Chi Tiết Cụ Thể (The Specific Detail)
 
-Bắt đầu với 1 hình ảnh cụ thể, rõ ràng. Không phải cảm xúc — một vật thể, một chi tiết.
+Bắt đầu với 1 hình ảnh cụ thể, rõ ràng. Không phải cảm xúc — một vật thể, một chi tiết, hoặc một không gian.
 
-> "Chiếc cốc cà phê còn dấu son của người khác."
-> "Chiếc điện thoại vẫn còn tên cô ấy trong danh bạ."
-> "Chiếc áo khoác vẫn còn mùi của anh ấy."
+> "Chiếc cốc cà phê còn dấu son của người khác."         ← vật thể
+> "Chiếc điện thoại vẫn còn tên cô ấy trong danh bạ."   ← vật thể
+> "Con đường làng lúc 5 giờ sáng, không một bóng người." ← không gian
+> "Bãi biển trống sau khi mọi người đã về hết."          ← không gian
+> "Cái ghế ngoài hiên không ai ngồi từ mùa hè năm đó."  ← vật thể + không gian
 
 Từ một hình ảnh đó → câu chuyện là gì? Ai đã rời đi? Chuyện gì đã xảy ra? Còn lại gì?
 
@@ -147,7 +160,7 @@ Trước khi đề xuất (recommend) ý tưởng nào sang Giai đoạn 1, Cosl
 
 | Tiêu chí | Câu hỏi | Điểm |
 |---|---|---|
-| **Vùng Cảm Xúc (Emotional Territory)** | Nằm trong 1 trong 5 vùng cảm xúc không? | 0 hoặc 1 |
+| **Vùng Cảm Xúc (Emotional Territory)** | Nằm trong 1 trong 6 vùng cảm xúc không? | 0 hoặc 1 |
 | **Chi Tiết Cụ Thể (Specific Detail)** | Có ít nhất 1 hình ảnh cụ thể (không trừu tượng) không? | 0 hoặc 1 |
 | **Xuyên Thế Hệ (Cross-gen)** | Người 30 tuổi có chia sẻ cho bố mẹ không? | 0 hoặc 1 |
 | **Tiềm Năng Hình Ảnh (Visual Potential)** | Có tưởng tượng được hơn 30 cảnh (scene) khác nhau không? | 0 hoặc 1 |
@@ -163,9 +176,11 @@ Trước khi đề xuất (recommend) ý tưởng nào sang Giai đoạn 1, Cosl
 
 Trước khi gửi ý tưởng sang Giai đoạn 1, Coslient tự hỏi:
 
-> **"Bà ngoại 70 tuổi có hiểu và cảm động ngay từ khổ thơ (verse) đầu tiên không?"**
+> **"Bà ngoại 70 tuổi có cảm thấy được gì đó từ khổ thơ (verse) đầu tiên không?"**
 
-Nếu câu trả lời là "chưa chắc" → thêm 1 yếu tố cụ thể hơn vào concept trước khi đi tiếp. Không gửi concept còn trừu tượng sang Giai đoạn 1.
+Phân biệt: **cảm được ≠ hiểu ngay.** Một cánh đồng trống lúc bình minh có thể không "hiểu ngay" — nhưng bà vẫn cảm được cô đơn, rộng lớn, nhớ. Đó là đủ.
+
+Nếu câu trả lời là "không cảm được gì hết" → thêm 1 yếu tố cụ thể hơn vào concept trước khi đi tiếp. Không gửi concept hoàn toàn lạnh và trừu tượng sang Giai đoạn 1.
 
 ---
 

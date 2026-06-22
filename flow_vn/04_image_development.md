@@ -44,11 +44,37 @@ Extract 3 thứ vào working memory:
 
 Liệt kê tất cả file `04s_visual_style_*.md` trong `style/` → hỏi Boss chọn.
 
-**Mặc định:** `style/04s_visual_style_nature.md`
+**Mặc định:** `style/04s_visual_style_warm_storybook.md`
 
 Style quyết định tất cả: rendering medium, palette, surreal logic, cách ánh sáng hoạt động, cảm xúc tổng thể. Không có Color Tone Lock riêng — style guide đã handle.
 
 ---
+
+## Bước 2.5 — Chọn Surreal Anchor
+
+> Tự làm, ẩn, không output ra chat.
+
+Surreal là yếu tố hình ảnh — quyết định một lần cho toàn video, apply nhất quán cho mọi prompt.
+
+Dựa trên câu chuyện đã đọc ở Bước 1, chọn **1 trụ chính** (bắt buộc) và **1 trụ phụ** (tuỳ chọn):
+
+- **🔵 Không gian sai** *(primary default):* Hành động bình thường ở địa điểm không thể tồn tại.
+- **🔵 Tỷ lệ sai** *(primary default):* Một vật thể cụ thể bỗng nhiên phi lý về kích cỡ, không ai đề cập.
+- **Vật lý sai** *(secondary):* Một thứ duy nhất không tuân theo luật vật lý.
+- **Hiện diện sai** *(secondary):* Có ai/thứ gì không thể ở đó, nhân vật khác cư xử bình thường.
+- **Thời gian sai** *(secondary):* Nhiều thời điểm của cùng người/không gian tồn tại đồng thời.
+
+**Quy tắc:**
+- Mỗi video: **1 trụ chính, tối đa 1 trụ phụ**.
+- Ưu tiên mặc định: Không gian sai hoặc Tỷ lệ sai.
+- Khi dùng 2 trụ: trụ chính là anchor toàn video, trụ phụ chỉ xuất hiện lác đác.
+- Nhân vật không phản ứng với cái bất thường. Không giải thích.
+
+Khai báo nội bộ (lưu vào working memory, không output):
+```
+Surreal chính: [tên trụ] — [mô tả cụ thể cho video này]
+Surreal phụ: [tên trụ hoặc none]
+```
 
 ## Bước 3 — Story Arc
 
@@ -122,6 +148,34 @@ Dựa trên những gì đã thấy từ batch trước:
 - Mở rộng location ra ngoài không gian quen thuộc
 
 Repeat cho đến khi pool đủ đa dạng.
+
+### ⚡ Viết song song — Prompt + Visual Index cùng lúc
+
+> **BẮT BUỘC.** Mỗi prompt viết xong → append **ngay** vào `docs/04_visual_index.txt`.
+
+**Format mỗi entry trong index:**
+```
+P{số thứ tự, 3 chữ số} {Section tag} | noun1, noun2, noun3, noun4
+```
+
+**Cách extract nouns:** Bỏ hết camera angle, lighting, style boilerplate — chỉ giữ objects/locations/materials cốt lõi (3-6 từ).
+
+**Ví dụ:**
+```
+Prompt gốc (300 ký tự):
+  "Wide establishing eye-level shot, dry cracked red earth of a rustic rural courtyard,
+   no people, a single weathered wooden chair in the foreground, an old rusted bucket
+   in the mid-ground, a quiet wooden farmhouse beyond, bright luminous warm daylight..."
+
+→ Append vào index (30 ký tự):
+  P001 Intro - Wide establishing | cracked earth, wooden chair, bucket, farmhouse
+```
+
+**Cuối mỗi batch:** Cập nhật dòng `GLOBAL VISUAL PALETTE` ở đầu file index bằng cách union tất cả nouns.
+
+> Nếu `04_visual_index.txt` chưa tồn tại (backfill từ file cũ) → chạy 1 lần:
+> `python3 scripts/summarize_visuals.py --project projects/video_xxx`
+
 
 ---
 

@@ -80,6 +80,7 @@ Mỗi concept được gắn thẻ (tag) theo 5 chiều để kiểm tra trùng 
 | **v058** | The Biscuit Tin | `letter` `old-man` | `sacrifice→legacy` | `letter-unsent` | `home-interior` | `reversal` | Cha viết thư không gửi, giữ nỗi đau cho riêng mình |
 | **v059** | Last Summer Together | `photo` `friendship` | `past→present` | `found-message` | `home-interior` | `time-collapse` | Bức ảnh nhóm bạn cũ, lần cuối không ai biết |
 | **v060** | The Message in the Margin | `book` `library` `letter` | `loneliness→warmth` | `found-message` | `library` | `time-collapse` | Ghi chú bên lề sách → kết nối người xa lạ qua thời gian |
+| **v061** | The Room That Roared | `village` `nostalgia` | `past→present` | `object-triggers-memory` | `small-town` | `time-collapse` | Giọng BLV kích hoạt ký ức xem World Cup cùng cả xóm thời nhỏ |
 
 ---
 
@@ -106,9 +107,9 @@ Các sự kết hợp sau xuất hiện **≥2 lần** — **tránh hoặc đổ
 | Chủ thể | Số lượng | Trạng thái |
 |---|---|---|
 | `old-man` | 22+ | 🔴 **Sử dụng quá nhiều (Heavily over-indexed)** |
-| `house/home-interior` | 13+ | 🔴 **Bối cảnh bị lạm dụng (Over-indexed as setting)** |
+| `house/home-interior` | 14+ | 🔴 **Bối cảnh bị lạm dụng (Over-indexed as setting)** |
 | `old-woman` | 5 | 🟡 Trong tầm kiểm soát (Manageable) |
-| `friendship` | 3 | 🟢 Ít sử dụng (Underused) |
+| `friendship` | 4 | 🟢 Ít sử dụng (Underused) |
 | `ocean` | 3 | 🟠 Bão hòa gần đây (Saturated recently) |
 | `letter/found-message` | 4 | 🟠 Tăng đột biến gần đây (Recent spike) |
 | `horse` | 2 | 🟡 Ổn (OK) |
@@ -180,4 +181,4 @@ Các sự kết hợp sau xuất hiện **≥2 lần** — **tránh hoặc đổ
 
 ---
 
-*Cập nhật lần cuối: 2026-06-10 — Đã hoàn tất nhập dữ liệu cũ (Backfill completed): v21–v60*
+*Cập nhật lần cuối: 2026-06-20 — Đã thêm v061*

@@ -266,6 +266,9 @@ Câu chuyện nên mang cảm giác về con người một cách rộng rãi v�
 - những niềm vui thân thuộc hoặc giản dị
 - sự kỳ diệu nhẹ nhàng bên trong cuộc sống bình thường
 - sự biến đổi nhẹ nhàng thông qua sự ấm áp, sự kết nối, hoặc sự chú ý
+- hành trình qua những nơi chốn mang ký ức (con đường, bờ biển, cánh đồng, bến sông)
+- sự rộng lớn của thiên nhiên như chiếc gương phản chiếu cảm xúc bên trong
+- nơi chốn vắng người nhưng đầy dấu vết của ai đó còn ở lại
 
 Quy tắc mặc định về nhân vật và an toàn:
 - người lớn tuổi thường nên là nhân vật trung tâm

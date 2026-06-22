@@ -43,6 +43,7 @@ THỨ TỰ GIAI ĐOẠN: inbox → brainstorm → selected → concept → resea
 | v058 | The Biscuit Tin (Hộp Bánh Quy) | `song` | Có lời bài hát + nhạc. Chưa có câu lệnh tạo ảnh (image prompts) | 2026-06-10 |
 | v059 | Last Summer Together (Mùa Hè Cuối Cùng Bên Nhau) | `song` | Có lời bài hát + nhạc. Chưa có câu lệnh tạo ảnh (image prompts) | 2026-06-10 |
 | v060 | The Message in the Margin (Lời Nhắn Cạnh Lề) | `song` | Có lời bài hát + nhạc. Chưa có câu lệnh tạo ảnh (image prompts) | 2026-06-10 |
+| v061 | the cord across the road | `image` | Đã tạo xong image prompts Batch 1 (Warm Storybook) | 2026-06-20 |
 
 ---
 
@@ -52,7 +53,7 @@ THỨ TỰ GIAI ĐOẠN: inbox → brainstorm → selected → concept → resea
 
 | ID | Tiêu đề / Ý tưởng | Điểm số | Ghi chú | Đã thêm |
 |---|---|---|---|---|
-| — | — | — | *Chưa có ý tưởng trong danh sách tồn đọng* | — |
+| v061 | The Room That Roared | `village` `nostalgia` | `past→present` | `object-triggers-memory` | `small-town` | `time-collapse` | Giọng BLV kức họat ký ức đêm xem World Cup cùng cả xóm thờơi nhở | — |
 
 ---
 
@@ -98,4 +99,4 @@ COSLIENT → WEB:  Sếp đọc giai đoạn ở ĐANG LÀM (IN PROGRESS) → k�
 
 ---
 
-*Cập nhật lần cuối: 2026-06-10*
+*Cập nhật lần cuối: 2026-06-20*

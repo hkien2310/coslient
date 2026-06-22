@@ -1,0 +1,152 @@
+
+#======================================================================
+# GLOBAL VISUAL PALETTE (40 concepts nổi bật nhất — copy cho AI)
+#======================================================================
+dry, red, earth, rural, wooden, chair, edge, pair, boots, trowel, brown, pecan, cornflower, shirt, patch, freshly, turned, dirt, clods, grassy, green, sapling, leaves, straight, ahead, trunk, tree, roots, smile, sunlight, stone, well, cedar, stick, metal, bucket, empty, rocking, expansive, closed
+#======================================================================
+
+# Visual Index — Tham chiếu hình ảnh cô đọng
+# Đọc file này trước khi search_media để biết visual palette của video
+# Format: Tag | object1, object2, object3, ...
+#----------------------------------------------------------------------
+
+P001 Intro - Wide establishing, empty world | dry, red, earth, rural, wooden, chair
+P002 Intro - Environment + Traces | edge, pair, boots, trowel, brown, pecan
+P003 Verse 1 - Character introduction | rural, cornflower, shirt, patch, freshly, turned
+P004 Verse 1 - Fragmented Macro (Leitmotif 1 - Hạt giốn | patch, red, dirt, clods, pair, pecan
+P005 Pre-Chorus 1 - Passing of time | grassy, green, sapling, leaves, straight, ahead
+P006 Chorus 1 - Love and growth | trunk, tree, roots, smile, sunlight, green
+P007 Verse 2 - Aging | stone, well, cedar, stick, metal, bucket
+P008 Bridge - Absence (Focus: Traces & Still Life) | wooden, leaves, empty, rocking, chair, cedar
+P009 Final Chorus - The massive shelter (Leitmotif 4 -  | expansive, rural, tree, trunk, roots, closed
+P010 Outro - The legacy (Focus: Fragmented Macro) | floor, pieces, brown, pecan, shell, blurred
+P011 Verse 1 - Through-the-frame (Surreal root size) | circular, loop, tree, root, rural, green
+P012 Pre-Chorus - Overhead (Giant roots as landscape) | expansive, red, earth, serpentine, tree, roots
+P013 Chorus 1 - Low ground-level (Absurd scale leaf) | edge, green, tree, leaf, size, blanket
+P014 Verse 2 - Detail/Object (Surreal bark texture) | bark, tree, ridges, normal-sized, vintage, camera
+P015 Pre-Chorus 2 - Medium high-angle (Well engulfed by | tree, root, around, stone, well, cedar
+P016 Bridge - Wide establishing night (Canopy covering  | rural, canopy, green, leaves, sky, umbrella
+P017 Chorus 2 - Fragmented Macro (Scale contrast) | surface, brown, tree, trunk, bark, texture
+P018 Final Chorus - Over-the-shoulder (Boulder-sized pe | huge, green, pecan, nut, size, boulder
+P019 Outro - Environment + Traces (Indoor invasion) | inside, wooden, tree, root, bursting, seamlessly
+P020 Final Chorus - Unusual framing (Living on the root | peaceful, summer, exposed, tree, root, functioning
+P021 Verse 1 - Extreme low ground-level (Shell as a cav | extreme, inside, curve, brown, pecan, shell
+P022 Pre-Chorus - Aerial/Bird's-eye view (Roots as map) | bird's-eye, view, expansive, rural, landscape, gargantuan
+P023 Chorus 1 - Medium close-up (Surreal juxtaposition) | normal-sized, teacup, one, other, green, pecan
+P024 Verse 2 - Wide establishing sunset (Silhouette of  | rural, sunset, dark, silhouette, thick, tree
+P025 Pre-Chorus 2 - Fragmented macro (Reflection) | drop, morning, dew, green, leaf, reflected
+P026 Chorus 2 - High-angle over-the-shoulder (Walking o | down, wooden, railing, cedar, stick, what
+P027 Bridge - Medium shot (Playful scale) | pecan, twig, size, log, horizontally, balancing
+P028 Final Chorus - Close-up macro (Mirrored shapes) | wooden, wall, normal-sized, cedar, stick, right
+P029 Final Chorus - Wide dramatic (The absolute umbrell | rural, during, rainstorm, canopy, leaves, acting
+P030 Outro - Still life (The overflowing harvest) | wooden, afternoon, rusted, metal, bucket, floorboards
+P031 Verse 1 - Abstract composition (Shell as canyon) | deeply, grooved, brown, surface, pecan, shell
+P032 Pre-Chorus 1 - Fragmented macro (Pillar stem) | green, surface, plant, stem, thick, grecian
+P033 Chorus 1 - Medium low angle (Leaf blocking window) | inside, wooden, farmhouse, out, window, green
+P034 Verse 2 - Wide establishing winter (The protective | rural, winter, bare, wooden, branches, tree
+P035 Pre-Chorus 2 - Medium shot (Watermelon-sized seed) | patch, freshly, turned, red, earth, brown
+P036 Chorus 2 - Overhead (Blanket on the roof) | down, farmhouse, roof, green, leaf, draped
+P037 Bridge - Medium shot (Camera absorbed by wood) | edge, tree, root, grown, around, vintage
+P038 Final Chorus - Close-up macro (Vein roads) | surface, green, leaf, thick, veins, winding
+P039 Final Chorus - Wide shot (The wagon harvest) | rural, effortlessly, pulling, normal-sized, wooden, wagon
+P040 Outro - High-angle wide (Colossal spotlight) | down, shade, canopy, entire, cool, green
+P041 Chorus 1 - Wide interior (The wooden cathedral) | inside, naturally, hollowed-out, cavern, tree, trunk
+P042 Verse 2 - Low-angle wide (The living cage) | low-angle, rural, exterior, serpentine, tree, roots
+P043 Pre-Chorus - Medium shot (The hot air balloon) | normal-sized, potted, plant, hanging, directly, green
+P044 Bridge - Aerial shot (Boat-sized leaves) | aerial, down, stream, tree, leaves, size
+P045 Verse 1 - Close-up (The giant anther) | surface, wooden, table, normal-sized, ceramic, teacup
+P046 Final Chorus - Wide night shot (Root pathways) | rural, tree, roots, catching, light, functioning
+P047 Pre-Chorus 2 - Wide establishing (Hanging clothes  | wooden, stool, hanging, normal-sized, washed, clothes
+P048 Chorus 2 - Medium eye-level (Leaf tent) | red, earth, normal-sized, cedar, stick, used
+P049 Intro - Wide through-the-frame (Shell archway) | crack, brown, pecan, shell, forms, archway
+P050 Outro - Still life (The cemented bucket) | edge, wooden, rusted, metal, bucket, placed
+P051 Verse 1 - Environmental interaction (The leaf wate | low-angle, rural, during, heavy, rainstorm, green
+P052 Pre-Chorus - Wide landscape (The snow bridge) | landscape, winter, thick, wooden, tree, branch
+P053 Chorus 1 - Close-up macro (Anchoring time) | red, dirt, normal-sized, pocket, watch, soil
+P054 Verse 2 - High-angle wide (The trapped kite) | windy, normal-sized, colorful, paper, kite, stuck
+P055 Pre-Chorus 2 - Medium wide (Raking ONE leaf) | autumn, elegantly, straining, pull, thick, coarse
+P056 Chorus 2 - Extreme wide (The root horizon) | extreme, expansive, rural, landscape, curved, surface
+P057 Bridge - Detail shot (Harvesting giant pollen) | inside, normal-sized, wooden, wheelbarrow, dirt, but
+P058 Final Chorus - Medium shot (Carving the husk) | wooden, normal-sized, carving, knife, out, inside
+P059 Outro - Low angle tracking (Stained glass leaves) | green, canopy, shadow, tree, blocking, sky
+P060 Final Closure - Wide establishing (The tilted hous | rural, underground, tree, root, pushed, lifting
+P061 Verse 1 - Extreme low angle (Piercing the clouds) | extreme, rural, straight, sky, tree, grown
+P062 Pre-Chorus - Macro action (The single drop) | canopy, drop, morning, dew, green, leaf
+P063 Chorus 1 - Medium shot (The shell nook) | edge, brown, pecan, shell, side, enclosed
+P064 Verse 2 - Aerial wide (The root dock) | aerial, down, quiet, lake, subterranean, tree
+P065 Pre-Chorus 2 - Close-up macro (The vein hammock) | surface, green, leaf, two, thick, veins
+P066 Chorus 2 - High angle wide (The root floor) | entire, rural, exposed, root, system, overwhelmingly
+P067 Bridge - Detail shot (The tree waters the man) | elegantly, rusty, can, tree, green, leaf
+P068 Final Chorus - Wide landscape (Micro-climates) | landscape, twilight, tree, canopy, spanning, creates
+P069 Outro - Medium wide (Chopping the shell) | grassy, normal-sized, wood-chopping, axe, instead, log
+P070 Final Closure - Wide emotional (The gentle giant) | wall, tree, trunk, hugging, bark, span
+P071 Verse 1 - Object integration (The twig table) | rural, pair, normal-sized, wire-rimmed, reading, glasses
+P072 Pre-Chorus - Medium close-up (Hide and seek) | grassy, yard, dry, brown, pecan, leaf
+P073 Chorus 1 - Wide shot (The tractor cover) | edge, red, earth, rusted, green, tractor
+P074 Verse 2 - Extreme macro (The two seeds) | extreme, freshly, turned, dark, soil, thumb
+P075 Pre-Chorus 2 - Overhead wide (The exact shadow) | bird's-eye, view, perfectly, manicured, green, lawn
+P076 Chorus 2 - Medium low angle (Bark climbing) | straight, wall, tree's, bark, deeply, grooved
+P077 Bridge - Detail shot (The offered birdhouse) | normal-sized, wooden, birdhouse, red, thick, tree
+P078 Final Chorus - Wide night shot (The glowing leaf d | rural, grass, green, leaf, domed, tent
+P079 Outro - Close-up texture (The shell easel) | elegantly, paintbrush, painting, landscape, but, instead
+P080 Final Closure - Wide landscape (The petiole pole) | red, earth, normal-sized, clothesline, strung, horizontally
+P081 Verse 1 - Light manipulation (The floral sun) | rural, shade, dense, green, canopy, blocks
+P082 Pre-Chorus - Seasonal paradox (Islands of autumn) | freezing, winter, earth, covered, thick, white
+P083 Chorus 1 - Close-up macro (Split time leaf) | surface, pecan, leaf, exhibits, surreal, time
+P084 Verse 2 - Detail shot (The tree's heartbeat) | wall, brown, bark, trunk, normal-sized, medical
+P085 Pre-Chorus 2 - Medium wide (The absolute windbreak | edge, violent, windstorm, aggressively, bending, trees
+P086 Chorus 2 - Medium low angle (The heavy shell umbre | rural, yard, during, rainstorm, rain, instead
+P087 Bridge - Wide establishing (The catkin blanket) | rural, winter, tree, entirely, bare, leaves
+P088 Final Chorus - Wide landscape (The trapped sunrise | landscape, early, morning, dark, silhouette, tree
+P089 Outro - High-angle wide (Roots in the sky) | down, canopy, surreal, inversion, where, several
+P090 Final Closure - Wide emotional (The biological bal | tree's, trunk, wood, naturally, formed, perfectly
+P091 Verse 1 - Cosmic scale (The moon anchor) | rural, dark, silhouette, tree, thick, wooden
+P092 Pre-Chorus - Extreme macro (Galaxies in the sap) | extreme, deeply, grooved, brown, bark, tree
+P093 Chorus 1 - Medium close-up (The topographical leaf | wooden, table, skeletonized, leaf, just, delicate
+P094 Verse 2 - Wide shot (The generational swing) | hanging, branch, two, ropes, thick, ship
+P095 Pre-Chorus 2 - High-angle looking down (The endles | directly, down, stone, well, mossy, walls
+P096 Chorus 2 - Aerial view (Cloud harvesters) | aerial, bird's-eye, view, earth, very, top
+P097 Bridge - Wide shot (The root staircase) | base, tree, trunk, series, thinner, but
+P098 Final Chorus - Close-up macro (The racing track ri | flat, freshly, cut, surface, pruned, branch
+P099 Final Chorus - Low angle action (Pollen splash) | red, earth, joyfully, jumping, both, feet
+P100 Final Closure - Extreme wide (The eternal guardian | extreme, landscape, exactly, mirroring, prompt, but
+P101 Verse 1 - Wide interior (The root cavern) | underground, awe-inspiring, cavern, formed, entirely, interwoven
+P102 Pre-Chorus - Close-up macro (The shell oasis) | red, earth, half-cracked, brown, pecan, shell
+P103 Chorus 1 - Medium wide (The ironic scale) | grassy, hugging, average-sized, green, pecan, tree
+P104 Verse 2 - Action tracking (The leaf sled) | tracking, snowy, hillside, winter, bundled, clothes
+P105 Pre-Chorus 2 - Medium high-angle (The wood well) | top, flat, horizontal, tree, root, lowering
+P106 Chorus 2 - Wide landscape (The breathing canopy) | landscape, early, morning, tree, canopy, hovering
+P107 Bridge - Medium close-up (The glowing cleft) | bark, tree, trunk, vertical, split, wood
+P108 Final Chorus - Wide landscape (The root bridge) | landscape, peaceful, river, flowing, near, gargantuan
+P109 Outro - Detail shot (The petiole telescope) | wooden, twilight, hollowed-out, section, green, leaf
+P110 Final Closure - Wide establishing (Tectonic roots) | entire, rural, sheer, force, tree, earth
+P111 Verse 1 - Wide landscape (The leaf pond) | grassy, edge, gargantuan, green, leaf, edges
+P112 Pre-Chorus - Medium close-up (The echoing woodpeck | thick, canyon-like, bark, trunk, normal-sized, woodpecker
+P113 Chorus 1 - Close-up macro (The ant highway) | down, one, vertical, crevices, bark, wooden
+P114 Verse 2 - Wide shot (The shell apartment) | hanging, low-hanging, branch, half-cracked, brown, pecan
+P115 Pre-Chorus 2 - Detail shot (The unequal web) | between, farmhouse, tree, normal-sized, garden, spider
+P116 Chorus 2 - Low angle action (The overwhelmed hoard | patch, autumn, leaves, normal-sized, brown, squirrel
+P117 Bridge - Wide landscape (The root dam) | landscape, bubbling, stream, subterranean, tree, root
+P118 Final Chorus - Close-up macro (The caterpillar tra | green, edge, leaf, elevated, highway, normal-sized
+P119 Outro - Low angle wide (The fake starry night) | straight, canopy, dark, leaves, block, out
+P120 Final Closure - Medium close-up (The falling shado | out, normal-sized, butterfly, lands, index, finger
+P121 Verse 1 - Wide landscape (The woven fence) | boundary, red, earth, normal-sized, wooden, fence
+P122 Pre-Chorus - Medium wide (The leaf chimney hood) | roof, wooden, farmhouse, thick, grey, smoke
+P123 Chorus 1 - Low angle action (The biological windmi | tall, wooden, windmill, one, original, blades
+P124 Verse 2 - Close-up interior (The living bookshelf) | inside, farmhouse, living, tree, root, protruded
+P125 Pre-Chorus 2 - Medium shot (The vine clothesline) | instead, rope, clothesline, long, thin, flexible
+P126 Chorus 2 - Wide eye-level (The gothic root arch) | front, farmhouse, two, tree, roots, breached
+P127 Bridge - Medium high-angle (The leaf shingles) | down, farmhouse, roof, wooden, ladder, using
+P128 Final Chorus - Close-up (The natural lantern hook) | bark, trunk, sharp, wooden, thorn, protruding
+P129 Outro - Detail shot (The swallowed mailbox) | end, dirt, driveway, rusted, metal, mailbox
+P130 Final Closure - Wide interior (The biological wind | interior, out, farmhouse, window, inside, sunlight
+P131 Verse 1 - Close-up macro (The amber photograph) | hanging, wooden, branch, gargantuan, perfectly, clear
+P132 Pre-Chorus - Medium wide (The billboard carving) | deeply, bark, trunk, carved, heart, initials
+P133 Chorus 1 - Detail shot (The swallowed tractor) | crotch, two, branches, normal-sized, rusted, vintage
+P134 Verse 2 - Extreme macro (Fossilized rain) | extreme, flat, surface, wall, hardened, transparent
+P135 Pre-Chorus 2 - Medium close-up (The bark tapestry) | trunk, sheet, outer, bark, peeled, curled
+P136 Chorus 2 - Detail interior (The clockwork root) | inside, farmhouse, antique, wooden, grandfather, clock
+P137 Bridge - Medium close-up (The whispering knot) | bark, trunk, elegantly, pressing, ear, hollow
+P138 Final Chorus - Medium shot (The time mirror) | base, trunk, perfectly, flat, highly, polished
+P139 Outro - Low angle macro (The memory chimes) | cluster, thin, delicate, rootlets, hanging, down
+P140 Final Closure - Wide establishing (The biological  | tree, glowing, brightly, within, lantern, thick

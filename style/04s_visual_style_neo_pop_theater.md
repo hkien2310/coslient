@@ -33,11 +33,6 @@ File này chứa toàn bộ DNA thị giác cho phong cách **Neo-Pop Theater** 
 - symmetrical and meticulously arranged
 - avant-garde fashion and retro-futuristic shapes
 
-### Hình ảnh KHÔNG được cảm nhận như:
-- grainy, vintage, retro camera effects, film dust
-- realistic natural environments (no trees, streets, messy rooms)
-- cluttered backgrounds
-
 ---
 
 ## 2. Style Anchors

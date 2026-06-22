@@ -1,0 +1,1491 @@
+{
+  "song_name": "The Deep Root.wav",
+  "fps": 60,
+  "duration_seconds": 244.2,
+  "total_frames": 14652,
+  "min_duration_setting": 2.5,
+  "cut_style": "normal",
+  "cuts_count": 81,
+  "scene_cuts": [
+    {
+      "start_seconds": 0.0,
+      "start_frame": 0,
+      "score": 1.0,
+      "reasons": [
+        "Forced First Cut"
+      ],
+      "end_seconds": 2.763,
+      "end_frame": 165,
+      "duration_frames": 165,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "dry red earth",
+      "queryParamsSecondary": "wooden chair",
+      "queryParamsTertiary": "rural",
+      "overlap_weight": 0.0
+    },
+    {
+      "start_seconds": 2.763,
+      "start_frame": 165,
+      "score": 0.171,
+      "reasons": [],
+      "end_seconds": 6.101,
+      "end_frame": 366,
+      "duration_frames": 201,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "pair boots",
+      "queryParamsSecondary": "brown pecan",
+      "queryParamsTertiary": "edge",
+      "overlap_weight": 0.0
+    },
+    {
+      "start_seconds": 6.101,
+      "start_frame": 366,
+      "score": 0.205,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 9.088,
+      "end_frame": 545,
+      "duration_frames": 179,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "cornflower shirt",
+      "queryParamsSecondary": "rural",
+      "queryParamsTertiary": "patch",
+      "overlap_weight": 0.0
+    },
+    {
+      "start_seconds": 9.088,
+      "start_frame": 545,
+      "score": 0.174,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 12.021,
+      "end_frame": 721,
+      "duration_frames": 176,
+      "has_vocals": true,
+      "vocals_in_segment": "The July sun baked the Georgia clay",
+      "lyric_context": "The July sun baked the Georgia clay",
+      "queryParams": "dirt clods",
+      "queryParamsSecondary": "patch",
+      "queryParamsTertiary": "red",
+      "overlap_weight": 0.13
+    },
+    {
+      "start_seconds": 12.021,
+      "start_frame": 721,
+      "score": 0.75,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge",
+        "Downbeat"
+      ],
+      "end_seconds": 15.029,
+      "end_frame": 901,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "The July sun baked the Georgia clay",
+      "lyric_context": "The July sun baked the Georgia clay",
+      "queryParams": "green sapling leaves",
+      "queryParamsSecondary": "straight ahead",
+      "queryParamsTertiary": "grassy",
+      "overlap_weight": 0.82
+    },
+    {
+      "start_seconds": 15.029,
+      "start_frame": 901,
+      "score": 0.566,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 18.005,
+      "end_frame": 1080,
+      "duration_frames": 179,
+      "has_vocals": true,
+      "vocals_in_segment": "You walk the sweat, push the rocks away.",
+      "lyric_context": "You walk the sweat, push the rocks away.",
+      "queryParams": "tree trunk",
+      "queryParamsSecondary": "roots",
+      "queryParamsTertiary": "smile",
+      "overlap_weight": 0.42
+    },
+    {
+      "start_seconds": 18.005,
+      "start_frame": 1080,
+      "score": 0.169,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 21.003,
+      "end_frame": 1260,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "You walk the sweat, push the rocks away.",
+      "lyric_context": "You walk the sweat, push the rocks away.",
+      "queryParams": "stone well",
+      "queryParamsSecondary": "metal bucket",
+      "queryParamsTertiary": "cedar stick",
+      "overlap_weight": 0.56
+    },
+    {
+      "start_seconds": 21.003,
+      "start_frame": 1260,
+      "score": 0.546,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 23.915,
+      "end_frame": 1434,
+      "duration_frames": 174,
+      "has_vocals": true,
+      "vocals_in_segment": "A pan seed in your careless hand The day I was born, you marked this land",
+      "lyric_context": "A pan seed in your careless hand The day I was born, you marked this land",
+      "queryParams": "wooden rocking chair",
+      "queryParamsSecondary": "leaves",
+      "queryParamsTertiary": "empty",
+      "overlap_weight": 0.08
+    },
+    {
+      "start_seconds": 23.915,
+      "start_frame": 1434,
+      "score": 0.492,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 26.592,
+      "end_frame": 1595,
+      "duration_frames": 161,
+      "has_vocals": true,
+      "vocals_in_segment": "A pan seed in your careless hand The day I was born, you marked this land",
+      "lyric_context": "A pan seed in your careless hand The day I was born, you marked this land",
+      "queryParams": "tree trunk",
+      "queryParamsSecondary": "expansive",
+      "queryParamsTertiary": "rural",
+      "overlap_weight": 0.28
+    },
+    {
+      "start_seconds": 26.592,
+      "start_frame": 1595,
+      "score": 0.144,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 29.557,
+      "end_frame": 1773,
+      "duration_frames": 178,
+      "has_vocals": true,
+      "vocals_in_segment": "A pan seed in your careless hand The day I was born, you marked this land",
+      "lyric_context": "A pan seed in your careless hand The day I was born, you marked this land",
+      "queryParams": "brown pecan",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.31
+    },
+    {
+      "start_seconds": 29.557,
+      "start_frame": 1773,
+      "score": 0.227,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 32.523,
+      "end_frame": 1951,
+      "duration_frames": 178,
+      "has_vocals": true,
+      "vocals_in_segment": "A pan seed in your careless hand The day I was born, you marked this land",
+      "lyric_context": "A pan seed in your careless hand The day I was born, you marked this land",
+      "queryParams": "tree roots",
+      "queryParamsSecondary": "rural",
+      "queryParamsTertiary": "green",
+      "overlap_weight": 0.31
+    },
+    {
+      "start_seconds": 32.523,
+      "start_frame": 1951,
+      "score": 0.639,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 35.499,
+      "end_frame": 2129,
+      "duration_frames": 178,
+      "has_vocals": true,
+      "vocals_in_segment": "A pan seed in your careless hand The day I was born, you marked this land",
+      "lyric_context": "A pan seed in your careless hand The day I was born, you marked this land",
+      "queryParams": "red earth",
+      "queryParamsSecondary": "tree roots",
+      "queryParamsTertiary": "expansive",
+      "overlap_weight": 0.02
+    },
+    {
+      "start_seconds": 35.499,
+      "start_frame": 2129,
+      "score": 0.591,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 38.091,
+      "end_frame": 2285,
+      "duration_frames": 156,
+      "has_vocals": true,
+      "vocals_in_segment": "ear by you stood by the bark He took a picture growing mark my shoulders rising the branches wide. Tom was moving side by side.",
+      "lyric_context": "ear by you stood by the bark He took a picture growing mark my shoulders rising the branches wide. Tom was moving side by side.",
+      "queryParams": "edge",
+      "queryParamsSecondary": "green",
+      "queryParamsTertiary": "tree",
+      "overlap_weight": 0.2
+    },
+    {
+      "start_seconds": 38.091,
+      "start_frame": 2285,
+      "score": 0.274,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 41.44,
+      "end_frame": 2486,
+      "duration_frames": 201,
+      "has_vocals": true,
+      "vocals_in_segment": "ear by you stood by the bark He took a picture growing mark my shoulders rising the branches wide. Tom was moving side by side.",
+      "lyric_context": "ear by you stood by the bark He took a picture growing mark my shoulders rising the branches wide. Tom was moving side by side.",
+      "queryParams": "tree",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.28
+    },
+    {
+      "start_seconds": 41.44,
+      "start_frame": 2486,
+      "score": 0.175,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 44.747,
+      "end_frame": 2684,
+      "duration_frames": 198,
+      "has_vocals": true,
+      "vocals_in_segment": "ear by you stood by the bark He took a picture growing mark my shoulders rising the branches wide. Tom was moving side by side.",
+      "lyric_context": "ear by you stood by the bark He took a picture growing mark my shoulders rising the branches wide. Tom was moving side by side.",
+      "queryParams": "tree roots",
+      "queryParamsSecondary": "stone well",
+      "queryParamsTertiary": "cedar",
+      "overlap_weight": 0.28
+    },
+    {
+      "start_seconds": 44.747,
+      "start_frame": 2684,
+      "score": 0.222,
+      "reasons": [],
+      "end_seconds": 47.36,
+      "end_frame": 2841,
+      "duration_frames": 157,
+      "has_vocals": true,
+      "vocals_in_segment": "ear by you stood by the bark He took a picture growing mark my shoulders rising the branches wide. Tom was moving side by side.",
+      "lyric_context": "ear by you stood by the bark He took a picture growing mark my shoulders rising the branches wide. Tom was moving side by side.",
+      "queryParams": "rural",
+      "queryParamsSecondary": "green",
+      "queryParamsTertiary": "leaves",
+      "overlap_weight": 0.22
+    },
+    {
+      "start_seconds": 47.36,
+      "start_frame": 2841,
+      "score": 0.53,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 50.848,
+      "end_frame": 3050,
+      "duration_frames": 209,
+      "has_vocals": true,
+      "vocals_in_segment": "He said I know I won't sit in the shade",
+      "lyric_context": "He said I know I won't sit in the shade",
+      "queryParams": "tree trunk",
+      "queryParamsSecondary": "brown",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.85
+    },
+    {
+      "start_seconds": 50.848,
+      "start_frame": 3050,
+      "score": 0.543,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge"
+      ],
+      "end_seconds": 53.845,
+      "end_frame": 3230,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "He said I know I won't sit in the shade",
+      "lyric_context": "He said I know I won't sit in the shade",
+      "queryParams": "green",
+      "queryParamsSecondary": "pecan",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.15
+    },
+    {
+      "start_seconds": 53.845,
+      "start_frame": 3230,
+      "score": 0.565,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge"
+      ],
+      "end_seconds": 56.448,
+      "end_frame": 3386,
+      "duration_frames": 156,
+      "has_vocals": true,
+      "vocals_in_segment": "I'm just trusting the where the day goes",
+      "lyric_context": "I'm just trusting the where the day goes",
+      "queryParams": "tree roots",
+      "queryParamsSecondary": "wooden",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.43
+    },
+    {
+      "start_seconds": 56.448,
+      "start_frame": 3386,
+      "score": 0.272,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 59.829,
+      "end_frame": 3589,
+      "duration_frames": 203,
+      "has_vocals": true,
+      "vocals_in_segment": "I'm just trusting the where the day goes",
+      "lyric_context": "I'm just trusting the where the day goes",
+      "queryParams": "tree roots",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.57
+    },
+    {
+      "start_seconds": 59.829,
+      "start_frame": 3589,
+      "score": 0.652,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge"
+      ],
+      "end_seconds": 62.432,
+      "end_frame": 3745,
+      "duration_frames": 156,
+      "has_vocals": true,
+      "vocals_in_segment": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "lyric_context": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "queryParams": "brown pecan",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.07
+    },
+    {
+      "start_seconds": 62.432,
+      "start_frame": 3745,
+      "score": 0.344,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 65.429,
+      "end_frame": 3925,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "lyric_context": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "queryParams": "expansive",
+      "queryParamsSecondary": "rural",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.3
+    },
+    {
+      "start_seconds": 65.429,
+      "start_frame": 3925,
+      "score": 0.212,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 68.064,
+      "end_frame": 4083,
+      "duration_frames": 158,
+      "has_vocals": true,
+      "vocals_in_segment": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "lyric_context": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "queryParams": "green",
+      "queryParamsSecondary": "pecan",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.26
+    },
+    {
+      "start_seconds": 68.064,
+      "start_frame": 4083,
+      "score": 0.153,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 71.392,
+      "end_frame": 4283,
+      "duration_frames": 200,
+      "has_vocals": true,
+      "vocals_in_segment": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "lyric_context": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "queryParams": "rural",
+      "queryParamsSecondary": "tree",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.33
+    },
+    {
+      "start_seconds": 71.392,
+      "start_frame": 4283,
+      "score": 0.652,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 74.048,
+      "end_frame": 4442,
+      "duration_frames": 159,
+      "has_vocals": true,
+      "vocals_in_segment": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "lyric_context": "a quiet shelter for a summer day, a place to rest when your hair turns gray",
+      "queryParams": "green",
+      "queryParamsSecondary": "leaves",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.04
+    },
+    {
+      "start_seconds": 74.048,
+      "start_frame": 4442,
+      "score": 0.451,
+      "reasons": [
+        "Phrase Boundary"
+      ],
+      "end_seconds": 77.429,
+      "end_frame": 4645,
+      "duration_frames": 203,
+      "has_vocals": true,
+      "vocals_in_segment": "I am leaving you the shade.",
+      "lyric_context": "I am leaving you the shade.",
+      "queryParams": "cedar stick",
+      "queryParamsSecondary": "wooden",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.76
+    },
+    {
+      "start_seconds": 77.429,
+      "start_frame": 4645,
+      "score": 0.351,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 80.427,
+      "end_frame": 4825,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "I am leaving you the shade.",
+      "lyric_context": "I am leaving you the shade.",
+      "queryParams": "pecan",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.2
+    },
+    {
+      "start_seconds": 80.427,
+      "start_frame": 4825,
+      "score": 0.281,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 83.392,
+      "end_frame": 5003,
+      "duration_frames": 178,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "cedar stick",
+      "queryParamsSecondary": "wooden",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.01
+    },
+    {
+      "start_seconds": 83.392,
+      "start_frame": 5003,
+      "score": 0.635,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 86.411,
+      "end_frame": 5184,
+      "duration_frames": 181,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "rural",
+      "queryParamsSecondary": "leaves",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.12
+    },
+    {
+      "start_seconds": 86.411,
+      "start_frame": 5184,
+      "score": 0.207,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 89.771,
+      "end_frame": 5386,
+      "duration_frames": 202,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "metal bucket",
+      "queryParamsSecondary": "wooden",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.14
+    },
+    {
+      "start_seconds": 89.771,
+      "start_frame": 5386,
+      "score": 0.22,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 92.384,
+      "end_frame": 5543,
+      "duration_frames": 157,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "brown pecan",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.11
+    },
+    {
+      "start_seconds": 92.384,
+      "start_frame": 5543,
+      "score": 0.171,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 95.723,
+      "end_frame": 5743,
+      "duration_frames": 200,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "green",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.14
+    },
+    {
+      "start_seconds": 95.723,
+      "start_frame": 5743,
+      "score": 0.46,
+      "reasons": [
+        "Strong Onset/Novelty",
+        "Energy Surge"
+      ],
+      "end_seconds": 98.336,
+      "end_frame": 5900,
+      "duration_frames": 157,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "wooden",
+      "queryParamsSecondary": "green",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.11
+    },
+    {
+      "start_seconds": 98.336,
+      "start_frame": 5900,
+      "score": 0.309,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 101.333,
+      "end_frame": 6080,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "rural",
+      "queryParamsSecondary": "wooden",
+      "queryParamsTertiary": "tree",
+      "overlap_weight": 0.12
+    },
+    {
+      "start_seconds": 101.333,
+      "start_frame": 6080,
+      "score": 0.221,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 103.947,
+      "end_frame": 6236,
+      "duration_frames": 156,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "red earth",
+      "queryParamsSecondary": "patch",
+      "queryParamsTertiary": "freshly",
+      "overlap_weight": 0.11
+    },
+    {
+      "start_seconds": 103.947,
+      "start_frame": 6236,
+      "score": 0.241,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 107.317,
+      "end_frame": 6439,
+      "duration_frames": 203,
+      "has_vocals": true,
+      "vocals_in_segment": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "lyric_context": "The harvest came, the green shells fell. We filled the buckets by the old stone Well, your hands grew tied, the trunk grew thick, you walked to the porch where the cedars stick year by year. We stood by the bark, the camera flashing in the early dark, my shoulders high, your back, bowed down, the strongest roots in this whole damn town",
+      "queryParams": "green",
+      "queryParamsSecondary": "leaves",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.14
+    },
+    {
+      "start_seconds": 107.317,
+      "start_frame": 6439,
+      "score": 0.57,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 110.699,
+      "end_frame": 6641,
+      "duration_frames": 202,
+      "has_vocals": true,
+      "vocals_in_segment": "He said I know I won't sit in the shade. It flows.m just trust in the dirt where the deep",
+      "lyric_context": "He said I know I won't sit in the shade. It flows.m just trust in the dirt where the deep",
+      "queryParams": "tree roots",
+      "queryParamsSecondary": "edge",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.25
+    },
+    {
+      "start_seconds": 110.699,
+      "start_frame": 6641,
+      "score": 0.238,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 113.696,
+      "end_frame": 6821,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "He said I know I won't sit in the shade. It flows.m just trust in the dirt where the deep",
+      "lyric_context": "He said I know I won't sit in the shade. It flows.m just trust in the dirt where the deep",
+      "queryParams": "green",
+      "queryParamsSecondary": "leaves",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.29
+    },
+    {
+      "start_seconds": 113.696,
+      "start_frame": 6821,
+      "score": 0.189,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 116.299,
+      "end_frame": 6977,
+      "duration_frames": 156,
+      "has_vocals": true,
+      "vocals_in_segment": "He said I know I won't sit in the shade. It flows.m just trust in the dirt where the deep",
+      "lyric_context": "He said I know I won't sit in the shade. It flows.m just trust in the dirt where the deep",
+      "queryParams": "rural",
+      "queryParamsSecondary": "wooden",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.25
+    },
+    {
+      "start_seconds": 116.299,
+      "start_frame": 6977,
+      "score": 0.188,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 119.701,
+      "end_frame": 7182,
+      "duration_frames": 205,
+      "has_vocals": true,
+      "vocals_in_segment": "He said I know I won't sit in the shade. It flows.m just trust in the dirt where the deep",
+      "lyric_context": "He said I know I won't sit in the shade. It flows.m just trust in the dirt where the deep",
+      "queryParams": "green",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.21
+    },
+    {
+      "start_seconds": 119.701,
+      "start_frame": 7182,
+      "score": 0.694,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge"
+      ],
+      "end_seconds": 122.699,
+      "end_frame": 7361,
+      "duration_frames": 179,
+      "has_vocals": true,
+      "vocals_in_segment": "goes A quiet shelter for a summerday summer day A place to rest when your hair turns great",
+      "lyric_context": "goes A quiet shelter for a summerday summer day A place to rest when your hair turns great",
+      "queryParams": "tree trunk",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.24
+    },
+    {
+      "start_seconds": 122.699,
+      "start_frame": 7361,
+      "score": 0.147,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 125.312,
+      "end_frame": 7518,
+      "duration_frames": 157,
+      "has_vocals": true,
+      "vocals_in_segment": "goes A quiet shelter for a summerday summer day A place to rest when your hair turns great",
+      "lyric_context": "goes A quiet shelter for a summerday summer day A place to rest when your hair turns great",
+      "queryParams": "tree roots",
+      "queryParamsSecondary": "rural",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.21
+    },
+    {
+      "start_seconds": 125.312,
+      "start_frame": 7518,
+      "score": 0.186,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 128.704,
+      "end_frame": 7722,
+      "duration_frames": 204,
+      "has_vocals": true,
+      "vocals_in_segment": "goes A quiet shelter for a summerday summer day A place to rest when your hair turns great",
+      "lyric_context": "goes A quiet shelter for a summerday summer day A place to rest when your hair turns great",
+      "queryParams": "green",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.27
+    },
+    {
+      "start_seconds": 128.704,
+      "start_frame": 7722,
+      "score": 0.253,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 131.712,
+      "end_frame": 7902,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "goes A quiet shelter for a summerday summer day A place to rest when your hair turns great",
+      "lyric_context": "goes A quiet shelter for a summerday summer day A place to rest when your hair turns great",
+      "queryParams": "tree",
+      "queryParamsSecondary": "leaves",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.24
+    },
+    {
+      "start_seconds": 131.712,
+      "start_frame": 7902,
+      "score": 0.615,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge"
+      ],
+      "end_seconds": 134.709,
+      "end_frame": 8082,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "I am leaving you the shade",
+      "lyric_context": "I am leaving you the shade",
+      "queryParams": "wooden",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.21
+    },
+    {
+      "start_seconds": 134.709,
+      "start_frame": 8082,
+      "score": 0.372,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge"
+      ],
+      "end_seconds": 137.707,
+      "end_frame": 8262,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "I am leaving you the shade",
+      "lyric_context": "I am leaving you the shade",
+      "queryParams": "tree roots",
+      "queryParamsSecondary": "rural",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.69
+    },
+    {
+      "start_seconds": 137.707,
+      "start_frame": 8262,
+      "score": 0.506,
+      "reasons": [
+        "Phrase Boundary"
+      ],
+      "end_seconds": 140.725,
+      "end_frame": 8443,
+      "duration_frames": 181,
+      "has_vocals": true,
+      "vocals_in_segment": "I am leaving you the shade",
+      "lyric_context": "I am leaving you the shade",
+      "queryParams": "wooden",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.1
+    },
+    {
+      "start_seconds": 140.725,
+      "start_frame": 8443,
+      "score": 0.199,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 143.733,
+      "end_frame": 8624,
+      "duration_frames": 181,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "red earth",
+      "queryParamsSecondary": "cedar stick",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.0
+    },
+    {
+      "start_seconds": 143.733,
+      "start_frame": 8624,
+      "score": 0.165,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 146.368,
+      "end_frame": 8782,
+      "duration_frames": 158,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "brown pecan",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.0
+    },
+    {
+      "start_seconds": 146.368,
+      "start_frame": 8782,
+      "score": 0.176,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 149.141,
+      "end_frame": 8948,
+      "duration_frames": 166,
+      "has_vocals": true,
+      "vocals_in_segment": "The winter storm took the old porch light, and we lost you on a Tuesday night. The spring came back,",
+      "lyric_context": "The winter storm took the old porch light, and we lost you on a Tuesday night. The spring came back,",
+      "queryParams": "metal bucket",
+      "queryParamsSecondary": "edge",
+      "queryParamsTertiary": "wooden",
+      "overlap_weight": 0.06
+    },
+    {
+      "start_seconds": 149.141,
+      "start_frame": 8948,
+      "score": 0.489,
+      "reasons": [
+        "Phrase Boundary"
+      ],
+      "end_seconds": 152.565,
+      "end_frame": 9153,
+      "duration_frames": 205,
+      "has_vocals": true,
+      "vocals_in_segment": "The winter storm took the old porch light, and we lost you on a Tuesday night. The spring came back,",
+      "lyric_context": "The winter storm took the old porch light, and we lost you on a Tuesday night. The spring came back,",
+      "queryParams": "rural",
+      "queryParamsSecondary": "green",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.41
+    },
+    {
+      "start_seconds": 152.565,
+      "start_frame": 9153,
+      "score": 0.108,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 156.128,
+      "end_frame": 9367,
+      "duration_frames": 214,
+      "has_vocals": true,
+      "vocals_in_segment": "The winter storm took the old porch light, and we lost you on a Tuesday night. The spring came back,",
+      "lyric_context": "The winter storm took the old porch light, and we lost you on a Tuesday night. The spring came back,",
+      "queryParams": "wooden",
+      "queryParamsSecondary": "tree",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.43
+    },
+    {
+      "start_seconds": 156.128,
+      "start_frame": 9367,
+      "score": 0.437,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge"
+      ],
+      "end_seconds": 158.763,
+      "end_frame": 9525,
+      "duration_frames": 158,
+      "has_vocals": true,
+      "vocals_in_segment": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "lyric_context": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "queryParams": "red",
+      "queryParamsSecondary": "dirt",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.13
+    },
+    {
+      "start_seconds": 158.763,
+      "start_frame": 9525,
+      "score": 0.397,
+      "reasons": [
+        "Strong Onset/Novelty",
+        "Downbeat"
+      ],
+      "end_seconds": 161.909,
+      "end_frame": 9714,
+      "duration_frames": 189,
+      "has_vocals": true,
+      "vocals_in_segment": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "lyric_context": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "queryParams": "ahead",
+      "queryParamsSecondary": "boots",
+      "queryParamsTertiary": "brown",
+      "overlap_weight": 0.27
+    },
+    {
+      "start_seconds": 161.909,
+      "start_frame": 9714,
+      "score": 0.176,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 164.597,
+      "end_frame": 9875,
+      "duration_frames": 161,
+      "has_vocals": true,
+      "vocals_in_segment": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "lyric_context": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "queryParams": "ahead",
+      "queryParamsSecondary": "boots",
+      "queryParamsTertiary": "brown",
+      "overlap_weight": 0.23
+    },
+    {
+      "start_seconds": 164.597,
+      "start_frame": 9875,
+      "score": 0.196,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 168.096,
+      "end_frame": 10085,
+      "duration_frames": 210,
+      "has_vocals": true,
+      "vocals_in_segment": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "lyric_context": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "queryParams": "expansive",
+      "queryParamsSecondary": "rural",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.3
+    },
+    {
+      "start_seconds": 168.096,
+      "start_frame": 10085,
+      "score": 0.43,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 171.488,
+      "end_frame": 10289,
+      "duration_frames": 204,
+      "has_vocals": true,
+      "vocals_in_segment": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "lyric_context": "the branches bloomed a massive shadow across the yard, the wood is heavy, the bark is harder.",
+      "queryParams": "wooden",
+      "queryParamsSecondary": "dirt",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.06
+    },
+    {
+      "start_seconds": 171.488,
+      "start_frame": 10289,
+      "score": 0.637,
+      "reasons": [
+        "Phrase Boundary",
+        "Energy Surge"
+      ],
+      "end_seconds": 174.133,
+      "end_frame": 10448,
+      "duration_frames": 159,
+      "has_vocals": true,
+      "vocals_in_segment": "Now I sit in the shade it goes",
+      "lyric_context": "Now I sit in the shade it goes",
+      "queryParams": "wooden",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.41
+    },
+    {
+      "start_seconds": 174.133,
+      "start_frame": 10448,
+      "score": 0.164,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 177.141,
+      "end_frame": 10628,
+      "duration_frames": 180,
+      "has_vocals": true,
+      "vocals_in_segment": "Now I sit in the shade it goes",
+      "lyric_context": "Now I sit in the shade it goes",
+      "queryParams": "green",
+      "queryParamsSecondary": "tree",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.52
+    },
+    {
+      "start_seconds": 177.141,
+      "start_frame": 10628,
+      "score": 0.582,
+      "reasons": [
+        "Phrase Boundary",
+        "Downbeat"
+      ],
+      "end_seconds": 179.797,
+      "end_frame": 10787,
+      "duration_frames": 159,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "tree roots",
+      "queryParamsSecondary": "rural",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.02
+    },
+    {
+      "start_seconds": 179.797,
+      "start_frame": 10787,
+      "score": 0.307,
+      "reasons": [
+        "Phrase Boundary"
+      ],
+      "end_seconds": 183.2,
+      "end_frame": 10992,
+      "duration_frames": 205,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "rural",
+      "queryParamsSecondary": "straight",
+      "queryParamsTertiary": "tree",
+      "overlap_weight": 0.09
+    },
+    {
+      "start_seconds": 183.2,
+      "start_frame": 10992,
+      "score": 0.177,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 186.229,
+      "end_frame": 11173,
+      "duration_frames": 181,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "green",
+      "queryParamsSecondary": "leaves",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.08
+    },
+    {
+      "start_seconds": 186.229,
+      "start_frame": 11173,
+      "score": 0.151,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 189.259,
+      "end_frame": 11355,
+      "duration_frames": 182,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "brown pecan",
+      "queryParamsSecondary": "edge",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.08
+    },
+    {
+      "start_seconds": 189.259,
+      "start_frame": 11355,
+      "score": 0.167,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 192.267,
+      "end_frame": 11536,
+      "duration_frames": 181,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "tree",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.08
+    },
+    {
+      "start_seconds": 192.267,
+      "start_frame": 11536,
+      "score": 0.148,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 195.307,
+      "end_frame": 11718,
+      "duration_frames": 182,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "green",
+      "queryParamsSecondary": "leaves",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.08
+    },
+    {
+      "start_seconds": 195.307,
+      "start_frame": 11718,
+      "score": 0.183,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 198.347,
+      "end_frame": 11900,
+      "duration_frames": 182,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "rural",
+      "queryParamsSecondary": "roots",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.08
+    },
+    {
+      "start_seconds": 198.347,
+      "start_frame": 11900,
+      "score": 0.149,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 201.728,
+      "end_frame": 12103,
+      "duration_frames": 203,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "tree",
+      "queryParamsSecondary": "green",
+      "queryParamsTertiary": "leaves",
+      "overlap_weight": 0.09
+    },
+    {
+      "start_seconds": 201.728,
+      "start_frame": 12103,
+      "score": 0.281,
+      "reasons": [
+        "Energy Surge"
+      ],
+      "end_seconds": 204.363,
+      "end_frame": 12261,
+      "duration_frames": 158,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "tree",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.07
+    },
+    {
+      "start_seconds": 204.363,
+      "start_frame": 12261,
+      "score": 0.16,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 207.392,
+      "end_frame": 12443,
+      "duration_frames": 182,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "grassy",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.08
+    },
+    {
+      "start_seconds": 207.392,
+      "start_frame": 12443,
+      "score": 0.237,
+      "reasons": [
+        "Energy Surge",
+        "Downbeat"
+      ],
+      "end_seconds": 210.432,
+      "end_frame": 12625,
+      "duration_frames": 182,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "tree trunk",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.08
+    },
+    {
+      "start_seconds": 210.432,
+      "start_frame": 12625,
+      "score": 0.203,
+      "reasons": [
+        "Energy Surge",
+        "Downbeat"
+      ],
+      "end_seconds": 213.483,
+      "end_frame": 12808,
+      "duration_frames": 183,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "rural",
+      "queryParamsSecondary": "pair",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.09
+    },
+    {
+      "start_seconds": 213.483,
+      "start_frame": 12808,
+      "score": 0.197,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 216.032,
+      "end_frame": 12961,
+      "duration_frames": 153,
+      "has_vocals": true,
+      "vocals_in_segment": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "lyric_context": "I rest my back where the deep room will need to cause a quiet shelter for a summer day a place to rest while my hair turns gra turns You left me the shade Yeah, you left me The July sun",
+      "queryParams": "brown pecan",
+      "queryParamsSecondary": "grassy",
+      "queryParamsTertiary": "dry",
+      "overlap_weight": 0.04
+    },
+    {
+      "start_seconds": 216.032,
+      "start_frame": 12961,
+      "score": 0.342,
+      "reasons": [
+        "Phrase Boundary"
+      ],
+      "end_seconds": 219.307,
+      "end_frame": 13158,
+      "duration_frames": 197,
+      "has_vocals": true,
+      "vocals_in_segment": "on Georgia Clay I crack a shell and I look away",
+      "lyric_context": "on Georgia Clay I crack a shell and I look away",
+      "queryParams": "red earth",
+      "queryParamsSecondary": "edge",
+      "queryParamsTertiary": "green",
+      "overlap_weight": 0.43
+    },
+    {
+      "start_seconds": 219.307,
+      "start_frame": 13158,
+      "score": 0.315,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 222.411,
+      "end_frame": 13344,
+      "duration_frames": 186,
+      "has_vocals": true,
+      "vocals_in_segment": "on Georgia Clay I crack a shell and I look away",
+      "lyric_context": "on Georgia Clay I crack a shell and I look away",
+      "queryParams": "freshly",
+      "queryParamsSecondary": "turned",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.4
+    },
+    {
+      "start_seconds": 222.411,
+      "start_frame": 13344,
+      "score": 0.647,
+      "reasons": [
+        "Phrase Boundary",
+        "Strong Onset/Novelty"
+      ],
+      "end_seconds": 225.045,
+      "end_frame": 13502,
+      "duration_frames": 158,
+      "has_vocals": true,
+      "vocals_in_segment": "on Georgia Clay I crack a shell and I look away",
+      "lyric_context": "on Georgia Clay I crack a shell and I look away",
+      "queryParams": "green",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.06
+    },
+    {
+      "start_seconds": 225.045,
+      "start_frame": 13502,
+      "score": 0.204,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 228.288,
+      "end_frame": 13697,
+      "duration_frames": 195,
+      "has_vocals": true,
+      "vocals_in_segment": "You left me the shade",
+      "lyric_context": "You left me the shade",
+      "queryParams": "straight",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.49
+    },
+    {
+      "start_seconds": 228.288,
+      "start_frame": 13697,
+      "score": 0.217,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 231.445,
+      "end_frame": 13886,
+      "duration_frames": 189,
+      "has_vocals": true,
+      "vocals_in_segment": "You left me the shade",
+      "lyric_context": "You left me the shade",
+      "queryParams": "wooden",
+      "queryParamsSecondary": "red",
+      "queryParamsTertiary": "tree",
+      "overlap_weight": 0.51
+    },
+    {
+      "start_seconds": 231.445,
+      "start_frame": 13886,
+      "score": 0.203,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 234.485,
+      "end_frame": 14069,
+      "duration_frames": 183,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "rural",
+      "queryParamsSecondary": "green",
+      "queryParamsTertiary": "leaves",
+      "overlap_weight": 0.0
+    },
+    {
+      "start_seconds": 234.485,
+      "start_frame": 14069,
+      "score": 0.176,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 237.6,
+      "end_frame": 14256,
+      "duration_frames": 187,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "ahead",
+      "queryParamsSecondary": "boots",
+      "queryParamsTertiary": "brown",
+      "overlap_weight": 0.0
+    },
+    {
+      "start_seconds": 237.6,
+      "start_frame": 14256,
+      "score": 0.206,
+      "reasons": [
+        "Downbeat"
+      ],
+      "end_seconds": 240.203,
+      "end_frame": 14412,
+      "duration_frames": 156,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "red earth",
+      "queryParamsSecondary": "ahead",
+      "queryParamsTertiary": "boots",
+      "overlap_weight": 0.0
+    },
+    {
+      "start_seconds": 240.203,
+      "start_frame": 14412,
+      "score": 0.08,
+      "reasons": [],
+      "end_seconds": 244.2,
+      "end_frame": 14652,
+      "duration_frames": 240,
+      "has_vocals": false,
+      "vocals_in_segment": "",
+      "lyric_context": "",
+      "queryParams": "rural",
+      "queryParamsSecondary": "green",
+      "queryParamsTertiary": "ahead",
+      "overlap_weight": 0.0
+    }
+  ]
+}

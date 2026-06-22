@@ -121,6 +121,20 @@ Hình ảnh là khâu quan trọng nhất. Agent phải tuân thủ nghiêm ng�
 
 ---
 
+## 🎬 6b. AUTO-EDIT PIPELINE (BẮT BUỘC ĐỌC KHI DỰNG VIDEO TỰ ĐỘNG)
+
+Khi Boss yêu cầu "dựng video tự động" hoặc "auto edit", bắt buộc phải:
+1. Đọc `flow_vn/19_automated_editing_workflow.md` — pipeline 4 bước đầy đủ
+2. Đọc `flow_vn/20_visual_prompt_engineer_agent.md` — spec subagent Bước 3
+
+**⚠️ QUY TẮC BẤT DI BẤT DỊCH:**
+- **Script duy nhất** cần chạy: `python3 scripts/analyze_beats.py` (Bước 2) và `python3 scripts/auto_edit_timeline.py --project ...` (Bước 4).
+- **KHÔNG BAO GIỜ** tự viết `queryParams` từ raw lyrics. Script để `queryParams = ""` là đúng design.
+- **LUÔN LUÔN** spawn VisualPromptEngineer subagents ở Bước 3 để điền queryParams.
+- **Bước 4 (lắp timeline):** Chạy `auto_edit_timeline.py` — script Python stateful, tự gọi MCP qua SSE (không cần mcp package, chỉ cần stdlib). Đảm bảo CapCut + Palmier Pro đang chạy.
+
+---
+
 ## 🛡️ 7. ANTI-AI SLOP & SKILLS BẮT BUỘC (ZERO TOLERANCE)
 
 Coslient có tiêu chuẩn cực kỳ khắt khe về ngôn từ. Tuyệt đối không dùng những từ sáo rỗng rập khuôn của AI (slop).
